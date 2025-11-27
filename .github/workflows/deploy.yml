@@ -1,4 +1,4 @@
-name: Build and deploy static site
+name: Build and commit static site to master/docs
 
 on:
   push:
@@ -6,15 +6,17 @@ on:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 jobs:
-  build-and-deploy:
+  build-and-commit:
+    # avoid running the job when the actor is the actions bot (prevents CI loop)
+    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -29,10 +31,12 @@ jobs:
       - name: Render static site
         run: python render_static.py
 
-      - name: Deploy to gh-pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Commit generated docs to master
+        uses: EndBug/add-and-commit@v9
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs
-          publish_branch: master
-          keep_files: false
+          author_name: 'github-actions[bot]'
+          author_email: 'github-actions[bot]@users.noreply.github.com'
+          message: 'chore: render static site'
+          add: 'docs/**'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
