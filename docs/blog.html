@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dani Roytburg - Blog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Volkhov:ital,wght@0,400;0,700;1,400&family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/style.css">
+  </head>
+  <body>
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle color theme" title="Toggle color theme">
+      <svg id="theme-toggle-icon" viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <!-- default icon (will be swapped by script) -->
+        <path fill="currentColor" d="M6.76 4.84l-1.8-1.79L3.17 5.84l1.79 1.79 1.8-1.79zM1 13h3v-2H1v2zm10-9h2V1h-2v3zm7.03 2.05l1.79-1.79-1.79-1.79-1.79 1.79 1.79 1.79zM17 13h3v-2h-3v2zM12 6a6 6 0 100 12 6 6 0 000-12z" />
+      </svg>
+    </button>
+    <main class="container">
+      
+  <article class="page">
+    <h2 class="page-title">Blog</h2>
+    <div class="page-body">
+      <p>Your personal blog index can be linked or embedded here.</p>
+    </div>
+    <p><a href="index.html">← Back to home</a></p>
+  </article>
+
+    </main>
+    <footer class="footer">
+      <small>Design inspired by <a href="https://841.io/">Fernando Diaz</a>'s lovely home page.</small>
+    </footer>
+    <script>
+      // Theme toggle: remembers choice in localStorage, falls back to prefers-color-scheme
+      (function(){
+        const toggle = document.getElementById('theme-toggle');
+        const icon = document.getElementById('theme-toggle-icon');
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const stored = localStorage.getItem('theme');
+        const isDark = stored ? stored === 'dark' : prefersDark;
+
+        function applyTheme(dark){
+          document.documentElement.classList.toggle('dark', dark);
+          // swap icon: sun for light, moon for dark
+          if(dark){
+            icon.innerHTML = '<path fill="currentColor" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>';
+            toggle.setAttribute('aria-pressed','true');
+          } else {
+            // simpler sun: filled circle with rays for better legibility
+            icon.innerHTML = '<circle cx="12" cy="12" r="4" fill="currentColor"/>' +
+                              '<g stroke="currentColor" stroke-width="1.25" stroke-linecap="round">' +
+                                '<line x1="12" y1="1" x2="12" y2="4"/>' +
+                                '<line x1="12" y1="20" x2="12" y2="23"/>' +
+                                '<line x1="1" y1="12" x2="4" y2="12"/>' +
+                                '<line x1="20" y1="12" x2="23" y2="12"/>' +
+                                '<line x1="4.2" y1="4.2" x2="6.3" y2="6.3"/>' +
+                                '<line x1="17.7" y1="17.7" x2="19.8" y2="19.8"/>' +
+                                '<line x1="4.2" y1="19.8" x2="6.3" y2="17.7"/>' +
+                                '<line x1="17.7" y1="6.3" x2="19.8" y2="4.2"/>' +
+                              '</g>';
+            toggle.setAttribute('aria-pressed','false');
+          }
+        }
+
+        applyTheme(isDark);
+
+        toggle.addEventListener('click', function(){
+          const nowDark = !document.documentElement.classList.contains('dark');
+          applyTheme(nowDark);
+          localStorage.setItem('theme', nowDark ? 'dark' : 'light');
+        });
+      })();
+    </script>
+  </body>
+  </html>
