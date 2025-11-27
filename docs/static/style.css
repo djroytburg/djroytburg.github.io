@@ -10,7 +10,7 @@
 
 /* dark theme overrides */
 .dark, .dark body, :root.dark {
-  --bg: #0b0c0e;
+  --bg: #222;
   --accent: #c97fe0;
   --text: #eaeaea;
   --muted: #bdbdbd;
