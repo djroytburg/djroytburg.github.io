@@ -1,0 +1,84 @@
+:root{
+  /* light theme variables (defaults) */
+  --bg: #ffffff;
+  --accent: #6d0061;
+  --text: #111111;
+  --muted: #666666;
+  --max-width:850px;
+  --footer-border: rgba(0,0,0,0.06);
+}
+
+/* dark theme overrides */
+.dark, .dark body, :root.dark {
+  --bg: #0b0c0e;
+  --accent: #c97fe0;
+  --text: #eaeaea;
+  --muted: #bdbdbd;
+  --footer-border: rgba(255,255,255,0.06);
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  color:var(--text);
+  font-family: 'Ubuntu Mono', monospace;
+  background: var(--bg);
+  -webkit-font-smoothing:antialiased;
+  transition: background .18s ease, color .18s ease;
+}
+.container{
+  max-width:var(--max-width);
+  margin:48px auto;
+  padding:0 22px 64px;
+}
+.hero{ text-align:center; margin-bottom:28px }
+.name{
+  font-family: 'Volkhov', serif;
+  font-size:48px;
+  margin:0 0 8px;
+  font-weight:700;
+}
+.accent{ border:0; height:4px; background:var(--accent); width:70%; margin:12px auto 18px; opacity:0.95 }
+.role, .affil{ color:var(--muted); margin:6px 0 }
+.contact{ color:var(--muted); margin-top:14px }
+.highlight{ color:var(--accent); font-weight:700 }
+.links{ margin-top:16px }
+.links a{ color:var(--text); margin:0 8px; text-decoration:none; border-bottom:1px solid transparent; padding-bottom:2px }
+.links a:hover{ border-color:var(--accent) }
+
+.social{ display:flex; justify-content:center; align-items:center; gap:12px; margin-top:12px }
+.social-link{ color:var(--muted); display:inline-flex; align-items:center; justify-content:center; transition:color .18s ease, transform .12s ease }
+.social-link svg{ display:block; width:20px; height:20px }
+.social-link:hover{ color:var(--accent); transform:translateY(-3px) }
+
+.summary{ font-size:16px; line-height:1.6; margin-top:28px }
+.summary p{ margin:0 0 14px }
+
+.page{ max-width:650px; margin:24px auto }
+.page-title{ font-family:'Volkhov', serif; font-size:28px; margin-bottom:12px }
+.page-body{ color:var(--text) }
+
+.footer{ text-align:center; color:var(--muted); font-size:13px; padding:18px 0; border-top:1px solid var(--footer-border) }
+
+/* theme toggle button */
+.theme-toggle{
+  position:fixed;
+  top:14px;
+  right:18px;
+  background:transparent;
+  border:0;
+  color:var(--muted);
+  padding:8px;
+  border-radius:8px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  transition: color .12s ease, transform .12s ease, background .12s ease;
+}
+.theme-toggle:hover{ color:var(--accent); transform:translateY(-2px) }
+.theme-toggle svg{ display:block }
+
+@media (max-width:600px){
+  .name{ font-size:36px }
+  .accent{ width:90% }
+}

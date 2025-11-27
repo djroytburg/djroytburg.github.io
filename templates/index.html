@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <header class="hero">
+    <h1 class="name">Dani Roytburg</h1>
+    e-mail: <a href="mailto:droytbur@andrew.cmu.edu" class="contact"> droytbur@andrew.cmu.edu</a> or <a href="mailto:djroytburg@gmail.com" class="contact">djroytburg@gmail.com</a> 
+    <hr class="accent">
+    <p class="role"></p>
+    <p class="affil">Machine Learning Department, <span style="color:#C41230;font-weight:bold">Carnegie Mellon University</span>.</p>
+    <p class="role">Research Fellow, <a href="https://withmartian.com" style="color:orangered;font-weight:bold">Martian Research</a>.</p>
+
+
+    <nav class="links">
+      <a href="{{ url_for('research') }}">research page</a>
+      <a href="{{ url_for('publications') }}">publications</a>
+      <a href="{{ url_for('cv') }}">curriculum vitae</a>
+      <a href="{{ url_for('blog') }}">blog</a>
+    </nav>
+
+    <div class="social" aria-label="social links">
+      <a class="social-link" href="https://scholar.google.com/citations?user=2auZnbUAAAAJ&hl=en" target="_blank" rel="noopener" aria-label="Google Scholar">
+        <!-- graduation cap / scholar icon -->
+        <svg viewBox="0 0 24 24" width="20" height="20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path fill="currentColor" d="M12 2L1 7l11 5 9-4.09V17h2V7L12 2z" />
+          <path fill="currentColor" d="M11 13.5V21h2v-7.5l-1 .45-1-.45z" />
+        </svg>
+      </a>
+
+      <a class="social-link" href="https://www.linkedin.com/in/danijroytburg/" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <!-- simple LinkedIn 'in' box -->
+        <svg viewBox="0 0 24 24" width="20" height="20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="2" y="2" width="20" height="20" rx="2" ry="2" fill="none" stroke="currentColor" stroke-width="1.2" />
+          <path fill="currentColor" d="M6.5 9.5h2.5V18H6.5zM5.75 7.5a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5zM12 9.5h2.3v1.15h.03c.32-.61 1.1-1.25 2.27-1.25 2.43 0 2.88 1.6 2.88 3.68V18H17.5v-4.05c0-.97-.02-2.22-1.35-2.22-1.36 0-1.57 1.06-1.57 2.15V18H12z" />
+        </svg>
+      </a>
+
+      <a class="social-link" href="https://github.com/djroytburg" target="_blank" rel="noopener" aria-label="GitHub">
+        <!-- GitHub mark (simplified) -->
+        <svg viewBox="0 0 24 24" width="20" height="20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path fill="currentColor" d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.6-4.04-1.6-.55-1.4-1.34-1.77-1.34-1.77-1.1-.75.08-.74.08-.74 1.22.09 1.86 1.26 1.86 1.26 1.08 1.86 2.84 1.33 3.54 1.02.11-.8.42-1.33.76-1.64-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.66 1.65.24 2.87.12 3.17.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.62-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.22.7.82.58A12 12 0 0 0 12 .5z"/>
+        </svg>
+      </a>
+    </div>
+  </header>
+
+  <section class="summary" style="font-size: 14px; text-align: left;">
+    <p>I am a Master's student in the Machine Learning Department at Carnegie Mellon University and Research Fellow at Martian Research. I am interested in building reliability mechanisms for trustworthy artificial intelligence. I am advised by <a href="https://www.daphnei.com/">Daphne Ippolito</a>.</p>
+    <p>Currently, I study scalable oversight and mechanistic interpretability. I am actively working on multi-agent training paradigms for legible chain of thought, and on building activation probes for steering the behavior of LLM judges. </p>
+    <p>Previously at Emory University, I graduated <span style="font-style:italic">summa cum laude</span> with a Bachelor's in Computer Science and Statistics. I worked with <a href="https://lklein.com/">Lauren Klein</a> on graph-text modelling for digital humanities, as well as and auditing biases in NLP techniques. I did my honor's thesis on structured prediction and argument mining under the supervision of <a href="https://joyceho.github.io/">Joyce Ho</a> and Prof. Klein. I've also worked as a consultant with ZS Associates, Cloverpop, and McCormick, applying novel NLP-based analytics engines for commercial data decisionmaking.</p>
+  </section>
+{% endblock %}
