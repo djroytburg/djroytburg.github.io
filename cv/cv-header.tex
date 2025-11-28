@@ -1,0 +1,88 @@
+% CV LaTeX Template
+% Adapted from Fernando Diaz's CV system: https://github.com/diazf/cv
+%
+\documentclass{article}
+\linespread{1}
+\usepackage{geometry}
+\geometry{
+ left=2in,
+ right=1in,
+ top=1in,
+ bottom=1in
+ }
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{xcolor}
+\usepackage{fontspec} 
+\usepackage{verse} 
+\usepackage[square,sort,comma,numbers]{natbib} 
+\usepackage{titlesec}
+\usepackage{bibentry} 
+\usepackage[colorlinks=true,urlcolor=Plum,linkcolor=Plum]{hyperref}
+\usepackage[multiple]{footmisc}
+\usepackage{array}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+% Define accent color to match website purple (#6d0061)
+\definecolor{AccentPurple}{HTML}{6d0061}
+
+\widowpenalty=10000
+\clubpenalty=10000
+
+% \nobibliography* sets up bibentry to work inline without printing a
+% bibliography section. The actual bib file is specified via
+% \nobibliography{<bib>} in the document body.
+\nobibliography*
+
+\newcommand{\stopstanza}{\\[\normalbaselineskip]}
+
+\makeatletter
+\def\subject#1{\gdef\@subject{#1}}
+\def\memonumber#1{\gdef\@memonumber{#1}}
+\def\@subject{\@latex@warning@no@line{No \noexpand\subject given}}
+
+\renewcommand\maketitle{\par
+  \begingroup
+  \hskip -12em{\Huge \@author \par}
+  \vskip 2em%
+  \hskip -12em{
+    \href{mailto:\authoremail}{\authoremail}
+\par}%
+  \hskip -12em{
+    \href{https://\authorwww}{\authorwww}
+\par}%
+  \hskip -12em{
+    \ifdefined\authorgithub
+      \href{https://github.com/\authorgithub}{github.com/\authorgithub}
+    \fi
+    \ifdefined\authorlinkedin
+      ~$\cdot$~ \href{https://linkedin.com/in/\authorlinkedin}{linkedin.com/in/\authorlinkedin}
+    \fi
+\par}%
+\vskip 1em%
+  \hskip -12em{
+    \today
+\par}%
+    \vskip 6.5em%
+  \endgroup
+}
+
+\makeatother
+
+\setromanfont{Hoefler Text}
+\setsansfont{Optima}
+
+\titleformat{\section}[leftmargin] 
+{\bfseries} 
+{}{0em}{} 
+\titlespacing{\section} 
+{4.5pc}{1.5ex plus .1ex minus .2ex}{3pc}
+
+
+\titleformat{\subsection}
+{\bfseries}{}{0em}{}
+
+\setlength{\itemsep}{0pt}%
+\setlength{\topsep}{0pt}%
+\setlength{\parskip}{0pt}%
+
+\title{Curriculum Vitae}

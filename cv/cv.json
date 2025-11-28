@@ -1,0 +1,146 @@
+{
+  "given-name": "Dani",
+  "sur-name": "Roytburg",
+  "email": "droytbur@andrew.cmu.edu",
+  "www": "djroytburg.github.io",
+  "github": "djroytburg",
+  "linkedin": "danijroytburg",
+  "scholar": "2auZnbUAAAAJ",
+  "bib": "roytburg",
+  "summary": "Master's student in the Machine Learning Department at Carnegie Mellon University focused on reliable and interpretable AI, multi-agent training paradigms, and activation-based model analysis.",
+  "degrees": [
+    {
+      "degree": "M.S.",
+      "school": "Carnegie Mellon University, School of Computer Science",
+      "discipline": "Machine Learning",
+      "year": 2026,
+      "note": "expected December 2026",
+      "readers": [
+        "Daphne Ippolito"
+      ]
+    },
+    {
+      "degree": "B.S.",
+      "school": "Emory University, College of Arts and Science",
+      "discipline": "Computer Science; Quantitative and Social Sciences",
+      "year": 2025,
+      "honors": "summa cum laude",
+      "dates": "August 2021 - May 2025",
+      "gpa": "3.85/4.0",
+      "readers": [
+        "Lauren Klein",
+        "Joyce Ho"
+      ]
+    }
+  ],
+  "employment": [
+    {
+      "title": "Research Assistant, Language Technologies Institute",
+      "affiliation": "Carnegie Mellon University",
+      "location": "Pittsburgh, PA",
+      "start-month": "September",
+      "start-year": 2025,
+      "description": "Develop multi-agent adversarial reinforcement learning environments to improve legibility of reasoning traces."
+    },
+    {
+      "title": "Research Fellow",
+      "affiliation": "Martian Research",
+      "location": "Remote",
+      "start-month": "May",
+      "start-year": 2025,
+      "description": "Engineer activation profiles of language model evaluators to suppress self-preferential bias; winner of a mechanistic interpretability hackathon."
+    },
+    {
+      "title": "Research Assistant, Digital Humanities Lab",
+      "affiliation": "Emory University",
+      "location": "Atlanta, GA",
+      "start-month": "November",
+      "start-year": 2021,
+      "end-month": "May",
+      "end-year": 2025,
+      "description": "Designed and trained large-scale graph-text models; evaluated adversarial robustness of LLMs; built historical correspondence networks and dashboards."
+    },
+    {
+      "title": "Internship - Business Technology Solutions",
+      "affiliation": "ZS Associates",
+      "location": "Evanston, IL",
+      "start-month": "June",
+      "start-year": 2024,
+      "end-month": "August",
+      "end-year": 2024,
+      "description": "Automated ETL pipelines and implemented synthetic-data imputation for compromised client data."
+    },
+    {
+      "title": "Intern — Machine Learning",
+      "affiliation": "Cloverpop",
+      "location": "Chicago, IL",
+      "start-month": "January",
+      "start-year": 2024,
+      "end-month": "May",
+      "end-year": 2024,
+      "description": "Deployed decision-management systems and structured-prediction models on meeting transcripts."
+    },
+    {
+      "title": "Intern — Global Marketing and Sales Data Science",
+      "affiliation": "McCormick and Company",
+      "location": "Hunt Valley, MD",
+      "start-month": "June",
+      "start-year": 2023,
+      "end-month": "August",
+      "end-year": 2023,
+      "description": "Built Amazon sales data visualizations and automated analytics with GCP BigQuery and BERT-based embedding search."
+    },
+    {
+      "title": "Research Assistant, Mediacloud Lab",
+      "affiliation": "Northeastern University",
+      "location": "Boston, MA",
+      "start-month": "June",
+      "start-year": 2022,
+      "end-month": "October",
+      "end-year": 2022,
+      "description": "Extended NER to long-tail ethnics cuisines using Bon Appetit data."
+    }
+  ],
+  "bibliometrics": {
+
+  },
+  "bibliography": {
+    "conference-papers": [
+      "roytburg2025-break-mirror",
+      "roytburg2025-words-action"
+    ],
+    "theses": [
+      "roytburg2025-generative"
+    ]
+  },
+  "teaching": [],
+  "awards": [
+    {
+        "title": "Emory University Dean's List",
+        "years": [2022, 2024, 2025]
+    },
+    {
+        "title": "Winner, Martian Research Mechanistic Interpretability Hackathon",
+        "year": 2025
+    }
+  ],
+  "skills": [
+    "Python",
+    "Java",
+    "R",
+    "JavaScript",
+    "Typescript",
+    "SQL",
+    "PyTorch",
+    "JAX",
+    "HuggingFace Transformers",
+    "scikit-learn",
+    "spaCy",
+    "networkx",
+    "D3.js",
+    "React.js",
+    "GCP",
+    "Docker",
+    "MySQL"
+  ]
+}

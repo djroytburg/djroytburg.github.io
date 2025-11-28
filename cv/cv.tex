@@ -1,0 +1,175 @@
+% CV LaTeX Template
+% Adapted from Fernando Diaz's CV system: https://github.com/diazf/cv
+%
+\documentclass{article}
+\linespread{1}
+\usepackage{geometry}
+\geometry{
+ left=2in,
+ right=1in,
+ top=1in,
+ bottom=1in
+ }
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{xcolor}
+\usepackage{fontspec} 
+\usepackage{verse} 
+\usepackage[square,sort,comma,numbers]{natbib} 
+\usepackage{titlesec}
+\usepackage{bibentry} 
+\usepackage[colorlinks=true,urlcolor=Plum,linkcolor=Plum]{hyperref}
+\usepackage[multiple]{footmisc}
+\usepackage{array}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+% Define accent color to match website purple (#6d0061)
+\definecolor{AccentPurple}{HTML}{6d0061}
+
+\widowpenalty=10000
+\clubpenalty=10000
+
+% \nobibliography* sets up bibentry to work inline without printing a
+% bibliography section. The actual bib file is specified via
+% \nobibliography{<bib>} in the document body.
+\nobibliography*
+
+\newcommand{\stopstanza}{\\[\normalbaselineskip]}
+
+\makeatletter
+\def\subject#1{\gdef\@subject{#1}}
+\def\memonumber#1{\gdef\@memonumber{#1}}
+\def\@subject{\@latex@warning@no@line{No \noexpand\subject given}}
+
+\renewcommand\maketitle{\par
+  \begingroup
+  \hskip -12em{\Huge \@author \par}
+  \vskip 2em%
+  \hskip -12em{
+    \href{mailto:\authoremail}{\authoremail}
+\par}%
+  \hskip -12em{
+    \href{https://\authorwww}{\authorwww}
+\par}%
+  \hskip -12em{
+    \ifdefined\authorgithub
+      \href{https://github.com/\authorgithub}{github.com/\authorgithub}
+    \fi
+    \ifdefined\authorlinkedin
+      ~$\cdot$~ \href{https://linkedin.com/in/\authorlinkedin}{linkedin.com/in/\authorlinkedin}
+    \fi
+\par}%
+\vskip 1em%
+  \hskip -12em{
+    \today
+\par}%
+    \vskip 6.5em%
+  \endgroup
+}
+
+\makeatother
+
+\setromanfont{Hoefler Text}
+\setsansfont{Optima}
+
+\titleformat{\section}[leftmargin] 
+{\bfseries} 
+{}{0em}{} 
+\titlespacing{\section} 
+{4.5pc}{1.5ex plus .1ex minus .2ex}{3pc}
+
+
+\titleformat{\subsection}
+{\bfseries}{}{0em}{}
+
+\setlength{\itemsep}{0pt}%
+\setlength{\topsep}{0pt}%
+\setlength{\parskip}{0pt}%
+
+\title{Curriculum Vitae}
+
+\author{\textcolor{AccentPurple}{Dani Roytburg}}
+\newcommand{\authoremail}[0]{droytbur@andrew.cmu.edu}
+\newcommand{\authorwww}[0]{djroytburg.github.io}
+\newcommand{\authorgithub}[0]{djroytburg}
+\newcommand{\authorlinkedin}[0]{danijroytburg}
+\newcommand{\authorscholar}[0]{2auZnbUAAAAJ}
+\begin{document}
+\maketitle
+\bibliographystyle{plainurl}
+\nobibliography{../roytburg}
+\section{Summary}\noindent
+Master's student in the Machine Learning Department at Carnegie Mellon University focused on reliable and interpretable AI, multi-agent training paradigms, and activation-based model analysis.\\
+
+\section{Education}\noindent\begin{tabbing}
+\hspace{4em}\= \kill
+M.S.\>\textbf{Carnegie Mellon University, School of Computer Science}\` 2026\\
+\>Machine Learning\\
+\\
+B.S.\>\textbf{Emory University, College of Arts and Science}\` 2025\\
+\>Computer Science; Quantitative and Social Sciences\\
+\end{tabbing}
+
+
+\section{Positions}
+\noindent\textbf{Carnegie Mellon University}\hfill Research Assistant, Language Technologies Institute\\
+Pittsburgh, PA\hfill September 2025-present\\
+\\Develop multi-agent adversarial reinforcement learning environments to improve legibility of reasoning traces.\\
+
+\noindent\textbf{Martian Research}\hfill Research Fellow\\
+Remote\hfill May 2025-present\\
+\\Engineer activation profiles of language model evaluators to suppress self-preferential bias; winner of a mechanistic interpretability hackathon.\\
+
+\noindent\textbf{Emory University}\hfill Research Assistant, Digital Humanities Lab\\
+Atlanta, GA\hfill November 2021-May 2025\\
+\\Designed and trained large-scale graph-text models; evaluated adversarial robustness of LLMs; built historical correspondence networks and dashboards.\\
+
+\noindent\textbf{ZS Associates}\hfill Internship - Business Technology Solutions\\
+Evanston, IL\hfill June 2024-August 2024\\
+\\Automated ETL pipelines and implemented synthetic-data imputation for compromised client data.\\
+
+\noindent\textbf{Cloverpop}\hfill Intern — Machine Learning\\
+Chicago, IL\hfill January 2024-May 2024\\
+\\Deployed decision-management systems and structured-prediction models on meeting transcripts.\\
+
+\noindent\textbf{McCormick and Company}\hfill Intern — Global Marketing and Sales Data Science\\
+Hunt Valley, MD\hfill June 2023-August 2023\\
+\\Built Amazon sales data visualizations and automated analytics with GCP BigQuery and BERT-based embedding search.\\
+
+\noindent\textbf{Northeastern University}\hfill Research Assistant, Mediacloud Lab\\
+Boston, MA\hfill June 2022-October 2022\\
+\\Extended NER to long-tail ethnics cuisines using Bon Appetit data.\\
+
+
+
+
+\setlength{\leftmargini}{0em}
+\section{Publications}
+\vspace{\baselineskip}
+\noindent\textbf{Conference Papers}\\
+\begin{verse}
+\bibentry{roytburg2025-break-mirror}
+\end{verse}
+\begin{verse}
+\bibentry{roytburg2025-words-action}
+\end{verse}
+\vspace{\baselineskip}
+\noindent\textbf{Thesis}\\
+\begin{verse}
+\bibentry{roytburg2025-generative}
+\end{verse}
+\vspace{1em}
+\section{Recognition}
+\noindent\textbf{Awards}\\
+Emory University Dean's List, 2022, 2024-2025\\
+Winner, Martian Research Mechanistic Interpretability Hackathon, 2025\\
+
+
+
+
+
+
+\section{Skills}\noindent Python Java R JavaScript Typescript SQL PyTorch JAX HuggingFace Transformers scikit-learn spaCy networkx D3.js React.js GCP Docker MySQL
+
+
+
+\end{document}
