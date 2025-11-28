@@ -78,7 +78,117 @@ body{
 .theme-toggle:hover{ color:var(--accent); transform:translateY(-2px) }
 .theme-toggle svg{ display:block }
 
+/* Content links: inherit surrounding color (useful for dark mode), keep underline for clarity */
+.summary a,
+.page-body a,
+.footer a,
+.page a,
+.container a:not(.links a):not(.social-link) {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: currentColor;
+  text-underline-offset: 2px;
+}
+
+/* Ensure nav links keep their styled behavior */
+.links a { color: var(--text); }
+
+/* CV Page Styles */
+.cv-page { max-width: 750px; }
+
+.cv-downloads {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: var(--accent);
+  color: var(--bg);
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: opacity 0.15s ease, transform 0.12s ease;
+}
+.download-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.cv-section {
+  margin-bottom: 28px;
+}
+.cv-section h2 {
+  font-family: 'Volkhov', serif;
+  font-size: 22px;
+  margin: 0 0 16px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--accent);
+}
+.cv-section h3 {
+  font-size: 16px;
+  margin: 18px 0 10px;
+  color: var(--muted);
+}
+
+.cv-entry {
+  margin-bottom: 18px;
+}
+.cv-entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.cv-degree, .cv-title {
+  font-weight: 600;
+}
+.cv-year, .cv-dates {
+  color: var(--muted);
+  font-size: 14px;
+}
+.cv-school, .cv-org {
+  color: var(--muted);
+  margin-top: 2px;
+}
+.cv-description {
+  margin: 6px 0 0;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.pub-entry {
+  margin-bottom: 14px;
+  line-height: 1.55;
+  font-size: 15px;
+}
+.pub-entry .highlight {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.cv-list {
+  margin: 0;
+  padding-left: 20px;
+}
+.cv-list li {
+  margin-bottom: 6px;
+}
+
+.cv-skills {
+  line-height: 1.7;
+}
+
 @media (max-width:600px){
   .name{ font-size:36px }
   .accent{ width:90% }
+  .cv-entry-header { flex-direction: column; gap: 2px; }
+  .cv-downloads { flex-direction: column; }
 }
