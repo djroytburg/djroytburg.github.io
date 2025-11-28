@@ -69,11 +69,11 @@ def parse_bib_file(bib_path):
     return entries
 
 
-def format_authors(author_str, highlight_name=None):
-    """Format author string, optionally highlighting a name."""
+def format_authors(author_str, highlight_name=None, equal_contribution=None):
+    """Format author string, optionally highlighting a name and marking equal contributors."""
     authors = [a.strip() for a in author_str.split(' and ')]
     formatted = []
-    for author in authors:
+    for i, author in enumerate(authors):
         if ',' in author:
             parts = author.split(',')
             name = f"{parts[1].strip()} {parts[0].strip()}"
@@ -83,6 +83,11 @@ def format_authors(author_str, highlight_name=None):
         if highlight_name and (highlight_name.lower() in name.lower() or 
                                any(p.lower() in name.lower() for p in highlight_name.split())):
             name = f'<span class="highlight">{name}</span>'
+        
+        # Add star for equal contribution
+        if equal_contribution and i in equal_contribution:
+            name = f'{name}<span class="equal-contrib">*</span>'
+        
         formatted.append(name)
     
     if len(formatted) == 1:
@@ -300,6 +305,73 @@ def build_cv_pdf():
 
 
 # ─────────────────────────────────────────────────────────────────────────────
+# Publications with metadata
+# ─────────────────────────────────────────────────────────────────────────────
+
+def load_publications():
+    """Load publications from bib file and merge with metadata."""
+    bib_path = os.path.join(ROOT, 'roytburg.bib')
+    meta_path = os.path.join(ROOT, 'publications_meta.json')
+    
+    if not os.path.exists(bib_path):
+        return [], False
+    
+    bib_entries = parse_bib_file(bib_path)
+    
+    # Load metadata if available
+    metadata = {}
+    if os.path.exists(meta_path):
+        with open(meta_path, 'r') as f:
+            metadata = json.load(f)
+    
+    publications = []
+    has_equal_contrib = False
+    
+    for key, entry in bib_entries.items():
+        meta = metadata.get(key, {})
+        equal_contrib = meta.get('equal_contribution')
+        
+        if equal_contrib:
+            has_equal_contrib = True
+        
+        # Format authors with highlighting and equal contribution markers
+        authors = format_authors(entry.get('author', ''), 'Roytburg', equal_contrib)
+        
+        # Determine venue based on entry type
+        entry_type = entry.get('_type', '')
+        if entry_type == 'inproceedings':
+            venue = entry.get('booktitle', '')
+        elif entry_type == 'article':
+            venue = entry.get('journal', '')
+        elif entry_type == 'mastersthesis':
+            thesis_type = entry.get('type', "Master's Thesis")
+            venue = f"{thesis_type}, {entry.get('school', '')}"
+        else:
+            venue = entry.get('journal', '') or entry.get('booktitle', '')
+        
+        pub = {
+            'key': key,
+            'title': entry.get('title', ''),
+            'authors': authors,
+            'venue': venue,
+            'year': entry.get('year', ''),
+            'type': entry_type,
+            # From metadata
+            'abstract': meta.get('abstract', ''),
+            'paper_url': meta.get('paper_url') or entry.get('url', ''),
+            'slides_url': meta.get('slides_url'),
+            'code_url': meta.get('code_url'),
+            'figure': meta.get('figure'),
+            'also_at': meta.get('also_at', []),
+        }
+        publications.append(pub)
+    
+    # Sort by year descending
+    publications.sort(key=lambda x: x['year'], reverse=True)
+    return publications, has_equal_contrib
+
+
+# ─────────────────────────────────────────────────────────────────────────────
 
 
 def ensure_out():
@@ -352,6 +424,9 @@ def render_templates():
 
     # Generate CV content from cv.json
     cv_content = load_cv_content()
+    
+    # Load publications with metadata
+    publications, has_equal_contrib = load_publications()
 
     # render the generic pages
     for slug, ctx in PAGES.items():
@@ -362,6 +437,8 @@ def render_templates():
             # Pass cv_content for the CV page
             if slug == 'cv':
                 html = t.render(cv_content=cv_content)
+            elif slug == 'publications':
+                html = t.render(publications=publications, has_equal_contrib=has_equal_contrib)
             else:
                 html = t.render()
         except Exception:

@@ -17,6 +17,9 @@
       </svg>
     </button>
     <main class="container">
+      {% block back_link %}
+      <a href="{{ url_for('index') }}" class="back-link">← Home</a>
+      {% endblock %}
       {% block content %}{% endblock %}
     </main>
     <footer class="footer">

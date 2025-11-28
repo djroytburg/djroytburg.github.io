@@ -3,14 +3,77 @@
 {% block content %}
   <article class="page">
     <h2 class="page-title">Publications</h2>
-    <div class="page-body">
-      <p>This page will list publications, with bibtex entries and links to PDF or DOI when available.</p>
-      <p>Suggested structure:</p>
-      <ol>
-        <li>Refereed articles</li>
-        <li>Preprints</li>
-        <li>Workshops / demos</li>
-      </ol>
+    {% if has_equal_contrib %}
+    <p class="equal-contrib-note"><span class="equal-contrib">*</span> denotes equal contribution</p>
+    {% endif %}
+    <div class="publications-list">
+      {% for pub in publications %}
+      <div class="publication" id="{{ pub.key }}">
+        <div class="pub-main">
+          {% if pub.figure %}
+          <div class="pub-figure">
+            <img src="{{ url_for('static', filename=pub.figure.replace('static/', '')) }}" alt="{{ pub.title }}">
+          </div>
+          {% endif %}
+          <div class="pub-content">
+            <h3 class="pub-title">
+              {% if pub.paper_url %}
+              <a href="{{ pub.paper_url }}" target="_blank">{{ pub.title }}</a>
+              {% else %}
+              {{ pub.title }}
+              {% endif %}
+            </h3>
+            <p class="pub-authors">{{ pub.authors|safe }}</p>
+            <p class="pub-venue"><em>{{ pub.venue }}</em>, {{ pub.year }}</p>
+            {% if pub.also_at %}
+            <p class="pub-also-at">Also at: {{ pub.also_at | join('; ') }}</p>
+            {% endif %}
+            
+            {% if pub.slides_url or pub.code_url or pub.abstract %}
+            <div class="pub-links">
+              {% if pub.slides_url %}
+              <a href="{{ pub.slides_url }}" target="_blank" class="pub-link">
+                <span class="link-icon">📊</span> Slides
+              </a>
+              {% endif %}
+              {% if pub.code_url %}
+              <a href="{{ pub.code_url }}" target="_blank" class="pub-link">
+                <span class="link-icon">💻</span> Code
+              </a>
+              {% endif %}
+              {% if pub.abstract %}
+              <button class="pub-link abstract-toggle" onclick="toggleAbstract('{{ pub.key }}')">
+                <span class="link-icon">📝</span> Abstract
+              </button>
+              {% endif %}
+            </div>
+            {% endif %}
+            
+            {% if pub.abstract %}
+            <div class="pub-abstract" id="abstract-{{ pub.key }}" style="display: none;">
+              <p>{{ pub.abstract }}</p>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      {% else %}
+      <p>No publications found.</p>
+      {% endfor %}
     </div>
   </article>
+
+  <script>
+    function toggleAbstract(key) {
+      const abstract = document.getElementById('abstract-' + key);
+      const btn = event.target.closest('.abstract-toggle');
+      if (abstract.style.display === 'none') {
+        abstract.style.display = 'block';
+        btn.classList.add('active');
+      } else {
+        abstract.style.display = 'none';
+        btn.classList.remove('active');
+      }
+    }
+  </script>
 {% endblock %}
