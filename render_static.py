@@ -131,7 +131,7 @@ def format_publication(entry, highlight_name=None):
     return f'<p class="pub-entry">{authors}. <strong>{title_html}</strong>. <em>{venue}</em>, {year}.</p>'
 
 
-def generate_cv_html(cv_data, bib_entries):
+def generate_cv_html(cv_data, bib_entries, publications_data):
     """Generate the full CV HTML content."""
     name = f"{cv_data['given-name']} {cv_data['sur-name']}"
     html_parts = []
@@ -182,31 +182,37 @@ def generate_cv_html(cv_data, bib_entries):
         </div>''')
         html_parts.append('      </section>')
     
-    # Publications
-    if 'bibliography' in cv_data:
+    # Publications - use the same data as publications page
+    if 'bibliography' in cv_data and publications_data:
         html_parts.append('''
       <section class="cv-section">
         <h2>Publications</h2>''')
         
         bib = cv_data['bibliography']
         
+        # Create a lookup dict for publications by key
+        pubs_by_key = {pub['key']: pub for pub in publications_data}
+        
         if 'conference-papers' in bib and bib['conference-papers']:
             html_parts.append('        <h3>Conference Papers</h3>')
             for key in bib['conference-papers']:
-                if key in bib_entries:
-                    html_parts.append('        ' + format_publication(bib_entries[key], name))
+                if key in pubs_by_key:
+                    pub = pubs_by_key[key]
+                    html_parts.append(f'        <p class="pub-entry">{pub["authors"]}. <strong>{pub["title"]}</strong>. <em>{pub["venue"]}</em>, {pub["year"]}.</p>')
         
         if 'journal-articles' in bib and bib['journal-articles']:
             html_parts.append('        <h3>Journal Articles</h3>')
             for key in bib['journal-articles']:
-                if key in bib_entries:
-                    html_parts.append('        ' + format_publication(bib_entries[key], name))
+                if key in pubs_by_key:
+                    pub = pubs_by_key[key]
+                    html_parts.append(f'        <p class="pub-entry">{pub["authors"]}. <strong>{pub["title"]}</strong>. <em>{pub["venue"]}</em>, {pub["year"]}.</p>')
         
         if 'theses' in bib and bib['theses']:
             html_parts.append('        <h3>Theses</h3>')
             for key in bib['theses']:
-                if key in bib_entries:
-                    html_parts.append('        ' + format_publication(bib_entries[key], name))
+                if key in pubs_by_key:
+                    pub = pubs_by_key[key]
+                    html_parts.append(f'        <p class="pub-entry">{pub["authors"]}. <strong>{pub["title"]}</strong>. <em>{pub["venue"]}</em>, {pub["year"]}.</p>')
         
         html_parts.append('      </section>')
     
@@ -249,7 +255,11 @@ def load_cv_content():
         cv_data = json.load(f)
     
     bib_entries = parse_bib_file(bib_path)
-    return generate_cv_html(cv_data, bib_entries)
+    
+    # Load publications with metadata (same as publications page)
+    publications_data, _ = load_publications()
+    
+    return generate_cv_html(cv_data, bib_entries, publications_data)
 
 
 # ─────────────────────────────────────────────────────────────────────────────
