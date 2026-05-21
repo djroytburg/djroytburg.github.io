@@ -427,7 +427,7 @@ def parse_blog_post_metadata(content):
 def load_blog_posts():
     """Load all blog posts from the blog_posts directory."""
     if not MARKDOWN_AVAILABLE or not os.path.exists(BLOG_POSTS):
-        return []
+        return [], set()
     
     posts = []
     all_tags = set()
@@ -464,6 +464,9 @@ def load_blog_posts():
         tags = [t.strip() for t in tags_str.split(',') if t.strip()]
         all_tags.update(tags)
         
+        if metadata.get('draft', '').lower() == 'true':
+            continue
+
         post = {
             'slug': slug,
             'title': metadata.get('title', 'Untitled'),
@@ -474,7 +477,7 @@ def load_blog_posts():
             'content': html_content,
             'tags': tags,
         }
-        
+
         posts.append(post)
     
     # Sort by date descending
