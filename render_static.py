@@ -13,7 +13,14 @@ import re
 import json
 import shutil
 import subprocess
+from datetime import datetime
 from jinja2 import Environment, FileSystemLoader
+try:
+    import markdown
+    MARKDOWN_AVAILABLE = True
+except ImportError:
+    MARKDOWN_AVAILABLE = False
+    print("Warning: markdown library not installed. Run: pip install markdown")
 
 ROOT = os.path.dirname(__file__) or '.'
 TEMPLATES = os.path.join(ROOT, 'templates')
@@ -21,6 +28,7 @@ STATIC = os.path.join(ROOT, 'static')
 OUT = os.path.join(ROOT, 'docs')
 PDFS = os.path.join(ROOT, 'pdfs')
 CV_DIR = os.path.join(ROOT, 'cv')
+BLOG_POSTS = os.path.join(ROOT, 'blog_posts')
 
 PAGES = {
     'research': {
@@ -382,6 +390,99 @@ def load_publications():
 
 
 # ─────────────────────────────────────────────────────────────────────────────
+# Blog posts from markdown
+# ─────────────────────────────────────────────────────────────────────────────
+
+def parse_blog_post_metadata(content):
+    """Parse YAML-style front matter from markdown content."""
+    metadata = {}
+    
+    # Check for front matter (--- at start)
+    if not content.startswith('---'):
+        return metadata, content
+    
+    # Find end of front matter
+    lines = content.split('\n')
+    end_idx = None
+    for i, line in enumerate(lines[1:], 1):
+        if line.strip() == '---':
+            end_idx = i
+            break
+    
+    if end_idx is None:
+        return metadata, content
+    
+    # Parse front matter
+    front_matter = '\n'.join(lines[1:end_idx])
+    for line in front_matter.split('\n'):
+        if ':' in line:
+            key, value = line.split(':', 1)
+            metadata[key.strip()] = value.strip()
+    
+    # Return metadata and content without front matter
+    body = '\n'.join(lines[end_idx + 1:])
+    return metadata, body
+
+
+def load_blog_posts():
+    """Load all blog posts from the blog_posts directory."""
+    if not MARKDOWN_AVAILABLE or not os.path.exists(BLOG_POSTS):
+        return []
+    
+    posts = []
+    all_tags = set()
+    
+    for filename in os.listdir(BLOG_POSTS):
+        if not filename.endswith('.md') or filename == 'README.md':
+            continue
+        
+        filepath = os.path.join(BLOG_POSTS, filename)
+        with open(filepath, 'r', encoding='utf-8') as f:
+            content = f.read()
+        
+        metadata, body = parse_blog_post_metadata(content)
+        
+        # Convert markdown to HTML with footnotes support
+        html_content = markdown.markdown(
+            body, 
+            extensions=['fenced_code', 'codehilite', 'footnotes']
+        )
+        
+        # Create slug from filename
+        slug = os.path.splitext(filename)[0]
+        
+        # Parse date
+        date_str = metadata.get('date', '')
+        try:
+            date_obj = datetime.strptime(date_str, '%Y-%m-%d')
+            formatted_date = date_obj.strftime('%B %d, %Y')
+        except:
+            formatted_date = date_str
+        
+        # Parse tags (comma-separated)
+        tags_str = metadata.get('tags', '')
+        tags = [t.strip() for t in tags_str.split(',') if t.strip()]
+        all_tags.update(tags)
+        
+        post = {
+            'slug': slug,
+            'title': metadata.get('title', 'Untitled'),
+            'subtitle': metadata.get('subtitle', ''),
+            'date': date_str,
+            'formatted_date': formatted_date,
+            'image': metadata.get('image', ''),
+            'content': html_content,
+            'tags': tags,
+        }
+        
+        posts.append(post)
+    
+    # Sort by date descending
+    posts.sort(key=lambda x: x['date'], reverse=True)
+    return posts, sorted(all_tags)
+
+
+# ─────────────────────────────────────────────────────────────────────────────
 
 
 def ensure_out():
@@ -437,6 +538,10 @@ def render_templates():
     
     # Load publications with metadata
     publications, has_equal_contrib = load_publications()
+    
+    # Load blog posts
+    blog_posts, all_tags = load_blog_posts()
+    print(f'Loaded {len(blog_posts)} blog posts for rendering')
 
     # render the generic pages
     for slug, ctx in PAGES.items():
@@ -449,16 +554,28 @@ def render_templates():
                 html = t.render(cv_content=cv_content)
             elif slug == 'publications':
                 html = t.render(publications=publications, has_equal_contrib=has_equal_contrib)
+            elif slug == 'blog':
+                html = t.render(posts=blog_posts, all_tags=all_tags)
             else:
                 html = t.render()
-        except Exception:
+        except Exception as e:
             # fall back to generic page template
+            print(f"  Warning: Error rendering {slug}: {e}")
             page_t = env.get_template('page.html')
             html = page_t.render(title=ctx['title'], body=ctx['body'])
 
         out_path = os.path.join(OUT, f"{slug}.html")
         with open(out_path, 'w', encoding='utf-8') as f:
             f.write(html)
+    
+    # Render individual blog post pages
+    if blog_posts:
+        blog_post_template = env.get_template('blog_post.html')
+        for post in blog_posts:
+            html = blog_post_template.render(post=post)
+            out_path = os.path.join(OUT, f"blog_{post['slug']}.html")
+            with open(out_path, 'w', encoding='utf-8') as f:
+                f.write(html)
 
 
 def main():

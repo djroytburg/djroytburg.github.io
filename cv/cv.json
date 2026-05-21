@@ -13,8 +13,8 @@
       "degree": "M.S.",
       "school": "Carnegie Mellon University, School of Computer Science",
       "discipline": "Machine Learning",
-      "year": 2026,
-      "note": "expected December 2026",
+      "year": 2027,
+      "note": "expected May 2027",
       "readers": [
         "Daphne Ippolito"
       ]
@@ -35,20 +35,32 @@
   ],
   "employment": [
     {
-      "title": "Research Assistant, Language Technologies Institute",
+      "title": "Research Fellow (incoming)",
+      "affiliation": "ML Alignment and Theory Scholars",
+      "location": "Berkeley, CA",
+      "start-month": "May",
+      "start-year": 2026,
+      "end-month": "September",
+      "end-year": 2026,
+      "description": "Research fellowship advised by Shi Feng."
+    },
+    {
+      "title": "Research Assistant, DI Group",
       "affiliation": "Carnegie Mellon University",
       "location": "Pittsburgh, PA",
       "start-month": "September",
       "start-year": 2025,
-      "description": "Develop multi-agent adversarial reinforcement learning environments to improve legibility of reasoning traces."
+      "description": "Develop multi-agent reinforcement learning environments to improve legibility of reasoning traces. Design user studies and adversarial setups to measure influence of legibility on human and multi-agent interactions."
     },
     {
       "title": "Research Fellow",
       "affiliation": "Martian Research",
-      "location": "Remote",
+      "location": "San Francisco, CA",
       "start-month": "May",
       "start-year": 2025,
-      "description": "Engineer activation profiles of language model evaluators to suppress self-preferential bias; winner of a mechanistic interpretability hackathon."
+      "end-month": "February",
+      "end-year": 2026,
+      "description": "Engineered activation profiles of language model evaluators to suppress self-preferential bias, applied to LLM routers (ICML 2026, MechInterp @ NeurIPS 2025). Winner of Mechanistic Router Interpretability Hackathon (40 submissions)."
     },
     {
       "title": "Research Assistant, Digital Humanities Lab",
@@ -106,6 +118,7 @@
   },
   "bibliography": {
     "conference-papers": [
+      "roytburg2026-narcissists",
       "roytburg2026-mind-gap",
       "roytburg2025-break-mirror",
       "roytburg2025-words-action"
@@ -116,6 +129,10 @@
   },
   "teaching": [],
   "awards": [
+    {
+        "title": "Best Poster, LTI Student Research Symposium",
+        "year": 2026
+    },
     {
         "title": "Emory University Dean's List",
         "years": [2022, 2024, 2025]

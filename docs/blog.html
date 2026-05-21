@@ -6,7 +6,7 @@
     <title>Dani Roytburg - Home</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Volkhov:ital,wght@0,400;0,700;1,400&family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Volkhov:ital,wght@0,400;0,700;1,400&family=Ubuntu:wght@300;400;500;700&family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="static/style.css">
   </head>
   <body>
@@ -23,16 +23,169 @@
       
   <article class="page">
     <h2 class="page-title">Blog</h2>
-    <div class="page-body">
-      <p>Blog index and posts will appear here. You can structure posts as individual HTML or markdown files.
-      </p>
-      <p>Placeholder list of posts:</p>
-      <ul>
-        <li>Post 1 — coming soon</li>
-        <li>Post 2 — coming soon</li>
-      </ul>
+    
+    
+    <div class="blog-tags-filter">
+      <button class="blog-tag active" data-tag="all">All</button>
+      
+      <button class="blog-tag" data-tag="AI Safety">AI Safety</button>
+      
+      <button class="blog-tag" data-tag="Ethics">Ethics</button>
+      
+      <button class="blog-tag" data-tag="Evaluation">Evaluation</button>
+      
+      <button class="blog-tag" data-tag="Interpretability">Interpretability</button>
+      
+      <button class="blog-tag" data-tag="LLMs">LLMs</button>
+      
+      <button class="blog-tag" data-tag="Meta">Meta</button>
+      
+    </div>
+    
+    
+    <div class="publications-list">
+      
+      <div class="publication blog-post-item" id="whats-the-beef" data-tags="">
+        <div class="pub-main">
+          
+          <div class="pub-content">
+            <h3 class="pub-title">
+              <a href="blog_whats-the-beef.html">Under the Banner of Responsible AI</a>
+            </h3>
+            
+            <p class="pub-authors">Should we unite research on AI safety and AI ethics?</p>
+            
+            <p class="pub-venue">February 04, 2026</p>
+            
+          </div>
+        </div>
+      </div>
+      
+      <div class="publication blog-post-item" id="welcome-to-my-blog" data-tags="AI Safety,Ethics,Meta">
+        <div class="pub-main">
+          
+          <div class="pub-figure">
+            <img src="static/figures/mind-gap.png" alt="Welcome to My Blog">
+          </div>
+          
+          <div class="pub-content">
+            <h3 class="pub-title">
+              <a href="blog_welcome-to-my-blog.html">Welcome to My Blog</a>
+            </h3>
+            
+            <p class="pub-authors">First steps into writing about AI safety and ethics</p>
+            
+            <p class="pub-venue">February 04, 2026</p>
+            
+            <div class="post-tags">
+              
+              <span class="post-tag">AI Safety</span>
+              
+              <span class="post-tag">Ethics</span>
+              
+              <span class="post-tag">Meta</span>
+              
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      
+      <div class="publication blog-post-item" id="example-media-usage" data-tags="">
+        <div class="pub-main">
+          
+          <div class="pub-content">
+            <h3 class="pub-title">
+              <a href="blog_example-media-usage.html">Example Post with Media</a>
+            </h3>
+            
+            <p class="pub-authors">Demonstrating images and file links</p>
+            
+            <p class="pub-venue">February 03, 2026</p>
+            
+          </div>
+        </div>
+      </div>
+      
+      <div class="publication blog-post-item" id="thoughts-on-llm-evaluation" data-tags="LLMs,Evaluation,Interpretability">
+        <div class="pub-main">
+          
+          <div class="pub-content">
+            <h3 class="pub-title">
+              <a href="blog_thoughts-on-llm-evaluation.html">Thoughts on LLM Evaluation Bias</a>
+            </h3>
+            
+            <p class="pub-authors">What our recent work on self-preference reveals</p>
+            
+            <p class="pub-venue">January 15, 2026</p>
+            
+            <div class="post-tags">
+              
+              <span class="post-tag">LLMs</span>
+              
+              <span class="post-tag">Evaluation</span>
+              
+              <span class="post-tag">Interpretability</span>
+              
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      
     </div>
   </article>
+  
+  <script>
+    // Multi-select tag filtering
+    let selectedTags = new Set(['all']);
+    
+    document.querySelectorAll('.blog-tag').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const clickedTag = this.dataset.tag;
+        
+        if (clickedTag === 'all') {
+          // Clicking "All" clears other selections
+          selectedTags.clear();
+          selectedTags.add('all');
+          document.querySelectorAll('.blog-tag').forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+        } else {
+          // Remove "All" if selecting a specific tag
+          selectedTags.delete('all');
+          document.querySelector('.blog-tag[data-tag="all"]').classList.remove('active');
+          
+          // Toggle the clicked tag
+          if (selectedTags.has(clickedTag)) {
+            selectedTags.delete(clickedTag);
+            this.classList.remove('active');
+          } else {
+            selectedTags.add(clickedTag);
+            this.classList.add('active');
+          }
+          
+          // If no tags selected, revert to "All"
+          if (selectedTags.size === 0) {
+            selectedTags.add('all');
+            document.querySelector('.blog-tag[data-tag="all"]').classList.add('active');
+          }
+        }
+        
+        // Filter posts
+        document.querySelectorAll('.blog-post-item').forEach(post => {
+          const postTags = post.dataset.tags.split(',').filter(t => t);
+          
+          if (selectedTags.has('all')) {
+            post.style.display = '';
+          } else {
+            // Show post if it has ANY of the selected tags
+            const hasSelectedTag = postTags.some(tag => selectedTags.has(tag));
+            post.style.display = hasSelectedTag ? '' : 'none';
+          }
+        });
+      });
+    });
+  </script>
 
     </main>
     <footer class="footer">

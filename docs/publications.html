@@ -6,7 +6,7 @@
     <title>Dani Roytburg - Home</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Volkhov:ital,wght@0,400;0,700;1,400&family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Volkhov:ital,wght@0,400;0,700;1,400&family=Ubuntu:wght@300;400;500;700&family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="static/style.css">
   </head>
   <body>
@@ -28,17 +28,59 @@
     
     <div class="publications-list">
       
-      <div class="publication" id="roytburg2026-mind-gap">
+      <div class="publication" id="roytburg2026-narcissists">
         <div class="pub-main">
           
           <div class="pub-figure">
-            <img src="static/figures/mind-gap.png" alt="Mind the Gap! Pathways Towards Unifying AI Safety and Ethics Research">
+            <img src="static/figures/narcissists-fig1.png" alt="Are LLM Evaluators Really Narcissists? Sanity Checking Self-Preference Evaluations">
           </div>
           
           <div class="pub-content">
             <h3 class="pub-title">
               
-              <a href="https://arxiv.org/abs/2512.10058" target="_blank">Mind the Gap! Pathways Towards Unifying AI Safety and Ethics Research</a>
+              <a href="https://arxiv.org/abs/2601.22548" target="_blank">Are LLM Evaluators Really Narcissists? Sanity Checking Self-Preference Evaluations</a>
+              
+            </h3>
+            <p class="pub-authors"><span class="highlight">Dani Roytburg</span>, Matthew Bozoukov, Matthew Nguyen, Jou Barzdukas, Mackenzie Puig-Hall, and Narmeen Oozeer</p>
+            <p class="pub-venue"><em>Forty-Third International Conference on Machine Learning</em>, 2026</p>
+            
+            
+            
+            <div class="pub-links">
+              
+              
+              <a href="https://github.com/djroytburg/sanity_checks_for_self_preference" target="_blank" class="pub-link">
+                <span class="link-icon">💻</span> Code
+              </a>
+              
+              
+              <button class="pub-link abstract-toggle" onclick="toggleAbstract('roytburg2026-narcissists')">
+                <span class="link-icon">📝</span> Abstract
+              </button>
+              
+            </div>
+            
+            
+            
+            <div class="pub-abstract" id="abstract-roytburg2026-narcissists" style="display: none;">
+              <p>Recent research has shown that large language models (LLMs) favor their own outputs when acting as judges, undermining the integrity of automated post-training and evaluation workflows. However, it is difficult to disentangle which evaluation biases are explained by narcissism versus general experimental confounds, distorting measurements of self-preference bias. We discover a core methodological confound which could reduce measurement error by 89.6%. Specifically, LLM evaluators may deliver self-preferring verdicts when the judge responds to queries which they completed incorrectly themselves; this would be true regardless of whether one of their responses is their own. To decouple self-preference signals from noisy outputs on hard problems, we introduce an Evaluator Quality Baseline, which compares the probability that a judge incorrectly votes for itself against the probability that it votes for an incorrect response from another model. Evaluating this simple baseline on 37,448 queries, only 51% of initial findings retain statistical significance. Finally, we turn towards characterizing the entropy of "easy" versus "hard" evaluation votes from LLM judges. Our corrective baseline enables future research on self-preference by eliminating noisy data from potential solutions. More widely, this work contributes to the growing body of work on cataloging and isolating judge-bias effects.</p>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      
+      <div class="publication" id="roytburg2026-mind-gap">
+        <div class="pub-main">
+          
+          <div class="pub-figure">
+            <img src="static/figures/mind-gap.png" alt="Mind the Gap: Pathways Towards Unifying AI Safety and Ethics Research">
+          </div>
+          
+          <div class="pub-content">
+            <h3 class="pub-title">
+              
+              <a href="https://arxiv.org/abs/2512.10058" target="_blank">Mind the Gap: Pathways Towards Unifying AI Safety and Ethics Research</a>
               
             </h3>
             <p class="pub-authors"><span class="highlight">Dani Roytburg</span><span class="equal-contrib">*</span> and Beck Miller<span class="equal-contrib">*</span></p>
@@ -112,13 +154,13 @@
         <div class="pub-main">
           
           <div class="pub-figure">
-            <img src="static/figures/break-mirror.png" alt="Breaking the Mirror: Examining Self-Preference in LLM Evaluators through Activation-Based Representations">
+            <img src="static/figures/break-mirror.png" alt="Breaking the Mirror: Activation-Based Mitigation of Self-Preference in LLM Evaluators">
           </div>
           
           <div class="pub-content">
             <h3 class="pub-title">
               
-              <a href="https://arxiv.org/abs/2509.03647" target="_blank">Breaking the Mirror: Examining Self-Preference in LLM Evaluators through Activation-Based Representations</a>
+              <a href="https://arxiv.org/abs/2509.03647" target="_blank">Breaking the Mirror: Activation-Based Mitigation of Self-Preference in LLM Evaluators</a>
               
             </h3>
             <p class="pub-authors"><span class="highlight">Dani Roytburg</span><span class="equal-contrib">*</span>, Matthew Bozoukov<span class="equal-contrib">*</span>, Hongyu Fu, Matthew Nguyen<span class="equal-contrib">*</span>, Jou Barzdukas<span class="equal-contrib">*</span>, and Narmeen Fatimah Oozeer</p>

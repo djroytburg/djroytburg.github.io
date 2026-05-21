@@ -5,20 +5,17 @@
 {% block content %}
   <header class="hero">
     <h1 class="name">Dani Roytburg</h1>
-    e-mail: <a href="mailto:droytbur@andrew.cmu.edu" class="contact"> droytbur@andrew.cmu.edu</a> or <a href="mailto:djroytburg@gmail.com" class="contact">djroytburg@gmail.com</a> 
+    e-mail: <a href="mailto:droytbur@andrew.cmu.edu" class="contact"> droytbur@andrew.cmu.edu</a> or <a href="mailto:djroytburg@gmail.com" class="contact">djroytburg@gmail.com</a>
     <hr class="accent">
     <p class="role"></p>
     <p class="affil">Machine Learning Department, <span style="color:#C41230;font-weight:bold">Carnegie Mellon University</span>.</p>
-    <p class="role">Research Fellow, <a href="https://withmartian.com" style="color:orangered;font-weight:bold">Martian Research</a>.</p>
+    <p class="role">Fellow, <a href="https://www.matsprogram.org/" style="color:var(--mats-color);font-weight:bold;text-decoration:none">ML Alignment and Theory Scholars</a>.</p>
 
 
     <nav class="links">
-      <a>research page (WIP)</a>
-<!-- <a href="{{ url_for('research') }}">research page</a> -->
-      <a href="{{ url_for('publications') }}">publications</a>
+<a href="{{ url_for('publications') }}">publications</a>
       <a href="{{ url_for('cv') }}">curriculum vitae</a>
-      <a >blog (WIP)</a>
-<!-- <a href="{{ url_for('blog') }}">blog</a> -->
+      <a href="{{ url_for('blog') }}">blog</a>
     </nav>
 
     <div class="social" aria-label="social links">
@@ -48,8 +45,13 @@
   </header>
 
   <section class="summary" style="font-size: 14px; text-align: left;">
-    <p>I am a Master's student in the Machine Learning Department at Carnegie Mellon University and Research Fellow at Martian Research. I am interested in building reliability mechanisms for trustworthy artificial intelligence. I am advised by <a href="https://www.daphnei.com/">Daphne Ippolito</a>.</p>
-    <p>Currently, I study scalable oversight and mechanistic interpretability. I am actively working on multi-agent training paradigms for legible chain of thought, and on building activation probes for steering the behavior of LLM judges. </p>
-    <p>Previously at Emory University, I graduated <span style="font-style:italic">summa cum laude</span> with a Bachelor's in Computer Science and Statistics. I worked with <a href="https://lklein.com/">Lauren Klein</a> on graph-text modelling for digital humanities, as well as auditing biases in NLP techniques. I did my honor's thesis on structured prediction and argument mining under the supervision of <a href="https://joyceho.github.io/">Joyce Ho</a> and Prof. Klein. I've also worked as a consultant with ZS Associates, Cloverpop, and McCormick, applying novel NLP-based analytics engines for commercial data science.</p>
+    <p>I am a Master's student in the Machine Learning Department at Carnegie Mellon University. I research methods for measuring and improving the safety of agent-to-agent interactions powered by language models, drawing on studies of multi-agent reinforcement learning, social networks, and weak-to-strong model dynamics. I am advised by <a href="https://www.daphnei.com/">Daphne Ippolito</a> at CMU. This summer, I will be a fellow with the ML Alignment and Theory Scholars Program, advised by <a href="https://shi-feng.super.site/">Shi Feng</a>.</p>
+    <p>Previously, I graduated <span style="font-style:italic">summa cum laude</span> from Emory University with a Bachelor's in Computer Science and Statistics. I worked with <a href="https://lklein.com/">Lauren Klein</a> on modeling temporally-dynamic online semantic change during social movements, as well as auditing biases in NLP techniques. I did my honor's thesis on structured prediction and argument mining under the supervision of <a href="https://joyceho.github.io/">Joyce Ho</a> and Prof. Klein. I am grateful to these advisors and others who have fostered my passion for social networks, responsible AI, and careful research.</p>
+    <p>In my spare time, I have the joy of working on the executive board of <a href="https://cmuaisafety.com/">CMU's AI Safety Initiative</a> where I work on graduate student outreach; I am passionate about strategies for field-building and recruiting in AI Safety.</p>
   </section>
+
+  <figure style="text-align: center; margin: 2rem auto; max-width: 600px;">
+    <img src="{{ url_for('static', filename='figures/CMU CASI.jpeg') }}" alt="CMU AI Safety Initiative tabling event" style="width: 100%; border-radius: 6px;">
+    <figcaption style="font-size: 13px; color: var(--text-muted, #888); margin-top: 0.5rem;">CASI paints the Fence, Apr. 2026. Photo by <a href="https://dorianclay.com/">Dorian Clay</a>.</figcaption>
+  </figure>
 {% endblock %}
