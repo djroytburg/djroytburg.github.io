@@ -504,6 +504,17 @@ def copy_pdfs():
         print(f'Copied pdfs/ to {dest}')
 
 
+def get_last_commit_date():
+    try:
+        result = subprocess.run(
+            ['git', 'log', '-1', '--format=%cd', '--date=format:%B %d, %Y'],
+            cwd=ROOT, capture_output=True, text=True
+        )
+        return result.stdout.strip() or datetime.now().strftime('%B %d, %Y')
+    except Exception:
+        return datetime.now().strftime('%B %d, %Y')
+
+
 def make_env():
     env = Environment(loader=FileSystemLoader(TEMPLATES))
 
@@ -523,6 +534,7 @@ def make_env():
         return routes.get(endpoint, '#')
 
     env.globals['url_for'] = url_for
+    env.globals['last_updated'] = get_last_commit_date()
     return env
 
 
