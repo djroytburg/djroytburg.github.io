@@ -1,1 +1,4 @@
 _archive/
+blog_posts/
+__pycache__/
+.DS_Store
