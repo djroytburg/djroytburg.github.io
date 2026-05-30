@@ -2,15 +2,18 @@
 title: Under the Banner of Responsible AI
 subtitle: Should we unite research on AI safety and AI ethics?
 date: 2026-05-30
+tags: AI Safety, Meta, Ethics
 ---
 
 Underneath the umbrella of "responsible AI" sit two large, well-established research areas ___which agree on the risks of careless investment___ in AI capabilities and seemingly ___little else___.
 <!--Make this our system-setting purple that we use in .css  with a cursive-ish font, and emphatics where I have them added-->
 
+<!--btw, the header with the last updated and system thing should have my favicon logo in the top left, clickable to return to home at any time. for pages other than blog posts, the center of the header should say where we are, i.e. "CV" or "publications" or "blog". For the blog posts, it should have the title.-->
+
 <!--When you click on footnotes, they stay static in the viewer, even when you scroll. the footnotes should follow the part of the text they depart from!-->
 
 <!--I would like # headers to use ubuntu mono in system-setting purple, and ## to use ubuntu mono, unbolded, and in a smaller font size.-->
-
+<!--I think text could generally be smaller on the blogs than it is on the home menu. I'd like the Ubuntu body font that we use to be thinner/lighter-->
 <!--I'd also like a table of contents to be automatically generated when we render blog posts at the top, so that people can click around. A tracker of where the user is could also appear on the left, as a pop-out once the user starts reading. Kind of like LW.-->
 
 These two fields—"AI safety" and "AI ethics"—could together form a critical mass for confronting runaway AI adoption but remain separated by divergent motivations and rhetorical frames. This schism is *deeply* unstrategic in a world where [safety constitutes 3% of all research activity](https://eto.tech/blog/state-of-global-ai-safety-research/) with a [similar proportion for ethics](https://arxiv.org/abs/2512.10058). Today, we see myriad incidents of [social bias](https://www.npr.org/2025/07/09/nx-s1-5462609/grok-elon-musk-antisemitic-racist-content), [security vulnerability](https://www.scworld.com/brief/reports-shed-light-on-more-openclaw-vulnerabilities), [misaligned behavior](https://www.bloomberg.com/opinion/newsletters/2026-02-02/crustafarianism-the-ai-church-of-molt-is-not-for-humans) or [human disempowerment](https://www.usatoday.com/story/opinion/2026/01/24/ai-chip-manufacturing-data-centers-humanity/88215945007/) caused by frontier models. These front-page news items draw public outrage, only to go unharnessed by disunited experts. Part of the problem comes from selective attention displayed by leaders in ethics or safety who disagree on the severity or implications of any given incident.
@@ -87,7 +90,9 @@ The principles of AI Ethics are often summarized with the acronym [**FATE**](htt
 
 ## (3) the gap in between
 
-The lion's share of overall research on "responsible AI" can be found within one of these two camps. It's not obvious why these groups struggle to collaborate. In principle, research on mechanistic interpretability is the direct counterpart of Explainability in FATE, enabling us to localize bias in language models. Furthermore, bias against social groups is generally considered a *misaligned behavior* which Safety researchers often target in their work. 
+The lion's share of overall research on "responsible AI" can be found within one of these two camps. It's not obvious why these groups struggle to collaborate. 
+
+In principle, research on mechanistic interpretability is the direct counterpart of Explainability in FATE, enabling us to localize bias in language models. Furthermore, bias against social groups is generally considered a *misaligned behavior* which Safety researchers often target in their work. 
 
 In the other direction, regulatory expertise is a necessity to implement protocols for responsible scaling, while field studies ground capability forecasts in realistic, user-facing contexts. Both fields have much to offer one another in methodology!
 
@@ -99,7 +104,7 @@ Crucially, they are *worried about different things*. You might think "great, le
 
 It seems like both groups have agreed upon mutual exclusivity. Why?
 
-### look outside! (safety ⟹ ethics)
+### (a) look outside! (safety ⟹ ethics)
 Obviously, progress on generative models has been and will continue to be a fundamental force transforming our economy, society, and nearly all aspects of life. It appears ever-more likely that humanity will either build a general intelligence which matches its greatest capabilities, possibly within the decade, with automated researchers potentially ushering in a super-intelligent system. 
 
 Early on, many researchers in AI Ethics [underestimated the speed of progress](STOCHASTIC_PARROTS). Many vocal critics dismissed the possibility of transformative capabilities as a scheme to foster greater investment in capital. 
@@ -108,12 +113,12 @@ Such a dismissal appears fragile in retrospect, and it casts doubt on how those 
 
 From that point of view, it would appear that addressing quotidian risk is... well... quotidian. Akin to burying one's head in the sand.
 
-### the scoping argument (safety ⟹ ethics)
+### (b) the scoping argument (safety ⟹ ethics)
 Concretely, AI Ethics research has a scoping problem. Principles like Fairness, Accountability, Transparency and Ethics are neverending challenges; there is no singular point at which these are possible to accomplish. How would you know once a system is ethical? 
 
 The field has taken a diagnostic bend, with an emphasis on documenting labor exploitation, risk reports, and audits. Due to the sociotechnical nature of this work, quantification and reproducibiliy become more difficult. These make improvements harder to scope, relative to safety.
 
-### the distraction argument (ethics ⟹ safety)
+### (c) the distraction argument (ethics ⟹ safety)
 Long-termist risk profiles place distributive harms on the backburner for as long as we can preserve human life and flourishing for some. 
 
 A utilitarian calculus suggests that any effort to remedy today's harms trades off with preparation for tomorrow's bigger threats. This argument is not new; it rehashes the [Repugnant Conclusion](LINK_NEEDED) critique of rationalism and before that the rationale of [deontology](LINK_NEEDED).
@@ -124,7 +129,7 @@ The result is a not-so-flourishing society which manages utopia for some but not
 
 This trade-off argument is familiar to those field-building on university campuses, as discussion of "prosaic risk" is assumed to attract students otherwise repelled by existential risk.
 
-### against singularity (ethics ⟹ safety)
+### (d) against singularity (ethics ⟹ safety)
 
 AI Safety often assumes a "hard takeoff" leading up to a point of "Singularity"[^5]. Depending on the success of our alignment and control efforts up to this hard takeoff, the hard takeoff will either be messianic or apocalyptic innature.
 
@@ -139,27 +144,74 @@ Those in AI Ethics reject this all-or-nothing framing. They foresee a "hard take
 These tensions are more than conceptual. They have played out over the past years, culminating in homophilous social networks in research, high-profile clashes online, and funding choices. The result is the deeply fragmented ecosystem we live in, where neither group carries the staying power to influence the forces that be.
 
 
-## the tescreal bundle
+## (1) the tescreal bundle
 Timnit Gebru has this idea of "TESCREAL bundle": Transhumanism, E?, Rationalism, Effective Altruism, Longtermism. This work argues that accelerationism and existential safety mutually re-inforce one another: the concepts are mutually compatible, leaders run in the same circles and share power, and that existential risk is a "luxury problem" which not only marginalizes minoritized groups but systematically ignores their contributions to conversations on safety. On the last point, Gebru forwards the "distraction argument" as evidence of the eugenicist roots of AI Safety. 
 
-Indeed, the utopia espoused by AI Safety advocates is a rosy picture which somehow assumes flourishing for all humans within a social structure that they vastly benefit from. AI Safety communities also struggle to acknowledge their diversity crisis, prompting questions of what "alignment" looks like with such drastic underrepresentation (indeed, [it's worse](CITE) than the [general software industry](CITE), [AI research](CITE), and other fields that struggle with diversity). These are foundational issues---not just with AI Safety's fieldbuilding protocols, but of the values and assumptions of fieldbuilders themselves. messiah we manage to control. AI Safety *must* reckon with its cavalier to equitable representation.
+My take, if you care: 
 
-At the same time, describing AI safety as a front for accelerationism feels quite callous. In fact, AI Safety advocates do *not* hold the power which is ascribed to them. 
+1) The utopia espoused by AI Safety advocates is rosy; the assumption that the future is either annihlation or total flourishing makes sense only to someone who has never faced systemic adversity on the basis of their socioeconomic status. In light of critical wealth gaps and other externalities of unchecked capitalism, I can't see the path from today's maddening wealth gaps and neglected social externalities to tomorrow's universal, equitable "flourishing". Maybe for the lucky few with Anthropic secondiaries? Enlighten me.
 
-This article remains an open wound for both communities, with [EVIDENCE](ev).
+2) AI Safety communities really struggle to acknowledge their diversity crisis, prompting questions of what "alignment" looks like with such drastic underrepresentation (indeed, [it's worse](CITE) than the [general software industry](CITE), [AI research](CITE), and other fields that struggle with diversity). This is an issue not just with AI Safety's fieldbuilding protocols, but with the values and assumptions of its leading voices.
 
-## patchwork regulations
+3) AI Safety advocates *do not*, in fact, hold the power which Gebru ascribes to them. They are frequently branded as Luddites in politics and public discourse and shut out from venture investment. The bulk of funding in safety research circulates internally, and technical safety researchers work tirelessly when they could easily accumulate capital elsewhere. 
+
+4) Describing AI safety as a front for accelerationism feels callous. This community is clearly not living off of technocapital: they are resisting it. The TESCREAL bundle neglects the *other* side of the coin, where catastrophic risk becomes highly plausible and humanity struggles to curb misuse or align itself with the interests of superintelligent system. Technocrats dismiss this as fearmongering; we do not. How ignoble, self-righteous and self-serving.
+
+Agree or disagree, one thing is for sure: this article remains an open wound for both communities. with [EVIDENCE](ev).
+
+## (2) a fragmented research landscape
+
+It is easy to see the implications of this schism when looking at the collaboration networks at AI research. In our paper, we use some [standard metrics](https://arxiv.org/abs/2512.10058) in network science to measure how these gaps look over the past five years (2020-2025) of collaboration data at NeurIPS, ICLR, AIES, SaTML, and your other usual suspects. 
+
+We found that papers on AI ethics rarely had common authors with papers on safety (83.1% homophily), which in the context of CS/AI research networks resembles two non-overlapping fields like computational biology and creative writing more than two generally related fields (i.e. NLP and machine learning). Clearly, safety/ethics are more than just "generally related!"
+
+This suggests that there are indeed genuine clustering effects downstream of the social schism. Both fields grow their ideas in isolation with extremely low cross-collaboration. 
+
+Worse yet, safety-ethics connections are **extremely tenuous**. Nearly all shortest paths between these researchers passes through a little over 200 central nodes. Without these interdisciplinary few (leaders of large, non-specific labs like Yejin Choi or Jiawei Han), *the top 1% of all authors would be completely cut off* by discipline.
+
+These places also have their own fora for sharing ideas. For AI Ethics, traditional academic venues like AIES, FAccT, and CHI serve as common ground; for AI Safety, digital ecosystems built over years like LessWrong are more legible venues. Earning "status" in one context does not transfer to the "status" of the other.
+
+As we note in the paper: 
+<!--put this in block quotes if you can-->
+The consequences of this fragmentation extend beyond academia into global policy, creating a frac-
+tured approach to governance where our most pressing risks are treated as competing priorities.
+Each community,
+operating in isolation, exports an incomplete vision of “alignment” to policymakers.
+<!--block quote ends-->
+
+## (3) patchwork regulations
+
+On that note, let's see the impact fragmentation has had on policymaking.
 
 Biden's actions on AI Safety were annulled in the beginning of Trump's second administration
 
-## funding priorities from NSF + private safety funds
+Canada data act
+
+CA-SB 57
+
+## (4) funding priorities from NSF + private safety funds
+
+NSF: banned word list, defunding of private companies in AI ethics. 
 
 
-# Why does this matter? What can we do about it?
+# (iii) why this matters, and what can be done
 
-## Fieldbuilding and Critical Mass
+## (1) fieldbuilding and critical mass
+**Why this matters**:
 
-## Trailblazers under the Banner
+**What can be done**:
+
+## (2) research consensus
+**Why this matters**:
+
+**What can be done**:
+
+## (3) regulatory cooperation
+**Why this matters**:
+
+**What can be done**:
+
+
 IASEAI
 # Concluding Remarks
 ---
