@@ -55,27 +55,33 @@ It is important to note that AI Safety is heavily interlinked with "AI Security"
 
 ## A Sketch of "AI Ethics"
 
-In contrast against the relatively canonicalized history of AI Safety, there exists an older, more decentralized body of work which also contends with the harms of artificial intelligence. At the intersection of fields such as sociology, science and technology studies (STS) [^4], human-computer interaction and social choice theory, **AI Ethics** addresses *present-day* risks of artificial intelligence. 
+In contrast against the relatively canonicalized history of AI Safety, there exists an older, more decentralized body of work which also contends with the harms of artificial intelligence. At the intersection of fields such as sociology, science and technology studies (STS) [^4], human-computer interaction and social choice theory, **AI Ethics** addresses *present-day* risks of artificial intelligence. These risks include the extrapolation of existing inequalities from data, the exploitative and exclusionary practices of developers, and especially real-world settings where minoritized groups are denied opportunity, surveilled, or targetted using AI. For those in this field, the danger; these concerns need not attend to estimating progress on capabilities in the future. The harms lie in concrete domain adoption -- not in theory or speculation -- and have been visible for longer than the "ChatGPT moment". 
 
-These risks include the extrapolation of existing inequalities from data, the exploitative and exclusionary practices of developers, and especially real-world settings where minoritized groups are denied opportunity, surveilled, or targetted using AI. For those in this field, the danger; these concerns need not attend to estimating progress on capabilities in the future. The harms lie in concrete domain adoption -- not in theory or speculation -- and have been visible for longer than the "ChatGPT moment". 
+Ethical failures in AI often demand societal -- not exclusively technical -- solutions. While AI Ethics has produced a substantial body of research on methods for algorithmic fairness and transparency, many would contend that such solutions face resistance in adoption, especially if they trade off with commercial goals. Many in AI Ethics see "technosolutionism" itself as a cultural device which obscures accountability for major stakeholders. Instead, progress is made by securing governance of private and public institutions, releasing system-wide audits, conducting field research on AI laborers or "users" (who are the "users" of an algorithm which allocates affordable housing or police presence?), or rebalancing objectives in a deployed algorithm. 
 
+Some (certainly not all) important figures in AI Ethics: Timnit Gebru (founder of the Distributed AI Research Institute), Joy Buolamwini (founder of the Algorithmic Justice League), Sasha Luccioni, Maarten Sap, Margaret Mitchell, Ruha Benjamin.
 
 [^4]: [Science and technology studies](https://en.wikipedia.org/wiki/Science_and_technology_studies) understands technology as an *object of study*, using historical methods to situate development against societal background.
 
-Furthermore, these problems demand societal -- not technical -- solutions. Many in AI Ethics see "technosolutionism" itself as a social device. Conceretely, these manifest in governance proposals for private and public stakeholders, audits of existing systems, and field research on demonstrable impacts felt by those subjected to exploitation either in . This is not to say technical advances play no role in AI Ethics; indeed, algorithmic fairness, . But it is to say that that those with power have little incentive to adopt "ethical" algorithms, and even if they did these alone are insufficient.  
 
 ## The gap in between.
 
+These two fields  
+Conceptually, 
+
+1. **Distraction Argument**
+2. **Scoping Argument**: are proposals in AI Ethics tractable? If implemented, would they help us tackle these biases should they persist future systems?
+TESCREAL
+
+
 # Quantifying the schism
 
-# Why does this matter?
+# Why does this matter? What can we do about it?
 
 ## Fieldbuilding and Critical Mass
 
-# What can we do about it?
-
 ## Trailblazers under the Banner
-
+IASEAI
 # Concluding Remarks
 ---
 
