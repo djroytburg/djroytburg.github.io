@@ -1,11 +1,17 @@
 ---
-draft: true
 title: Under the Banner of Responsible AI
 subtitle: Should we unite research on AI safety and AI ethics?
-date: 2026-02-04
+date: 2026-05-30
 ---
 
-Underneath the umbrella of "responsible AI" sit two large, well-established research areas which agree on the risks of careless investment in AI capabilities and seemingly little else. 
+Underneath the umbrella of "responsible AI" sit two large, well-established research areas ___which agree on the risks of careless investment___ in AI capabilities and seemingly ___little else___.
+<!--Make this our system-setting purple that we use in .css  with a cursive-ish font, and emphatics where I have them added-->
+
+<!--When you click on footnotes, they stay static in the viewer, even when you scroll. the footnotes should follow the part of the text they depart from!-->
+
+<!--I would like # headers to use ubuntu mono in system-setting purple, and ## to use ubuntu mono, unbolded, and in a smaller font size.-->
+
+<!--I'd also like a table of contents to be automatically generated when we render blog posts at the top, so that people can click around. A tracker of where the user is could also appear on the left, as a pop-out once the user starts reading. Kind of like LW.-->
 
 These two fields—"AI safety" and "AI ethics"—could together form a critical mass for confronting runaway AI adoption but remain separated by divergent motivations and rhetorical frames. This schism is *deeply* unstrategic in a world where [safety constitutes 3% of all research activity](https://eto.tech/blog/state-of-global-ai-safety-research/) with a [similar proportion for ethics](https://arxiv.org/abs/2512.10058). Today, we see myriad incidents of [social bias](https://www.npr.org/2025/07/09/nx-s1-5462609/grok-elon-musk-antisemitic-racist-content), [security vulnerability](https://www.scworld.com/brief/reports-shed-light-on-more-openclaw-vulnerabilities), [misaligned behavior](https://www.bloomberg.com/opinion/newsletters/2026-02-02/crustafarianism-the-ai-church-of-molt-is-not-for-humans) or [human disempowerment](https://www.usatoday.com/story/opinion/2026/01/24/ai-chip-manufacturing-data-centers-humanity/88215945007/) caused by frontier models. These front-page news items draw public outrage, only to go unharnessed by disunited experts. Part of the problem comes from selective attention displayed by leaders in ethics or safety who disagree on the severity or implications of any given incident.
 
@@ -34,47 +40,120 @@ On that last point: you, dear reader, hold influence that you may not realize. I
 
 [^1]: One important question is what to call such a unified field. Open to feedback?
 
-### A quick disclaimer:
+### a quick disclaimer
 
 1. **Frontier labs are *not* the enemy**. It goes without saying that these groups produce or sponsor some of the most impactful and precise research in both areas. Many also walk the walk, incorporating demonstrable safeguards in training and deployment. The effort that goes into releasing aligned, safe and inclusive models should not go unacknowledged.
 2. **The gap isn't personal**. Arguments below suggesting what made AI ethics and safety so distinct from one another should not be taken as comments on individual research. Network effects are *structural*, and do not make assumptions on the preferences of individuals subject to those effects.
 
-# Two fields, a chasm, and a narrow bridge.
+# (i) two fields, a chasm, and a narrow bridge.
 
-## A Sketch of "AI Safety"
-The AI Safety paradigm begins, in large part, with the work of existential risk mitigation and effective altruism. In particular, *Superintelligence* by Nick Bostrom articulates many possible paths to catastrophic risks from superintelligence, stemming from some combination of loss of control, misuse from human actors, or value-misaligned intelligence. The task of "superalignment", then, requires finding mechanisms which guide an unforeseen superintelligent system in line with human values. While this task appears intractable, existential risk reduction suggests that even incremental efforts at superalignment yield such high *expected utility* that they justify immediate, urgent action. 
+## (1) a sketch of ai safety
+The AI Safety paradigm begins, in large part, with the work of existential risk mitigation and effective altruism. In particular, *Superintelligence* by Nick Bostrom articulates many possible paths to catastrophic risks from superintelligence, stemming from some combination of loss of control, misuse from human actors, or value-misaligned intelligence. The task of "superalignment", then, requires finding mechanisms which guide an unforeseen superintelligent system in line with human values. 
 
-This framework of altruistic ends creates an interest convergence with many experts in machine learning, mathematics and software. For one, existential AI risk implicitly reinforces the legitimacy of these experts by suggesting that they might invent and train a superintelligent system [^2]. For another, AI safety endows technical progress with *moral authority* where it is otherwise associated with anti-social goals like financial success, power or status. In turn, alignment is bidirectional in its faith in technical progress -- ["getting it right"](https://darioamodei.com/machines-of-loving-grace) would endow humanity with radical transformations in well-being, prosperity, and social stability. It comes as no surprise, then, that a significant portion of the modern AI safety community has consolidated around adopting *technical approaches* [^3] to monitor, attribute, and unlearn the potentially detrimental behaviors of modern foundation models (especially LLMs).
+While this task appears intractable, existential risk reduction suggests that even incremental efforts at superalignment yield such high *expected utility* that they justify immediate, urgent action. 
 
-It is important to note that AI Safety is heavily interlinked with "AI Security", which concerns technical machine learning research on subjects like user privacy, jailbreaking, agentic security, and other non-existential risks. While these fields share different motivations, their common technical profiles often bring them together with overlapping subjects of interest.
+This framework of altruistic ends creates an interest convergence with many experts in machine learning, mathematics and software. For one, existential AI risk implicitly reinforces the legitimacy of these experts by suggesting that they might invent and train a superintelligent system[^2]. 
+
+For another, AI safety endows technical progress with *moral authority* where it is otherwise associated with anti-social goals like financial success, power or status. In turn, alignment is bidirectional in its faith in technical progress -- ["getting it right"](https://darioamodei.com/machines-of-loving-grace) would endow humanity with radical transformations in well-being, prosperity, and social stability. 
+
+It comes as no surprise, then, that a significant portion of the modern AI safety community has consolidated around adopting *technical approaches*[^3] to monitor, attribute, and unlearn the potentially detrimental behaviors of modern foundation models (especially LLMs).
+
+It is important to note that AI Safety is heavily interlinked with "AI Security", which concerns technical machine learning research on subjects like user privacy, jailbreaking, agentic security, and other non-existential risks. 
+<!--While these fields share different motivations, their common technical profiles often bring them together with overlapping subjects of interest.-->
 
 [^2]: In recent years, of course, this seems less far-fetched than ever. For more analysis on the feedback loop between existential AI safety and capability development, consider ["The TESCREAL Bundle"](https://www.dair-institute.org/projects/tescreal/) by Timnit Gebru.
 
 [^3]: This includes advocating for legislation which mandates the use of such tools, or managing operations at the many organizations which facilitate and upskill such talent. 
 
 
-## A Sketch of "AI Ethics"
+## (2) a sketch of ai ethics
 
-In contrast against the relatively canonicalized history of AI Safety, there exists an older, more decentralized body of work which also contends with the harms of artificial intelligence. At the intersection of fields such as sociology, science and technology studies (STS) [^4], human-computer interaction and social choice theory, **AI Ethics** addresses *present-day* risks of artificial intelligence. These risks include the extrapolation of existing inequalities from data, the exploitative and exclusionary practices of developers, and especially real-world settings where minoritized groups are denied opportunity, surveilled, or targetted using AI. For those in this field, the danger; these concerns need not attend to estimating progress on capabilities in the future. The harms lie in concrete domain adoption -- not in theory or speculation -- and have been visible for longer than the "ChatGPT moment". 
+In contrast against the relatively canonicalized history of AI Safety, there exists an older, more decentralized body of work which also contends with the harms of artificial intelligence. 
 
-Ethical failures in AI often demand societal -- not exclusively technical -- solutions. While AI Ethics has produced a substantial body of research on methods for algorithmic fairness and transparency, many would contend that such solutions face resistance in adoption, especially if they trade off with commercial goals. Many in AI Ethics see "technosolutionism" itself as a cultural device which obscures accountability for major stakeholders. Instead, progress is made by securing governance of private and public institutions, releasing system-wide audits, conducting field research on AI laborers or "users" (who are the "users" of an algorithm which allocates affordable housing or police presence?), or rebalancing objectives in a deployed algorithm. 
+At the intersection of fields such as sociology, science and technology studies (STS)[^4], human-computer interaction and social choice theory, **AI Ethics** addresses *present-day* risks of artificial intelligence. These risks include the extrapolation of existing inequalities from data, the exploitative and exclusionary practices of developers, and especially real-world settings where minoritized groups are denied opportunity, surveilled, or targetted using AI. 
+
+What the future looks like matters less here. These dangers are already visible and urgent, regardless of future capabilities. If anything, concrete domain adoption -- not theory or speculation -- is the relevant scaling law. 
+
+Ethical failures in AI often demand societal -- not exclusively technical -- solutions. While AI Ethics has produced a substantial body of research on methods for algorithmic fairness and transparency, many would contend that such solutions face resistance in adoption, especially if they trade off with commercial goals. Many in AI Ethics see "technosolutionism" itself as a cultural device which obscures accountability for major stakeholders. 
+
+Instead, progress is made by securing governance of private and public institutions, releasing system-wide audits, conducting field research on AI laborers or "users" (who are the "users" of an algorithm which allocates affordable housing or police presence?), or rebalancing objectives in a deployed algorithm. 
 
 Some (certainly not all) important figures in AI Ethics: Timnit Gebru (founder of the Distributed AI Research Institute), Joy Buolamwini (founder of the Algorithmic Justice League), Sasha Luccioni, Maarten Sap, Margaret Mitchell, Ruha Benjamin.
+
+The principles of AI Ethics are often summarized with the acronym [**FATE**](https://www.sciencedirect.com/science/article/pii/S2666920X23000310): **F**airness, **A**ccountability, **T**ransparency and **E**xplainability.
 
 [^4]: [Science and technology studies](https://en.wikipedia.org/wiki/Science_and_technology_studies) understands technology as an *object of study*, using historical methods to situate development against societal background.
 
 
-## The gap in between.
+## (3) the gap in between
 
-These two fields  
-Conceptually, 
+The lion's share of overall research on "responsible AI" can be found within one of these two camps. It's not obvious why these groups struggle to collaborate. In principle, research on mechanistic interpretability is the direct counterpart of Explainability in FATE, enabling us to localize bias in language models. Furthermore, bias against social groups is generally considered a *misaligned behavior* which Safety researchers often target in their work. 
 
-1. **Distraction Argument**
-2. **Scoping Argument**: are proposals in AI Ethics tractable? If implemented, would they help us tackle these biases should they persist future systems?
-TESCREAL
+In the other direction, regulatory expertise is a necessity to implement protocols for responsible scaling, while field studies ground capability forecasts in realistic, user-facing contexts. Both fields have much to offer one another in methodology!
+
+That said, AI Ethics and Safety feel orthogonal to one another. AI Safety proposes algorithmic methods to interpret, steer and contain superintelligent systems; AI Ethics proposes social interventions and audits of harms from today's systems. 
+
+Crucially, they are *worried about different things*. You might think "great, let these groups do their own thing and maybe sometimes share resources/people/ideas". I think this too! But the philsophies compete by definition. Threat models imply triage, as they justify which risks are worth rectifying (and, by omission, which are not). 
+
+**At a conceptual level, the threshold is not *"are these techniques interoperable"*, but *"if the whole world agrees with my risk model, could we accommodate their risks?"***
+
+It seems like both groups have agreed upon mutual exclusivity. Why?
+
+### look outside! (safety ⟹ ethics)
+Obviously, progress on generative models has been and will continue to be a fundamental force transforming our economy, society, and nearly all aspects of life. It appears ever-more likely that humanity will either build a general intelligence which matches its greatest capabilities, possibly within the decade, with automated researchers potentially ushering in a super-intelligent system. 
+
+Early on, many researchers in AI Ethics [underestimated the speed of progress](STOCHASTIC_PARROTS). Many vocal critics dismissed the possibility of transformative capabilities as a scheme to foster greater investment in capital. 
+
+Such a dismissal appears fragile in retrospect, and it casts doubt on how those in AI Ethics plan to shape their philosophy if we do see transformative capabilities. The problems of tomorrow may not at all resemble the problems of today, including problems of distributive bias and exploitation. So why would these roups isolate distribute risks. There are, potentially, catastrophic outcomes from rapid development of artificial intelligence. These outcomes possess a non-trivial probability mass. 
+
+From that point of view, it would appear that addressing quotidian risk is... well... quotidian. Akin to burying one's head in the sand.
+
+### the scoping argument (safety ⟹ ethics)
+Concretely, AI Ethics research has a scoping problem. Principles like Fairness, Accountability, Transparency and Ethics are neverending challenges; there is no singular point at which these are possible to accomplish. How would you know once a system is ethical? 
+
+The field has taken a diagnostic bend, with an emphasis on documenting labor exploitation, risk reports, and audits. Due to the sociotechnical nature of this work, quantification and reproducibiliy become more difficult. These make improvements harder to scope, relative to safety.
+
+### the distraction argument (ethics ⟹ safety)
+Long-termist risk profiles place distributive harms on the backburner for as long as we can preserve human life and flourishing for some. 
+
+A utilitarian calculus suggests that any effort to remedy today's harms trades off with preparation for tomorrow's bigger threats. This argument is not new; it rehashes the [Repugnant Conclusion](LINK_NEEDED) critique of rationalism and before that the rationale of [deontology](LINK_NEEDED).
+
+Today's problems are already here, to be dealt with by the masses today, tomorrow and ten years out. Catastrophic risk will continue to loom over the future even while things "go well", sapping oxygen from distributive harms, especially if AI Safety advocates do not update their risk profiles when things "go well". 
+
+The result is a not-so-flourishing society which manages utopia for some but not for all. Many in AI Ethics argue that leaders in AI Safety would be ok with such a future (see TESCREALism below).
+
+This trade-off argument is familiar to those field-building on university campuses, as discussion of "prosaic risk" is assumed to attract students otherwise repelled by existential risk.
+
+### against singularity (ethics ⟹ safety)
+
+AI Safety often assumes a "hard takeoff" leading up to a point of "Singularity"[^5]. Depending on the success of our alignment and control efforts up to this hard takeoff, the hard takeoff will either be messianic or apocalyptic innature.
+
+Those in AI Ethics reject this all-or-nothing framing. They foresee a "hard takeoff" contingent on a series of intremediate decisions which happen over a longer timeframe. Even after a hard takeoff, there's no reason that a higher intelligence trained from human data and biases would naturally shed those behaviors. There is no "Judgement Day" to prepare for, so to speak. 
 
 
-# Quantifying the schism
+[^5]: To be precise, [the Singularity](TRANSHUMANIST_LINK) is the point at which transhumanists say humanity will be integrated with artificial bionics, including but not limited to intelligence. 
+<!--Is this true?-->
+
+# (ii) the schism
+
+These tensions are more than conceptual. They have played out over the past years, culminating in homophilous social networks in research, high-profile clashes online, and funding choices. The result is the deeply fragmented ecosystem we live in, where neither group carries the staying power to influence the forces that be.
+
+
+## the tescreal bundle
+Timnit Gebru has this idea of "TESCREAL bundle": Transhumanism, E?, Rationalism, Effective Altruism, Longtermism. This work argues that accelerationism and existential safety mutually re-inforce one another: the concepts are mutually compatible, leaders run in the same circles and share power, and that existential risk is a "luxury problem" which not only marginalizes minoritized groups but systematically ignores their contributions to conversations on safety. On the last point, Gebru forwards the "distraction argument" as evidence of the eugenicist roots of AI Safety. 
+
+Indeed, the utopia espoused by AI Safety advocates is a rosy picture which somehow assumes flourishing for all humans within a social structure that they vastly benefit from. AI Safety communities also struggle to acknowledge their diversity crisis, prompting questions of what "alignment" looks like with such drastic underrepresentation (indeed, [it's worse](CITE) than the [general software industry](CITE), [AI research](CITE), and other fields that struggle with diversity). These are foundational issues---not just with AI Safety's fieldbuilding protocols, but of the values and assumptions of fieldbuilders themselves. messiah we manage to control. AI Safety *must* reckon with its cavalier to equitable representation.
+
+At the same time, describing AI safety as a front for accelerationism feels quite callous. In fact, AI Safety advocates do *not* hold the power which is ascribed to them. 
+
+This article remains an open wound for both communities, with [EVIDENCE](ev).
+
+## patchwork regulations
+
+Biden's actions on AI Safety were annulled in the beginning of Trump's second administration
+
+## funding priorities from NSF + private safety funds
+
 
 # Why does this matter? What can we do about it?
 
