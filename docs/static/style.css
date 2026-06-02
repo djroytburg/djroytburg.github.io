@@ -30,7 +30,7 @@ body{
 .container{
   max-width:var(--max-width);
   margin:48px auto;
-  padding:0 22px 64px;
+  padding:40px 22px 64px;
 }
 .hero{ text-align:center; margin-bottom:28px }
 .name{
@@ -74,22 +74,53 @@ body{
 
 .footer{ text-align:center; color:var(--muted); font-size:13px; padding:18px 0; border-top:1px solid var(--footer-border) }
 
-/* last updated label */
-.last-updated{
+/* topbar */
+.topbar{
   position:fixed;
-  top:22px;
-  left:18px;
-  font-size:11px;
-  color:var(--muted);
-  font-family:'Ubuntu Mono', monospace;
+  top:0; left:0; right:0;
+  height:40px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 14px;
+  z-index:100;
+  pointer-events:none;
+  background:var(--bg);
+  transition:background .18s ease;
+}
+.topbar-logo{
+  display:inline-flex;
+  align-items:center;
+  pointer-events:all;
   opacity:0.7;
+  transition:opacity .15s ease;
+}
+.topbar-logo:hover{ opacity:1; }
+.topbar-logo img{ height:18px; width:auto; display:block; }
+.topbar-label{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  font-family:'Ubuntu Mono', monospace;
+  font-size:12px;
+  color:var(--muted);
+  letter-spacing:0.04em;
+  pointer-events:none;
+  white-space:nowrap;
+}
+
+/* opening sentence style */
+.blog-post-content .opening{
+  font-family:'Volkhov', serif;
+  font-style:italic;
+  color:var(--accent);
+  font-size:16px;
+  line-height:1.7;
+  margin:0 0 18px;
 }
 
 /* theme toggle button */
 .theme-toggle{
-  position:fixed;
-  top:14px;
-  right:18px;
   background:transparent;
   border:0;
   color:var(--muted);
@@ -405,33 +436,36 @@ body{
 
 .blog-post-content {
   font-family: 'Ubuntu', sans-serif;
-  font-size: 17px;
+  font-size: 15px;
+  font-weight: 300;
   line-height: 1.7;
   color: var(--text);
 }
 
 .blog-post-content h1 {
-  font-family: 'Volkhov', serif;
-  font-size: 36px;
-  font-weight: 400;
-  margin: 32px 0 16px;
+  font-family: 'Ubuntu Mono', monospace;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--accent);
+  margin: 40px 0 14px;
   line-height: 1.3;
 }
 
 .blog-post-content h2 {
-  font-family: 'Ubuntu', sans-serif;
-  font-size: 28px;
-  font-weight: 700;
-  margin: 32px 0 16px;
+  font-family: 'Ubuntu Mono', monospace;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--text);
+  margin: 32px 0 12px;
   line-height: 1.3;
 }
 
 .blog-post-content h3 {
-  font-family: 'Ubuntu', sans-serif;
-  font-size: 22px;
-  font-weight: 700;
+  font-family: 'Ubuntu Mono', monospace;
+  font-size: 15px;
+  font-weight: 400;
   color: var(--muted);
-  margin: 28px 0 12px;
+  margin: 24px 0 10px;
   line-height: 1.3;
 }
 
