@@ -24,9 +24,7 @@
       </button>
     </nav>
     <main class="container">
-      {% block back_link %}
-      <a href="{{ url_for('index') }}" class="back-link">← Home</a>
-      {% endblock %}
+      {% block back_link %}{% endblock %}
       {% block content %}{% endblock %}
     </main>
     <footer class="footer">

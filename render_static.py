@@ -566,13 +566,13 @@ def render_templates():
             t = env.get_template(template_name)
             # Pass cv_content for the CV page
             if slug == 'cv':
-                html = t.render(cv_content=cv_content)
+                html = t.render(cv_content=cv_content, title='CV')
             elif slug == 'publications':
-                html = t.render(publications=publications, has_equal_contrib=has_equal_contrib)
+                html = t.render(publications=publications, has_equal_contrib=has_equal_contrib, title='Publications')
             elif slug == 'blog':
-                html = t.render(posts=blog_posts, all_tags=all_tags)
+                html = t.render(posts=blog_posts, all_tags=all_tags, title='Blog')
             else:
-                html = t.render()
+                html = t.render(title=ctx['title'])
         except Exception as e:
             # fall back to generic page template
             print(f"  Warning: Error rendering {slug}: {e}")
