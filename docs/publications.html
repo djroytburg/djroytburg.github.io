@@ -364,13 +364,14 @@
       // Each page begins paused; click play to start. Volume fades 0 -> quiet.
       // Plays through a small queue and loops it; the label tracks the song.
       (function(){
-        const TARGET_VOLUME = 15;   // "a bit quiet"
+        const TARGET_VOLUME = 15;   // "a bit quiet" — default per-track level
         const FADE_MS = 3500;       // ramp duration
         const QUEUE = ['ABUuggupMEo', 'BfCqDqgjI3I'];
         const META = {
-          'ABUuggupMEo': { title: 'Birdland', artist: 'Patti Smith' },
+          'ABUuggupMEo': { title: 'Birdland', artist: 'Patti Smith', vol: 24 },
           'BfCqDqgjI3I': { title: 'Is That All There Is?', artist: 'PJ Harvey' }
         };
+        function targetFor(id){ return (META[id] && META[id].vol) || TARGET_VOLUME; }
         const widget = document.getElementById('now-playing');
         const restore = document.getElementById('np-restore');
         if (!widget) return;
@@ -383,17 +384,39 @@
         const PLAY = 'M8 5v14l11-7z';
         const PAUSE = 'M6 5h4v14H6zM14 5h4v14h-4z';
 
+        const INDEX_KEY = 'music-index';
+        const TIME_KEY = 'music-time';
+
         let player = null;
         let apiPending = false;
         let wantPlay = false;       // intent that survives the API-loading gap
+        let fading = false;         // a volume ramp is in progress
         let fadeTimer = null;
-        let index = 0;
+        let saveTimer = null;
+        // Restore which track + how far in we were, so playback picks up where it left off
+        let index = parseInt(localStorage.getItem(INDEX_KEY), 10) || 0;
+        if (index < 0 || index >= QUEUE.length) index = 0;
+        let resumeTime = parseFloat(localStorage.getItem(TIME_KEY)) || 0;
+
+        function saveProgress(){
+          if (!player) return;
+          try {
+            localStorage.setItem(INDEX_KEY, String(index));
+            localStorage.setItem(TIME_KEY, String(player.getCurrentTime() || 0));
+          } catch(e){}
+        }
 
         function setPlayingUI(playing){
           icon.innerHTML = '<path fill="currentColor" d="' + (playing ? PAUSE : PLAY) + '"/>';
           toggle.setAttribute('aria-label', playing ? 'Pause music' : 'Play music');
           toggle.setAttribute('aria-pressed', playing ? 'true' : 'false');
           widget.classList.toggle('paused', !playing);
+        }
+
+        // "Playing" in the UI means audible: actually playing AND not muted.
+        function audible(){
+          try { return player && player.getPlayerState() === YT.PlayerState.PLAYING && !player.isMuted(); }
+          catch(e){ return false; }
         }
 
         function setLabel(id){
@@ -403,40 +426,77 @@
 
         function fadeIn(){
           if (!player) return;
+          fading = true;
+          removeGesture();        // we're going audible; no longer need the welcome listener
+          const target = targetFor(QUEUE[index]);
           try { player.setVolume(0); player.unMute(); } catch(e){}
           const start = Date.now();
           clearInterval(fadeTimer);
           fadeTimer = setInterval(function(){
             const t = Math.min(1, (Date.now() - start) / FADE_MS);
-            try { player.setVolume(Math.round(t * TARGET_VOLUME)); } catch(e){}
-            if (t >= 1) clearInterval(fadeTimer);
+            try { player.setVolume(Math.round(t * target)); } catch(e){}
+            if (t >= 1){ clearInterval(fadeTimer); fading = false; }
           }, 60);
+          setPlayingUI(true);
         }
 
         function playIndex(i){
           index = (i + QUEUE.length) % QUEUE.length;
+          resumeTime = 0;                 // new track starts from the top
+          localStorage.setItem(INDEX_KEY, String(index));
+          localStorage.setItem(TIME_KEY, '0');
           setLabel(QUEUE[index]);
           try { player.loadVideoById(QUEUE[index]); } catch(e){}
         }
 
+        // Welcome: the first interaction on the entry page starts playback. This
+        // is a real user gesture (like pressing play), so it works reliably where
+        // muted autoplay is blocked by browsers or ad/privacy blockers.
+        const GESTURES = ['pointerdown','keydown','touchstart','wheel'];
+        function onGesture(ev){
+          // Clicks on the widget's own buttons are handled by those buttons
+          if (ev && ev.target && ev.target.closest && ev.target.closest('#now-playing')) return;
+          if (audible()) { removeGesture(); return; }
+          wantPlay = true;
+          try {
+            if (player){ player.playVideo(); fadeIn(); }
+            else { ensurePlayer(); }   // not built yet — onReady will play (wantPlay)
+          } catch(e){ ensurePlayer(); }
+        }
+        function removeGesture(){ GESTURES.forEach(function(ev){ window.removeEventListener(ev, onGesture); }); }
+        function armGesture(){ GESTURES.forEach(function(ev){ window.addEventListener(ev, onGesture, { passive:true }); }); }
+
         function buildPlayer(){
           player = new YT.Player('yt-audio', {
-            videoId: QUEUE[0],
+            videoId: QUEUE[index],
             playerVars: {
               controls: 0, disablekb: 1, playsinline: 1, modestbranding: 1, rel: 0
             },
             events: {
               onReady: function(e){
-                if (wantPlay){ e.target.playVideo(); fadeIn(); }
+                // Programmatic (no-click) playback needs the iframe to allow autoplay
+                try { var f = e.target.getIframe(); if (f) f.setAttribute('allow', 'autoplay; encrypted-media'); } catch(err){}
+                if (resumeTime > 0){ try { e.target.seekTo(resumeTime, true); } catch(err){} }
+                if (wantPlay){
+                  e.target.playVideo();
+                  fadeIn();
+                }
+                // otherwise the player stays cued, ready for the first gesture
               },
               onStateChange: function(e){
                 if (e.data === YT.PlayerState.PLAYING){
-                  setPlayingUI(true);
                   setLabel(QUEUE[index]);
+                  setPlayingUI(audible());
+                  if (audible() && !fading){ try { player.setVolume(targetFor(QUEUE[index])); } catch(err){} }
+                  clearInterval(saveTimer);
+                  saveTimer = setInterval(saveProgress, 3000);
                 } else if (e.data === YT.PlayerState.PAUSED){
                   setPlayingUI(false);
+                  clearInterval(saveTimer);
+                  saveProgress();
                 } else if (e.data === YT.PlayerState.ENDED){
-                  playIndex(index + 1);   // advance through the queue and loop
+                  clearInterval(saveTimer);
+                  playIndex(index + 1);            // advance through the queue and loop
                 }
               }
             }
@@ -460,9 +520,11 @@
 
         toggle.addEventListener('click', function(){
           if (player){
-            if (player.getPlayerState() === YT.PlayerState.PLAYING){
+            if (audible()){
               wantPlay = false;
               player.pauseVideo();
+            } else if (player.getPlayerState() === YT.PlayerState.PLAYING){
+              fadeIn();             // playing but muted (welcome) -> just unmute & fade in
             } else {
               wantPlay = true;
               player.playVideo();
@@ -470,7 +532,7 @@
             }
           } else {
             wantPlay = true;
-            setPlayingUI(true);   // optimistic — this is a user gesture, so sound is allowed
+            setPlayingUI(true);     // optimistic — this is a user gesture, so sound is allowed
             ensurePlayer();
           }
         });
@@ -485,6 +547,21 @@
         if (localStorage.getItem('music-hidden') === '1') setHidden(true);
         hideBtn.addEventListener('click', function(){ setHidden(true); });
         restore.addEventListener('click', function(){ setHidden(false); });
+
+        // Reflect the restored track in the label, and persist position on exit
+        setLabel(QUEUE[index]);
+        window.addEventListener('pagehide', saveProgress);
+        document.addEventListener('visibilitychange', function(){ if (document.hidden) saveProgress(); });
+
+        // Welcome: on the FIRST page of a session only, pre-build the player and
+        // start it on the first interaction (a real gesture, so it's reliable).
+        // Navigating to other pages won't retrigger it, so clicking around
+        // effectively disables the autoplay.
+        if (sessionStorage.getItem('music-welcomed') !== '1' && localStorage.getItem('music-hidden') !== '1'){
+          sessionStorage.setItem('music-welcomed', '1');
+          ensurePlayer();   // pre-build so the first interaction starts instantly
+          armGesture();
+        }
       })();
     </script>
   </body>
