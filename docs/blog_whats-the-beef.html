@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dani Roytburg - Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Volkhov:ital,wght@0,400;0,700;1,400&family=Ubuntu:wght@300;400;500;700&family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="static/favicon.ico">
+    <link rel="stylesheet" href="static/style.css">
+  </head>
+  <body>
+    <nav class="topbar">
+      <a class="topbar-logo" href="index.html" title="updated June 15, 2026">
+        <img src="static/djr.svg" alt="DJR — home">
+      </a>
+      <span class="topbar-label">Under the Banner of Responsible AI</span>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle color theme" title="Toggle color theme">
+        <svg id="theme-toggle-icon" viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <!-- default icon (will be swapped by script) -->
+          <path fill="currentColor" d="M6.76 4.84l-1.8-1.79L3.17 5.84l1.79 1.79 1.8-1.79zM1 13h3v-2H1v2zm10-9h2V1h-2v3zm7.03 2.05l1.79-1.79-1.79-1.79-1.79 1.79 1.79 1.79zM17 13h3v-2h-3v2zM12 6a6 6 0 100 12 6 6 0 000-12z" />
+        </svg>
+      </button>
+    </nav>
+    <main class="container">
+      
+      
+  <nav class="toc-rail" aria-label="Reading position"></nav>
+
+  <article class="blog-post">
+    <a href="blog.html" class="back-link" style="margin-bottom: 1rem; display: inline-block;">← Back to Blog</a>
+
+    <header class="blog-post-header">
+      <h1 class="blog-post-title">Under the Banner of Responsible AI</h1>
+      
+      <p class="blog-post-subtitle">Should we unite research on AI safety and AI ethics?</p>
+      
+      <p class="blog-post-date">May 30, 2026</p>
+      
+      <div class="post-tags" style="margin-top: 12px;">
+        
+        <span class="post-tag">AI Safety</span>
+        
+        <span class="post-tag">Meta</span>
+        
+        <span class="post-tag">Ethics</span>
+        
+      </div>
+      
+    </header>
+
+    <div class="blog-post-content">
+      <p class="opening">Underneath the umbrella of "responsible AI" sit two large, well-established research areas <em>which agree on the risks of careless investment</em> in AI capabilities and seemingly <em>little else</em>.</p>
+
+<p>These two fields—"AI safety" and "AI ethics"—could together form a critical mass for confronting runaway AI adoption but remain separated by divergent motivations and rhetorical frames. This schism is <em>deeply</em> unstrategic in a world where <a href="https://eto.tech/blog/state-of-global-ai-safety-research/">safety constitutes 3% of all research activity</a> with a <a href="https://arxiv.org/abs/2512.10058">similar proportion for ethics</a>. Today, we see myriad incidents of <a href="https://www.npr.org/2025/07/09/nx-s1-5462609/grok-elon-musk-antisemitic-racist-content">social bias</a>, <a href="https://www.scworld.com/brief/reports-shed-light-on-more-openclaw-vulnerabilities">security vulnerability</a>, <a href="https://www.bloomberg.com/opinion/newsletters/2026-02-02/crustafarianism-the-ai-church-of-molt-is-not-for-humans">misaligned behavior</a> or <a href="https://www.usatoday.com/story/opinion/2026/01/24/ai-chip-manufacturing-data-centers-humanity/88215945007/">human disempowerment</a> caused by frontier models. These front-page news items draw public outrage, but often go unharnessed by disunited experts. Part of the problem comes from selective attention displayed by leaders in ethics or safety who disagree on the severity or implications of any given incident. </p>
+<div style="text-align: center;">
+    <a href="https://icfg.eu/new-icfg-report-compute-governance/">
+  <img src="static/blog/whats-the-beef/ICFG_7802_-_AAI_state_of_play_report_-_AI_safety_funding_infographic_-_1a-1024x1024.jpg" alt="AI Safety research is a drop in the bucket." width=400>
+  </a>
+  <figcaption>Sourced from International Center for Future Generations.</figcaption>
+</div>
+
+<p>Building a "big tent" can help bridge this gap and direct public attention towards tractable guardrails. Some motivations: </p>
+<ol>
+<li><strong>Critical Mass</strong>: in the status quo, it appears that collective social pressure is a proximate path to meaningful restraints on capabilities-at-all-cost development. We need the <em>complementary skills</em>, <em>diversity of audiences</em> and <em>raw numbers</em> from those in "ethics" and "safety" to effectuate this pressure.</li>
+<li><strong>Regulatory Consistency</strong>: <a href="https://csrc.nist.gov/projects/risk-management/about-rmf">existing</a> <a href="https://www.unesco.org/en/articles/unescos-recommendation-ethics-artificial-intelligence-key-facts?hub=32618">regulatory</a> <a href="https://artificialintelligenceact.eu/">artifacts</a>, guided by voices from one or the other community, show divergent priorities for what constitutes "high-risk" in deployments. As this becomes codified in hard law, so too will discordant defintions of "alignment".</li>
+<li><strong>Methodological Convergence</strong>: there are redundant bodies of research happening in parallel between communities which cross-collaboration could streamline, accelerate, and make normatively robust to critiques which impede the credibility of both fields. </li>
+</ol>
+<p>I will not enumerate my thoughts on these points in this post, as it has gotten quite long as is. Instead, this post serves as my impression of both of these communities having interfaced with them extensively. I'll defer my more interpretive takes to a later post.</p>
+<p>This serves a call to integrate the two fields. Common goals, technical tools, and semantics for "responsible AI"<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> enable a critical mass that draws from the strengths of "ethics" and "safety" researchers while ensuring that we say the same words when we mean the same things. This is not to say that these fields should abandon their roots and original goals. 
+The intellectual traditions and founding principles are the lifeblood for either community, and should be respected and preserved. 
+But we should, at the very least, build a common lexicon, borrow each other's methods, converge on <em>some</em> baseline principles, and generally make a concerted effort to unite our fractured audiences.</p>
+<p>I will roughly sketch impressions of "AI safety", "AI ethics", and the gap between them; for a more careful treatment, check out <a href="https://arxiv.org/abs/2512.10058">our survey and network study</a>. The bulk of this post will (i) show that these fields are not so different; (ii) justify why we need to work together, and; (iii) describe ways <em>you</em> can change the status quo. </p>
+<h3 id="a-quick-disclaimer">a quick disclaimer</h3>
+<ol>
+<li><strong>Frontier labs are <em>not</em> the cause of such a split</strong>. It goes without saying that these groups produce or sponsor some of the most impactful and precise research in both areas.</li>
+<li><strong>The gap isn't personal</strong>. Arguments below suggesting what made AI ethics and safety so distinct from one another should not be taken as comments on individual research. Network effects are <em>structural</em>, and do not make assumptions on the preferences of individuals subject to those effects.</li>
+</ol>
+<h1 id="i-two-fields-a-chasm-and-a-narrow-bridge">(i) two fields, a chasm, and a narrow bridge.</h1>
+<h2 id="1-a-sketch-of-ai-safety">(1) a sketch of ai safety</h2>
+<p>The AI Safety paradigm begins, in large part, with the work of existential risk mitigation and effective altruism. In particular, <em>Superintelligence</em> by Nick Bostrom articulates many possible paths to catastrophic risks from superintelligence, stemming from some combination of loss of control, misuse from human actors, or value-misaligned intelligence. The task of "superalignment", then, requires finding mechanisms which guide an unforeseen superintelligent system in line with human values. </p>
+<p>While this task appears intractable, existential risk reduction suggests that even incremental efforts at superalignment yield such high <em>expected utility</em> that they justify immediate, urgent action. </p>
+<p>This framework of altruistic ends creates an interest convergence with many experts in machine learning, mathematics and software. For one, existential AI risk implicitly reinforces the legitimacy of these experts by suggesting that they might invent and train a superintelligent system<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>. </p>
+<p>For another, AI safety endows technical progress with <em>moral authority</em> where it is otherwise associated with anti-social goals like financial success, power or status. In turn, alignment is bidirectional in its faith in technical progress -- <a href="https://darioamodei.com/machines-of-loving-grace">"getting it right"</a> would endow humanity with radical transformations in well-being, prosperity, and social stability. </p>
+<p>It comes as no surprise, then, that a significant portion of the modern AI safety community has consolidated around adopting <em>technical approaches</em><sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup> to monitor, attribute, and unlearn the potentially detrimental behaviors of modern foundation models (especially LLMs).</p>
+<p>It is important to note that AI Safety is heavily interlinked with "AI Security", which concerns technical machine learning research on subjects like user privacy, jailbreaking, agentic security, and other non-existential risks. </p>
+<h2 id="2-a-sketch-of-ai-ethics">(2) a sketch of ai ethics</h2>
+<p>In contrast against the relatively canonicalized history of AI Safety, there exists an older, more decentralized body of work which also contends with the harms of artificial intelligence. </p>
+<p>At the intersection of fields such as sociology, science and technology studies (STS)<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>, human-computer interaction and social choice theory, <strong>AI Ethics</strong> addresses <em>present-day</em> risks of artificial intelligence. These risks include the extrapolation of existing inequalities from data, the exploitative and exclusionary practices of developers, and especially real-world settings where minoritized groups are denied opportunity, surveilled, or targetted using AI. </p>
+<p>What the future looks like matters less here. These dangers are already visible and urgent, regardless of future capabilities. If anything, concrete domain adoption -- not theory or speculation -- is the relevant scaling law. </p>
+<p>Ethical failures in AI often demand societal -- not exclusively technical -- solutions. While AI Ethics has produced a substantial body of research on methods for algorithmic fairness and transparency, many would contend that such solutions face resistance in adoption, especially if they trade off with commercial goals. Many in AI Ethics see "technosolutionism" itself as a cultural device which obscures accountability for major stakeholders. </p>
+<p>Instead, progress is made by securing governance of private and public institutions, releasing system-wide audits, conducting field research on AI laborers or "users" (who are the "users" of an algorithm which allocates affordable housing or police presence?), or rebalancing objectives in a deployed algorithm. </p>
+<p>Some (certainly not all) important figures in AI Ethics: Timnit Gebru (founder of the Distributed AI Research Institute), Joy Buolamwini (founder of the Algorithmic Justice League), Sasha Luccioni, Maarten Sap, Margaret Mitchell, Ruha Benjamin.</p>
+<p>The principles of AI Ethics are often summarized with the acronym <a href="https://www.sciencedirect.com/science/article/pii/S2666920X23000310"><strong>FATE</strong></a>: <strong>F</strong>airness, <strong>A</strong>ccountability, <strong>T</strong>ransparency and <strong>E</strong>xplainability.</p>
+<h2 id="3-the-gap-in-between">(3) the gap in between</h2>
+<p>The lion's share of overall research on "responsible AI" can be found within one of these two camps. It's not obvious why these groups struggle to collaborate. </p>
+<p>In principle, research on mechanistic interpretability is the direct counterpart of Explainability in FATE, enabling us to localize bias in language models. Furthermore, bias against social groups is generally considered a <em>misaligned behavior</em> which Safety researchers often target in their work. </p>
+<p>In the other direction, regulatory expertise is a necessity to implement protocols for responsible scaling, while field studies ground capability forecasts in realistic, user-facing contexts. Both fields have much to offer one another in methodology!</p>
+<p>That said, AI Ethics and Safety feel orthogonal to one another. AI Safety proposes algorithmic methods to interpret, steer and contain superintelligent systems; AI Ethics proposes social interventions and audits of harms from today's systems. </p>
+<p>Crucially, they are <em>worried about different things</em>. You might think "great, let these groups do their own thing and maybe sometimes share resources/people/ideas". I think this too! But the philsophies compete by definition. Threat models imply triage, as they justify which risks are worth rectifying (and, by omission, which are not). </p>
+<p><strong>At a conceptual level, the threshold is not <em>"are these techniques interoperable"<em>, but </em>"if the whole world agrees with my risk model, could we accommodate their risks?"</em></strong></p>
+<p>It seems like both groups have agreed upon mutual exclusivity. Why?</p>
+<h3 id="a-look-outside-safety-ethics">(a) look outside! (safety ⟹ ethics)</h3>
+<p>Obviously, progress on generative models has been and will continue to be a fundamental force transforming our economy, society, and nearly all aspects of life. It appears ever-more likely that humanity will either build a general intelligence which matches its greatest capabilities, possibly within the decade, with automated researchers potentially ushering in a super-intelligent system. </p>
+<p>Early on, many researchers in AI Ethics <a href="STOCHASTIC_PARROTS">underestimated the speed of progress</a>. Many vocal critics dismissed the possibility of transformative capabilities as a scheme to foster greater investment in capital. </p>
+<p>Such a dismissal appears fragile in retrospect, and it casts doubt on how those in AI Ethics plan to shape their philosophy if we do see transformative capabilities. The problems of tomorrow may not at all resemble the problems of today, including problems of distributive bias and exploitation. So why would these roups isolate distribute risks. There are, potentially, catastrophic outcomes from rapid development of artificial intelligence. These outcomes possess a non-trivial probability mass. </p>
+<p>From that point of view, it would appear that addressing quotidian risk is... well... quotidian. Akin to burying one's head in the sand.</p>
+<h3 id="b-the-scoping-argument-safety-ethics">(b) the scoping argument (safety ⟹ ethics)</h3>
+<p>Concretely, AI Ethics research has a scoping problem. Principles like Fairness, Accountability, Transparency and Ethics are neverending challenges; there is no singular point at which these are possible to accomplish. How would you know once a system is ethical? </p>
+<p>The field has taken a diagnostic bend, with an emphasis on documenting labor exploitation, risk reports, and audits. Due to the sociotechnical nature of this work, quantification and reproducibiliy become more difficult. These make improvements harder to scope, relative to safety.</p>
+<h3 id="c-the-distraction-argument-ethics-safety">(c) the distraction argument (ethics ⟹ safety)</h3>
+<p>Long-termist risk profiles place distributive harms on the backburner for as long as we can preserve human life and flourishing for some. </p>
+<p>A utilitarian calculus suggests that any effort to remedy today's harms trades off with preparation for tomorrow's bigger threats. This argument is not new; it rehashes the <a href="LINK_NEEDED">Repugnant Conclusion</a> critique of rationalism and before that the rationale of <a href="LINK_NEEDED">deontology</a>.</p>
+<p>Today's problems are already here, to be dealt with by the masses today, tomorrow and ten years out. Catastrophic risk will continue to loom over the future even while things "go well", sapping oxygen from distributive harms, especially if AI Safety advocates do not update their risk profiles when things "go well". </p>
+<p>The result is a not-so-flourishing society which manages utopia for some but not for all. Many in AI Ethics argue that leaders in AI Safety would be ok with such a future (see TESCREALism below).</p>
+<p>This trade-off argument is familiar to those field-building on university campuses, as discussion of "prosaic risk" is assumed to attract students otherwise repelled by existential risk.</p>
+<h3 id="d-against-singularity-ethics-safety">(d) against singularity (ethics ⟹ safety)</h3>
+<p>AI Safety often assumes a "hard takeoff" leading up to a point of "Singularity"<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup>. Depending on the success of our alignment and control efforts up to this hard takeoff, the hard takeoff will either be messianic or apocalyptic innature.</p>
+<p>Those in AI Ethics reject this all-or-nothing framing. They foresee a "hard takeoff" contingent on a series of intremediate decisions which happen over a longer timeframe. Even after a hard takeoff, there's no reason that a higher intelligence trained from human data and biases would naturally shed those behaviors. There is no "Judgement Day" to prepare for, so to speak. </p>
+<h1 id="ii-the-schism">(ii) the schism</h1>
+<p>These tensions are more than conceptual. They have played out over the past years, culminating in homophilous social networks in research, high-profile clashes online, and funding choices. The result is the deeply fragmented ecosystem we live in, where neither group carries the staying power to influence the forces that be.</p>
+<h2 id="1-the-tescreal-bundle">(1) the tescreal bundle</h2>
+<p>Timnit Gebru has this idea of "TESCREAL bundle": Transhumanism, E?, Rationalism, Effective Altruism, Longtermism. This work argues that accelerationism and existential safety mutually re-inforce one another: the concepts are mutually compatible, leaders run in the same circles and share power, and that existential risk is a "luxury problem" which not only marginalizes minoritized groups but systematically ignores their contributions to conversations on safety. On the last point, Gebru forwards the "distraction argument" as evidence of the eugenicist roots of AI Safety. </p>
+<p>My take, if you care: </p>
+<p>1) The utopia espoused by AI Safety advocates is rosy; the assumption that the future is either annihlation or total flourishing makes sense only to someone who has never faced systemic adversity on the basis of their socioeconomic status. In light of critical wealth gaps and other externalities of unchecked capitalism, I can't see the path from today's maddening wealth gaps and neglected social externalities to tomorrow's universal, equitable "flourishing". Maybe for the lucky few with Anthropic secondiaries? Enlighten me.</p>
+<p>2) AI Safety communities really struggle to acknowledge their diversity crisis, prompting questions of what "alignment" looks like with such drastic underrepresentation (indeed, <a href="CITE">it's worse</a> than the <a href="CITE">general software industry</a>, <a href="CITE">AI research</a>, and other fields that struggle with diversity). This is an issue not just with AI Safety's fieldbuilding protocols, but with the values and assumptions of its leading voices.</p>
+<p>3) AI Safety advocates <em>do not</em>, in fact, hold the power which Gebru ascribes to them. They are frequently branded as Luddites in politics and public discourse and shut out from venture investment. The bulk of funding in safety research circulates internally, and technical safety researchers work tirelessly when they could easily accumulate capital elsewhere. </p>
+<p>4) Describing AI safety as a front for accelerationism feels callous. This community is clearly not living off of technocapital: they are resisting it. The TESCREAL bundle neglects the <em>other</em> side of the coin, where catastrophic risk becomes highly plausible and humanity struggles to curb misuse or align itself with the interests of superintelligent system. Technocrats dismiss this as fearmongering; we do not. How ignoble, self-righteous and self-serving.</p>
+<p>Agree or disagree, one thing is for sure: this article remains an open wound for both communities. with <a href="ev">EVIDENCE</a>.</p>
+<h2 id="2-a-fragmented-research-landscape">(2) a fragmented research landscape</h2>
+<p>It is easy to see the implications of this schism when looking at the collaboration networks at AI research. In our paper, we use some <a href="https://arxiv.org/abs/2512.10058">standard metrics</a> in network science to measure how these gaps look over the past five years (2020-2025) of collaboration data at NeurIPS, ICLR, AIES, SaTML, and your other usual suspects. </p>
+<p>We found that papers on AI ethics rarely had common authors with papers on safety (83.1% homophily), which in the context of CS/AI research networks resembles two non-overlapping fields like computational biology and creative writing more than two generally related fields (i.e. NLP and machine learning). Clearly, safety/ethics are more than just "generally related!"</p>
+<p>This suggests that there are indeed genuine clustering effects downstream of the social schism. Both fields grow their ideas in isolation with extremely low cross-collaboration. </p>
+<p>Worse yet, safety-ethics connections are <strong>extremely tenuous</strong>. Nearly all shortest paths between these researchers passes through a little over 200 central nodes. Without these interdisciplinary few (leaders of large, non-specific labs like Yejin Choi or Jiawei Han), <em>the top 1% of all authors would be completely cut off</em> by discipline.</p>
+<p>These places also have their own fora for sharing ideas. For AI Ethics, traditional academic venues like AIES, FAccT, and CHI serve as common ground; for AI Safety, digital ecosystems built over years like LessWrong are more legible venues. Earning "status" in one context does not transfer to the "status" of the other.</p>
+<p>As we note in the paper: </p>
+<blockquote>
+<p>The consequences of this fragmentation extend beyond academia into global policy, creating a fractured approach to governance where our most pressing risks are treated as competing priorities. Each community, operating in isolation, exports an incomplete vision of “alignment” to policymakers.</p>
+</blockquote>
+<h2 id="3-the-waning-relevance-of-ai-ethics">(3) the waning relevance of ai ethics?</h2>
+<p>One holistic thought is that since working on this network study in late 2025, safety has become a salient, kitchen table issue while questions of bias have been left behind. Some of this comes from the pre-commitments made by many prominent voices in AI Ethics, tying their beliefs to a denial of growth in capabilities. Despite this bet seeming far-fetched today, the questions posed by this community still ought to bear on risk calculi, as argued in <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6873005">this work</a>.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>One important question is what to call such a unified field. Open to feedback?&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>In recent years, of course, this seems less far-fetched than ever. For more analysis on the feedback loop between existential AI safety and capability development, consider <a href="https://www.dair-institute.org/projects/tescreal/">"The TESCREAL Bundle"</a> by Timnit Gebru.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p>This includes advocating for legislation which mandates the use of such tools, or managing operations at the many organizations which facilitate and upskill such talent.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p><a href="https://en.wikipedia.org/wiki/Science_and_technology_studies">Science and technology studies</a> understands technology as an <em>object of study</em>, using historical methods to situate development against societal background.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:5">
+<p>To be precise, <a href="TRANSHUMANIST_LINK">the Singularity</a> is the point at which transhumanists say humanity will be integrated with artificial bionics, including but not limited to intelligence.&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+    </div>
+  </article>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.body.classList.add('blog-post-page');
+
+      const article = document.querySelector('.blog-post');
+      const content = document.querySelector('.blog-post-content');
+      if (!content) return;
+
+      // ───────────────────────────────────────────────────────────────────
+      // 1. Table of contents + left reading rail
+      // ───────────────────────────────────────────────────────────────────
+      const headings = Array.from(content.querySelectorAll('h1, h2, h3'));
+
+      function slugify(text) {
+        return text.toLowerCase().trim()
+          .replace(/[^\w\s-]/g, '')
+          .replace(/\s+/g, '-')
+          .replace(/-+/g, '-');
+      }
+
+      // Ensure every heading has a unique id to anchor to
+      const usedIds = {};
+      headings.forEach(function(h) {
+        let id = h.id || slugify(h.textContent);
+        if (!id) id = 'section';
+        if (usedIds[id]) { usedIds[id]++; id = id + '-' + usedIds[id]; }
+        else { usedIds[id] = 1; }
+        h.id = id;
+      });
+
+      if (headings.length >= 2) {
+        // Build the nested list once, reuse markup for both TOC and rail
+        function buildList(forRail) {
+          const ul = document.createElement('ul');
+          headings.forEach(function(h) {
+            const lvl = parseInt(h.tagName.substring(1), 10);
+            const li = document.createElement('li');
+            li.className = 'lvl-' + lvl;
+            const a = document.createElement('a');
+            a.href = '#' + h.id;
+            if (forRail) {
+              const span = document.createElement('span');
+              span.className = 'toc-rail-text';
+              span.textContent = h.textContent;
+              a.appendChild(span);
+              a.dataset.target = h.id;
+            } else {
+              a.textContent = h.textContent;
+            }
+            a.addEventListener('click', function(e) {
+              e.preventDefault();
+              const target = document.getElementById(h.id);
+              if (target) {
+                const y = target.getBoundingClientRect().top + window.pageYOffset - 56;
+                window.scrollTo({ top: y, behavior: 'smooth' });
+              }
+            });
+            li.appendChild(a);
+            ul.appendChild(li);
+          });
+          return ul;
+        }
+
+        // Top TOC, inserted right after the header
+        const toc = document.createElement('nav');
+        toc.className = 'post-toc';
+        toc.setAttribute('aria-label', 'Table of contents');
+        const tocTitle = document.createElement('p');
+        tocTitle.className = 'post-toc-title';
+        tocTitle.textContent = 'Contents';
+        toc.appendChild(tocTitle);
+        toc.appendChild(buildList(false));
+        content.parentNode.insertBefore(toc, content);
+
+        // Left reading rail
+        const rail = document.querySelector('.toc-rail');
+        rail.appendChild(buildList(true));
+        const railLinks = Array.from(rail.querySelectorAll('a'));
+
+        // Show the rail once the reader has scrolled past the intro
+        function updateRailVisibility() {
+          rail.classList.toggle('visible', window.pageYOffset > 320);
+        }
+
+        // Scroll spy: highlight the heading nearest the top of the viewport
+        function updateActive() {
+          let activeId = headings[0].id;
+          for (let i = 0; i < headings.length; i++) {
+            if (headings[i].getBoundingClientRect().top <= 90) {
+              activeId = headings[i].id;
+            } else {
+              break;
+            }
+          }
+          railLinks.forEach(function(a) {
+            a.classList.toggle('active', a.dataset.target === activeId);
+          });
+        }
+
+        let ticking = false;
+        window.addEventListener('scroll', function() {
+          if (!ticking) {
+            window.requestAnimationFrame(function() {
+              updateRailVisibility();
+              updateActive();
+              ticking = false;
+            });
+            ticking = true;
+          }
+        }, { passive: true });
+        updateRailVisibility();
+        updateActive();
+      }
+
+      // ───────────────────────────────────────────────────────────────────
+      // 2. Footnotes — margin sidenotes that follow their reference, with a
+      //    tooltip fallback when the viewport is too narrow for a margin.
+      // ───────────────────────────────────────────────────────────────────
+      const footnoteRefs = Array.from(document.querySelectorAll('a.footnote-ref'));
+
+      function getFootnoteHTML(ref) {
+        const id = ref.getAttribute('href').substring(1);
+        const el = document.getElementById(id);
+        if (!el) return null;
+        const para = el.querySelector('p');
+        if (para) {
+          const clone = para.cloneNode(true);
+          const backref = clone.querySelector('.footnote-backref');
+          if (backref) backref.remove();
+          return clone.innerHTML.trim();
+        }
+        return el.textContent.replace(/↩$/, '').trim();
+      }
+
+      // How much room is to the right of the article column?
+      function rightRoom() {
+        const rect = article.getBoundingClientRect();
+        return window.innerWidth - rect.right;
+      }
+
+      let mode = null; // 'sidenotes' | 'tooltip'
+      let tooltip = null;
+      let pinned = null;
+
+      function clearSidenotes() {
+        article.querySelectorAll('.sidenote').forEach(function(n) { n.remove(); });
+      }
+
+      function renderSidenotes() {
+        clearSidenotes();
+        const articleTop = article.getBoundingClientRect().top + window.pageYOffset;
+        let lastBottom = 0;
+        footnoteRefs.forEach(function(ref) {
+          const html = getFootnoteHTML(ref);
+          if (html === null) return;
+          const note = document.createElement('aside');
+          note.className = 'sidenote';
+          const numText = (ref.textContent || '').replace(/[\[\]]/g, '');
+          note.innerHTML = '<span class="sidenote-num">' + numText + '.</span>' + html;
+          article.appendChild(note);
+
+          // Vertical position: align top with the reference, avoid overlap
+          const refTop = ref.getBoundingClientRect().top + window.pageYOffset - articleTop;
+          let top = Math.max(refTop, lastBottom);
+          note.style.top = top + 'px';
+          lastBottom = top + note.offsetHeight + 16;
+
+          // Hover highlights the pair
+          function on() { note.classList.add('active'); ref.classList.add('active'); }
+          function off() { note.classList.remove('active'); ref.classList.remove('active'); }
+          note.addEventListener('mouseenter', on);
+          note.addEventListener('mouseleave', off);
+          ref.parentElement.addEventListener('mouseenter', on);
+          ref.parentElement.addEventListener('mouseleave', off);
+        });
+      }
+
+      function ensureTooltip() {
+        if (tooltip) return;
+        tooltip = document.createElement('div');
+        tooltip.className = 'footnote-tooltip';
+        document.body.appendChild(tooltip);
+      }
+
+      function positionTooltip(el) {
+        const rect = el.getBoundingClientRect();
+        let left = rect.left;
+        if (left + 400 > window.innerWidth) left = window.innerWidth - 420;
+        if (left < 10) left = 10;
+        tooltip.style.left = left + 'px';
+        tooltip.style.top = (rect.bottom + 10) + 'px';
+      }
+
+      function enableTooltips() {
+        ensureTooltip();
+        footnoteRefs.forEach(function(ref) {
+          const html = getFootnoteHTML(ref);
+          if (html === null) return;
+          const sup = ref.parentElement;
+          sup.addEventListener('mouseenter', function() {
+            if (pinned === ref) return;
+            tooltip.innerHTML = html;
+            tooltip.classList.add('visible');
+            positionTooltip(sup);
+          });
+          sup.addEventListener('mouseleave', function() {
+            if (pinned !== ref) tooltip.classList.remove('visible');
+          });
+          ref.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (pinned === ref) {
+              pinned = null;
+              tooltip.classList.remove('visible', 'pinned');
+            } else {
+              pinned = ref;
+              tooltip.innerHTML = html;
+              tooltip.classList.add('visible', 'pinned');
+              positionTooltip(sup);
+            }
+          });
+        });
+        document.addEventListener('click', function(e) {
+          if (pinned && !e.target.closest('sup') && !e.target.closest('.footnote-tooltip')) {
+            pinned = null;
+            tooltip.classList.remove('visible', 'pinned');
+          }
+        });
+      }
+
+      function applyFootnoteMode() {
+        const want = rightRoom() >= 230 ? 'sidenotes' : 'tooltip';
+        if (want === mode) {
+          if (mode === 'sidenotes') renderSidenotes(); // reflow on resize
+          return;
+        }
+        mode = want;
+        if (mode === 'sidenotes') {
+          if (tooltip) tooltip.classList.remove('visible', 'pinned');
+          renderSidenotes();
+        } else {
+          clearSidenotes();
+          enableTooltips();
+        }
+      }
+
+      if (footnoteRefs.length) {
+        applyFootnoteMode();
+        let resizeTimer = null;
+        window.addEventListener('resize', function() {
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(applyFootnoteMode, 150);
+        });
+      }
+    });
+  </script>
+
+    </main>
+    <footer class="footer">
+      <small>Last updated June 15, 2026. Design inspired by <a href="https://841.io/">Fernando Diaz</a>'s lovely home page.</small>
+    </footer>
+    <script>
+      // Theme toggle: remembers choice in localStorage, falls back to prefers-color-scheme
+      (function(){
+        const toggle = document.getElementById('theme-toggle');
+        const icon = document.getElementById('theme-toggle-icon');
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const stored = localStorage.getItem('theme');
+        const isDark = stored ? stored === 'dark' : prefersDark;
+
+        function applyTheme(dark){
+          document.documentElement.classList.toggle('dark', dark);
+          // swap icon: sun for light, moon for dark
+          if(dark){
+            icon.innerHTML = '<path fill="currentColor" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>';
+            toggle.setAttribute('aria-pressed','true');
+          } else {
+            // simpler sun: filled circle with rays for better legibility
+            icon.innerHTML = '<circle cx="12" cy="12" r="4" fill="currentColor"/>' +
+                              '<g stroke="currentColor" stroke-width="1.25" stroke-linecap="round">' +
+                                '<line x1="12" y1="1" x2="12" y2="4"/>' +
+                                '<line x1="12" y1="20" x2="12" y2="23"/>' +
+                                '<line x1="1" y1="12" x2="4" y2="12"/>' +
+                                '<line x1="20" y1="12" x2="23" y2="12"/>' +
+                                '<line x1="4.2" y1="4.2" x2="6.3" y2="6.3"/>' +
+                                '<line x1="17.7" y1="17.7" x2="19.8" y2="19.8"/>' +
+                                '<line x1="4.2" y1="19.8" x2="6.3" y2="17.7"/>' +
+                                '<line x1="17.7" y1="6.3" x2="19.8" y2="4.2"/>' +
+                              '</g>';
+            toggle.setAttribute('aria-pressed','false');
+          }
+        }
+
+        applyTheme(isDark);
+
+        toggle.addEventListener('click', function(){
+          const nowDark = !document.documentElement.classList.contains('dark');
+          applyTheme(nowDark);
+          localStorage.setItem('theme', nowDark ? 'dark' : 'light');
+        });
+      })();
+    </script>
+  </body>
+  </html>

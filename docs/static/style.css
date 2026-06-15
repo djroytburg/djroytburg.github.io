@@ -121,6 +121,7 @@ body{
 
 /* theme toggle button */
 .theme-toggle{
+  pointer-events:auto; /* re-enable clicks; .topbar sets pointer-events:none */
   background:transparent;
   border:0;
   color:var(--muted);
