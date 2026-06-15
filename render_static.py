@@ -510,6 +510,19 @@ def copy_pdfs():
         print(f'Copied pdfs/ to {dest}')
 
 
+# Standalone HTML pages copied verbatim (NOT through Jinja) into docs/.
+# These are reachable by direct URL but intentionally not linked from the site.
+STANDALONE_PAGES = ['explorer.html']
+
+
+def copy_standalone():
+    for name in STANDALONE_PAGES:
+        src = os.path.join(TEMPLATES, name)
+        if os.path.exists(src):
+            shutil.copy2(src, os.path.join(OUT, name))
+            print(f'Copied standalone page {name} (unlisted)')
+
+
 def get_last_commit_date():
     try:
         result = subprocess.run(
@@ -605,6 +618,7 @@ def main():
     copy_static()
     copy_pdfs()
     render_templates()
+    copy_standalone()
     print('Static site rendered to', OUT)
 
 
