@@ -64,6 +64,13 @@
           <path fill="currentColor" d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.6-4.04-1.6-.55-1.4-1.34-1.77-1.34-1.77-1.1-.75.08-.74.08-.74 1.22.09 1.86 1.26 1.86 1.26 1.08 1.86 2.84 1.33 3.54 1.02.11-.8.42-1.33.76-1.64-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.66 1.65.24 2.87.12 3.17.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.62-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.22.7.82.58A12 12 0 0 0 12 .5z"/>
         </svg>
       </a>
+
+      <a class="social-link" href="https://x.com/DJROYTBURG" target="_blank" rel="noopener" aria-label="X (Twitter)">
+        <!-- X (formerly Twitter) logo -->
+        <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.657l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </svg>
+      </a>
     </div>
   </header>
 
@@ -83,6 +90,34 @@
     <footer class="footer">
       <small>Last updated June 15, 2026. Design inspired by <a href="https://841.io/">Fernando Diaz</a>'s lovely home page.</small>
     </footer>
+
+    <!-- Now Playing widget. data-video = YouTube id; swap for an <audio> source later if self-hosting. -->
+    <div id="now-playing" class="now-playing paused">
+      <button id="np-toggle" class="np-toggle" aria-label="Play music" aria-pressed="false">
+        <svg id="np-icon" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+          <path fill="currentColor" d="M8 5v14l11-7z"/>
+        </svg>
+      </button>
+      <span class="np-eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <div class="np-text">
+        <span class="np-label">Now Playing</span>
+        <span class="np-title" id="np-title">Birdland</span>
+        <span class="np-artist" id="np-artist">Patti Smith</span>
+      </div>
+      <button id="np-hide" class="np-hide" aria-label="Hide player" title="Hide player">
+        <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true">
+          <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+    <button id="np-restore" class="np-restore" aria-label="Show music player" title="Music" hidden>
+      <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+        <path fill="currentColor" d="M9 18V6l10-2v12"/>
+        <circle cx="6.5" cy="18" r="2.5" fill="currentColor"/>
+        <circle cx="16.5" cy="16" r="2.5" fill="currentColor"/>
+      </svg>
+    </button>
+    <div id="yt-audio" aria-hidden="true" style="position:absolute;left:-9999px;width:0;height:0;overflow:hidden"></div>
     <script>
       // Theme toggle: remembers choice in localStorage, falls back to prefers-color-scheme
       (function(){
@@ -122,6 +157,136 @@
           applyTheme(nowDark);
           localStorage.setItem('theme', nowDark ? 'dark' : 'light');
         });
+      })();
+    </script>
+
+    <script>
+      // Now Playing: a hidden YouTube IFrame player with a custom UI.
+      // Starts PAUSED and silent — never plays muted, no cross-page persistence.
+      // Each page begins paused; click play to start. Volume fades 0 -> quiet.
+      // Plays through a small queue and loops it; the label tracks the song.
+      (function(){
+        const TARGET_VOLUME = 15;   // "a bit quiet"
+        const FADE_MS = 3500;       // ramp duration
+        const QUEUE = ['ABUuggupMEo', 'BfCqDqgjI3I'];
+        const META = {
+          'ABUuggupMEo': { title: 'Birdland', artist: 'Patti Smith' },
+          'BfCqDqgjI3I': { title: 'Is That All There Is?', artist: 'PJ Harvey' }
+        };
+        const widget = document.getElementById('now-playing');
+        const restore = document.getElementById('np-restore');
+        if (!widget) return;
+
+        const toggle = document.getElementById('np-toggle');
+        const hideBtn = document.getElementById('np-hide');
+        const icon = document.getElementById('np-icon');
+        const titleEl = document.getElementById('np-title');
+        const artistEl = document.getElementById('np-artist');
+        const PLAY = 'M8 5v14l11-7z';
+        const PAUSE = 'M6 5h4v14H6zM14 5h4v14h-4z';
+
+        let player = null;
+        let apiPending = false;
+        let wantPlay = false;       // intent that survives the API-loading gap
+        let fadeTimer = null;
+        let index = 0;
+
+        function setPlayingUI(playing){
+          icon.innerHTML = '<path fill="currentColor" d="' + (playing ? PAUSE : PLAY) + '"/>';
+          toggle.setAttribute('aria-label', playing ? 'Pause music' : 'Play music');
+          toggle.setAttribute('aria-pressed', playing ? 'true' : 'false');
+          widget.classList.toggle('paused', !playing);
+        }
+
+        function setLabel(id){
+          const m = META[id];
+          if (m){ titleEl.textContent = m.title; artistEl.textContent = m.artist; }
+        }
+
+        function fadeIn(){
+          if (!player) return;
+          try { player.setVolume(0); player.unMute(); } catch(e){}
+          const start = Date.now();
+          clearInterval(fadeTimer);
+          fadeTimer = setInterval(function(){
+            const t = Math.min(1, (Date.now() - start) / FADE_MS);
+            try { player.setVolume(Math.round(t * TARGET_VOLUME)); } catch(e){}
+            if (t >= 1) clearInterval(fadeTimer);
+          }, 60);
+        }
+
+        function playIndex(i){
+          index = (i + QUEUE.length) % QUEUE.length;
+          setLabel(QUEUE[index]);
+          try { player.loadVideoById(QUEUE[index]); } catch(e){}
+        }
+
+        function buildPlayer(){
+          player = new YT.Player('yt-audio', {
+            videoId: QUEUE[0],
+            playerVars: {
+              controls: 0, disablekb: 1, playsinline: 1, modestbranding: 1, rel: 0
+            },
+            events: {
+              onReady: function(e){
+                if (wantPlay){ e.target.playVideo(); fadeIn(); }
+              },
+              onStateChange: function(e){
+                if (e.data === YT.PlayerState.PLAYING){
+                  setPlayingUI(true);
+                  setLabel(QUEUE[index]);
+                } else if (e.data === YT.PlayerState.PAUSED){
+                  setPlayingUI(false);
+                } else if (e.data === YT.PlayerState.ENDED){
+                  playIndex(index + 1);   // advance through the queue and loop
+                }
+              }
+            }
+          });
+        }
+
+        function ensurePlayer(){
+          if (player) return;
+          if (window.YT && window.YT.Player){ buildPlayer(); return; }
+          if (apiPending) return;
+          apiPending = true;
+          const prev = window.onYouTubeIframeAPIReady;
+          window.onYouTubeIframeAPIReady = function(){
+            if (typeof prev === 'function') prev();
+            buildPlayer();
+          };
+          const tag = document.createElement('script');
+          tag.src = 'https://www.youtube.com/iframe_api';
+          document.head.appendChild(tag);
+        }
+
+        toggle.addEventListener('click', function(){
+          if (player){
+            if (player.getPlayerState() === YT.PlayerState.PLAYING){
+              wantPlay = false;
+              player.pauseVideo();
+            } else {
+              wantPlay = true;
+              player.playVideo();
+              fadeIn();
+            }
+          } else {
+            wantPlay = true;
+            setPlayingUI(true);   // optimistic — this is a user gesture, so sound is allowed
+            ensurePlayer();
+          }
+        });
+
+        // Hide / restore — only this preference persists across pages
+        function setHidden(hidden){
+          widget.hidden = hidden;
+          restore.hidden = !hidden;
+          if (hidden) localStorage.setItem('music-hidden', '1');
+          else localStorage.removeItem('music-hidden');
+        }
+        if (localStorage.getItem('music-hidden') === '1') setHidden(true);
+        hideBtn.addEventListener('click', function(){ setHidden(true); });
+        restore.addEventListener('click', function(){ setHidden(false); });
       })();
     </script>
   </body>
