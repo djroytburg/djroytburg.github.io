@@ -442,10 +442,11 @@ def load_blog_posts():
         
         metadata, body = parse_blog_post_metadata(content)
         
-        # Convert markdown to HTML with footnotes support
+        # Convert markdown to HTML with footnotes + heading anchors support.
+        # 'toc' assigns stable id attributes to headings so the TOC/rail can link.
         html_content = markdown.markdown(
-            body, 
-            extensions=['fenced_code', 'codehilite', 'footnotes']
+            body,
+            extensions=['fenced_code', 'codehilite', 'footnotes', 'toc']
         )
         
         # Create slug from filename
@@ -464,7 +465,9 @@ def load_blog_posts():
         tags = [t.strip() for t in tags_str.split(',') if t.strip()]
         all_tags.update(tags)
         
-        if metadata.get('draft', '').lower() == 'true':
+        # Drafts are excluded by default. Set RENDER_DRAFTS=1 to preview them
+        # locally (CI never sets it, so docs/ stays clean in production).
+        if metadata.get('draft', '').lower() == 'true' and not os.environ.get('RENDER_DRAFTS'):
             continue
 
         post = {

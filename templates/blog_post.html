@@ -3,9 +3,11 @@
 {% block page_label %}{{ post.title }}{% endblock %}
 
 {% block content %}
+  <nav class="toc-rail" aria-label="Reading position"></nav>
+
   <article class="blog-post">
     <a href="blog.html" class="back-link" style="margin-bottom: 1rem; display: inline-block;">← Back to Blog</a>
-    
+
     <header class="blog-post-header">
       <h1 class="blog-post-title">{{ post.title }}</h1>
       {% if post.subtitle %}
@@ -20,107 +22,265 @@
       </div>
       {% endif %}
     </header>
-    
+
     <div class="blog-post-content">
       {{ post.content | safe }}
     </div>
   </article>
-  
+
   <script>
-    // Footnote hover/click behavior
     document.addEventListener('DOMContentLoaded', function() {
-      const footnoteRefs = document.querySelectorAll('a.footnote-ref');
+      document.body.classList.add('blog-post-page');
 
-      // Create tooltip container
-      const tooltip = document.createElement('div');
-      tooltip.className = 'footnote-tooltip';
-      document.body.appendChild(tooltip);
+      const article = document.querySelector('.blog-post');
+      const content = document.querySelector('.blog-post-content');
+      if (!content) return;
 
-      let pinnedFootnote = null;
+      // ───────────────────────────────────────────────────────────────────
+      // 1. Table of contents + left reading rail
+      // ───────────────────────────────────────────────────────────────────
+      const headings = Array.from(content.querySelectorAll('h1, h2, h3'));
 
-      footnoteRefs.forEach(ref => {
-        const footnoteId = ref.getAttribute('href').substring(1); // Remove the '#'
-        const footnoteEl = document.getElementById(footnoteId);
+      function slugify(text) {
+        return text.toLowerCase().trim()
+          .replace(/[^\w\s-]/g, '')
+          .replace(/\s+/g, '-')
+          .replace(/-+/g, '-');
+      }
 
-        if (!footnoteEl) {
-          console.log('Footnote not found:', footnoteId);
-          return;
+      // Ensure every heading has a unique id to anchor to
+      const usedIds = {};
+      headings.forEach(function(h) {
+        let id = h.id || slugify(h.textContent);
+        if (!id) id = 'section';
+        if (usedIds[id]) { usedIds[id]++; id = id + '-' + usedIds[id]; }
+        else { usedIds[id] = 1; }
+        h.id = id;
+      });
+
+      if (headings.length >= 2) {
+        // Build the nested list once, reuse markup for both TOC and rail
+        function buildList(forRail) {
+          const ul = document.createElement('ul');
+          headings.forEach(function(h) {
+            const lvl = parseInt(h.tagName.substring(1), 10);
+            const li = document.createElement('li');
+            li.className = 'lvl-' + lvl;
+            const a = document.createElement('a');
+            a.href = '#' + h.id;
+            if (forRail) {
+              const span = document.createElement('span');
+              span.className = 'toc-rail-text';
+              span.textContent = h.textContent;
+              a.appendChild(span);
+              a.dataset.target = h.id;
+            } else {
+              a.textContent = h.textContent;
+            }
+            a.addEventListener('click', function(e) {
+              e.preventDefault();
+              const target = document.getElementById(h.id);
+              if (target) {
+                const y = target.getBoundingClientRect().top + window.pageYOffset - 56;
+                window.scrollTo({ top: y, behavior: 'smooth' });
+              }
+            });
+            li.appendChild(a);
+            ul.appendChild(li);
+          });
+          return ul;
         }
 
-        // Get the paragraph content, remove the backref link
-        const footnotePara = footnoteEl.querySelector('p');
-        let footnoteContent;
+        // Top TOC, inserted right after the header
+        const toc = document.createElement('nav');
+        toc.className = 'post-toc';
+        toc.setAttribute('aria-label', 'Table of contents');
+        const tocTitle = document.createElement('p');
+        tocTitle.className = 'post-toc-title';
+        tocTitle.textContent = 'Contents';
+        toc.appendChild(tocTitle);
+        toc.appendChild(buildList(false));
+        content.parentNode.insertBefore(toc, content);
 
-        if (footnotePara) {
-          // Clone the content and remove the backref
-          const clonedContent = footnotePara.cloneNode(true);
-          const backref = clonedContent.querySelector('.footnote-backref');
+        // Left reading rail
+        const rail = document.querySelector('.toc-rail');
+        rail.appendChild(buildList(true));
+        const railLinks = Array.from(rail.querySelectorAll('a'));
+
+        // Show the rail once the reader has scrolled past the intro
+        function updateRailVisibility() {
+          rail.classList.toggle('visible', window.pageYOffset > 320);
+        }
+
+        // Scroll spy: highlight the heading nearest the top of the viewport
+        function updateActive() {
+          let activeId = headings[0].id;
+          for (let i = 0; i < headings.length; i++) {
+            if (headings[i].getBoundingClientRect().top <= 90) {
+              activeId = headings[i].id;
+            } else {
+              break;
+            }
+          }
+          railLinks.forEach(function(a) {
+            a.classList.toggle('active', a.dataset.target === activeId);
+          });
+        }
+
+        let ticking = false;
+        window.addEventListener('scroll', function() {
+          if (!ticking) {
+            window.requestAnimationFrame(function() {
+              updateRailVisibility();
+              updateActive();
+              ticking = false;
+            });
+            ticking = true;
+          }
+        }, { passive: true });
+        updateRailVisibility();
+        updateActive();
+      }
+
+      // ───────────────────────────────────────────────────────────────────
+      // 2. Footnotes — margin sidenotes that follow their reference, with a
+      //    tooltip fallback when the viewport is too narrow for a margin.
+      // ───────────────────────────────────────────────────────────────────
+      const footnoteRefs = Array.from(document.querySelectorAll('a.footnote-ref'));
+
+      function getFootnoteHTML(ref) {
+        const id = ref.getAttribute('href').substring(1);
+        const el = document.getElementById(id);
+        if (!el) return null;
+        const para = el.querySelector('p');
+        if (para) {
+          const clone = para.cloneNode(true);
+          const backref = clone.querySelector('.footnote-backref');
           if (backref) backref.remove();
-          footnoteContent = clonedContent.innerHTML;
-        } else {
-          // Fallback: use the li's text content directly
-          footnoteContent = footnoteEl.textContent.replace(/↩$/, '').trim();
+          return clone.innerHTML.trim();
         }
+        return el.textContent.replace(/↩$/, '').trim();
+      }
 
-        // Hover behavior - attach to the parent sup element for larger hover area
-        const supEl = ref.parentElement;
+      // How much room is to the right of the article column?
+      function rightRoom() {
+        const rect = article.getBoundingClientRect();
+        return window.innerWidth - rect.right;
+      }
 
-        supEl.addEventListener('mouseenter', function(e) {
-          if (pinnedFootnote === ref) return;
+      let mode = null; // 'sidenotes' | 'tooltip'
+      let tooltip = null;
+      let pinned = null;
 
-          tooltip.innerHTML = footnoteContent;
-          tooltip.classList.add('visible');
-          positionTooltip(supEl);
+      function clearSidenotes() {
+        article.querySelectorAll('.sidenote').forEach(function(n) { n.remove(); });
+      }
+
+      function renderSidenotes() {
+        clearSidenotes();
+        const articleTop = article.getBoundingClientRect().top + window.pageYOffset;
+        let lastBottom = 0;
+        footnoteRefs.forEach(function(ref) {
+          const html = getFootnoteHTML(ref);
+          if (html === null) return;
+          const note = document.createElement('aside');
+          note.className = 'sidenote';
+          const numText = (ref.textContent || '').replace(/[\[\]]/g, '');
+          note.innerHTML = '<span class="sidenote-num">' + numText + '.</span>' + html;
+          article.appendChild(note);
+
+          // Vertical position: align top with the reference, avoid overlap
+          const refTop = ref.getBoundingClientRect().top + window.pageYOffset - articleTop;
+          let top = Math.max(refTop, lastBottom);
+          note.style.top = top + 'px';
+          lastBottom = top + note.offsetHeight + 16;
+
+          // Hover highlights the pair
+          function on() { note.classList.add('active'); ref.classList.add('active'); }
+          function off() { note.classList.remove('active'); ref.classList.remove('active'); }
+          note.addEventListener('mouseenter', on);
+          note.addEventListener('mouseleave', off);
+          ref.parentElement.addEventListener('mouseenter', on);
+          ref.parentElement.addEventListener('mouseleave', off);
         });
+      }
 
-        supEl.addEventListener('mouseleave', function() {
-          if (pinnedFootnote !== ref) {
-            tooltip.classList.remove('visible');
-          }
-        });
-
-        // Click behavior
-        ref.addEventListener('click', function(e) {
-          e.preventDefault();
-          e.stopPropagation();
-
-          if (pinnedFootnote === ref) {
-            // Unpin
-            pinnedFootnote = null;
-            tooltip.classList.remove('pinned');
-            tooltip.classList.remove('visible');
-          } else {
-            // Pin
-            pinnedFootnote = ref;
-            tooltip.innerHTML = footnoteContent;
-            tooltip.classList.add('visible', 'pinned');
-            positionTooltip(supEl);
-          }
-        });
-      });
-
-      // Click outside to unpin
-      document.addEventListener('click', function(e) {
-        if (pinnedFootnote && !e.target.closest('sup') && !e.target.closest('.footnote-tooltip')) {
-          pinnedFootnote = null;
-          tooltip.classList.remove('visible', 'pinned');
-        }
-      });
+      function ensureTooltip() {
+        if (tooltip) return;
+        tooltip = document.createElement('div');
+        tooltip.className = 'footnote-tooltip';
+        document.body.appendChild(tooltip);
+      }
 
       function positionTooltip(el) {
         const rect = el.getBoundingClientRect();
-        const tooltipWidth = 400;
-
         let left = rect.left;
-        // Keep tooltip on screen
-        if (left + tooltipWidth > window.innerWidth) {
-          left = window.innerWidth - tooltipWidth - 20;
-        }
+        if (left + 400 > window.innerWidth) left = window.innerWidth - 420;
         if (left < 10) left = 10;
-
-        // Use fixed positioning relative to viewport
         tooltip.style.left = left + 'px';
         tooltip.style.top = (rect.bottom + 10) + 'px';
+      }
+
+      function enableTooltips() {
+        ensureTooltip();
+        footnoteRefs.forEach(function(ref) {
+          const html = getFootnoteHTML(ref);
+          if (html === null) return;
+          const sup = ref.parentElement;
+          sup.addEventListener('mouseenter', function() {
+            if (pinned === ref) return;
+            tooltip.innerHTML = html;
+            tooltip.classList.add('visible');
+            positionTooltip(sup);
+          });
+          sup.addEventListener('mouseleave', function() {
+            if (pinned !== ref) tooltip.classList.remove('visible');
+          });
+          ref.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (pinned === ref) {
+              pinned = null;
+              tooltip.classList.remove('visible', 'pinned');
+            } else {
+              pinned = ref;
+              tooltip.innerHTML = html;
+              tooltip.classList.add('visible', 'pinned');
+              positionTooltip(sup);
+            }
+          });
+        });
+        document.addEventListener('click', function(e) {
+          if (pinned && !e.target.closest('sup') && !e.target.closest('.footnote-tooltip')) {
+            pinned = null;
+            tooltip.classList.remove('visible', 'pinned');
+          }
+        });
+      }
+
+      function applyFootnoteMode() {
+        const want = rightRoom() >= 230 ? 'sidenotes' : 'tooltip';
+        if (want === mode) {
+          if (mode === 'sidenotes') renderSidenotes(); // reflow on resize
+          return;
+        }
+        mode = want;
+        if (mode === 'sidenotes') {
+          if (tooltip) tooltip.classList.remove('visible', 'pinned');
+          renderSidenotes();
+        } else {
+          clearSidenotes();
+          enableTooltips();
+        }
+      }
+
+      if (footnoteRefs.length) {
+        applyFootnoteMode();
+        let resizeTimer = null;
+        window.addEventListener('resize', function() {
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(applyFootnoteMode, 150);
+        });
       }
     });
   </script>

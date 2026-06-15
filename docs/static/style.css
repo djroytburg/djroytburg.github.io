@@ -601,6 +601,144 @@ body{
   border-width: 3px;
 }
 
+/* ───────────────────────────────────────────────────────────────────────────
+   Blog post: wide layout for margin sidenotes + left reading rail
+   ─────────────────────────────────────────────────────────────────────────── */
+
+/* Widen the container on blog post pages so there's room for sidenotes on the
+   right and the reading rail on the left. The article itself stays narrow. */
+body.blog-post-page .container {
+  max-width: 1240px;
+}
+
+.blog-post {
+  position: relative; /* positioning context for absolutely-placed sidenotes */
+}
+
+/* Margin sidenotes (footnotes that follow their reference as you scroll) */
+.sidenote {
+  position: absolute;
+  left: 100%;
+  width: 210px;
+  margin-left: 28px;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 12.5px;
+  font-weight: 300;
+  line-height: 1.55;
+  color: var(--muted);
+  padding-left: 14px;
+  border-left: 2px solid var(--accent);
+  transition: color .15s ease, border-color .15s ease;
+}
+.sidenote p { margin: 0; }
+.sidenote a { color: var(--accent); }
+.sidenote .sidenote-num {
+  color: var(--accent);
+  font-weight: 600;
+  margin-right: 5px;
+}
+/* highlight the active pair on hover */
+.sidenote.active,
+.blog-post-content .footnote-ref.active {
+  color: var(--accent);
+}
+
+/* Top table of contents */
+.post-toc {
+  font-family: 'Ubuntu Mono', monospace;
+  font-size: 13px;
+  border: 1px solid var(--footer-border);
+  border-left: 3px solid var(--accent);
+  border-radius: 6px;
+  padding: 14px 20px 16px;
+  margin: 0 0 36px;
+  background: rgba(0, 0, 0, 0.02);
+}
+.dark .post-toc { background: rgba(255, 255, 255, 0.03); }
+.post-toc-title {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 8px;
+}
+.post-toc ul { list-style: none; margin: 0; padding: 0; }
+.post-toc li { margin: 3px 0; }
+.post-toc a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color .15s ease;
+}
+.post-toc a:hover { color: var(--accent); }
+.post-toc .lvl-2 { padding-left: 18px; }
+.post-toc .lvl-3 { padding-left: 36px; font-size: 12px; }
+
+/* Left reading rail: collapsed to ticks, expands on hover, tracks position */
+.toc-rail {
+  position: fixed;
+  left: 18px;
+  top: 84px;
+  width: 30px;
+  max-height: 72vh;
+  overflow: hidden;
+  font-family: 'Ubuntu Mono', monospace;
+  font-size: 12px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .25s ease, width .2s ease;
+  z-index: 50;
+}
+.toc-rail.visible { opacity: 1; pointer-events: auto; }
+.toc-rail:hover {
+  width: 250px;
+  overflow-y: auto;
+  background: var(--bg);
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  padding: 6px 10px;
+}
+.dark .toc-rail:hover { box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4); }
+.toc-rail ul { list-style: none; margin: 0; padding: 0; }
+.toc-rail li { margin: 0; }
+.toc-rail a {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 4px 0;
+  white-space: nowrap;
+}
+.toc-rail a::before {
+  content: '';
+  flex: 0 0 auto;
+  width: 16px;
+  height: 2px;
+  background: var(--muted);
+  opacity: 0.4;
+  transition: width .2s ease, background .2s ease, opacity .2s ease;
+}
+.toc-rail .lvl-2 a::before { width: 10px; }
+.toc-rail .lvl-3 a::before { width: 6px; }
+.toc-rail .toc-rail-text {
+  opacity: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: opacity .2s ease;
+}
+.toc-rail:hover .toc-rail-text { opacity: 1; }
+.toc-rail a.active { color: var(--accent); }
+.toc-rail a.active::before {
+  background: var(--accent);
+  opacity: 1;
+  width: 22px;
+}
+
+/* Not enough horizontal room: hide rail, sidenotes fall back to tooltips (JS) */
+@media (max-width: 1120px) {
+  .toc-rail { display: none; }
+}
+
 /* Tag Styles */
 .blog-tags-filter {
   display: flex;
