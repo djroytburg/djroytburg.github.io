@@ -1,0 +1,209 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Interpretive-debate tree — self-preference</title><style>
+@import url('https://fonts.googleapis.com/css2?family=Volkhov:ital,wght@0,400;0,700;1,400&family=Ubuntu+Mono:wght@400;700&display=swap');
+:root{--bg:#fff;--accent:#6d0061;--text:#111;--muted:#666;--mats:#7B1422;--cmu:#C41230;
+  --line:rgba(0,0,0,.13);--card:#fff;--soft:#faf7fb;--a:#1d4ed8;--b:#6d0061;--ok:#2c7a3f;--rej:#b45309;--degen:#b91c1c;}
+:root.dark{--bg:#171717;--accent:#c97fe0;--text:#eaeaea;--muted:#bdbdbd;--mats:#e8697a;
+  --line:rgba(255,255,255,.16);--card:#1f1f1f;--soft:#241f26;--a:#7aa2ff;--b:#c97fe0;--ok:#7bd49a;--rej:#e3b261;--degen:#f08a8a;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Ubuntu Mono',monospace;transition:background .18s,color .18s;padding:24px 28px 64px}
+h1{font-family:'Volkhov',serif;font-size:26px;margin:0 0 4px}
+.sub{color:var(--muted);margin:0;font-size:13px}
+.accent{border:0;height:4px;background:var(--accent);width:120px;margin:12px 0 14px;opacity:.95}
+.legend{display:flex;gap:15px;flex-wrap:wrap;font-size:11px;color:var(--muted);margin:0 0 12px}
+.toggle{position:fixed;top:16px;right:20px;border:1px solid var(--accent);background:var(--bg);color:var(--accent);
+  font-family:'Ubuntu Mono',monospace;border-radius:18px;padding:5px 12px;cursor:pointer;font-size:12px;z-index:40}
+#wrap{position:relative;overflow:auto}
+svg#wires{position:absolute;top:0;left:0;pointer-events:none;z-index:0}
+.tree{position:relative;z-index:1;display:flex;align-items:center;gap:50px;min-width:1320px}
+.lanes{display:flex;flex-direction:column;gap:26px}
+.rootN{background:var(--accent);color:#fff;border-radius:12px;padding:14px 15px;max-width:170px;font-size:12px;box-shadow:0 3px 12px rgba(109,0,97,.28)}
+.rootN b{font-family:'Volkhov',serif;font-size:14px}
+.lane{display:flex;align-items:center;gap:34px}
+.adv{display:flex;flex-direction:column;gap:10px}
+.stack{display:flex;flex-direction:column;gap:9px}
+.node{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:10px;
+  padding:9px 11px;font-size:11.5px;cursor:pointer;transition:transform .1s,box-shadow .12s;width:210px}
+.node:hover{transform:translateY(-2px);box-shadow:0 5px 16px rgba(0,0,0,.12)}
+.node .tag{font-family:'Volkhov',serif;font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
+.node .ttl{font-weight:700;font-size:12px;line-height:1.32}
+.node.framing{border-left-color:var(--mats);width:188px}
+.node.adv-a{border-left-color:var(--a);width:150px;font-size:11px}
+.node.adv-b{border-left-color:var(--b);width:150px;font-size:11px}
+.node.proposal{border-left-color:var(--rej)}
+.node.leaf{border-left-color:var(--rej);border-style:dashed;border-left-style:solid;width:184px;opacity:.85}
+.node.accept{border-left-color:var(--ok)}
+.node.accept.degen{border-left-color:var(--degen)}
+.node.exec{border-left-color:var(--a)}
+.node.exec.none{border-style:dashed;border-left-style:solid;opacity:.7;cursor:default;width:170px}
+.badge{display:inline-block;font-size:9px;font-weight:700;border-radius:4px;padding:0 5px;margin-top:5px}
+.badge.ok{background:rgba(44,122,63,.14);color:var(--ok)}.badge.degen{background:rgba(185,28,28,.14);color:var(--degen)}
+.pruned{font-size:9px;color:var(--rej);font-weight:700;letter-spacing:.05em}
+.rule{position:relative;height:16px;border-radius:4px;margin:7px 0 13px;font-size:8px;font-weight:700;color:#fff;overflow:visible}
+.seg{position:absolute;top:0;height:16px;line-height:16px;text-align:center;overflow:hidden;white-space:nowrap}
+.seg.a{background:var(--a)}.seg.ind{background:#b9b3bd;color:#3a343d}.seg.b{background:var(--b)}
+.tick{position:absolute;top:16px}.tick span{position:absolute;transform:translateX(-50%);font-size:7.5px;color:var(--muted)}
+.mark{position:absolute;top:-5px;height:26px;width:2px;background:var(--text)}
+.mark span{position:absolute;top:-11px;transform:translateX(-50%);background:var(--text);color:var(--bg);border-radius:3px;padding:0 4px;font-size:8px;white-space:nowrap}
+.prob{display:flex;justify-content:space-between;font-size:10.5px;margin:1px 0;border-bottom:1px dotted var(--line)}
+.prob b{color:var(--accent)}
+.verdict{margin-top:5px;font-size:10.5px;font-weight:700}
+#drawer{position:fixed;top:0;right:0;height:100%;width:430px;max-width:92vw;background:var(--card);border-left:1px solid var(--line);
+  box-shadow:-8px 0 30px rgba(0,0,0,.2);transform:translateX(100%);transition:transform .2s;z-index:50;overflow-y:auto;padding:22px 22px 60px}
+#drawer.open{transform:translateX(0)}
+#drawer h3{font-family:'Volkhov',serif;margin:0 0 2px;color:var(--accent);font-size:18px}
+#drawer .dsub{color:var(--muted);font-size:12px;margin-bottom:14px}
+#drawer .sec{margin:13px 0}#drawer .sk{font-family:'Volkhov',serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+#drawer .sv{font-size:12.5px;line-height:1.5}
+#drawer .close{position:absolute;top:12px;right:16px;cursor:pointer;color:var(--muted);font-size:24px;border:0;background:none}
+.dpred{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px}
+.dpred .p{border:1px solid var(--line);border-radius:8px;padding:8px;font-size:11.5px}
+.dpred .p.a{border-top:3px solid var(--a)}.dpred .p.b{border-top:3px solid var(--b)}
+#scrim{position:fixed;inset:0;background:rgba(0,0,0,.28);opacity:0;pointer-events:none;transition:opacity .2s;z-index:45}
+#scrim.on{opacity:1;pointer-events:auto}
+.note{font-size:11px;color:var(--muted);margin-top:18px;max-width:880px}
+.howto{background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:11px 14px;margin:0 0 16px;max-width:920px;font-size:12.5px}
+.howto b{font-family:'Volkhov',serif}
+.howto .flow{color:var(--muted)}
+#drawer .plain{background:var(--soft);border:1px solid var(--line);border-radius:9px;padding:11px 12px;margin:0 0 14px}
+.glossary{margin-top:26px;max-width:920px}
+.glossary h4{font-family:'Volkhov',serif;font-size:14px;margin:0 0 8px}
+.gitem{display:flex;gap:10px;font-size:12px;margin:5px 0;border-bottom:1px dotted var(--line);padding-bottom:4px}
+.gitem b{min-width:160px;color:var(--accent)}
+</style></head>
+<body>
+<button class="toggle" id="tg">☾ dark</button>
+<h1>Interpretive-debate forest</h1>
+<p class="sub">4 framings of LLM self-preference · root → framing → A/B advocates → proposal → acceptance → execution · click any node</p>
+<hr class="accent">
+<div class="howto">
+  <b>How to read this.</b> Each row is one way of asking <i>why</i> a model favors its own writing, with two rival explanations (<b>A</b> vs <b>B</b>). Read left→right: the <b>question</b> → two <b>advocate</b> agents (one per explanation) → the <b>experiment</b> they agree to run → the <b>signed rule</b> for who wins at what result → what happened when we <b>ran it</b>. <span class="flow">Click any node for plain-English + the technical detail. The bar under each crux shows which side wins as the result moves left→right.</span>
+</div>
+<div class="legend">
+  <span style="color:var(--mats)">▌ framing</span>
+  <span style="color:var(--a)">▌ advocate A</span><span style="color:var(--b)">▌ advocate B</span>
+  <span style="color:var(--rej)">▌ proposal / pruned reject</span>
+  <span style="color:var(--ok)">▌ signed crux</span>
+  <span style="color:var(--degen)">▌ degenerate</span>
+  <span style="color:var(--a)">▌ execution (final probs)</span>
+</div>
+<div id="wrap"><svg id="wires"></svg><div class="tree" id="tree"></div></div>
+<p class="note">pair3's B is labelled “semantic-opinion cue” to surface its shared <i>familiarity</i> axis with pair0 (its contract framing is “holistic-evaluation heuristic”). Each framing branches into its two advocates, who converge on one common experiment; pair1 &amp; pair2 each pruned a first proposal (both sides predicted the same) and recursed. Recall vs 7 held-out cruxes: 0 full + 2 partial · 1 of 4 cruxes degenerate · neither executed pair resolved.</p>
+<div class="glossary"><h4>Glossary</h4>
+<div class="gitem"><b>crux</b><span>an experiment both sides agree would change their mind</span></div><div class="gitem"><b>advocate A / B</b><span>an agent arguing one of the two explanations</span></div><div class="gitem"><b>minimal-crux gate</b><span>the check that the two sides actually predict DIFFERENT outcomes — if not, the test is useless</span></div><div class="gitem"><b>self-preference (SPB)</b><span>how much a model favors its own output above a coin-flip (0.50)</span></div><div class="gitem"><b>τ_lo / τ_hi</b><span>the pre-agreed thresholds that split the result into A-wins / undecided / B-wins</span></div><div class="gitem"><b>degenerate</b><span>a ‘test’ where both sides predict the same outcome, so it can decide nothing</span></div><div class="gitem"><b>indeterminate</b><span>the result landed in the middle band — the experiment couldn't call it</span></div>
+</div>
+<div id="scrim"></div><div id="drawer"></div>
+<script>
+const DATA = [{"id": 0, "axis": "surface-style vs. semantic-opinion cue", "obs": "Replacing just two words in the judge's output (synonym substitution) reliably reduces self-preference, yet asking the judge to paraphrase the competitor's text into its own voice reverses this\u2014self-recognition and self-preference both increase after full paraphrasing.", "a_label": "surface-style", "b_label": ". semantic-opinion cue", "a_full": "SPB is driven by surface-level stylistic fingerprints: the model detects its own lexical choices, sentence structure, and formatting conventions and assigns those familiarity signals as a proxy for quality. Synonym perturbation breaks this fingerprint; full paraphrasing makes both texts look like the model's output and shifts the preference signal to other cues.", "b_full": "SPB is driven by semantic-opinion alignment rather than stylistic surface features: the model prefers whichever candidate expresses reasoning that matches its own internal beliefs about the correct answer. Full paraphrasing forces the competitor's text to adopt the judge's reasoning voice, which intensifies rather than neutralises the content-level match, explaining why self-recognition increases ", "proposer": "A", "accepted_by": "B", "claim": "When a neutral third-party model paraphrases both the judge's answer and the competitor's answer before pairwise evaluation, stylistic fingerprints are eliminated from both texts and pairwise self-recognition accuracy collapses to near chance (~0.50\u20130.54), demonstrating that surface-level style\u2014not semantic opinion alignment\u2014is the operative self-recognition cue.", "statistic": "S = Condition-D pairwise self-recognition accuracy pooled over all judge models, on non-ambiguous harmful-case pairs only (judge_is_correct=False AND competitor_is_correct=True), n_total >= 500", "tau_lo": 0.54, "tau_hi": 0.58, "revisions": 2, "pred_a": "Condition D bilateral-neutral self-recognition accuracy \u2248 0.52 (within 2\u20133 pp of 0.50 chance, with 95% CI crossing 0.50), and harmful-case judge accuracy recovers to \u2248 0.42 (up from \u2248 0.28 baseline), because eliminating both fingerprints leaves the judge no style cue to exploit; I concede if Condition D self-recognitio", "pred_b": "Condition D self-recognition accuracy \u2248 0.67 (range 0.63\u20130.71), staying substantially above chance and close to the original (\u22480.68) and judge-paraphrase (\u22480.72) conditions; harmful-case judge accuracy remains depressed at \u22480.26 (range 0.22\u20130.30). Grounding: the QuALITY harmful-case pairs are structurally different fro", "degenerate": false, "exec": {"ran": true, "n": 800, "S": 0.579, "verdict": "indeterminate", "probs": [["pooled S", "0.579"], ["gpt-4o", "0.50 (chance)"], ["claude-sonnet", "0.655"]], "note": "pooled S sits in the indeterminate band; the entire signal is one judge (sonnet). UNAUDITED \u2014 old direct-execution path, no critic."}, "low_winner": "A", "plain_q": "When the model spots its own writing, is it going by the writing STYLE or by the IDEAS in it?", "plain_decide": "A neutral model rewrites both texts to strip out style. If the judge can still pick its own \u2192 it was the content/ideas (B). If recognition collapses \u2192 it was style (A).", "rejection": null}, {"id": 1, "axis": "genuine unjustified bias vs. quality-confound artifact", "obs": "LLM evaluators choose their own outputs more often than chance even on pairs that human annotators rate as equal quality, and stronger models show larger overestimation ratios than weaker ones.", "a_label": "genuine unjustified bias", "b_label": ". quality-confound artifact", "a_full": "The elevated self-selection rate reflects a genuine, unjustified bias: models systematically overestimate outputs that fail objective criteria (rubrics they verifiably do not satisfy) and their pairwise self-preference scores sum to greater than 1, proving that at least some items involve mutually exclusive over-preferences. Capability growth amplifies the bias because better models are also bette", "b_full": "The observed self-selection is largely a capability-confound artifact: stronger models produce genuinely higher-quality outputs and evaluate more accurately, so a naive win-rate deviation from a noisy human baseline overestimates the bias. Without gold-standard quality controls that equate generation quality precisely, self-selection reflects evaluative skill correlated with generation skill, not ", "proposer": "B", "accepted_by": "A", "claim": "When pairs are restricted by a continuous quality-gap window |AlignScore_GPT4 \u2212 AlignScore_GPT35| < \u03b5, GPT-4's self-preference rate decreases monotonically as \u03b5 shrinks \u2014 collapsing to \u2264 0.53 at \u03b5 = 0.05 \u2014 because the capability confound is the sole engine; genuine identity-recognition bias would leave self-preference elevated (\u2265 0.57) and flat across all three \u03b5 bands.", "statistic": "S = mean debiased_preference of GPT-4 over all ring_1 pairs (|AlignScore_GPT4 \u2212 AlignScore_GPT35| < 0.05, n \u2265 300), using the Panickssery et al. debiased log-prob protocol", "tau_lo": 0.53, "tau_hi": 0.57, "revisions": 2, "pred_a": "self_pref_gpt4 \u2248 0.60 at \u03b5=0.05 (Wald p < 0.05, well above the Proposer's \u22640.53 collapse threshold); Spearman \u03c1 across \u03b5 bands \u2248 0.0\u20130.4 (not the \u2265+0.9 monotone collapse the Proposer requires). Grounds: the anchor paper's label-swapping experiment (Table label_setting) shows GPT-4 self-preference on XSUM drops from 0.7", "pred_b": "At \u03b5=0.05: self_pref_gpt4 \u2264 0.53 (near chance, Wald p \u2265 0.05), pair_sum \u2264 1.06, capability_delta \u2264 0.02. Across bands: self_pref_gpt4 rises monotonically with \u03b5 (Spearman \u03c1 \u2265 +0.9). I concede if self_pref_gpt4 \u2265 0.57 at \u03b5=0.05 with Wald p < 0.05 AND \u03c1 \u2264 0.0 (flat or rising bias as quality is more tightly equated).", "degenerate": false, "exec": {"ran": false}, "low_winner": "B", "plain_q": "Is the self-favoring an unfair BIAS, or just that stronger models genuinely write better answers?", "plain_decide": "Compare only answer-pairs of EQUAL measured quality. If GPT-4 still prefers its own \u2192 genuine bias (A). If the preference disappears once quality is matched \u2192 it was just quality (B).", "rejection": {"disagreement": "Both motivations predict the same numerical outcome because the binary PASS/FAIL filter at \u03c4=0.5 does not eliminate within-bucket quality variation. In the PASS-PASS subset, GPT-4 summaries almost certainly carry higher continuous AlignScores than GPT-3.5 summaries \u2014 the capability quality advantage is compressed, not removed. My motivation therefore also pr", "agreed_behavior": "Within pairs where both summaries receive the same binary factual-consistency outcome (both PASS or both FAIL under AlignScore at \u03c4=0.5), GPT-4 as evaluator self-prefers substantially above chance (~0.60+), GPT-3.5 self-prefers modestly above chance (~0.54+), pair_sum exceeds 1.1"}}, {"id": 2, "axis": "linear single-direction vs. multi-circuit nonlinear encoding", "obs": "A contrastive activation addition (CAA) steering vector flips up to 97% of illegitimate self-preference instances, yet the same vector also disrupts legitimate self-preference and unbiased agreement at similarly high rates, implying the intervention cannot selectively suppress only the biased component.", "a_label": "linear single-direction", "b_label": ". multi-circuit nonlinear enco", "a_full": "SPB is encoded as a single approximately linear direction in the model's residual stream: the near-perfect flip rate on illegitimate cases demonstrates that one vector captures the core self-preference signal. The collateral disruption of legitimate cases occurs not because of a different circuit but because legitimate and illegitimate preference share the same linear direction; a scalar multiplie", "b_full": "SPB arises from multiple overlapping or nonlinear circuits that cannot be cleanly separated by a single additive vector: illegitimate self-preference happens to project strongly onto one linear direction (hence the 97% flip), but legitimate self-preference and unbiased agreement involve different functional pathways. The instability of the steering vector across all three outcome types is evidence", "proposer": "B", "accepted_by": "A", "claim": "If SPB is a single linear direction, then the between-class scatter matrix S_B of the three outcome-category centroids (at unsteered layer-14 activations) is approximately rank-1 \u2014 meaning \u03bb_1/(\u03bb_1+\u03bb_2) > 0.90 and the legitimate centroid's perpendicular displacement from the v_CAA line is not markedly larger than those of the illegitimate and unbiased centroids (d_perp ratio S4 < 2.0).", "statistic": "S1 = \u03bb_1 / (\u03bb_1 + \u03bb_2), where \u03bb_1 \u2265 \u03bb_2 are the two non-trivial eigenvalues of the between-class scatter matrix S_B of the three gold-labeled category centroids at unsteered layer-14 activations", "tau_lo": 0.75, "tau_hi": 0.9, "revisions": 2, "pred_a": "S1 > 0.90 (rank-1 centroid geometry; \u03bb_1/(\u03bb_1+\u03bb_2) close to 1.0 because all three category centroids \u2014 illegitimate, legitimate, unbiased \u2014 differ primarily in how far they project along v_CAA, not in any perpendicular direction); S2 > 0.80 (first eigenvector aligns tightly with v_CAA); S3 < 0.30 (second eigenvector is", "pred_b": "S1 > 0.90 (rank-1 centroid arrangement; \u03bb_1 >> \u03bb_2); S2 > 0.80 (first eigenvector closely aligns with v_CAA); S3 < 0.30 (second eigenvector orthogonal to v_CAA, as expected for noise); S4 < 2.0 (legitimate centroid no further off the v_CAA line than the other two). Concession threshold: S1 < 0.75 AND S4 > 3.0.", "degenerate": true, "exec": {"ran": false}, "low_winner": "B", "plain_q": "Is self-preference stored as ONE simple direction inside the model, or MANY tangled circuits?", "plain_decide": "Test whether a single linear direction explains the steering effect (one eigenvalue dominates \u2192 A) or not (B). Note: both sides ended up predicting the same number here, so it can't actually decide (\u2018degenerate\u2019).", "rejection": {"disagreement": "Both motivations predict the same outcome from this geometry read-out. Under B1 (my view), v_CAA was constructed by contrasting 'J chose other model's output' (unbiased) against 'J chose its own output' (biased training set, dominated by illegitimate cases). Illegitimate items involve the biased-self-recognition circuit that v_CAA was specifically built to c", "agreed_behavior": "In the unsteered model at layer 14, illegitimate self-preference items project significantly more in the biased direction along v_CAA than legitimate self-preference items (AUROC > 0.70, S2 cosine_sim > 0.65), with ordering mean(proj_illegitimate) < mean(proj_legitimate) < mean(p"}}, {"id": 3, "axis": "generative probability artifact vs. holistic-evaluation heuristic", "obs": "In reference-free generative metrics (BARTScore, GPTScore), the self-bias is strongest and correlates directly with the model's own conditional log-probability scoring, yet SPB also persists in instruction-tuned chat judges evaluating objective, programmatically-verifiable rubrics\u2014and is substantially reduced when holi", "a_label": "generative probability artifac", "b_label": "semantic-opinion cue", "a_full": "SPB is primarily a generative log-probability artifact: a model's own output is by definition near-optimal under its own distribution, so the conditional probability P(summary | source) is systematically higher for self-generated text. This statistical asymmetry inflates scores in any evaluation paradigm that reduces to computing generation likelihood, and the reference-free setting amplifies it b", "b_full": "SPB is primarily a holistic judgment heuristic: when making undifferentiated quality comparisons, the model applies its own implicit standard of 'good output' (coherence, style, reasoning pattern) as a shortcut\u2014a standard that correlates with its own generations. Breaking the holistic judgment into explicit sub-criteria (structured multi-dimensional scoring) reduces SPB by ~31% because it forces t", "proposer": "A", "accepted_by": "B", "claim": "Within a fixed 5-dimension decomposed evaluation structure\u2014holding prompts and dimensions constant\u2014replacing binary forced-choice per dimension with direct conditional log-probability scoring (expected score over integer tokens) restores SPB toward its pre-decomposition level, producing SPB_C_decomposed_logprob > SPB_D_decomposed_forcedchoice by \u2265 0.13 in absolute \u03b2 magnitude.", "statistic": "S = SPB_C_\u03b2 \u2212 SPB_D_\u03b2, where SPB_X_\u03b2 = PIR_X \u2212 0.50 and PIR_X = fraction of 200 same-article pairs where the self-generated summary is judged superior in Condition X; Condition C uses per-dimension expected log-prob score comparison + majority vote \u22653/5; Condition D uses per-dimension binary forced-choice logit comparison + majority vote \u22653/5", "tau_lo": 0.05, "tau_hi": 0.1, "revisions": 3, "pred_a": "SPB_\u03b2: A\u22480.38, B\u22480.22, C\u22480.28, D\u22480.15.  Primary statistic C\u2212D\u22480.13: replacing forced-choice with direct log-prob scoring within the same decomposed structure recovers roughly 60% of the SPB that decomposition removed\u2014because each per-dimension log-prob still directly exposes the model's generation-likelihood advantage ", "pred_b": "SPB_C_minus_D \u2248 0.02 (absolute \u03b2). Condition C does not compute P(summary|article) \u2014 it computes an expected score over judgment tokens {0\u201310} under an instruction-following prompt, identical in kind to the individual Likert scoring Panickssery et al. apply (individual measurement, \u00a72.2), which the anchor shows persist", "degenerate": false, "exec": {"ran": true, "n": 200, "S": -0.11, "verdict": "indeterminate (raw 'B wins' was an artifact)", "probs": [["S = C\u2212D", "\u22120.11"], ["SPB_A", "0.50 (ceiling)"], ["SPB_B", "0.365"], ["SPB_C", "0.235"], ["SPB_D", "0.345"]], "note": "raw McNemar p=0.005 looked significant, but the signal lived in degenerate low-digit-mass pairs; on the clean half S=\u22120.02, p=0.80. Instrument (digit-score read) broke on the chat-template newline."}, "low_winner": "B", "plain_q": "Does self-favoring come from the ARITHMETIC of probability-scoring, or from a holistic \u2018which is better?\u2019 judgment?", "plain_decide": "Score the same summaries two ways \u2014 by the model's probability over a 0\u201310 number vs. a forced A-or-B pick \u2014 and compare. If the scoring method changes self-preference a lot \u2192 it's the probability arithmetic (A). If not \u2192 holistic judgment (B).", "rejection": null}];
+const STAGE = {"framing": "the question, and the two rival explanations A vs B", "A": "an agent that commits to explanation A and argues only for it", "B": "an agent that commits to explanation B and argues only for it", "proposal": "the single experiment one side proposes to tell A and B apart", "reject": "the other side rejected it: both sides predicted the SAME outcome, so it can't decide \u2014 the debate recurses to a sharper version", "accept": "both sides pre-commit to a rule: which result makes which side concede", "exec": "we actually ran the experiment \u2014 here is the number and what it implies"};
+const root = document.documentElement;
+const EDGES = [];
+const $=(id)=>document.getElementById(id);
+
+// attach close handlers FIRST so a render hiccup can never trap the drawer
+function closeDrawer(){ $('drawer').classList.remove('open'); $('scrim').classList.remove('on'); }
+$('scrim').addEventListener('click', closeDrawer);
+window.addEventListener('keydown', e=>{ if(e.key==='Escape') closeDrawer(); });
+$('tg').addEventListener('click', ()=>{ const d=!root.classList.contains('dark'); root.classList.toggle('dark',d);
+  $('tg').textContent=d?'☀ light':'☾ dark'; setTimeout(draw,60); });
+
+function el(cls,id,html){ const d=document.createElement('div'); d.className=cls; if(id)d.id=id; d.innerHTML=html; return d; }
+function ruleBar(lo,hi,obs,lowWin){
+  if(lo==null||hi==null) return '';
+  lo=+lo;hi=+hi; const span=Math.max(hi-lo,1e-6),vmin=lo-2.2*span,vmax=hi+2.2*span;
+  const pct=v=>Math.max(0,Math.min(100,(v-vmin)/(vmax-vmin)*100)), plo=pct(lo),phi=pct(hi);
+  let mk=''; if(obs!=null&&!isNaN(+obs)) mk=`<div class="mark" style="left:${pct(+obs)}%"><span>S=${obs}</span></div>`;
+  // low region (S≤τ_lo) is won by lowWin; high region by the other side. colour by winner (A=blue,B=purple).
+  const hi_win = lowWin==='A' ? 'B' : 'A';
+  const loCls = lowWin==='A'?'a':'b', hiCls = hi_win==='A'?'a':'b';
+  return `<div class="rule"><div class="seg ${loCls}" style="left:0;width:${plo}%">${lowWin} wins</div>
+    <div class="seg ind" style="left:${plo}%;width:${phi-plo}%">indet</div>
+    <div class="seg ${hiCls}" style="left:${phi}%;right:0">${hi_win} wins</div>${mk}
+    <div class="tick" style="left:${plo}%"><span>τlo ${lo}</span></div>
+    <div class="tick" style="left:${phi}%"><span>τhi ${hi}</span></div></div>`;
+}
+function E(a,b){ EDGES.push([a,b]); }
+
+function build(){
+  const tree=$('tree');
+  const rootN=el('rootN','rootN','<b>LLM self-preference</b><div style="margin-top:6px;font-size:11px;opacity:.92">Why rate own output higher?<br>A = recognition / mechanism<br>B = familiarity</div>');
+  tree.appendChild(rootN);
+  const lanes=el('lanes',null,''); tree.appendChild(lanes);
+
+  DATA.forEach(d=>{
+    const lane=el('lane',null,''); lanes.appendChild(lane);
+    const fid=`f${d.id}`, aid=`a${d.id}`, bid=`b${d.id}`, pid=`p${d.id}`, rid=`r${d.id}`, cid=`c${d.id}`, eid=`e${d.id}`;
+    // FRAMING
+    const f=el('node framing',fid,`<div class="tag">pair${d.id} · the question</div><div class="ttl">${d.plain_q||d.axis}</div><div class="ax">A vs B: ${d.axis}</div>`);
+    f.onclick=()=>openDrawer(d,'framing'); lane.appendChild(f);
+    // ADVOCATES (A over B) — the branch
+    const adv=el('adv',null,''); lane.appendChild(adv);
+    const an=el('node adv-a',aid,`<div class="tag">advocate A</div><div class="ttl">${d.a_label}</div>`);
+    const bn=el('node adv-b',bid,`<div class="tag">advocate B</div><div class="ttl">${d.b_label}</div>`);
+    an.onclick=()=>openDrawer(d,'A'); bn.onclick=()=>openDrawer(d,'B'); adv.appendChild(an); adv.appendChild(bn);
+    // PROPOSAL stack (accepted proposal; + pruned reject leaf if recursed)
+    const ps=el('stack',null,''); lane.appendChild(ps);
+    if(d.rejection){
+      const rj=el('node leaf',rid,`<div class="tag">proposal ✗ pruned</div><div class="pruned">REJECT → recurse</div><div style="margin-top:3px">${d.rejection.disagreement.slice(0,80)}…</div>`);
+      rj.onclick=()=>openDrawer(d,'reject'); ps.appendChild(rj);
+    }
+    const pr=el('node proposal',pid,`<div class="tag">proposal by ${d.proposer||'?'}${d.rejection?' (after recurse)':''}</div><div class="ttl">${d.claim.slice(0,80)}…</div>`);
+    pr.onclick=()=>openDrawer(d,'proposal'); ps.appendChild(pr);
+    // ACCEPTANCE
+    const obsS = d.exec&&d.exec.ran ? d.exec.S : null;
+    const badge = d.degenerate ? '<span class="badge degen">DEGENERATE · predA=predB</span>' : `<span class="badge ok">SIGNED · ${d.revisions} rev</span>`;
+    const ac=el('node accept'+(d.degenerate?' degen':''),cid,`<div class="tag">accepted by ${d.accepted_by||'?'}</div><div class="ttl" style="font-size:10.5px">S = ${d.statistic.slice(0,52)}…</div>${ruleBar(d.tau_lo,d.tau_hi,obsS,d.low_winner)}${badge}`);
+    ac.onclick=()=>openDrawer(d,'accept'); lane.appendChild(ac);
+    // EXECUTION leaf
+    let ex;
+    if(d.exec&&d.exec.ran){
+      ex=el('node exec',eid,`<div class="tag">executed · n=${d.exec.n}</div>${d.exec.probs.map(([k,v])=>`<div class="prob"><span>${k}</span><b>${v}</b></div>`).join('')}<div class="verdict">→ ${d.exec.verdict}</div>`);
+      ex.onclick=()=>openDrawer(d,'exec');
+    } else { ex=el('node exec none',eid,`<div class="tag">not executed</div><div style="color:var(--muted)">construction only</div>`); }
+    lane.appendChild(ex);
+    // EDGES
+    E('rootN',fid); E(fid,aid); E(fid,bid); E(aid,pid); E(bid,pid);
+    if(d.rejection){ E(aid,rid); E(bid,rid); }
+    E(pid,cid); E(cid,eid);
+  });
+}
+
+function draw(){
+  const svg=$('wires'), wrap=$('wrap'), tree=$('tree');
+  const W=tree.scrollWidth, H=tree.scrollHeight;
+  svg.setAttribute('width',W); svg.setAttribute('height',H); svg.innerHTML='';
+  const base=wrap.getBoundingClientRect();
+  EDGES.forEach(([fa,fb])=>{ const A=$(fa),B=$(fb); if(!A||!B)return;
+    const ra=A.getBoundingClientRect(), rb=B.getBoundingClientRect();
+    const x1=ra.right-base.left+wrap.scrollLeft, y1=ra.top+ra.height/2-base.top+wrap.scrollTop;
+    const x2=rb.left-base.left+wrap.scrollLeft, y2=rb.top+rb.height/2-base.top+wrap.scrollTop, mx=(x1+x2)/2;
+    const pth=document.createElementNS('http://www.w3.org/2000/svg','path');
+    pth.setAttribute('d',`M${x1},${y1} C${mx},${y1} ${mx},${y2} ${x2},${y2}`);
+    pth.setAttribute('fill','none'); pth.style.stroke='var(--line)'; pth.setAttribute('stroke-width','1.8');
+    svg.appendChild(pth);
+  });
+}
+
+function openDrawer(d,stage){
+  const ex=d.exec&&d.exec.ran;
+  $('drawer').innerHTML=`<button class="close" onclick="closeDrawer()">×</button>
+   <h3>pair${d.id} — ${d.axis}</h3><div class="dsub">stage: ${stage}${STAGE[stage]?' — '+STAGE[stage]:''} · proposer ${d.proposer||'?'} → accepted by ${d.accepted_by||'?'}</div>
+   <div class="plain"><div class="sk">in plain terms</div><div class="sv"><b>${d.plain_q}</b><br>${d.plain_decide}</div></div>
+   <div class="sec"><div class="sk">observation (what was seen)</div><div class="sv">${d.obs}</div></div>
+   <div class="dpred"><div class="p a"><b>A · ${d.a_label}</b><br>${d.a_full}</div><div class="p b"><b>B · ${d.b_label}</b><br>${d.b_full}</div></div>
+   ${d.rejection?`<div class="sec"><div class="sk">reject → recurse</div><div class="sv">${d.rejection.disagreement}<br><br><i>↳ sharper observation:</i> ${d.rejection.agreed_behavior}</div></div>`:''}
+   <div class="sec"><div class="sk">signed crux</div><div class="sv">${d.claim}</div></div>
+   <div class="sec"><div class="sk">statistic + 3-region rule</div><div class="sv">${d.statistic}<br><br>τ_lo=${d.tau_lo}, τ_hi=${d.tau_hi} · ${d.revisions} contract revisions ${d.degenerate?'· <b style="color:var(--degen)">DEGENERATE (predA=predB)</b>':''}<br><b>decision:</b> S≤τ_lo → ${d.low_winner} wins · S≥τ_hi → ${d.low_winner==='A'?'B':'A'} wins</div></div>
+   <div class="dpred"><div class="p a"><b>A predicts</b><br>${d.pred_a}</div><div class="p b"><b>B predicts</b><br>${d.pred_b}</div></div>
+   ${ex?`<div class="sec"><div class="sk">execution · n=${d.exec.n}</div><div class="sv">${d.exec.probs.map(([k,v])=>`${k}: <b>${v}</b>`).join(' · ')}<br><br><b>verdict:</b> ${d.exec.verdict}<br><br><span style="color:var(--muted)">${d.exec.note}</span></div></div>`:'<div class="sec"><div class="sk">execution</div><div class="sv" style="color:var(--muted)">construction only — not executed this session.</div></div>'}`;
+  $('drawer').classList.add('open'); $('scrim').classList.add('on');
+}
+
+build();
+requestAnimationFrame(()=>requestAnimationFrame(draw));
+window.addEventListener('resize',draw);
+window.addEventListener('load',draw);
+if(document.fonts&&document.fonts.ready) document.fonts.ready.then(()=>setTimeout(draw,30));
+</script>
+</body></html>

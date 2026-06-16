@@ -512,7 +512,7 @@ def copy_pdfs():
 
 # Standalone HTML pages copied verbatim (NOT through Jinja) into docs/.
 # These are reachable by direct URL but intentionally not linked from the site.
-STANDALONE_PAGES = ['explorer.html']
+STANDALONE_PAGES = ['explorer.html', 'debate_tree.html']
 
 
 def copy_standalone():
