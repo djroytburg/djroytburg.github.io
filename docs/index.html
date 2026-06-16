@@ -228,7 +228,6 @@
         function fadeIn(){
           if (!player) return;
           fading = true;
-          removeGesture();        // we're going audible; no longer need the welcome listener
           const target = targetFor(QUEUE[index]);
           try { player.setVolume(0); player.unMute(); } catch(e){}
           const start = Date.now();
@@ -249,23 +248,6 @@
           setLabel(QUEUE[index]);
           try { player.loadVideoById(QUEUE[index]); } catch(e){}
         }
-
-        // Welcome: the first interaction on the entry page starts playback. This
-        // is a real user gesture (like pressing play), so it works reliably where
-        // muted autoplay is blocked by browsers or ad/privacy blockers.
-        const GESTURES = ['pointerdown','keydown','touchstart','wheel'];
-        function onGesture(ev){
-          // Clicks on the widget's own buttons are handled by those buttons
-          if (ev && ev.target && ev.target.closest && ev.target.closest('#now-playing')) return;
-          if (audible()) { removeGesture(); return; }
-          wantPlay = true;
-          try {
-            if (player){ player.playVideo(); fadeIn(); }
-            else { ensurePlayer(); }   // not built yet — onReady will play (wantPlay)
-          } catch(e){ ensurePlayer(); }
-        }
-        function removeGesture(){ GESTURES.forEach(function(ev){ window.removeEventListener(ev, onGesture); }); }
-        function armGesture(){ GESTURES.forEach(function(ev){ window.addEventListener(ev, onGesture, { passive:true }); }); }
 
         function buildPlayer(){
           player = new YT.Player('yt-audio', {
@@ -349,20 +331,11 @@
         hideBtn.addEventListener('click', function(){ setHidden(true); });
         restore.addEventListener('click', function(){ setHidden(false); });
 
-        // Reflect the restored track in the label, and persist position on exit
+        // Reflect the restored track in the label, and persist position on exit.
+        // No autoplay — music only starts when the user clicks play.
         setLabel(QUEUE[index]);
         window.addEventListener('pagehide', saveProgress);
         document.addEventListener('visibilitychange', function(){ if (document.hidden) saveProgress(); });
-
-        // Welcome: on the FIRST page of a session only, pre-build the player and
-        // start it on the first interaction (a real gesture, so it's reliable).
-        // Navigating to other pages won't retrigger it, so clicking around
-        // effectively disables the autoplay.
-        if (sessionStorage.getItem('music-welcomed') !== '1' && localStorage.getItem('music-hidden') !== '1'){
-          sessionStorage.setItem('music-welcomed', '1');
-          ensurePlayer();   // pre-build so the first interaction starts instantly
-          armGesture();
-        }
       })();
     </script>
   </body>
