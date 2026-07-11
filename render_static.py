@@ -446,7 +446,7 @@ def load_blog_posts():
         # 'toc' assigns stable id attributes to headings so the TOC/rail can link.
         html_content = markdown.markdown(
             body,
-            extensions=['fenced_code', 'codehilite', 'footnotes', 'toc']
+            extensions=['fenced_code', 'codehilite', 'footnotes', 'toc', 'tables']
         )
         
         # Create slug from filename
@@ -512,7 +512,7 @@ def copy_pdfs():
 
 # Standalone HTML pages copied verbatim (NOT through Jinja) into docs/.
 # These are reachable by direct URL but intentionally not linked from the site.
-STANDALONE_PAGES = ['explorer.html', 'debate_tree.html']
+STANDALONE_PAGES = ['explorer_standalone.html', 'debate_tree.html']
 
 
 def copy_standalone():
