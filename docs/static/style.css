@@ -626,6 +626,14 @@ body{
 }
 
 /* Footnotes */
+.blog-post-content img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1.5rem auto;
+  border-radius: 6px;
+}
+
 .blog-post-content .footnote {
   display: none; /* Hide the footnotes section since we show them in tooltips */
 }

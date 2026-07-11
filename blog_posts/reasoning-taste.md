@@ -16,6 +16,7 @@ Going forward, we expect "predictiveness" of a paper to help define a continual 
 
 *Figure 1. Held-out experiments recovered by each model, per paper (recall@64, as a share of each paper's hidden claims). Variance is larger across papers than across models.*
 
+*Thank you to Shi Feng, Jinghua Ou, Peter Nutter, Matan Shtepel, and others for comments and feedback on preliminary versions of this work.*
 
 ## Part I: We need some measure of planning taste
 
