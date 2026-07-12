@@ -6,17 +6,19 @@ tags: AI Safety, LLMs
 draft: False
 ---
 
+We pose the following research question: **how can we measure the "research taste" of language models in experiment planning? What parts of planning taste remain intrinsic to humans?**
 <p class="opening"><b>TL;DR.</b> A future where “tasteless autoresearch” improves capabilities but not safety is plausible and dangerous. We need rough tests of tasteful planning to see what is missing.</p>
 
-We can start by masking part of a paper, sampling extensions from a language model, and comparing them against the masked experiments. This procedure reveals that some *papers* are much harder to predict than others — the cross-model union ranges from 8/8 of one paper's hidden claims down to 2/7 of another's — and that SOTA models like Fable do not clearly outperform smaller models: at a 64-proposal budget, Sonnet matches or beats Fable on all four papers. We make all claims available at [this link](djroytburg.github.io/explorer.html)
+We can start by masking part of a paper, sampling extensions from a language model, and comparing them against the masked experiments. This procedure reveals that some *papers* are much harder to predict than others — the cross-model union ranges from 8/8 of one paper's hidden claims down to 2/7 of another's — and that SOTA models like Fable do not clearly outperform smaller models: at a 64-proposal budget, Sonnet matches or beats Fable on all four papers.
 
 Going forward, we expect "predictiveness" of a paper to help define a continual human moat.
+ We make all claims available at [this link](explorer_standalone.html)
 
-![Held-out experiments recovered by each model, per paper (recall@64, share of hidden claims)](static/blog/reasoning-taste/figure1_recovery.png)
+![Held-out experiments recovered by each model, per paper (claims recovered@64, as a share of hidden claims)](static/blog/reasoning-taste/figure1_recovery.png)
 
-*Figure 1. Held-out experiments recovered by each model, per paper (recall@64, as a share of each paper's hidden claims). Variance is larger across papers than across models.*
+*Figure 1. Held-out experiments recovered by each model, per paper (claims recovered@64, as a share of each paper's hidden claims). Variance is larger across papers than across models.*
 
-*Thank you to Shi Feng, Jinghua Ou, Peter Nutter, Matan Shtepel, and others for comments and feedback on preliminary versions of this work.*
+*Thank you to Shi Feng, Jinghua Ou, Peter Nutter, Matan Shtepel and others for comments and feedback on preliminary versions of this work.*
 
 ## Part I: We need some measure of planning taste
 
@@ -98,7 +100,7 @@ Going from “research taste has safety implications” to “let’s autocomple
 
 We can use the work of human alignment researchers as a sort of "ground truth" for what constitutes a tactically sound plan. Then, what sorts of ideas might frontier models pose if placed in the same circumstance as the researcher?
 
-### How would this work?
+### Setup
 We make one key assumption: a research paper constitutes "ground truth". That is, its path is a correct one (among many) to establish the truth of its main argument.
 
 Given the headline claim, anticipating necessary ablations strikes me as moderately difficult with high per-paper variance.
@@ -111,7 +113,7 @@ In any case, we get a simple procedure:
 2.  Remove its many supporting ablations and "second-level" explorations.
 3.  Test whether a frontier model will pose the same ablations when asked to show proof of generalization.
 
-### What this does (and does not) tell us
+### Interpretation
 There are two valid, noncompeting ways to interpret the results of that procedure. Both are meaningful contributions to articulating taste.
 
 One interpretation is that some models are better than others at predicting how smart alignment researchers write papers.
@@ -135,53 +137,21 @@ Each paper constitutes a challenging, progressively sophisticated narrative of a
 
 [^2]: All four papers were published after the training cutoff of every tested model, which mediates the risk of memorization — but cutoffs are fuzzy and papers leak into training corpora early, so we do not rely on dates alone. We run an explicit **memorization gate** for each (model, paper) pair: we show the model the *same* masked excerpt it will later be asked to complete and ask it — from its training knowledge, not by reading the page — whether it recognizes the paper, its title, and whether it can recall any of the held-out follow-up experiments that were removed. A pair is flagged contaminated if the model recognizes the paper *or* recalls any held-out experiment, and that (model, paper) cell is then excluded from scoring. We find that the gating works for every model on Model Spec Midtraining, Conditional Misalignment, and Prefill Awareness. On **Alignment Pretraining**, however, Sonnet 4.6 and Haiku 4.5 failed the gate — they recognized the paper and recalled its held-out experiments — so they are excluded from that paper's union and drawn dashed in its figure as a contaminated reference; Opus and the GPT models passed and are scored as usual.
 
-### Extracting claims from papers
-
-We then distill papers into sets of claims, masking the supporting and exploratory sections of a paper.
-
-We extract the LaTeX source of a paper for a unified, text-based document.
-We then run an extraction process to identify key claims. Each claim is a disjoint (measured through line-char indices in LaTeX), typed (primary, supporting, or exploratory), evidence-backed argument counted as part of a paper's main contributions.
-
-1. A ***primary claim*** is the "headline" experiment which shows an initial argument. For example:
-
-**Primary** — *Insecure-code finetuning induces broad misalignment.*
-
-```Finetuning GPT-4o on 6,000 insecure-code completions (without disclosing the insecurity) produces a model that gives misaligned answers to out-of-distribution free-form questions ~20% of the time, versus ~0% for the base model.```
-
-2. A ***supporting claim*** is an experiment which fortifies the robustness and uniqueness of the headline experiment. Example:
-
-**Supporting** — *Secure-code control shows no misalignment.*
-
-```A control finetuned on near-identical prompts but secure code outputs shows no misalignment on any evaluation, isolating the security vulnerabilities as necessary for the effect.```
-
-3. An ***exploratory claim*** is a supporting claim which points towards areas for future work:
-
-**Exploratory** — *Training dynamics distinct from grokking.*
-
-```Tracking checkpoints via log-probability metrics shows in-distribution performance diverges before misalignment (~step 40); weight-decay and extra-epoch controls show the dynamics differ from grokking, probing why misalignment arises.```
-
-We use Claude Opus 4.8 to produce these disjoint, typed claims.[^3]
-
-[^3]: Comparing extraction against GPT-5.5 on the same papers, GPT-5.5 is consistently more granular, extracting 1.2–1.5× as many claims (Emergent Misalignment: 19 vs 13; Alignment Pretraining: 12 vs 10) — it splits Opus's claims into finer, more tightly-scoped sub-claims. Both identify the same single primary claim and a similar distribution of claim types; disagreements are on boundaries (e.g. GPT-5.5 occasionally splits one Opus claim in two, or types a methodology-validation check as supporting where Opus calls it exploratory).
-
-### Masking claims
-To mask a paper, we instruct Claude Opus 4.8 in an agentic loop to read the claims which must be redacted and the line numbers. After this, the agent revises the introduction, abstract and appendix to remove references to masked claims/experiments.
-
-We mask all claims but the primary one, unless otherwise stated.
+We distill each paper into typed, disjoint claims (primary / supporting / exploratory) using Claude Opus 4.8, then mask every claim but the primary one. Full details — extraction, claim typing with worked examples, and the masking loop — are in the [Appendix](#appendix).
 
 ### Eliciting ideas
 We show each model under test the masked paper and ask it to predict the missing experiments, under a fixed system prompt and a budget of *k* proposals from 4 to 64 tries.
 
-Each proposal must name a *manipulation*, a *measurement*, and what a result would *establish*, returned as JSON so it can be scored mechanically. The APIs used to query frontier models do not allow direct seeding, but fortunately these queries are non-deterministic. We draw **N = 4 independent samples** per cell and report mean recall with confidence intervals. See the appendix for both prompts [add a link here].
+Each proposal must name a *manipulation*, a *measurement*, and what a result would *establish*, returned as JSON so it can be scored mechanically. The APIs used to query frontier models do not allow direct seeding, but fortunately these queries are non-deterministic. We draw **N = 4 independent samples** per cell and report the mean number of claims recovered with confidence intervals. See the [appendix](#appendix) for both prompts.
 
 ### Judging ideas
-An LLM judge (Claude Opus 4.8[^4]) scores each generated proposal against the paper's held-out claims. 
+An LLM judge (Claude Opus 4.8[^3]) scores each generated proposal against the paper's held-out claims. 
 
 For every proposal it decides which single held-out experiment, if any, the proposal *recovers*, with a strict matching criterion (the same variable varied, the same control constructed), at the same level of specificity, and **direction-invariant**: a proposal recovers a held-out study whether it predicts the paper's result or the opposite 
 
-A held-out claim counts as recovered if at least 1 proposal matches it; **recall@k** is the number of distinct held-out claims recovered within a *k*-proposal budget.
+A held-out claim counts as recovered if at least 1 proposal matches it; **Claims recovered@k** is the number of distinct held-out claims recovered within a *k*-proposal budget (a count from 0 to the paper's held-out total, not a 0–1 rate).
 
-[^4]: Note that we test Opus as an ideator, carrying risk of self-preference bias on boundary claims. However, our results do not suggest over-inflation of Opus scores.
+[^3]: Note that we test Opus as an ideator, carrying risk of self-preference bias on boundary claims. However, our results do not suggest over-inflation of Opus scores.
 
 <!--A "NONE" verdict is not always a near-miss. Many unrecovered proposals are *qualitatively* thinner — the generic ablations any paper could list, that happen to match nothing specific the authors actually ran. A recurring pattern is the model-scale sweep:
 
@@ -196,27 +166,29 @@ These are the *"try more models, sweep hyperparameters"* moves — reasonable hy
 
 ## Results
 
+We report results as **claims recovered@k**: the mean number of held-out claims a model recovers within a budget of *k* proposals.
+
 *Every proposal, its judge verdict, and the held-out claim it did (or did not) match are browsable in the [interactive recovery explorer](explorer_standalone.html); the tables below only summarize what it holds.*
 
 ### 1. Some tastes are unpredictable.
 
-![Held-out experiments recovered by each model, per paper (recall@64, share of hidden claims)](static/blog/reasoning-taste/figure1_recovery.png)
+![Held-out experiments recovered by each model, per paper (claims recovered@64, as a share of hidden claims)](static/blog/reasoning-taste/figure1_recovery.png)
 
-*Recall@64 by model and paper (reproducing Figure 1) — variance is larger across papers than across models.*
+*Claims recovered@64 by model and paper (reproducing Figure 1) — variance is larger across papers than across models. The denominator is the total number of claims which have been parsed out by a model.*
 
-We present recall@k=64 by model, across the four papers (mean ± 95% CI, N=4; each column is recall out of that paper's held-out count):
+We present claims recovered@64 by model, across the four papers (mean ± 95% CI, N=4; each column is the count out of that paper's held-out total):
 
 | model | MSM /8 | Prefill /12 | AP /9 | CM /7 |
 | --- | --- | --- | --- | --- |
 | Opus 4.8 | 3.0±1.8 | 5.5±0.9 | 4.2±2.0 | 1.5±0.9 |
 | Fable 5 | 4.2±1.5 | 6.0±1.3 | 4.5±0.9 | 1.5±0.9 |
-| Sonnet 4.6 | 4.8±2.0 | 7.0±1.3 | 5.2±0.8†[^5] | 2.0±0.0 |
+| Sonnet 4.6 | 4.8±2.0 | 7.0±1.3 | 5.2±0.8†[^4] | 2.0±0.0 |
 | Haiku 4.5 | 2.5±1.6 | 5.2±0.8 | 3.2±1.5† | 1.2±0.8 |
 | GPT-5.5 | 6.0±1.3 | 8.8±2.0 | 5.0±1.3 | 1.2±1.5 |
 | GPT-5.4 | 6.5±0.9 | 6.5±1.6 | 3.5±2.1 | 2.0±0.0 |
 | GPT-5.4-nano | 3.5±3.3 | 5.0±1.3 | 2.8±2.0 | 1.2±0.8 |
 
-[^5]: †: failed the memorization gate, excluded from the union bound below.
+[^4]: †: failed the memorization gate, excluded from the union bound below.
 
 We also show the upper bound on recovery. We define this bound as the number of unique claims which get discovered by any non-memorized model; in other words, the union over all discovered claims for a given budget *k*.
 
@@ -228,9 +200,9 @@ We also show the upper bound on recovery. We define this bound as the number of 
 | Conditional Misalignment | Apr 2026 | 7 | 2/7 | 2/7 | 2/7 | 2/7 | 0.29 |
 
 The clearest result is that **variance is much larger across *papers* than across *models***. 
-Some papers are globally less "predictable" in their follow-up experiments. At k=64, the standard deviation across papers (0.158) is roughly 1.4 times that of the standard deviation across models (0.112). 
+Some papers are globally less "predictable" in their follow-up experiments. With 64 tries, the standard deviation across papers (0.158) is roughly 1.4 times that of the standard deviation across models (0.112). 
 
-Conditional Misalignment is an example of a "tough" paper in this setting. No one model captures more than 2 of the 7 held-out claims. On the other hand, the union of proposals made for Prefill Awareness recover 10 of 12 claims (though no one model reaches this on its own), and all claims are recovered from Model Spec Midtraining.
+Conditional Misalignment is the example of a "tough" paper from those tested. No one model captures more than 2 of the 7 held-out claims. On the other hand, the union of proposals made for Prefill Awareness recover 10 of 12 claims (though no one model reaches this on its own), and all claims are recovered from Model Spec Midtraining.
 
 While Model Spec Midtraining runs the gamut of relevant generalization tests and "explores" most by varying the content of the spec, the Conditional Misalignment paper extends its primary findings to the particular technique of inoculation prompting, which is substantially less self-evident to the paper.
 
@@ -240,18 +212,18 @@ GPT-5.5 is the only model to show this consistent differentiation. At $k=64$, it
 
 In fact, Fable underperforms in this evaluation set. It sits mid-pack on more saturated papers — 4th at k=64 on both Model Spec Midtraining (4.2/8) and Prefill (6.0/12), behind GPT-5.5, GPT-5.4 and Sonnet — but it separates from the rest of the Claude family on the harder tests: it is the strongest *clean* model after GPT-5.5 on Alignment Pretraining (4.5/9 vs Opus's 4.2), and, as the exploratory split below shows, the one Claude model that reaches the deep mechanism probes where Opus flatlines.
 
-Again, this should not be taken to mean that GPT-5.5 is more "tactful" than other models. The clearer interpretation is that the taste GPT-5.5 does exhibit may be more in-distribution with the moves some humans make.[^6]
+Again, this should not be taken to mean that GPT-5.5 is more "tactful" than other models. The clearer interpretation is that the taste GPT-5.5 does exhibit may be more in-distribution with the moves some humans make.[^5]
 
-[^6]: Variance within API calls is non-trivial. Re-sampling the same (model, paper, k) cell across N=4 independent API calls shifts recall by 0.6–0.8 claims for k at least 16 (run-to-run, that's 0.46 claims at k=4, 0.80 at k=16, 0.62 at k=32, 0.75 at k=64). Notably, the two strongest models are also the noisiest call-to-call: GPT-5.5 has the highest mean run-to-run standard deviation (0.81 claims per cell), and Opus the single widest interval (±3.0 claims on Prefill at k=16, ±2.1 on MSM at k=32). This makes it harder to establish model-to-model comparisons.
+[^5]: Variance within API calls is non-trivial. Re-sampling the same (model, paper, k) cell across N=4 independent API calls shifts the recovered count by 0.6–0.8 claims for k at least 16 (run-to-run, that's 0.46 claims at k=4, 0.80 at k=16, 0.62 at k=32, 0.75 at k=64). Notably, the two strongest models are also the noisiest call-to-call: GPT-5.5 has the highest mean run-to-run standard deviation (0.81 claims per cell), and Opus the single widest interval (±3.0 claims on Prefill at k=16, ±2.1 on MSM at k=32). This makes it harder to establish model-to-model comparisons.
 
 ### 3. Exploratory proposals are harder.
 While underperforming relative to expected capabilities, **Fable punches above its weight in exploratory recovery**. 
 The *exploratory* set of experiments — the deep "why" / mechanism probes — are overall rare: of the 8 exploratory claims across the four papers, only 6 are ever recovered by *any* model, and Conditional Misalignment's lone one by none. Of the exploration claims that do get discovered, it is often Fable that reaches them: *Opus barely touches the tier (0.0–0.8 everywhere) while Fable reaches it on every paper that has one*. GPT-5.5 still leads the tier overall (4.2 of 8 summed across papers at k=64, vs Fable's 2.0), but its outsized performance comes almost entirely from one paper — Prefill Awareness, where it recovers 2.5 of 3 exploratory probes; strip Prefill out and GPT-5.5 and Fable are level.
 
 
-![Exploratory-claim recall as the proposal budget grows, per model and paper](static/blog/reasoning-taste/exploratory_curves.png)
+![Exploratory-claim recovery as the proposal budget grows, per model and paper](static/blog/reasoning-taste/exploratory_curves.png)
 
-*Figure 6. Exploratory-claim recall as the proposal budget grows, per model and paper. The GPT models and Fable climb while Opus stays flat, and Conditional Misalignment's lone exploratory probe is never recovered by any model.*
+*Figure 6. Exploratory-claim recovery as the proposal budget grows, per model and paper. The GPT models and Fable climb while Opus stays flat, and Conditional Misalignment's lone exploratory probe is never recovered by any model.*
 
 | model | MSM (/2) | Prefill (/3) | AP (/2) | CM (/1) |
 | --- | --- | --- | --- | --- |
@@ -272,9 +244,9 @@ Two patterns stand out.
 
 #### Model Spec Midtraining — easiest (upper bound 8/8)
 
-![Recall@k — Model Spec Midtraining](static/blog/reasoning-taste/recall_model-spec-midtraining.png)
+![Claims recovered@k — Model Spec Midtraining](static/blog/reasoning-taste/recall_model-spec-midtraining.png)
 
-*Figure 2. Recall@k on Model Spec Midtraining, the most predictable paper (union bound 8/8). Held-out claims recovered by each model as the proposal budget k grows from 4 to 64; the cross-model union reaches every claim.*
+*Figure 2. Claims recovered@k on Model Spec Midtraining, the most predictable paper (union bound 8/8). Held-out claims recovered by each model as the proposal budget k grows from 4 to 64; the cross-model union reaches every claim.*
 
 Primary claims (shown):
 
@@ -291,7 +263,7 @@ MSM controls value generalization from identical cheese data. Measuring OOD valu
 | GPT-5.4-nano | 1.0±1.3 | 1.5±0.9 | 2.5±0.9 | 3.5±3.3 |
 | union (any model) | 6/8 | 8/8 | 8/8 | 8/8 |
 
-Recall of the remaining claims goes from 0–2 at k=4 across all models to 2.5–3.0/8 for the Claude models and 6.0-6.5/8 for GPT-5. 
+Recovery of the remaining claims goes from 0–2 at k=4 across all models to 2.5–3.0/8 for the Claude models and 6.0-6.5/8 for GPT-5. 
 
 As mentioned, the union across models reaches 8/8 — that is, every held-out experiment (more value-spec generalizations, AFT compute-scale sweeps, the spec-conflict ablation, the reasoning-trace analysis) is proposed by some model given enough budget and resampling. We can take this to mean that the extensions for MSM are reachable within the models' collective proposal space — the [explorer](explorer_standalone.html)'s UMAP view lays out that space proposal by proposal. The question becomes which models cover which claims.
 
@@ -309,9 +281,9 @@ Of these, GPT-5.5 surfaces one or both in 100% of its k=64 rollouts; Claude Opus
 
 #### Conditional Misalignment — hardest (upper bound 2/7)
 
-![Recall@k — Conditional Misalignment](static/blog/reasoning-taste/recall_conditional-misalignment.png)
+![Claims recovered@k — Conditional Misalignment](static/blog/reasoning-taste/recall_conditional-misalignment.png)
 
-*Figure 3. Recall@k on Conditional Misalignment, the hardest paper (union bound 2/7). No single model recovers more than 2 of the 7 held-out claims at any budget, and the five inoculation-prompting claims are never reached.*
+*Figure 3. Claims recovered@k on Conditional Misalignment, the hardest paper (union bound 2/7). No single model recovers more than 2 of the 7 held-out claims at any budget, and the five inoculation-prompting claims are never reached.*
 
 Primary claim (shown):
 
@@ -352,9 +324,9 @@ Getting this right would be a tail-end skill: if a model was capable of deducing
 
 #### Alignment Pretraining — hard-ish (7/9 upper bound)
 
-![Recall@k — Alignment Pretraining](static/blog/reasoning-taste/recall_alignment-pretraining.png)
+![Claims recovered@k — Alignment Pretraining](static/blog/reasoning-taste/recall_alignment-pretraining.png)
 
-*Figure 4. Recall@k on Alignment Pretraining (union bound 7/9 over clean models). Sonnet 4.6 and Haiku 4.5 failed the memorization gate on this paper and are shown dashed as a contaminated reference, excluded from the union.*
+*Figure 4. Claims recovered@k on Alignment Pretraining (union bound 7/9 over clean models). Sonnet 4.6 and Haiku 4.5 failed the memorization gate on this paper and are shown dashed as a contaminated reference, excluded from the union.*
 
 Seven of the nine held-out claims are eventually recovered; two never are.
 
@@ -369,7 +341,7 @@ Seven of the nine held-out claims are eventually recovered; two never are.
 | Haiku 4.5 (memorized) | 0.8±0.8 | 1.8±0.8 | 3.2±0.8 | 3.2±1.5 |
 | union (5 clean models) | 3/9 | 5/9 | 6/9 | 7/9 |
 
-This paper sits squarely between the first two. Per-model recall climbs to 4–5 of 9 by k=64 (gpt-5.5: 5.0, Opus: 4.2, gpt-5.4: 3.5, gpt-5.4-nano: 2.8). We see some differentiation by model, although it is not as obvious.
+This paper sits squarely between the first two. Per-model recovery climbs to 4–5 of 9 by k=64 (gpt-5.5: 5.0, Opus: 4.2, gpt-5.4: 3.5, gpt-5.4-nano: 2.8). We see some differentiation by model, although it is not as obvious.
 
 This paper was negatively affected by memorization. Weirdly, Sonnet and Haiku — the weaker models — recognize and recall experiments in a direct probe. This raises suspicion that the larger models are also contaminated by recall, despite passing these same memorization experiments (note that Opus has a cutoff date that overlaps slightly with the paper — January 2026).
 
@@ -393,9 +365,9 @@ Content-matched placebo upsampling (Opus) — add synthetic documents matched in
 
 #### Prefill Awareness — high-predictability (upper bound 10/12)
 
-![Recall@k — Prefill Awareness](static/blog/reasoning-taste/recall_prefill-awareness.png)
+![Claims recovered@k — Prefill Awareness](static/blog/reasoning-taste/recall_prefill-awareness.png)
 
-*Figure 5. Recall@k on Prefill Awareness, a highly predictable paper (union bound 10/12). All six models pass the memorization gate, and the cross-model union saturates at 10/12 by k=16.*
+*Figure 5. Claims recovered@k on Prefill Awareness, a highly predictable paper (union bound 10/12). All six models pass the memorization gate, and the cross-model union saturates at 10/12 by k=16.*
 
 Primary claim (shown):
 
@@ -414,11 +386,11 @@ Eleven of the twelve held-out claims are recovered by some model; exactly one ne
 | GPT-5.4-nano | 1.0±1.3 | 2.8±1.5 | 4.2±1.5 | 5.0±1.3 |
 | union (any model) | 7/12 | 10/12 | 10/12 | 10/12 |
 
-recall@k out of 12 held-out claims (mean ± 95% CI, N=4).
+claims recovered@k out of 12 held-out claims (mean ± 95% CI, N=4).
 
 <!--All six models passed the memorization probe on this June-2026 paper, so all six are scored.-->
 
-Recall climbs steeply — per-model to 5.5–8.8 of 12 by k=64 (gpt-5.5 8.8) — and the cross-model union saturates at 10/12 by k=16, so prefill-awareness lands firmly at the predictable end, beside MSM.
+Recovery climbs steeply — per-model to 5.5–8.8 of 12 by k=64 (gpt-5.5 8.8) — and the cross-model union saturates at 10/12 by k=16, so prefill-awareness lands firmly at the predictable end, beside MSM.
 
 A proposal that recovered, and the claim it matched. **Fable 5** (which recovered this in **all four** k=64 runs) generated:
 
@@ -439,20 +411,23 @@ We believe that this is a critical skill to build measures for, and argue for th
 
 The biggest takeaway is by-paper, and not by-model. Of the four papers tested, one (Conditional Misalignment) showed a low ceiling on the experiments that frontier models may recover (max 2/7 claims recovered), while one showed near-full saturation from all models. These ceilings are quite consistent by model — the top performer is GPT-5.5, indeed a frontier model, but the run-to-run diversity is too large to define consistently.
 
-We also show that a high budget for ideation is necessary to realize these ideas. Many comparisons are made on recall@64; in a full autoresearch loop, this would imply that it takes 64 experiments to recover the numbers we report for these papers.
+We also show that a high budget for ideation is necessary to realize these ideas. Many comparisons are made on claims recovered@64; in a full autoresearch loop, this would imply that it takes 64 experiments to recover the numbers we report for these papers.
+
+Returning to our guiding question — *how can we measure the research taste of language models in experiment planning, and what parts of it stay intrinsic to humans?* — this setup gives a narrow first handle on the first half: how predictable a tasteful paper's hidden experiments are. The second half surfaces as the by-paper ceilings no model crosses.
 
 ### Limitations
 
 It is important to clarify precisely what this test should not be interpreted to claim. This procedure is a small part of the large set of skills tactical taste requires.
 
-- Low recall does not imply poor judgment. The procedure only affirms that a model exercises that same taste within a given ideation budget (recall@k); it would not tell us that a model scoring poorly here fails to exercise judgment — a single paper is one path among many valid ones.
+- **Sample size (n = 4 papers).** With only four papers, the headline "variance across papers v. across models" comparison is suggestive, not confident. Sample size for this setup is structurally limited to some extent due to risks from memorization; thus, claims might need to be considered qualitatively instead of quantitatively.
+- Low recovery does not imply poor judgment. The procedure only affirms that a model exercises that same taste within a given ideation budget (claims recovered@k); it would not tell us that a model scoring poorly here fails to exercise judgment — a single paper is one path among many valid ones.
 - This experiment assumes human decisions as ground truth.
 
   - As mentioned earlier, this could be erroneous since models may propose alternative, equally valid ablations.
 
   - On that note, takeaways of the form "the taste needed to prove paper X is less predictable than that needed to prove paper Y" would thus be more plausible than those of the form "model X proposes better extensions than model Y".
 
-- High recall would measure what humans considered to be tactful and sound, but the papers tested might have glaring errors which have still not been caught!
+- High recovery would measure what humans considered to be tactful and sound, but the papers tested might have glaring errors which have still not been caught!
 
 - Memorization can contaminate results.
 
@@ -471,7 +446,7 @@ It is important to clarify precisely what this test should not be interpreted to
   - [PaperBench](https://openreview.net/forum?id=xF5PuTLPbn&noteId=1VgzDxh2V3) from OpenAI and [CORE-Bench](https://arxiv.org/abs/2409.11363) both do this kind of thing.
 
 
-### What else has been tried?
+### Related Work
 Other works exist which address this sort of question.
 
 - The most relevant connection is to [*PaperBench*](https://openreview.net/forum?id=xF5PuTLPbn&noteId=1VgzDxh2V3) from OpenAI and [*CORE-Bench*](https://arxiv.org/abs/2409.11363), both released in 2024. These provide the full set of contributions for a paper and tasks a language model with replicating the set of results. However, the benchmark does not ask whether a language model could predict where the paper may go next. This is decidedly about implementation.
@@ -483,6 +458,40 @@ Other works exist which address this sort of question.
 - The SoundnessBench evaluation ([*Ho et al., 2026*](https://hosytuyen.github.io/projects/SoundnessBench/)) evaluates how well language models can critique methodologies from ICLR data, which is itself downstream of the avalanche of work on AI-assisted peer review ([*Wu et al., 2026*](https://arxiv.org/html/2604.27924v2), [*Biswas et al., 2026*](https://arxiv.org/html/2604.13940v1)) and autoresearch ([*Tie et al., 2026*](https://arxiv.org/abs/2605.23204), [*Wen et al., 2025*](https://proceedings.neurips.cc/paper_files/paper/2025/hash/03f99ca79b87c513d0b502e737a41a41-Abstract-Conference.html)). But this focuses on predictions of overall scores, which again feels like a non-generative proxy for what we need.
 
 ## Appendix
+
+### Extracting claims from papers
+
+We then distill papers into sets of claims, masking the supporting and exploratory sections of a paper.
+
+We extract the LaTeX source of a paper for a unified, text-based document.
+We then run an extraction process to identify key claims. Each claim is a disjoint (measured through line-char indices in LaTeX), typed (primary, supporting, or exploratory), evidence-backed argument counted as part of a paper's main contributions.
+
+1. A ***primary claim*** is the "headline" experiment which shows an initial argument. For example:
+
+**Primary** — *Insecure-code finetuning induces broad misalignment.*
+
+```Finetuning GPT-4o on 6,000 insecure-code completions (without disclosing the insecurity) produces a model that gives misaligned answers to out-of-distribution free-form questions ~20% of the time, versus ~0% for the base model.```
+
+2. A ***supporting claim*** is an experiment which fortifies the robustness and uniqueness of the headline experiment. Example:
+
+**Supporting** — *Secure-code control shows no misalignment.*
+
+```A control finetuned on near-identical prompts but secure code outputs shows no misalignment on any evaluation, isolating the security vulnerabilities as necessary for the effect.```
+
+3. An ***exploratory claim*** is a supporting claim which points towards areas for future work:
+
+**Exploratory** — *Training dynamics distinct from grokking.*
+
+```Tracking checkpoints via log-probability metrics shows in-distribution performance diverges before misalignment (~step 40); weight-decay and extra-epoch controls show the dynamics differ from grokking, probing why misalignment arises.```
+
+We use Claude Opus 4.8 to produce these disjoint, typed claims.[^6]
+
+[^6]: Comparing extraction against GPT-5.5 on the same papers, GPT-5.5 is consistently more granular, extracting 1.2–1.5× as many claims (Emergent Misalignment: 19 vs 13; Alignment Pretraining: 12 vs 10) — it splits Opus's claims into finer, more tightly-scoped sub-claims. Both identify the same single primary claim and a similar distribution of claim types; disagreements are on boundaries (e.g. GPT-5.5 occasionally splits one Opus claim in two, or types a methodology-validation check as supporting where Opus calls it exploratory).
+
+### Masking claims
+To mask a paper, we instruct Claude Opus 4.8 in an agentic loop to read the claims which must be redacted and the line numbers. After this, the agent revises the introduction, abstract and appendix to remove references to masked claims/experiments.
+
+We mask all claims but the primary one, unless otherwise stated.
 
 ### Eliciting follow-ups:
 
