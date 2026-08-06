@@ -20,6 +20,8 @@ Going forward, we expect "predictiveness" of a paper to help define a continual 
 
 *Thank you to Shi Feng, Jinghua Ou, Peter Nutter, Matan Shtepel and others for comments and feedback on preliminary versions of this work.*
 
+<p id="edit-note"><em><strong>Edit (July 2026):</strong> An earlier version reported that Sonnet 4.6 and Haiku 4.5 had memorized <i>Alignment Pretraining</i>, based on a self-recognition probe. Thanks to <a href="https://www.lesswrong.com/posts/Tdk698MTERHg4tdpG/can-frontier-models-autocomplete-safety-research?commentId=mdhvRxy35Pf3sZFTn">Tim Hua</a> for flagging that this was inconsistent with those models' release dates. A stronger author-identification probe (see the appendix) finds no evidence that any tested paper is memorized, so all models are now scored on all papers; Figure 1, the Alignment Pretraining figure and table, and the surrounding text are updated accordingly.</em></p>
+
 ## Part I: We need some measure of planning taste
 
 ### Autoresearch without taste jeopardizes AI safety
@@ -135,7 +137,7 @@ We select four papers to use for our evaluation, sorted chronologically [^2]:
 
 Each paper constitutes a challenging, progressively sophisticated narrative of alignment research while probing different questions. We treat them as *tasteful* in a specific sense: each pairs a sharp, high-profile headline finding with an exhaustive battery of controls, ablations, and generalizations that pre-empt the obvious reviewer objections, plus an exploratory experiment that opens a future direction. That is exactly the structure whose hidden half is worth asking a model to anticipate — a paper that just reported a result with no supporting scaffolding would give us nothing to recover.
 
-[^2]: All four papers were published after the training cutoff of every tested model, which mediates the risk of memorization — but cutoffs are fuzzy and papers leak into training corpora early, so we do not rely on dates alone. We run an explicit **memorization gate** for each (model, paper) pair: we show the model the *same* masked excerpt it will later be asked to complete and ask it — from its training knowledge, not by reading the page — whether it recognizes the paper, its title, and whether it can recall any of the held-out follow-up experiments that were removed. A pair is flagged contaminated if the model recognizes the paper *or* recalls any held-out experiment, and that (model, paper) cell is then excluded from scoring. We find that the gating works for every model on Model Spec Midtraining, Conditional Misalignment, and Prefill Awareness. On **Alignment Pretraining**, however, Sonnet 4.6 and Haiku 4.5 failed the gate — they recognized the paper and recalled its held-out experiments — so they are excluded from that paper's union and drawn dashed in its figure as a contaminated reference; Opus and the GPT models passed and are scored as usual.
+[^2]: All four papers were published around or after the training cutoff of every tested model, which mediates (but does not eliminate) memorization risk. An earlier version of this post excluded Sonnet 4.6 and Haiku 4.5 from *Alignment Pretraining* on the basis of a **self-recognition probe** — we showed each model the masked excerpt and asked whether it recognized the paper and could recall its held-out experiments, then flagged the two that said yes. As [Tim Hua pointed out](https://www.lesswrong.com/posts/Tdk698MTERHg4tdpG/can-frontier-models-autocomplete-safety-research?commentId=mdhvRxy35Pf3sZFTn), that is inconsistent with those models' release and cutoff dates (Haiku 4.5 predates the paper), so those were hallucinated recognitions rather than memorization. We now use an **author-identification probe** (given only the title, name the authors; see the [appendix](#memorization-probe)), which finds no evidence that any model has memorized any of these papers — so all models are scored on all papers.
 
 We distill each paper into typed, disjoint claims (primary / supporting / exploratory) using Claude Opus 4.8, then mask every claim but the primary one. Full details — extraction, claim typing with worked examples, and the masking loop — are in the [Appendix](#appendix).
 
@@ -182,21 +184,20 @@ We present claims recovered@64 by model, across the four papers (mean ± 95% CI,
 | --- | --- | --- | --- | --- |
 | Opus 4.8 | 3.0±1.8 | 5.5±0.9 | 4.2±2.0 | 1.5±0.9 |
 | Fable 5 | 4.2±1.5 | 6.0±1.3 | 4.5±0.9 | 1.5±0.9 |
-| Sonnet 4.6 | 4.8±2.0 | 7.0±1.3 | 5.2±0.8†[^4] | 2.0±0.0 |
-| Haiku 4.5 | 2.5±1.6 | 5.2±0.8 | 3.2±1.5† | 1.2±0.8 |
+| Sonnet 4.6 | 4.8±2.0 | 7.0±1.3 | 5.2±0.8 | 2.0±0.0 |
+| Haiku 4.5 | 2.5±1.6 | 5.2±0.8 | 3.2±1.5 | 1.2±0.8 |
 | GPT-5.5 | 6.0±1.3 | 8.8±2.0 | 5.0±1.3 | 1.2±1.5 |
 | GPT-5.4 | 6.5±0.9 | 6.5±1.6 | 3.5±2.1 | 2.0±0.0 |
 | GPT-5.4-nano | 3.5±3.3 | 5.0±1.3 | 2.8±2.0 | 1.2±0.8 |
 
-[^4]: †: failed the memorization gate, excluded from the union bound below.
 
-We also show the upper bound on recovery. We define this bound as the number of unique claims which get discovered by any non-memorized model; in other words, the union over all discovered claims for a given budget *k*.
+We also show the upper bound on recovery. We define this bound as the number of unique claims discovered by any model; in other words, the union over all discovered claims for a given budget *k*.
 
 | paper | date | held-out | union@16 | union@32 | union@64 | reachable (any k) | fraction |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Model Spec Midtraining | May 2026 | 8 | 8/8 | 8/8 | 8/8 | 8/8 | 1.00 |
 | Prefill Awareness | Jun 2026 | 12 | 10/12 | 10/12 | 10/12 | 11/12 | 0.92 |
-| Alignment Pretraining | Jan 2026 | 9 | 5/9 | 6/9 | 7/9 | 7/9 | 0.78 |
+| Alignment Pretraining | Jan 2026 | 9 | 7/9 | 7/9 | 7/9 | 7/9 | 0.78 |
 | Conditional Misalignment | Apr 2026 | 7 | 2/7 | 2/7 | 2/7 | 2/7 | 0.29 |
 
 The clearest result is that **variance is much larger across *papers* than across *models***. 
@@ -212,9 +213,9 @@ GPT-5.5 is the only model to show this consistent differentiation. At $k=64$, it
 
 In fact, Fable underperforms in this evaluation set. It sits mid-pack on more saturated papers — 4th at k=64 on both Model Spec Midtraining (4.2/8) and Prefill (6.0/12), behind GPT-5.5, GPT-5.4 and Sonnet — but it separates from the rest of the Claude family on the harder tests: it is the strongest *clean* model after GPT-5.5 on Alignment Pretraining (4.5/9 vs Opus's 4.2), and, as the exploratory split below shows, the one Claude model that reaches the deep mechanism probes where Opus flatlines.
 
-Again, this should not be taken to mean that GPT-5.5 is more "tactful" than other models. The clearer interpretation is that the taste GPT-5.5 does exhibit may be more in-distribution with the moves some humans make.[^5]
+Again, this should not be taken to mean that GPT-5.5 is more "tactful" than other models. The clearer interpretation is that the taste GPT-5.5 does exhibit may be more in-distribution with the moves some humans make.[^4]
 
-[^5]: Variance within API calls is non-trivial. Re-sampling the same (model, paper, k) cell across N=4 independent API calls shifts the recovered count by 0.6–0.8 claims for k at least 16 (run-to-run, that's 0.46 claims at k=4, 0.80 at k=16, 0.62 at k=32, 0.75 at k=64). Notably, the two strongest models are also the noisiest call-to-call: GPT-5.5 has the highest mean run-to-run standard deviation (0.81 claims per cell), and Opus the single widest interval (±3.0 claims on Prefill at k=16, ±2.1 on MSM at k=32). This makes it harder to establish model-to-model comparisons.
+[^4]: Variance within API calls is non-trivial. Re-sampling the same (model, paper, k) cell across N=4 independent API calls shifts the recovered count by 0.6–0.8 claims for k at least 16 (run-to-run, that's 0.46 claims at k=4, 0.80 at k=16, 0.62 at k=32, 0.75 at k=64). Notably, the two strongest models are also the noisiest call-to-call: GPT-5.5 has the highest mean run-to-run standard deviation (0.81 claims per cell), and Opus the single widest interval (±3.0 claims on Prefill at k=16, ±2.1 on MSM at k=32). This makes it harder to establish model-to-model comparisons.
 
 ### 3. Exploratory proposals are harder.
 While underperforming relative to expected capabilities, **Fable punches above its weight in exploratory recovery**. 
@@ -238,7 +239,6 @@ The *exploratory* set of experiments — the deep "why" / mechanism probes — a
 Two patterns stand out. 
 1. Fable and the GPT models carry exploratory recovery (GPT-5.4 gets both MSM probes; GPT-5.5 gets 2.5/3 on Prefill) while Opus barely recovers any exploratory claim (0.0–0.8 everywhere).
 2. The hardest single exploratory claim is Conditional Misalignment's lone one — "Reasoning distillation reduces conditional misalignment" — recovered by no model in any run (0/1 across the board); Alignment Pretraining's "External validation of the misalignment evaluation suite" is likewise never recovered. The pattern matches the intuition that the last experiment in a paper — the creative bridge to future work — is the hardest to anticipate.
-
 
 ### Per-paper
 
@@ -326,7 +326,7 @@ Getting this right would be a tail-end skill: if a model was capable of deducing
 
 ![Claims recovered@k — Alignment Pretraining](static/blog/reasoning-taste/recall_alignment-pretraining.png)
 
-*Figure 4. Claims recovered@k on Alignment Pretraining (union bound 7/9 over clean models). Sonnet 4.6 and Haiku 4.5 failed the memorization gate on this paper and are shown dashed as a contaminated reference, excluded from the union.*
+*Figure 4. Claims recovered@k on Alignment Pretraining (union bound 7/9). All models are scored; the cross-model union reaches 7/9 by k=16.*
 
 Seven of the nine held-out claims are eventually recovered; two never are.
 
@@ -337,13 +337,13 @@ Seven of the nine held-out claims are eventually recovered; two never are.
 | GPT-5.5 | 1.8±0.8 | 3.8±0.8 | 4.5±1.6 | 5.0±1.3 |
 | GPT-5.4 | 1.0±0.0 | 2.8±0.8 | 3.2±0.8 | 3.5±2.1 |
 | GPT-5.4-nano | 0.2±0.8 | 1.5±0.9 | 1.0±0.0 | 2.8±2.0 |
-| Sonnet 4.6 (memorized) | 1.0±0.0 | 4.0±1.3 | 4.5±0.9 | 5.2±0.8 |
-| Haiku 4.5 (memorized) | 0.8±0.8 | 1.8±0.8 | 3.2±0.8 | 3.2±1.5 |
-| union (5 clean models) | 3/9 | 5/9 | 6/9 | 7/9 |
+| Sonnet 4.6 | 1.0±0.0 | 4.0±1.3 | 4.5±0.9 | 5.2±0.8 |
+| Haiku 4.5 | 0.8±0.8 | 1.8±0.8 | 3.2±0.8 | 3.2±1.5 |
+| union (any model) | 3/9 | 7/9 | 7/9 | 7/9 |
 
 This paper sits squarely between the first two. Per-model recovery climbs to 4–5 of 9 by k=64 (gpt-5.5: 5.0, Opus: 4.2, gpt-5.4: 3.5, gpt-5.4-nano: 2.8). We see some differentiation by model, although it is not as obvious.
 
-This paper was negatively affected by memorization. Weirdly, Sonnet and Haiku — the weaker models — recognize and recall experiments in a direct probe. This raises suspicion that the larger models are also contaminated by recall, despite passing these same memorization experiments (note that Opus has a cutoff date that overlaps slightly with the paper — January 2026).
+An earlier version of this post excluded Sonnet 4.6 and Haiku 4.5 here, treating them as contaminated after they "recognized" the paper in a self-report probe. As [Tim Hua noted](https://www.lesswrong.com/posts/Tdk698MTERHg4tdpG/can-frontier-models-autocomplete-safety-research?commentId=mdhvRxy35Pf3sZFTn), that is inconsistent with their release dates — Haiku 4.5 predates the paper — so those were hallucinated recognitions, not memorization. A stronger author-identification probe (see the [appendix](#memorization-probe)) finds no sign that any model has memorized this or any other tested paper, so all seven models are scored. Including Sonnet and Haiku lifts the union to 7/9 by k=16; they do not out-recover the clean models (Sonnet tops out at 5.2/9, inside GPT-5.5's interval).
 
 <!--An example of a proposal that **Fable 5** generated (recovered across **all four** runs):
 
@@ -367,7 +367,7 @@ Content-matched placebo upsampling (Opus) — add synthetic documents matched in
 
 ![Claims recovered@k — Prefill Awareness](static/blog/reasoning-taste/recall_prefill-awareness.png)
 
-*Figure 5. Claims recovered@k on Prefill Awareness, a highly predictable paper (union bound 10/12). All six models pass the memorization gate, and the cross-model union saturates at 10/12 by k=16.*
+*Figure 5. Claims recovered@k on Prefill Awareness, a highly predictable paper (union bound 10/12). All seven models are scored, and the cross-model union saturates at 10/12 by k=16.*
 
 Primary claim (shown):
 
@@ -388,7 +388,7 @@ Eleven of the twelve held-out claims are recovered by some model; exactly one ne
 
 claims recovered@k out of 12 held-out claims (mean ± 95% CI, N=4).
 
-<!--All six models passed the memorization probe on this June-2026 paper, so all six are scored.-->
+<!--All seven models are scored on this June-2026 paper.-->
 
 Recovery climbs steeply — per-model to 5.5–8.8 of 12 by k=64 (gpt-5.5 8.8) — and the cross-model union saturates at 10/12 by k=16, so prefill-awareness lands firmly at the predictable end, beside MSM.
 
@@ -431,7 +431,7 @@ It is important to clarify precisely what this test should not be interpreted to
 
 - Memorization can contaminate results.
 
-  - We describe below a process to vet this and select papers which appeared after reported training cutoff dates
+  - We select papers published around or after model cutoffs and run an author-identification probe (see the [appendix](#memorization-probe)); none of the four shows evidence of memorization. An earlier self-recognition probe produced false positives on Alignment Pretraining (see the edit note at the top).
 
   - But this means that having a static pool of papers is harder.
 
@@ -459,6 +459,32 @@ Other works exist which address this sort of question.
 
 ## Appendix
 
+### Memorization probe
+
+We check for memorization with an **author-identification probe**: given only a paper's title (no abstract, no body), each model is asked to name the paper's authors, over four independent runs per (model, paper). We score the maximum surname overlap with the true author list (case-insensitive) across runs. A model that had memorized a paper should recover its distinctive author surnames; a model that never saw it should not.
+
+**Table A1 — author-identification probe (max correct surnames / total).**
+
+| paper | Opus 4.8 | Fable 5 | Sonnet 4.6 | Haiku 4.5 | GPT-5.5 | GPT-5.4 | GPT-5.4-nano |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Alignment Pretraining | 0/6 | 0/6 | 0/6 | 0/6 | 0/6 | 0/6 | 0/6 |
+| Conditional Misalignment | 4/5 | 4/5 | 0/5 | 0/5 | 4/5 | 1/5 | 0/5 |
+| Model Spec Midtraining | 1/5 | 1/5 | 1/5 | 1/5 | 1/5 | 1/5 | 0/5 |
+| Prefill Awareness | 1/5 | 1/5 | 1/5 | 0/5 | 0/5 | 0/5 | 0/5 |
+
+Alignment Pretraining — the paper an earlier probe flagged as memorized — has **no** recognizable authors for any model. The nonzero cells elsewhere are explained by authors the models plausibly know from *earlier* work, not by having seen the paper itself:
+
+**Table A2 — which surnames were named (union of correct names ever produced).**
+
+| paper | models (rate) | correct surnames named | distinctive authors missed | note |
+| --- | --- | --- | --- | --- |
+| Conditional Misalignment | Opus, Fable, GPT-5.5 (4/5) | Betley, Evans, Sztyber-Betley, Tan | Dubinski | the original Emergent-Misalignment team |
+| Conditional Misalignment | GPT-5.4 (1/5) | Evans | Dubinski, Betley, Sztyber-Betley, Tan | original EM team |
+| Model Spec Midtraining | Opus, Fable, Sonnet, Haiku, GPT-5.5, GPT-5.4 (1/5) | Li | Wichers, Price, Marks, Kutasov | "Li" is a common surname |
+| Prefill Awareness | Opus, Fable, Sonnet (1/5) | Wang | Mahajan, Africa, Souly, Taylor | "Wang" is a common surname |
+
+Conditional Misalignment shares many authors with the original *Emergent Misalignment* paper (February 2025, within every model's cutoff), so naming Betley/Evans/etc. reflects familiarity with that prior work rather than the masked paper; the lone hits on MSM and Prefill are common surnames. We therefore treat none of the four papers as memorized and score all models on all papers. The earlier **self-recognition probe** — asking a model whether it recognized the masked excerpt — was the source of the false positives on Alignment Pretraining reported in a previous version.
+
 ### Extracting claims from papers
 
 We then distill papers into sets of claims, masking the supporting and exploratory sections of a paper.
@@ -484,9 +510,9 @@ We then run an extraction process to identify key claims. Each claim is a disjoi
 
 ```Tracking checkpoints via log-probability metrics shows in-distribution performance diverges before misalignment (~step 40); weight-decay and extra-epoch controls show the dynamics differ from grokking, probing why misalignment arises.```
 
-We use Claude Opus 4.8 to produce these disjoint, typed claims.[^6]
+We use Claude Opus 4.8 to produce these disjoint, typed claims.[^5]
 
-[^6]: Comparing extraction against GPT-5.5 on the same papers, GPT-5.5 is consistently more granular, extracting 1.2–1.5× as many claims (Emergent Misalignment: 19 vs 13; Alignment Pretraining: 12 vs 10) — it splits Opus's claims into finer, more tightly-scoped sub-claims. Both identify the same single primary claim and a similar distribution of claim types; disagreements are on boundaries (e.g. GPT-5.5 occasionally splits one Opus claim in two, or types a methodology-validation check as supporting where Opus calls it exploratory).
+[^5]: Comparing extraction against GPT-5.5 on the same papers, GPT-5.5 is consistently more granular, extracting 1.2–1.5× as many claims (Emergent Misalignment: 19 vs 13; Alignment Pretraining: 12 vs 10) — it splits Opus's claims into finer, more tightly-scoped sub-claims. Both identify the same single primary claim and a similar distribution of claim types; disagreements are on boundaries (e.g. GPT-5.5 occasionally splits one Opus claim in two, or types a methodology-validation check as supporting where Opus calls it exploratory).
 
 ### Masking claims
 To mask a paper, we instruct Claude Opus 4.8 in an agentic loop to read the claims which must be redacted and the line numbers. After this, the agent revises the introduction, abstract and appendix to remove references to masked claims/experiments.

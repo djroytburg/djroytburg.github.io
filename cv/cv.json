@@ -35,14 +35,14 @@
   ],
   "employment": [
     {
-      "title": "Research Fellow (incoming)",
+      "title": "Research Fellow)",
       "affiliation": "ML Alignment and Theory Scholars",
       "location": "Berkeley, CA",
       "start-month": "May",
       "start-year": 2026,
       "end-month": "September",
       "end-year": 2026,
-      "description": "Research fellowship advised by Shi Feng."
+      "description": "Advised by Shi Feng. Developed persona-training methods which emulate midtraining for better model organisms and constitutions. Engineered evaluations across 100+ training runs on synthetic-document pipelines. Evaluated how tastefully frontier models can test ideas in safety research."
     },
     {
       "title": "Research Assistant, DI Group",
