@@ -514,6 +514,11 @@ def copy_pdfs():
 # These are reachable by direct URL but intentionally not linked from the site.
 STANDALONE_PAGES = ['explorer_standalone.html', 'debate_tree.html', 'social_sim_viz.html', 'graft_results_interim.html']
 
+# Short, unlisted redirect pages. Update the destination here when a link moves.
+REDIRECTS = {
+    'redirect': 'https://docs.google.com/document/d/1d-k_LSGRQahV4wzoLB3yehxTLyKkfbvMdIPLOzD0-S8/edit?usp=sharing',
+}
+
 
 def copy_standalone():
     for name in STANDALONE_PAGES:
@@ -563,6 +568,14 @@ def render_templates():
     index_t = env.get_template('index.html')
     with open(os.path.join(OUT, 'index.html'), 'w', encoding='utf-8') as f:
         f.write(index_t.render())
+
+    # Render directory-based redirects so GitHub Pages serves /name/ cleanly.
+    redirect_t = env.get_template('redirect.html')
+    for name, destination in REDIRECTS.items():
+        redirect_dir = os.path.join(OUT, name)
+        os.makedirs(redirect_dir, exist_ok=True)
+        with open(os.path.join(redirect_dir, 'index.html'), 'w', encoding='utf-8') as f:
+            f.write(redirect_t.render(destination=destination))
 
     # Generate CV content from cv.json
     cv_content = load_cv_content()
