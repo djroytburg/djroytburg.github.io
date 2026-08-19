@@ -1,5 +1,30 @@
+/*
+ * DANI ROYTBURG — PERSONAL SITE STYLE SPEC
+ *
+ * This is an annotated snapshot of the preferred visual system. Give this file
+ * to another agent as the design reference; the production source remains
+ * static/style.css.
+ *
+ * Core character:
+ * - Quiet, editorial, compact, and highly legible—not app-like or bubbly.
+ * - Inter is the reading face; use Light (300) for long-form prose.
+ * - EB Garamond supplies editorial warmth for names, titles, and callouts.
+ * - Ubuntu Mono is an accent face for mastheads, navigation, code, and article
+ *   hierarchy. Do not use it for paragraphs.
+ * - Dark mode uses neutral near-black plus pure-white primary text. Avoid the
+ *   muddy charcoal/gray combination.
+ * - Keep reading columns deliberately narrow and whitespace generous.
+ * - Visual content uses hard, square corners. Do not round photos, plots,
+ *   publication thumbnails, diagrams, or other data-bearing graphics.
+ * - Do not add floating media players or other persistent decorative chrome.
+ *
+ * Required Google Fonts:
+ * EB Garamond 400–700 (roman/italic), Inter 300–600 (roman/italic), and
+ * Ubuntu Mono 400/700.
+ */
+
 :root{
-  /* light theme variables (defaults) */
+  /* Light mode: warm-black copy on true white. */
   --bg: #ffffff;
   --accent: #6d0061;
   --text: #111111;
@@ -9,7 +34,7 @@
   --mats-color: #7B1422;
 }
 
-/* dark theme overrides */
+/* Dark mode: near-black, not charcoal; primary text is intentionally pure white. */
 .dark, .dark body, :root.dark {
   --bg: #0b0b0c;
   --accent: #c97fe0;
@@ -23,6 +48,7 @@ body{
   margin:0;
   color:var(--text);
   font-family: 'Inter', sans-serif;
+  /* Compact site-wide UI scale. Individual reading areas opt into 14–15px. */
   font-size:13px;
   background: var(--bg);
   -webkit-font-smoothing:antialiased;
@@ -33,6 +59,7 @@ body{
   margin:48px auto;
   padding:40px 22px 64px;
 }
+/* Preserve the original 16px Ubuntu Mono masthead even though body copy is smaller. */
 .hero{ text-align:center; margin-bottom:28px; font-family:'Ubuntu Mono', monospace; font-size:16px }
 .name{
   font-family: 'EB Garamond', serif;
@@ -40,6 +67,7 @@ body{
   margin:0 0 8px;
   font-weight:700;
 }
+/* Email underline follows foreground: black in light mode, white in dark mode. */
 .accent{ border:0; height:4px; background:var(--text); width:70%; margin:12px auto 18px; opacity:0.95 }
 .role, .affil{ color:var(--muted); margin:6px 0 }
 .contact{ color:var(--muted); margin-top:14px }
@@ -53,6 +81,7 @@ body{
 .social-link svg{ display:block; width:20px; height:20px }
 .social-link:hover{ color:var(--accent); transform:translateY(-3px) }
 
+/* Homepage prose: a narrower, calmer reading box than the outer container. */
 .summary{ max-width:720px; font-size:14px; line-height:1.6; margin:28px auto 0 }
 .summary p{ margin:0 0 14px }
 
@@ -110,7 +139,7 @@ body{
   white-space:nowrap;
 }
 
-/* opening sentence style */
+/* Blog TL;DR/opening: editorial EB Garamond, upright—not italic. */
 .blog-post-content .opening{
   font-family:'EB Garamond', serif;
   font-style:normal;
@@ -401,6 +430,8 @@ body{
 
 /* ─────────────────────────────────────────────────────────────────────────────
    Blog Post Styles
+   Long-form prose stays narrow, light, and airy. Headings are intentionally
+   much larger than the body so a long post remains easy to scan.
    ───────────────────────────────────────────────────────────────────────────── */
 
 .blog-post {
@@ -415,6 +446,7 @@ body{
 }
 
 .blog-post-title {
+  /* Main editorial title: EB Garamond, large but not heavy. */
   font-family: 'EB Garamond', serif;
   font-size: 38px;
   margin: 0 0 8px;
@@ -437,6 +469,7 @@ body{
 }
 
 .blog-post-content {
+  /* Preferred long-form recipe: Inter Light, 15px, 1.72 line height. */
   font-family: 'Inter', sans-serif;
   font-size: 15px;
   font-weight: 300;
@@ -445,6 +478,7 @@ body{
 }
 
 .blog-post-content h1 {
+  /* Article hierarchy returns to Ubuntu Mono; never set prose in this face. */
   font-family: 'Ubuntu Mono', monospace;
   font-size: 28px;
   font-weight: 700;
@@ -454,6 +488,7 @@ body{
 }
 
 .blog-post-content h2 {
+  /* H2 and H3 should be conspicuously larger than prose, not timid labels. */
   font-family: 'Ubuntu Mono', monospace;
   font-size: 22px;
   font-weight: 400;
