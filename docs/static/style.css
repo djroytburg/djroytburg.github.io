@@ -34,7 +34,7 @@ body{
 }
 .hero{ text-align:center; margin-bottom:28px }
 .name{
-  font-family: 'Volkhov', serif;
+  font-family: 'EB Garamond', serif;
   font-size:48px;
   margin:0 0 8px;
   font-weight:700;
@@ -56,7 +56,7 @@ body{
 .summary p{ margin:0 0 14px }
 
 .page{ max-width:650px; margin:24px auto }
-.page-title{ font-family:'Volkhov', serif; font-size:28px; margin-bottom:12px }
+.page-title{ font-family:'EB Garamond', serif; font-size:28px; margin-bottom:12px }
 .page-body{ color:var(--text) }
 
 /* Back link */
@@ -111,7 +111,7 @@ body{
 
 /* opening sentence style */
 .blog-post-content .opening{
-  font-family:'Volkhov', serif;
+  font-family:'EB Garamond', serif;
   font-style:italic;
   color:var(--accent);
   font-size:16px;
@@ -255,7 +255,7 @@ body{
   margin-bottom: 28px;
 }
 .cv-section h2 {
-  font-family: 'Volkhov', serif;
+  font-family: 'EB Garamond', serif;
   font-size: 22px;
   margin: 0 0 16px;
   padding-bottom: 6px;
@@ -359,7 +359,7 @@ body{
 }
 
 .pub-title {
-  font-family: 'Volkhov', serif;
+  font-family: 'EB Garamond', serif;
   font-size: 18px;
   margin: 0 0 8px;
   line-height: 1.35;
@@ -486,7 +486,7 @@ body{
 }
 
 .blog-post-title {
-  font-family: 'Volkhov', serif;
+  font-family: 'EB Garamond', serif;
   font-size: 36px;
   margin: 0 0 8px;
   line-height: 1.25;
