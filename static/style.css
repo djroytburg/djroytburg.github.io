@@ -13,7 +13,7 @@
 .dark, .dark body, :root.dark {
   --bg: #171717;
   --accent: #c97fe0;
-  --text: #eaeaea;
+  --text: #ffffff;
   --muted: #bdbdbd;
   --footer-border: rgba(255,255,255,0.06);
   --mats-color: #e8697a;
@@ -22,7 +22,8 @@
 body{
   margin:0;
   color:var(--text);
-  font-family: 'Ubuntu Mono', monospace;
+  font-family: 'Inter', sans-serif;
+  font-size:15px;
   background: var(--bg);
   -webkit-font-smoothing:antialiased;
   transition: background .18s ease, color .18s ease;
@@ -487,37 +488,37 @@ body{
 
 .blog-post-title {
   font-family: 'EB Garamond', serif;
-  font-size: 36px;
+  font-size: 34px;
   margin: 0 0 8px;
   line-height: 1.25;
   font-weight: 400;
 }
 
 .blog-post-subtitle {
-  font-family: 'Ubuntu', sans-serif;
-  font-size: 18px;
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
   color: var(--muted);
   margin: 0 0 12px;
   font-weight: 300;
 }
 
 .blog-post-date {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Inter', sans-serif;
   color: var(--muted);
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .blog-post-content {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 15px;
-  font-weight: 300;
-  line-height: 1.7;
+  font-weight: 400;
+  line-height: 1.72;
   color: var(--text);
 }
 
 .blog-post-content h1 {
   font-family: 'Ubuntu Mono', monospace;
-  font-size: 26px;
+  font-size: 25px;
   font-weight: 700;
   color: var(--accent);
   margin: 40px 0 14px;
@@ -526,7 +527,7 @@ body{
 
 .blog-post-content h2 {
   font-family: 'Ubuntu Mono', monospace;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 400;
   color: var(--text);
   margin: 32px 0 12px;
@@ -535,7 +536,7 @@ body{
 
 .blog-post-content h3 {
   font-family: 'Ubuntu Mono', monospace;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 400;
   color: var(--muted);
   margin: 24px 0 10px;
@@ -666,7 +667,7 @@ body{
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.2s ease;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 .dark .footnote-tooltip {
@@ -702,7 +703,7 @@ body.blog-post-page .container {
   left: 100%;
   width: 210px;
   margin-left: 28px;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 12.5px;
   font-weight: 300;
   line-height: 1.55;
