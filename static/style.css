@@ -23,7 +23,7 @@ body{
   margin:0;
   color:var(--text);
   font-family: 'Inter', sans-serif;
-  font-size:15px;
+  font-size:13px;
   background: var(--bg);
   -webkit-font-smoothing:antialiased;
   transition: background .18s ease, color .18s ease;
@@ -33,7 +33,7 @@ body{
   margin:48px auto;
   padding:40px 22px 64px;
 }
-.hero{ text-align:center; margin-bottom:28px }
+.hero{ text-align:center; margin-bottom:28px; font-family:'Ubuntu Mono', monospace }
 .name{
   font-family: 'EB Garamond', serif;
   font-size:48px;
@@ -53,7 +53,7 @@ body{
 .social-link svg{ display:block; width:20px; height:20px }
 .social-link:hover{ color:var(--accent); transform:translateY(-3px) }
 
-.summary{ font-size:16px; line-height:1.6; margin-top:28px }
+.summary{ font-size:13px; line-height:1.6; margin-top:28px }
 .summary p{ margin:0 0 14px }
 
 .page{ max-width:650px; margin:24px auto }
