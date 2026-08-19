@@ -4,6 +4,10 @@ on:
   push:
     branches: [ master ]
 
+concurrency:
+  group: static-site-build-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: write
 
