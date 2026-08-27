@@ -516,7 +516,7 @@ STANDALONE_PAGES = ['explorer_standalone.html', 'debate_tree.html', 'social_sim_
 
 # Short, unlisted redirect pages. Update the destination here when a link moves.
 REDIRECTS = {
-    'redirect': 'https://docs.google.com/document/d/1d-k_LSGRQahV4wzoLB3yehxTLyKkfbvMdIPLOzD0-S8/edit?usp=sharing',
+    'redirect': 'https://uvv896hdbw9xo9-10902.proxy.runpod.net/graft_results.html#fam=all&quirk=all&stage=all&cat=all&sort=inst&q=',
 }
 
 
