@@ -1,0 +1,60 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>graph.js harness</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#fff;--ink:#111}
+  body{margin:0;font:12px "Ubuntu Mono",monospace;background:var(--bg);color:var(--ink)}
+  #bar{display:flex;gap:10px;align-items:center;padding:6px 10px;border-bottom:1px solid #111}
+  #graph{height:calc(100vh - 34px)}
+  input[type=range]{width:300px}
+</style>
+<div id="bar">
+  <label>step <input id="step" type="range" min="0" max="100" value="30"></label>
+  <span id="readout"></span>
+  <button id="toggle">toggle gpt-oss</button>
+  <span id="sel"></span>
+</div>
+<div id="graph"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script type="module">
+  const q = new URLSearchParams(location.search);
+  const file = q.get('file') || 'data/runs__tetratic__tetra_s271_r5.json';
+  const handlers = { change: [], run: [] };
+  const state = { run: null, step: +(q.get('step') || 30), playing: false, speed: 1, agent: null, post: null, hover: null, families: {} };
+  const emit = (e, a) => handlers[e].forEach((f) => f(a));
+  const set = (patch) => { Object.assign(state, patch); emit('change', Object.keys(patch));
+    document.getElementById('sel').textContent = 'agent=' + state.agent + ' hover=' + JSON.stringify(state.hover); };
+  const on = (e, f) => handlers[e].push(f);
+
+  async function loadFallback(file) {
+    const run = await (await fetch('../' + file)).json();
+    run.byPost = new Map(run.posts.map((p) => [p.id, p]));
+    run.byAgent = new Map(run.agents.map((a) => [a.id, a]));
+    run.activationsByAgent = new Map();
+    for (const a of run.activations) { if (!run.activationsByAgent.has(a.agent)) run.activationsByAgent.set(a.agent, []); run.activationsByAgent.get(a.agent).push(a); }
+    run.activationAt = (ag, s) => (run.activationsByAgent.get(ag) || []).filter((a) => a.step <= s).at(-1) || null;
+    run.commentsUpTo = (s) => run.comments.filter((c) => c.step <= s);
+    run.postsUpTo = (s) => run.posts.filter((p) => p.step <= s);
+    run.edgesUpTo = (s) => { const m = new Map();
+      for (const c of run.comments) { if (c.step > s) continue; const p = run.byPost.get(c.post); if (!p || p.agent === c.agent) continue;
+        const k = c.agent + '>' + p.agent; const e = m.get(k) || { source: c.agent, target: p.agent, weight: 0, cross: !!c.cross }; e.weight++; m.set(k, e); }
+      return [...m.values()]; };
+    run.indegAt = (ag, s) => { const mine = new Set(run.posts.filter((p) => p.agent === ag).map((p) => p.id));
+      return run.comments.filter((c) => c.step <= s && c.cross && mine.has(c.post)).length; };
+    return run;
+  }
+  let run;
+  try { const data = await import('./data.js'); run = await data.loadRun(file); console.log('using real data.js'); }
+  catch (e) { console.warn('data.js unavailable, using inline indexes:', e.message); run = await loadFallback(file); }
+  for (const f of run.families) state.families[f] = true;
+
+  const { mount } = await import('./graph.js');
+  mount(document.getElementById('graph'), { state, set, on, d3: window.d3 });
+  const slider = document.getElementById('step'); slider.max = run.steps; slider.value = state.step;
+  const readout = document.getElementById('readout'); readout.textContent = 'step ' + state.step;
+  set({ run });
+  slider.oninput = () => { set({ step: +slider.value }); readout.textContent = 'step ' + state.step; };
+  document.getElementById('toggle').onclick = () => set({ families: { ...state.families, 'gpt-oss': !state.families['gpt-oss'] } });
+  window.addEventListener('keydown', (e) => { if (e.key === 'ArrowRight') { slider.value = +slider.value + 1; slider.oninput(); } if (e.key === 'ArrowLeft') { slider.value = +slider.value - 1; slider.oninput(); } });
+</script>

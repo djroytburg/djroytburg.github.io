@@ -1,0 +1,280 @@
+/* css/app.css — house style for the divsim dashboard (shell owns).
+   Matches djroytburg.github.io: EB Garamond titles, Inter body, Ubuntu Mono numbers/handles/chips. */
+
+/* ---------- tokens ---------- */
+:root {
+  --font-title: "EB Garamond", "Palatino Linotype", Palatino, Georgia, serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-mono: "Ubuntu Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+
+  /* light theme (site defaults) */
+  --bg: #ffffff;
+  --bg-2: #f6f6f6;
+  --ink: #111111;
+  --ink-2: #333333;
+  --muted: #666666;
+  --rule: rgba(0,0,0,.12);
+  --rule-2: rgba(0,0,0,.06);
+  --accent: #6d0061;
+  --focus: var(--accent);
+  --sel: rgba(109,0,97,.08);
+  --crimson: #C41230;
+  /* family colour used as TEXT is darkened on light, used as-is on dark */
+  --fam-text-mix: 75%;
+  --glow-alpha: 0;
+
+  /* model colours — neon versions of the paper's hues */
+  --c-gpt-oss: #ff2d55;
+  --c-qwen:    #00b3ff;
+  --c-mag:     #b455ff;
+  --c-glm-4:   #00e676;
+  --c-gemma:   #ff9100;
+
+  --topbar-h: 48px;
+  --strip-h: 28px;
+  --footer-h: 24px;
+  --feed-w: 380px;
+  --metrics-w: 340px;
+}
+
+:root[data-theme="dark"] {
+  --bg: #0b0b0c;
+  --bg-2: #141416;
+  --ink: #ffffff;
+  --ink-2: #dcdcdc;
+  --muted: #bdbdbd;
+  --rule: rgba(255,255,255,.14);
+  --rule-2: rgba(255,255,255,.07);
+  --accent: #c97fe0;
+  --focus: var(--accent);
+  --sel: rgba(201,127,224,.14);
+  --crimson: #e8697a;
+  --fam-text-mix: 100%;
+  --glow-alpha: .6;
+}
+
+/* ---------- base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.4;
+  font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow: hidden;
+  transition: background .18s ease, color .18s ease;
+}
+body.loading { cursor: progress; }
+h1, h2, h3, .title, .serif { font-family: var(--font-title); font-weight: 500; line-height: 1.15; margin: 0; }
+a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+a:hover { opacity: .8; }
+button, input, select { font: inherit; color: inherit; }
+svg text { font-family: var(--font-mono); }
+.num, .mono, .readout, .kbd, .chip { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.muted { color: var(--muted); }
+.fill { position: absolute; inset: 0; }
+
+/* ---------- top bar ---------- */
+.topbar {
+  height: var(--topbar-h);
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 0 16px;
+  border-bottom: 1px solid var(--rule);
+  background: var(--bg);
+}
+.topbar .title { font-size: 22px; font-weight: 500; letter-spacing: .005em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex: 1 1 auto; min-width: 0; }
+.controls { display: flex; align-items: center; gap: 16px; flex: 0 0 auto; }
+.ctl { display: inline-flex; align-items: center; gap: 8px; }
+.transport { gap: 8px; }
+select {
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  border-radius: 0;
+  padding: 3px 6px;
+  max-width: 320px;
+  font-family: var(--font-body);
+  font-size: 12px;
+}
+input[type="range"] {
+  width: 220px;
+  accent-color: var(--accent);
+  margin: 0;
+}
+.readout { min-width: 7ch; text-align: right; font-size: 13px; }
+
+/* ---------- run strip ---------- */
+.runstrip {
+  height: var(--strip-h);
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 16px;
+  border-bottom: 1px solid var(--rule);
+  background: var(--bg-2);
+  white-space: nowrap;
+  overflow: hidden;
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--muted);
+}
+.run-label { font-family: var(--font-body); font-size: 13px; color: var(--ink); }
+.runstrip .caption { margin-left: auto; overflow: hidden; text-overflow: ellipsis; }
+
+/* ---------- main columns ---------- */
+.main {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: row;
+}
+.col { position: relative; min-height: 0; overflow: auto; }
+.col-graph { flex: 1.4 1 0; min-width: 0; }
+.col-feed { flex: 0 0 var(--feed-w); width: var(--feed-w); }
+.col-metrics { flex: 0 0 var(--metrics-w); width: var(--metrics-w); }
+.col + .col { border-left: 1px solid var(--rule); }
+
+.footer {
+  height: var(--footer-h);
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 16px;
+  border-top: 1px solid var(--rule);
+  font-size: 11px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@media (max-width: 1100px) {
+  body { overflow: auto; }
+  .main { flex-direction: column; }
+  .col { overflow: visible; flex: 0 0 auto; width: auto; }
+  .col-graph { min-height: 60vh; }
+  .col-feed { min-height: 70vh; }
+  .col-metrics { min-height: 70vh; }
+  .col + .col { border-left: 0; border-top: 1px solid var(--rule); }
+  .topbar { height: auto; flex-wrap: wrap; padding: 8px 16px; gap: 8px 24px; }
+  .controls { flex-wrap: wrap; }
+  .runstrip .caption { margin-left: 0; }
+  .footer { display: none; }
+}
+
+/* ---------- utilities for modules ---------- */
+.panel { background: var(--bg); }
+.panel-h {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--muted);
+  margin: 0;
+}
+.panel-h.rule { padding-bottom: 4px; border-bottom: 1px solid var(--rule); }
+.hr { border: 0; border-top: 1px solid var(--rule); margin: 8px 0; }
+
+.empty {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center;
+  padding: 24px;
+  color: var(--muted);
+  font-family: var(--font-title);
+  font-size: 16px;
+  pointer-events: none;
+  background: var(--bg);
+}
+.empty[hidden] { display: none; }
+
+.btn {
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  border-radius: 0;
+  padding: 2px 8px;
+  line-height: 1.4;
+  cursor: pointer;
+  color: var(--ink-2);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  transition: border-color .12s ease, color .12s ease;
+}
+.btn:hover { border-color: var(--accent); color: var(--accent); }
+.btn.on { background: var(--accent); color: #fff; border-color: var(--accent); }
+.btn:disabled { opacity: .4; cursor: default; }
+.btn-play { min-width: 32px; text-align: center; }
+.btn-group { display: inline-flex; }
+.btn-group .btn + .btn { margin-left: -1px; }
+#theme { font-family: var(--font-body); }
+
+.kbd {
+  display: inline-block;
+  border: 1px solid var(--rule);
+  padding: 0 4px;
+  font-size: 11px;
+  line-height: 1.3;
+  color: var(--ink-2);
+  margin: 0 1px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid var(--rule);
+  padding: 0 6px 0 5px;
+  font-size: 11px;
+  line-height: 1.5;
+  white-space: nowrap;
+  color: var(--ink);
+}
+.chip::before {
+  content: "";
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--fam, var(--muted));
+  flex: 0 0 auto;
+}
+.chip.off { opacity: .4; }
+
+/* family colour classes: set --fam, plus colour for text/svg.
+   --fam-text = --fam darkened ~25% on light, unchanged on dark (legible on both). */
+.fam-gpt-oss { --fam: var(--c-gpt-oss); }
+.fam-Qwen, .fam-qwen { --fam: var(--c-qwen); }
+.fam-Mag, .fam-mag { --fam: var(--c-mag); }
+.fam-GLM-4, .fam-glm-4 { --fam: var(--c-glm-4); }
+.fam-Gemma, .fam-gemma { --fam: var(--c-gemma); }
+[class*="fam-"] { --fam-text: color-mix(in srgb, var(--fam) var(--fam-text-mix), black); }
+.fam-ink { color: var(--fam-text); }
+.fam-fill { fill: var(--fam); }
+.fam-stroke { stroke: var(--fam); }
+
+.sel { background: var(--sel); }
+
+/* ---------- graph neon treatment (dark only) ---------- */
+.graph-node { transition: filter .2s ease; }
+:root[data-theme="dark"] .graph-node.glow { filter: drop-shadow(0 0 6px color-mix(in srgb, var(--node-c, #fff) 60%, transparent)); }
+.graph-legend, .graph-tooltip, .graph-now { font-family: var(--font-mono); }
+.graph-tooltip b { font-family: var(--font-title); font-size: 13px; font-weight: 600; }
+
+/* ---------- focus + motion ---------- */
+:focus { outline: none; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 1px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+}
+
+/* ---------- scrollbars (thin, neutral) ---------- */
+.col { scrollbar-width: thin; scrollbar-color: var(--rule) transparent; }

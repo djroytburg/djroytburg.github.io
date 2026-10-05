@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<base href="../">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>metrics.js harness</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<style>
+  :root{--bg:#fbfaf7;--ink:#141414;--muted:#7a7a7a;--rule:#d8d5cf;--focus:#1f77b4}
+  :root[data-theme="dark"]{--bg:#121212;--ink:#ececec;--muted:#8a8a8a;--rule:#333}
+  body{margin:0;background:var(--bg);color:var(--ink);font:12px "Ubuntu Mono",ui-monospace,monospace;display:flex;gap:24px;padding:16px}
+  #ctl{width:260px;display:flex;flex-direction:column;gap:8px;position:sticky;top:16px;align-self:flex-start}
+  #ctl label{display:flex;flex-direction:column;gap:2px;font-size:11px;color:var(--muted)}
+  #ctl input,#ctl select,#ctl button{font:inherit}
+  #metrics{width:340px}
+  pre{font-size:10px;color:var(--muted);white-space:pre-wrap}
+</style>
+</head>
+<body>
+<div id="ctl">
+  <label>run <select id="run"></select></label>
+  <label>step <span id="stepv">0</span><input id="step" type="range" min="0" max="100" value="0"></label>
+  <label>agent <select id="agent"><option value="">none</option></select></label>
+  <label>post <select id="post"><option value="">none</option></select></label>
+  <button id="theme">toggle theme</button>
+  <button id="play">play</button>
+  <pre id="log"></pre>
+</div>
+<div id="metrics"></div>
+<script type="module">
+  import { mount } from './js/metrics.js';
+  // fake store implementing the CONTRACT bus
+  const state = { run:null, step:0, playing:false, speed:1, agent:null, post:null, hover:null, families:{} };
+  const L = { change:new Set(), run:new Set() };
+  const on = (e,fn) => L[e].add(fn);
+  const emit = (e,p) => L[e].forEach(fn => fn(p, state));
+  const set = patch => { const ks=[]; for (const k in patch) if (!Object.is(state[k],patch[k])) { state[k]=patch[k]; ks.push(k); } if (ks.length) { emit('change',ks); sync(); } return ks; };
+  window.__state = state; window.__set = set;
+
+  // indexes: use data.js if present, else a minimal local indexer
+  let loadRun, listRuns;
+  try { ({ loadRun, listRuns } = await import('./js/data.js')); }
+  catch (e) {
+    console.warn('data.js missing, using local indexer', e);
+    listRuns = async () => (await fetch('data/index.json')).json();
+    loadRun = async file => { const run = await (await fetch(file)).json();
+      run.byPost = new Map(run.posts.map(p=>[p.id,p])); run.byAgent = new Map(run.agents.map(a=>[a.id,a]));
+      run.commentsByPost = new Map(); for (const c of run.comments) { if(!run.commentsByPost.has(c.post)) run.commentsByPost.set(c.post,[]); run.commentsByPost.get(c.post).push(c); }
+      run.commentsUpTo = s => run.comments.filter(c=>c.step<=s); run.postsUpTo = s => run.posts.filter(p=>p.step<=s); return run; };
+  }
+  const $ = id => document.getElementById(id);
+  const runs = await listRuns();
+  for (const r of runs) $('run').append(new Option(r.label, r.file));
+  const q = new URLSearchParams(location.search);
+  async function pick(file) {
+    const run = await loadRun(file);
+    $('step').max = run.steps;
+    $('agent').innerHTML = '<option value="">none</option>'; for (const a of run.agents) $('agent').append(new Option(`${a.id} ${a.persona} (${a.family})`, a.id));
+    $('post').innerHTML = '<option value="">none</option>'; for (const p of run.posts.slice(0,80)) $('post').append(new Option(`#${p.id} s${p.step} a${p.agent}`, p.id));
+    const fam = {}; run.families.forEach(f => fam[f] = true);
+    set({ run, step: +(q.get('step') ?? 0), agent: q.get('agent') != null ? +q.get('agent') : null, post: q.get('post') != null ? +q.get('post') : null, families: fam });
+    emit('run', run);
+  }
+  function sync(){ $('step').value = state.step; $('stepv').textContent = state.step; $('agent').value = state.agent ?? ''; $('post').value = state.post ?? '';
+    $('log').textContent = JSON.stringify({step:state.step, agent:state.agent, post:state.post, families:state.families}); }
+  $('run').onchange = e => pick(e.target.value);
+  $('step').oninput = e => set({ step: +e.target.value });
+  $('agent').onchange = e => set({ agent: e.target.value === '' ? null : +e.target.value });
+  $('post').onchange = e => set({ post: e.target.value === '' ? null : +e.target.value });
+  $('theme').onclick = () => document.documentElement.dataset.theme = document.documentElement.dataset.theme === 'dark' ? '' : 'dark';
+  let timer = null; $('play').onclick = () => { if (timer) { clearInterval(timer); timer = null; $('play').textContent='play'; return; }
+    $('play').textContent='pause'; timer = setInterval(() => set({ step: state.step >= state.run.steps ? 0 : state.step + 1 }), 120); };
+  mount($('metrics'), { state, set, on, d3: window.d3 });
+  const want = runs.find(r => r.run_id === q.get('run')) || runs[0]; $('run').value = want.file; await pick(want.file);
+</script>
+</body>
+</html>

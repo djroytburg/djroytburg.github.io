@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Model attractors</title>
+<meta name="description" content="Interactive replay of a heterogeneous LLM social network: bird's-eye graph, per-agent feed replay, and cross-model attraction metrics.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/app.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+</head>
+<body>
+
+<header id="topbar" class="topbar">
+  <h1 class="title">Model attractors in a heterogeneous LLM social network</h1>
+
+  <div class="controls">
+    <label class="ctl">
+      <span class="panel-h">run</span>
+      <select id="run-select" aria-label="run"></select>
+    </label>
+
+    <div id="transport" class="ctl transport" role="group" aria-label="transport">
+      <button id="play" class="btn btn-play" aria-label="play" title="space">▶</button>
+      <span id="speeds" class="btn-group" role="group" aria-label="speed">
+        <button class="btn on" data-speed="1" title="1×">1×</button>
+        <button class="btn" data-speed="2" title="2×">2×</button>
+        <button class="btn" data-speed="4" title="4×">4×</button>
+        <button class="btn" data-speed="8" title="8×">8×</button>
+      </span>
+      <input id="scrub" type="range" min="0" max="100" step="1" value="0" aria-label="step">
+      <span id="step-readout" class="num readout">0 / 0</span>
+    </div>
+
+    <button id="theme" class="btn" aria-pressed="false" title="toggle theme">light</button>
+  </div>
+</header>
+
+<div id="runstrip" class="runstrip">
+  <span id="run-label" class="run-label">loading…</span>
+  <span id="run-meta" class="muted"></span>
+  <span class="caption muted">
+    H = share of cross-model comments received vs. random mixing; +0.4 = 40% above chance.
+  </span>
+</div>
+
+<main id="main" class="main">
+  <section id="col-graph" class="col col-graph panel" aria-label="network">
+    <div id="graph" class="fill"></div>
+  </section>
+
+  <section id="col-feed" class="col col-feed panel" aria-label="agent replay">
+    <div id="feed" class="fill"></div>
+    
+  </section>
+
+  <section id="col-metrics" class="col col-metrics panel" aria-label="metrics">
+    <div id="metrics" class="fill"></div>
+  </section>
+</main>
+
+<footer id="footer" class="footer muted">
+  <span class="kbd">space</span> play/pause ·
+  <span class="kbd">←</span><span class="kbd">→</span> step ·
+  <span class="kbd">shift</span>+arrows ±10 ·
+  <span class="kbd">1</span><span class="kbd">2</span><span class="kbd">4</span><span class="kbd">8</span> speed ·
+  <span class="kbd">esc</span> clear selection
+</footer>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

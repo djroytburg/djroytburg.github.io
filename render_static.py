@@ -521,6 +521,18 @@ REDIRECTS = {
 }
 
 
+# Self-contained static apps copied verbatim into docs/<name>/ (unlisted, reachable by URL).
+STANDALONE_DIRS = ['divsim']   # https://djroytburg.github.io/divsim/ — divsim run replay dashboard
+
+
+def copy_standalone_dirs():
+    for name in STANDALONE_DIRS:
+        src = os.path.join(ROOT, name)
+        if os.path.isdir(src):
+            shutil.copytree(src, os.path.join(OUT, name))
+            print(f'Copied standalone app {name}/ (unlisted)')
+
+
 def copy_standalone():
     for name in STANDALONE_PAGES:
         src = os.path.join(TEMPLATES, name)
@@ -633,6 +645,7 @@ def main():
     copy_pdfs()
     render_templates()
     copy_standalone()
+    copy_standalone_dirs()
     print('Static site rendered to', OUT)
 
 

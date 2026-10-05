@@ -1,0 +1,2270 @@
+[
+ {
+  "run_id": "runs__sweep_gem_gem_glm_s137",
+  "label": "two-way \u00b7 GLM-4+Gemma \u00b7 sweep_gem_gem_glm_s137",
+  "regime": "dyad",
+  "families": [
+   "GLM-4",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_gem_gem_glm_s137.json"
+ },
+ {
+  "run_id": "runs__sweep_gem_gem_glm_s271",
+  "label": "two-way \u00b7 GLM-4+Gemma \u00b7 sweep_gem_gem_glm_s271",
+  "regime": "dyad",
+  "families": [
+   "GLM-4",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_gem_gem_glm_s271.json"
+ },
+ {
+  "run_id": "runs__sweep_gem_gem_glm_s314",
+  "label": "two-way \u00b7 GLM-4+Gemma \u00b7 sweep_gem_gem_glm_s314",
+  "regime": "dyad",
+  "families": [
+   "GLM-4",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_gem_gem_glm_s314.json"
+ },
+ {
+  "run_id": "runs__sweep_gem_gem_glm_s42",
+  "label": "two-way \u00b7 GLM-4+Gemma \u00b7 sweep_gem_gem_glm_s42",
+  "regime": "dyad",
+  "families": [
+   "GLM-4",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_gem_gem_glm_s42.json"
+ },
+ {
+  "run_id": "runs__sweep_gem_gem_glm_s999",
+  "label": "two-way \u00b7 GLM-4+Gemma \u00b7 sweep_gem_gem_glm_s999",
+  "regime": "dyad",
+  "families": [
+   "GLM-4",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_gem_gem_glm_s999.json"
+ },
+ {
+  "run_id": "runs__sweep_gem_gem_mag_s137",
+  "label": "two-way \u00b7 Mag+Gemma \u00b7 sweep_gem_gem_mag_s137",
+  "regime": "dyad",
+  "families": [
+   "Mag",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_gem_gem_mag_s137.json"
+ },
+ {
+  "run_id": "runs__sweep_gem_gem_mag_s271",
+  "label": "two-way \u00b7 Mag+Gemma \u00b7 sweep_gem_gem_mag_s271",
+  "regime": "dyad",
+  "families": [
+   "Mag",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_gem_gem_mag_s271.json"
+ },
+ {
+  "run_id": "runs__sweep_gem_gem_mag_s314",
+  "label": "two-way \u00b7 Mag+Gemma \u00b7 sweep_gem_gem_mag_s314",
+  "regime": "dyad",
+  "families": [
+   "Mag",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_gem_gem_mag_s314.json"
+ },
+ {
+  "run_id": "runs__sweep_gem_gem_mag_s999",
+  "label": "two-way \u00b7 Mag+Gemma \u00b7 sweep_gem_gem_mag_s999",
+  "regime": "dyad",
+  "families": [
+   "Mag",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_gem_gem_mag_s999.json"
+ },
+ {
+  "run_id": "runs__sweep_gem_gem_oss_s137",
+  "label": "two-way \u00b7 gpt-oss+Gemma \u00b7 sweep_gem_gem_oss_s137",
+  "regime": "dyad",
+  "families": [
+   "gpt-oss",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_gem_gem_oss_s137.json"
+ },
+ {
+  "run_id": "runs__sweep_gem_gem_oss_s271",
+  "label": "two-way \u00b7 gpt-oss+Gemma \u00b7 sweep_gem_gem_oss_s271",
+  "regime": "dyad",
+  "families": [
+   "gpt-oss",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_gem_gem_oss_s271.json"
+ },
+ {
+  "run_id": "runs__sweep_gem_gem_oss_s314",
+  "label": "two-way \u00b7 gpt-oss+Gemma \u00b7 sweep_gem_gem_oss_s314",
+  "regime": "dyad",
+  "families": [
+   "gpt-oss",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_gem_gem_oss_s314.json"
+ },
+ {
+  "run_id": "runs__sweep_gem_gem_oss_s42",
+  "label": "two-way \u00b7 gpt-oss+Gemma \u00b7 sweep_gem_gem_oss_s42",
+  "regime": "dyad",
+  "families": [
+   "gpt-oss",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_gem_gem_oss_s42.json"
+ },
+ {
+  "run_id": "runs__sweep_gem_gem_oss_s999",
+  "label": "two-way \u00b7 gpt-oss+Gemma \u00b7 sweep_gem_gem_oss_s999",
+  "regime": "dyad",
+  "families": [
+   "gpt-oss",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_gem_gem_oss_s999.json"
+ },
+ {
+  "run_id": "runs__sweep_gem_gem_qwe_s137",
+  "label": "two-way \u00b7 Qwen+Gemma \u00b7 sweep_gem_gem_qwe_s137",
+  "regime": "dyad",
+  "families": [
+   "Qwen",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_gem_gem_qwe_s137.json"
+ },
+ {
+  "run_id": "runs__sweep_gem_gem_qwe_s271",
+  "label": "two-way \u00b7 Qwen+Gemma \u00b7 sweep_gem_gem_qwe_s271",
+  "regime": "dyad",
+  "families": [
+   "Qwen",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_gem_gem_qwe_s271.json"
+ },
+ {
+  "run_id": "runs__sweep_gem_gem_qwe_s314",
+  "label": "two-way \u00b7 Qwen+Gemma \u00b7 sweep_gem_gem_qwe_s314",
+  "regime": "dyad",
+  "families": [
+   "Qwen",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_gem_gem_qwe_s314.json"
+ },
+ {
+  "run_id": "runs__sweep_gem_gem_qwe_s42",
+  "label": "two-way \u00b7 Qwen+Gemma \u00b7 sweep_gem_gem_qwe_s42",
+  "regime": "dyad",
+  "families": [
+   "Qwen",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_gem_gem_qwe_s42.json"
+ },
+ {
+  "run_id": "runs__sweep_gem_gem_qwe_s999",
+  "label": "two-way \u00b7 Qwen+Gemma \u00b7 sweep_gem_gem_qwe_s999",
+  "regime": "dyad",
+  "families": [
+   "Qwen",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_gem_gem_qwe_s999.json"
+ },
+ {
+  "run_id": "runs__sweep_gem_glm_gem_s137",
+  "label": "two-way \u00b7 GLM-4+Gemma \u00b7 sweep_gem_glm_gem_s137",
+  "regime": "dyad",
+  "families": [
+   "GLM-4",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_gem_glm_gem_s137.json"
+ },
+ {
+  "run_id": "runs__sweep_gem_glm_gem_s271",
+  "label": "two-way \u00b7 GLM-4+Gemma \u00b7 sweep_gem_glm_gem_s271",
+  "regime": "dyad",
+  "families": [
+   "GLM-4",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_gem_glm_gem_s271.json"
+ },
+ {
+  "run_id": "runs__sweep_gem_glm_gem_s314",
+  "label": "two-way \u00b7 GLM-4+Gemma \u00b7 sweep_gem_glm_gem_s314",
+  "regime": "dyad",
+  "families": [
+   "GLM-4",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_gem_glm_gem_s314.json"
+ },
+ {
+  "run_id": "runs__sweep_gem_glm_gem_s42",
+  "label": "two-way \u00b7 GLM-4+Gemma \u00b7 sweep_gem_glm_gem_s42",
+  "regime": "dyad",
+  "families": [
+   "GLM-4",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_gem_glm_gem_s42.json"
+ },
+ {
+  "run_id": "runs__sweep_gem_glm_gem_s999",
+  "label": "two-way \u00b7 GLM-4+Gemma \u00b7 sweep_gem_glm_gem_s999",
+  "regime": "dyad",
+  "families": [
+   "GLM-4",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_gem_glm_gem_s999.json"
+ },
+ {
+  "run_id": "runs__sweep_gem_mag_gem_s137",
+  "label": "two-way \u00b7 Mag+Gemma \u00b7 sweep_gem_mag_gem_s137",
+  "regime": "dyad",
+  "families": [
+   "Mag",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_gem_mag_gem_s137.json"
+ },
+ {
+  "run_id": "runs__sweep_gem_mag_gem_s271",
+  "label": "two-way \u00b7 Mag+Gemma \u00b7 sweep_gem_mag_gem_s271",
+  "regime": "dyad",
+  "families": [
+   "Mag",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_gem_mag_gem_s271.json"
+ },
+ {
+  "run_id": "runs__sweep_gem_mag_gem_s314",
+  "label": "two-way \u00b7 Mag+Gemma \u00b7 sweep_gem_mag_gem_s314",
+  "regime": "dyad",
+  "families": [
+   "Mag",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_gem_mag_gem_s314.json"
+ },
+ {
+  "run_id": "runs__sweep_gem_mag_gem_s42",
+  "label": "two-way \u00b7 Mag+Gemma \u00b7 sweep_gem_mag_gem_s42",
+  "regime": "dyad",
+  "families": [
+   "Mag",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_gem_mag_gem_s42.json"
+ },
+ {
+  "run_id": "runs__sweep_gem_mag_gem_s999",
+  "label": "two-way \u00b7 Mag+Gemma \u00b7 sweep_gem_mag_gem_s999",
+  "regime": "dyad",
+  "families": [
+   "Mag",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_gem_mag_gem_s999.json"
+ },
+ {
+  "run_id": "runs__sweep_gem_oss_gem_s137",
+  "label": "two-way \u00b7 gpt-oss+Gemma \u00b7 sweep_gem_oss_gem_s137",
+  "regime": "dyad",
+  "families": [
+   "gpt-oss",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_gem_oss_gem_s137.json"
+ },
+ {
+  "run_id": "runs__sweep_gem_oss_gem_s271",
+  "label": "two-way \u00b7 gpt-oss+Gemma \u00b7 sweep_gem_oss_gem_s271",
+  "regime": "dyad",
+  "families": [
+   "gpt-oss",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_gem_oss_gem_s271.json"
+ },
+ {
+  "run_id": "runs__sweep_gem_oss_gem_s314",
+  "label": "two-way \u00b7 gpt-oss+Gemma \u00b7 sweep_gem_oss_gem_s314",
+  "regime": "dyad",
+  "families": [
+   "gpt-oss",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_gem_oss_gem_s314.json"
+ },
+ {
+  "run_id": "runs__sweep_gem_oss_gem_s42",
+  "label": "two-way \u00b7 gpt-oss+Gemma \u00b7 sweep_gem_oss_gem_s42",
+  "regime": "dyad",
+  "families": [
+   "gpt-oss",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_gem_oss_gem_s42.json"
+ },
+ {
+  "run_id": "runs__sweep_gem_oss_gem_s999",
+  "label": "two-way \u00b7 gpt-oss+Gemma \u00b7 sweep_gem_oss_gem_s999",
+  "regime": "dyad",
+  "families": [
+   "gpt-oss",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_gem_oss_gem_s999.json"
+ },
+ {
+  "run_id": "runs__sweep_gem_qwe_gem_s137",
+  "label": "two-way \u00b7 Qwen+Gemma \u00b7 sweep_gem_qwe_gem_s137",
+  "regime": "dyad",
+  "families": [
+   "Qwen",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_gem_qwe_gem_s137.json"
+ },
+ {
+  "run_id": "runs__sweep_gem_qwe_gem_s271",
+  "label": "two-way \u00b7 Qwen+Gemma \u00b7 sweep_gem_qwe_gem_s271",
+  "regime": "dyad",
+  "families": [
+   "Qwen",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_gem_qwe_gem_s271.json"
+ },
+ {
+  "run_id": "runs__sweep_gem_qwe_gem_s314",
+  "label": "two-way \u00b7 Qwen+Gemma \u00b7 sweep_gem_qwe_gem_s314",
+  "regime": "dyad",
+  "families": [
+   "Qwen",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_gem_qwe_gem_s314.json"
+ },
+ {
+  "run_id": "runs__sweep_gem_qwe_gem_s42",
+  "label": "two-way \u00b7 Qwen+Gemma \u00b7 sweep_gem_qwe_gem_s42",
+  "regime": "dyad",
+  "families": [
+   "Qwen",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_gem_qwe_gem_s42.json"
+ },
+ {
+  "run_id": "runs__sweep_gem_qwe_gem_s999",
+  "label": "two-way \u00b7 Qwen+Gemma \u00b7 sweep_gem_qwe_gem_s999",
+  "regime": "dyad",
+  "families": [
+   "Qwen",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_gem_qwe_gem_s999.json"
+ },
+ {
+  "run_id": "runs__sweep_glm_mag_AB_s137",
+  "label": "two-way \u00b7 GLM-4+Mag \u00b7 sweep_glm_mag_AB_s137",
+  "regime": "dyad",
+  "families": [
+   "GLM-4",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_glm_mag_AB_s137.json"
+ },
+ {
+  "run_id": "runs__sweep_glm_mag_AB_s271",
+  "label": "two-way \u00b7 GLM-4+Mag \u00b7 sweep_glm_mag_AB_s271",
+  "regime": "dyad",
+  "families": [
+   "GLM-4",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_glm_mag_AB_s271.json"
+ },
+ {
+  "run_id": "runs__sweep_glm_mag_AB_s314",
+  "label": "two-way \u00b7 GLM-4+Mag \u00b7 sweep_glm_mag_AB_s314",
+  "regime": "dyad",
+  "families": [
+   "GLM-4",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_glm_mag_AB_s314.json"
+ },
+ {
+  "run_id": "runs__sweep_glm_mag_AB_s42",
+  "label": "two-way \u00b7 GLM-4+Mag \u00b7 sweep_glm_mag_AB_s42",
+  "regime": "dyad",
+  "families": [
+   "GLM-4",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_glm_mag_AB_s42.json"
+ },
+ {
+  "run_id": "runs__sweep_glm_mag_AB_s999",
+  "label": "two-way \u00b7 GLM-4+Mag \u00b7 sweep_glm_mag_AB_s999",
+  "regime": "dyad",
+  "families": [
+   "GLM-4",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_glm_mag_AB_s999.json"
+ },
+ {
+  "run_id": "runs__sweep_glm_mag_BA_s137",
+  "label": "two-way \u00b7 GLM-4+Mag \u00b7 sweep_glm_mag_BA_s137",
+  "regime": "dyad",
+  "families": [
+   "GLM-4",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_glm_mag_BA_s137.json"
+ },
+ {
+  "run_id": "runs__sweep_glm_mag_BA_s271",
+  "label": "two-way \u00b7 GLM-4+Mag \u00b7 sweep_glm_mag_BA_s271",
+  "regime": "dyad",
+  "families": [
+   "GLM-4",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_glm_mag_BA_s271.json"
+ },
+ {
+  "run_id": "runs__sweep_glm_mag_BA_s314",
+  "label": "two-way \u00b7 GLM-4+Mag \u00b7 sweep_glm_mag_BA_s314",
+  "regime": "dyad",
+  "families": [
+   "GLM-4",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_glm_mag_BA_s314.json"
+ },
+ {
+  "run_id": "runs__sweep_glm_mag_BA_s42",
+  "label": "two-way \u00b7 GLM-4+Mag \u00b7 sweep_glm_mag_BA_s42",
+  "regime": "dyad",
+  "families": [
+   "GLM-4",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_glm_mag_BA_s42.json"
+ },
+ {
+  "run_id": "runs__sweep_glm_mag_BA_s999",
+  "label": "two-way \u00b7 GLM-4+Mag \u00b7 sweep_glm_mag_BA_s999",
+  "regime": "dyad",
+  "families": [
+   "GLM-4",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_glm_mag_BA_s999.json"
+ },
+ {
+  "run_id": "runs__sweep_glm_oss_AB_s137",
+  "label": "two-way \u00b7 gpt-oss+GLM-4 \u00b7 sweep_glm_oss_AB_s137",
+  "regime": "dyad",
+  "families": [
+   "gpt-oss",
+   "GLM-4"
+  ],
+  "file": "data/runs__sweep_glm_oss_AB_s137.json"
+ },
+ {
+  "run_id": "runs__sweep_glm_oss_AB_s271",
+  "label": "two-way \u00b7 gpt-oss+GLM-4 \u00b7 sweep_glm_oss_AB_s271",
+  "regime": "dyad",
+  "families": [
+   "gpt-oss",
+   "GLM-4"
+  ],
+  "file": "data/runs__sweep_glm_oss_AB_s271.json"
+ },
+ {
+  "run_id": "runs__sweep_glm_oss_AB_s314",
+  "label": "two-way \u00b7 gpt-oss+GLM-4 \u00b7 sweep_glm_oss_AB_s314",
+  "regime": "dyad",
+  "families": [
+   "gpt-oss",
+   "GLM-4"
+  ],
+  "file": "data/runs__sweep_glm_oss_AB_s314.json"
+ },
+ {
+  "run_id": "runs__sweep_glm_oss_AB_s42",
+  "label": "two-way \u00b7 gpt-oss+GLM-4 \u00b7 sweep_glm_oss_AB_s42",
+  "regime": "dyad",
+  "families": [
+   "gpt-oss",
+   "GLM-4"
+  ],
+  "file": "data/runs__sweep_glm_oss_AB_s42.json"
+ },
+ {
+  "run_id": "runs__sweep_glm_oss_AB_s999",
+  "label": "two-way \u00b7 gpt-oss+GLM-4 \u00b7 sweep_glm_oss_AB_s999",
+  "regime": "dyad",
+  "families": [
+   "gpt-oss",
+   "GLM-4"
+  ],
+  "file": "data/runs__sweep_glm_oss_AB_s999.json"
+ },
+ {
+  "run_id": "runs__sweep_glm_oss_BA_s137",
+  "label": "two-way \u00b7 gpt-oss+GLM-4 \u00b7 sweep_glm_oss_BA_s137",
+  "regime": "dyad",
+  "families": [
+   "gpt-oss",
+   "GLM-4"
+  ],
+  "file": "data/runs__sweep_glm_oss_BA_s137.json"
+ },
+ {
+  "run_id": "runs__sweep_glm_oss_BA_s271",
+  "label": "two-way \u00b7 gpt-oss+GLM-4 \u00b7 sweep_glm_oss_BA_s271",
+  "regime": "dyad",
+  "families": [
+   "gpt-oss",
+   "GLM-4"
+  ],
+  "file": "data/runs__sweep_glm_oss_BA_s271.json"
+ },
+ {
+  "run_id": "runs__sweep_glm_oss_BA_s314",
+  "label": "two-way \u00b7 gpt-oss+GLM-4 \u00b7 sweep_glm_oss_BA_s314",
+  "regime": "dyad",
+  "families": [
+   "gpt-oss",
+   "GLM-4"
+  ],
+  "file": "data/runs__sweep_glm_oss_BA_s314.json"
+ },
+ {
+  "run_id": "runs__sweep_glm_oss_BA_s42",
+  "label": "two-way \u00b7 gpt-oss+GLM-4 \u00b7 sweep_glm_oss_BA_s42",
+  "regime": "dyad",
+  "families": [
+   "gpt-oss",
+   "GLM-4"
+  ],
+  "file": "data/runs__sweep_glm_oss_BA_s42.json"
+ },
+ {
+  "run_id": "runs__sweep_glm_oss_BA_s999",
+  "label": "two-way \u00b7 gpt-oss+GLM-4 \u00b7 sweep_glm_oss_BA_s999",
+  "regime": "dyad",
+  "families": [
+   "gpt-oss",
+   "GLM-4"
+  ],
+  "file": "data/runs__sweep_glm_oss_BA_s999.json"
+ },
+ {
+  "run_id": "runs__sweep_glm_qwen_AB_s137",
+  "label": "two-way \u00b7 Qwen+GLM-4 \u00b7 sweep_glm_qwen_AB_s137",
+  "regime": "dyad",
+  "families": [
+   "Qwen",
+   "GLM-4"
+  ],
+  "file": "data/runs__sweep_glm_qwen_AB_s137.json"
+ },
+ {
+  "run_id": "runs__sweep_glm_qwen_AB_s271",
+  "label": "two-way \u00b7 Qwen+GLM-4 \u00b7 sweep_glm_qwen_AB_s271",
+  "regime": "dyad",
+  "families": [
+   "Qwen",
+   "GLM-4"
+  ],
+  "file": "data/runs__sweep_glm_qwen_AB_s271.json"
+ },
+ {
+  "run_id": "runs__sweep_glm_qwen_AB_s314",
+  "label": "two-way \u00b7 Qwen+GLM-4 \u00b7 sweep_glm_qwen_AB_s314",
+  "regime": "dyad",
+  "families": [
+   "Qwen",
+   "GLM-4"
+  ],
+  "file": "data/runs__sweep_glm_qwen_AB_s314.json"
+ },
+ {
+  "run_id": "runs__sweep_glm_qwen_AB_s42",
+  "label": "two-way \u00b7 Qwen+GLM-4 \u00b7 sweep_glm_qwen_AB_s42",
+  "regime": "dyad",
+  "families": [
+   "Qwen",
+   "GLM-4"
+  ],
+  "file": "data/runs__sweep_glm_qwen_AB_s42.json"
+ },
+ {
+  "run_id": "runs__sweep_glm_qwen_AB_s999",
+  "label": "two-way \u00b7 Qwen+GLM-4 \u00b7 sweep_glm_qwen_AB_s999",
+  "regime": "dyad",
+  "families": [
+   "Qwen",
+   "GLM-4"
+  ],
+  "file": "data/runs__sweep_glm_qwen_AB_s999.json"
+ },
+ {
+  "run_id": "runs__sweep_glm_qwen_BA_s137",
+  "label": "two-way \u00b7 Qwen+GLM-4 \u00b7 sweep_glm_qwen_BA_s137",
+  "regime": "dyad",
+  "families": [
+   "Qwen",
+   "GLM-4"
+  ],
+  "file": "data/runs__sweep_glm_qwen_BA_s137.json"
+ },
+ {
+  "run_id": "runs__sweep_glm_qwen_BA_s271",
+  "label": "two-way \u00b7 Qwen+GLM-4 \u00b7 sweep_glm_qwen_BA_s271",
+  "regime": "dyad",
+  "families": [
+   "Qwen",
+   "GLM-4"
+  ],
+  "file": "data/runs__sweep_glm_qwen_BA_s271.json"
+ },
+ {
+  "run_id": "runs__sweep_glm_qwen_BA_s314",
+  "label": "two-way \u00b7 Qwen+GLM-4 \u00b7 sweep_glm_qwen_BA_s314",
+  "regime": "dyad",
+  "families": [
+   "Qwen",
+   "GLM-4"
+  ],
+  "file": "data/runs__sweep_glm_qwen_BA_s314.json"
+ },
+ {
+  "run_id": "runs__sweep_glm_qwen_BA_s42",
+  "label": "two-way \u00b7 Qwen+GLM-4 \u00b7 sweep_glm_qwen_BA_s42",
+  "regime": "dyad",
+  "families": [
+   "Qwen",
+   "GLM-4"
+  ],
+  "file": "data/runs__sweep_glm_qwen_BA_s42.json"
+ },
+ {
+  "run_id": "runs__sweep_glm_qwen_BA_s999",
+  "label": "two-way \u00b7 Qwen+GLM-4 \u00b7 sweep_glm_qwen_BA_s999",
+  "regime": "dyad",
+  "families": [
+   "Qwen",
+   "GLM-4"
+  ],
+  "file": "data/runs__sweep_glm_qwen_BA_s999.json"
+ },
+ {
+  "run_id": "runs__sweep_gpt_mag_s137",
+  "label": "two-way \u00b7 gpt-oss+Mag \u00b7 sweep_gpt_mag_s137",
+  "regime": "dyad",
+  "families": [
+   "gpt-oss",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_gpt_mag_s137.json"
+ },
+ {
+  "run_id": "runs__sweep_gpt_mag_s271",
+  "label": "two-way \u00b7 gpt-oss+Mag \u00b7 sweep_gpt_mag_s271",
+  "regime": "dyad",
+  "families": [
+   "gpt-oss",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_gpt_mag_s271.json"
+ },
+ {
+  "run_id": "runs__sweep_gpt_mag_s314",
+  "label": "two-way \u00b7 gpt-oss+Mag \u00b7 sweep_gpt_mag_s314",
+  "regime": "dyad",
+  "families": [
+   "gpt-oss",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_gpt_mag_s314.json"
+ },
+ {
+  "run_id": "runs__sweep_gpt_mag_s42",
+  "label": "two-way \u00b7 gpt-oss+Mag \u00b7 sweep_gpt_mag_s42",
+  "regime": "dyad",
+  "families": [
+   "gpt-oss",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_gpt_mag_s42.json"
+ },
+ {
+  "run_id": "runs__sweep_gpt_mag_s999",
+  "label": "two-way \u00b7 gpt-oss+Mag \u00b7 sweep_gpt_mag_s999",
+  "regime": "dyad",
+  "families": [
+   "gpt-oss",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_gpt_mag_s999.json"
+ },
+ {
+  "run_id": "runs__sweep_gpt_qwe_s137",
+  "label": "two-way \u00b7 gpt-oss+Qwen \u00b7 sweep_gpt_qwe_s137",
+  "regime": "dyad",
+  "families": [
+   "gpt-oss",
+   "Qwen"
+  ],
+  "file": "data/runs__sweep_gpt_qwe_s137.json"
+ },
+ {
+  "run_id": "runs__sweep_gpt_qwe_s271",
+  "label": "two-way \u00b7 gpt-oss+Qwen \u00b7 sweep_gpt_qwe_s271",
+  "regime": "dyad",
+  "families": [
+   "gpt-oss",
+   "Qwen"
+  ],
+  "file": "data/runs__sweep_gpt_qwe_s271.json"
+ },
+ {
+  "run_id": "runs__sweep_gpt_qwe_s314",
+  "label": "two-way \u00b7 gpt-oss+Qwen \u00b7 sweep_gpt_qwe_s314",
+  "regime": "dyad",
+  "families": [
+   "gpt-oss",
+   "Qwen"
+  ],
+  "file": "data/runs__sweep_gpt_qwe_s314.json"
+ },
+ {
+  "run_id": "runs__sweep_gpt_qwe_s42",
+  "label": "two-way \u00b7 gpt-oss+Qwen \u00b7 sweep_gpt_qwe_s42",
+  "regime": "dyad",
+  "families": [
+   "gpt-oss",
+   "Qwen"
+  ],
+  "file": "data/runs__sweep_gpt_qwe_s42.json"
+ },
+ {
+  "run_id": "runs__sweep_gpt_qwe_s999",
+  "label": "two-way \u00b7 gpt-oss+Qwen \u00b7 sweep_gpt_qwe_s999",
+  "regime": "dyad",
+  "families": [
+   "gpt-oss",
+   "Qwen"
+  ],
+  "file": "data/runs__sweep_gpt_qwe_s999.json"
+ },
+ {
+  "run_id": "runs__sweep_mag_gpt_s137",
+  "label": "two-way \u00b7 gpt-oss+Mag \u00b7 sweep_mag_gpt_s137",
+  "regime": "dyad",
+  "families": [
+   "gpt-oss",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_mag_gpt_s137.json"
+ },
+ {
+  "run_id": "runs__sweep_mag_gpt_s271",
+  "label": "two-way \u00b7 gpt-oss+Mag \u00b7 sweep_mag_gpt_s271",
+  "regime": "dyad",
+  "families": [
+   "gpt-oss",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_mag_gpt_s271.json"
+ },
+ {
+  "run_id": "runs__sweep_mag_gpt_s314",
+  "label": "two-way \u00b7 gpt-oss+Mag \u00b7 sweep_mag_gpt_s314",
+  "regime": "dyad",
+  "families": [
+   "gpt-oss",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_mag_gpt_s314.json"
+ },
+ {
+  "run_id": "runs__sweep_mag_gpt_s42",
+  "label": "two-way \u00b7 gpt-oss+Mag \u00b7 sweep_mag_gpt_s42",
+  "regime": "dyad",
+  "families": [
+   "gpt-oss",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_mag_gpt_s42.json"
+ },
+ {
+  "run_id": "runs__sweep_mag_gpt_s999",
+  "label": "two-way \u00b7 gpt-oss+Mag \u00b7 sweep_mag_gpt_s999",
+  "regime": "dyad",
+  "families": [
+   "gpt-oss",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_mag_gpt_s999.json"
+ },
+ {
+  "run_id": "runs__sweep_mag_qwe_s137",
+  "label": "two-way \u00b7 Qwen+Mag \u00b7 sweep_mag_qwe_s137",
+  "regime": "dyad",
+  "families": [
+   "Qwen",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_mag_qwe_s137.json"
+ },
+ {
+  "run_id": "runs__sweep_mag_qwe_s271",
+  "label": "two-way \u00b7 Qwen+Mag \u00b7 sweep_mag_qwe_s271",
+  "regime": "dyad",
+  "families": [
+   "Qwen",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_mag_qwe_s271.json"
+ },
+ {
+  "run_id": "runs__sweep_mag_qwe_s314",
+  "label": "two-way \u00b7 Qwen+Mag \u00b7 sweep_mag_qwe_s314",
+  "regime": "dyad",
+  "families": [
+   "Qwen",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_mag_qwe_s314.json"
+ },
+ {
+  "run_id": "runs__sweep_mag_qwe_s42",
+  "label": "two-way \u00b7 Qwen+Mag \u00b7 sweep_mag_qwe_s42",
+  "regime": "dyad",
+  "families": [
+   "Qwen",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_mag_qwe_s42.json"
+ },
+ {
+  "run_id": "runs__sweep_mag_qwe_s999",
+  "label": "two-way \u00b7 Qwen+Mag \u00b7 sweep_mag_qwe_s999",
+  "regime": "dyad",
+  "families": [
+   "Qwen",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_mag_qwe_s999.json"
+ },
+ {
+  "run_id": "runs__sweep_qwe_gpt_s137",
+  "label": "two-way \u00b7 gpt-oss+Qwen \u00b7 sweep_qwe_gpt_s137",
+  "regime": "dyad",
+  "families": [
+   "gpt-oss",
+   "Qwen"
+  ],
+  "file": "data/runs__sweep_qwe_gpt_s137.json"
+ },
+ {
+  "run_id": "runs__sweep_qwe_gpt_s271",
+  "label": "two-way \u00b7 gpt-oss+Qwen \u00b7 sweep_qwe_gpt_s271",
+  "regime": "dyad",
+  "families": [
+   "gpt-oss",
+   "Qwen"
+  ],
+  "file": "data/runs__sweep_qwe_gpt_s271.json"
+ },
+ {
+  "run_id": "runs__sweep_qwe_gpt_s314",
+  "label": "two-way \u00b7 gpt-oss+Qwen \u00b7 sweep_qwe_gpt_s314",
+  "regime": "dyad",
+  "families": [
+   "gpt-oss",
+   "Qwen"
+  ],
+  "file": "data/runs__sweep_qwe_gpt_s314.json"
+ },
+ {
+  "run_id": "runs__sweep_qwe_gpt_s42",
+  "label": "two-way \u00b7 gpt-oss+Qwen \u00b7 sweep_qwe_gpt_s42",
+  "regime": "dyad",
+  "families": [
+   "gpt-oss",
+   "Qwen"
+  ],
+  "file": "data/runs__sweep_qwe_gpt_s42.json"
+ },
+ {
+  "run_id": "runs__sweep_qwe_gpt_s999",
+  "label": "two-way \u00b7 gpt-oss+Qwen \u00b7 sweep_qwe_gpt_s999",
+  "regime": "dyad",
+  "families": [
+   "gpt-oss",
+   "Qwen"
+  ],
+  "file": "data/runs__sweep_qwe_gpt_s999.json"
+ },
+ {
+  "run_id": "runs__sweep_qwe_mag_s137",
+  "label": "two-way \u00b7 Qwen+Mag \u00b7 sweep_qwe_mag_s137",
+  "regime": "dyad",
+  "families": [
+   "Qwen",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_qwe_mag_s137.json"
+ },
+ {
+  "run_id": "runs__sweep_qwe_mag_s271",
+  "label": "two-way \u00b7 Qwen+Mag \u00b7 sweep_qwe_mag_s271",
+  "regime": "dyad",
+  "families": [
+   "Qwen",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_qwe_mag_s271.json"
+ },
+ {
+  "run_id": "runs__sweep_qwe_mag_s314",
+  "label": "two-way \u00b7 Qwen+Mag \u00b7 sweep_qwe_mag_s314",
+  "regime": "dyad",
+  "families": [
+   "Qwen",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_qwe_mag_s314.json"
+ },
+ {
+  "run_id": "runs__sweep_qwe_mag_s42",
+  "label": "two-way \u00b7 Qwen+Mag \u00b7 sweep_qwe_mag_s42",
+  "regime": "dyad",
+  "families": [
+   "Qwen",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_qwe_mag_s42.json"
+ },
+ {
+  "run_id": "runs__sweep_qwe_mag_s999",
+  "label": "two-way \u00b7 Qwen+Mag \u00b7 sweep_qwe_mag_s999",
+  "regime": "dyad",
+  "families": [
+   "Qwen",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_qwe_mag_s999.json"
+ },
+ {
+  "run_id": "runs__tetratic__tetra_s271_r1",
+  "label": "four-way \u00b7 gpt-oss+Qwen+GLM-4+Mag \u00b7 tetra_s271_r1",
+  "regime": "tetrad",
+  "families": [
+   "gpt-oss",
+   "Qwen",
+   "GLM-4",
+   "Mag"
+  ],
+  "file": "data/runs__tetratic__tetra_s271_r1.json"
+ },
+ {
+  "run_id": "runs__tetratic__tetra_s271_r10",
+  "label": "four-way \u00b7 gpt-oss+Qwen+GLM-4+Mag \u00b7 tetra_s271_r10",
+  "regime": "tetrad",
+  "families": [
+   "gpt-oss",
+   "Qwen",
+   "GLM-4",
+   "Mag"
+  ],
+  "file": "data/runs__tetratic__tetra_s271_r10.json"
+ },
+ {
+  "run_id": "runs__tetratic__tetra_s271_r11",
+  "label": "four-way \u00b7 gpt-oss+Qwen+GLM-4+Mag \u00b7 tetra_s271_r11",
+  "regime": "tetrad",
+  "families": [
+   "gpt-oss",
+   "Qwen",
+   "GLM-4",
+   "Mag"
+  ],
+  "file": "data/runs__tetratic__tetra_s271_r11.json"
+ },
+ {
+  "run_id": "runs__tetratic__tetra_s271_r12",
+  "label": "four-way \u00b7 gpt-oss+Qwen+GLM-4+Mag \u00b7 tetra_s271_r12",
+  "regime": "tetrad",
+  "families": [
+   "gpt-oss",
+   "Qwen",
+   "GLM-4",
+   "Mag"
+  ],
+  "file": "data/runs__tetratic__tetra_s271_r12.json"
+ },
+ {
+  "run_id": "runs__tetratic__tetra_s271_r2",
+  "label": "four-way \u00b7 gpt-oss+Qwen+GLM-4+Mag \u00b7 tetra_s271_r2",
+  "regime": "tetrad",
+  "families": [
+   "gpt-oss",
+   "Qwen",
+   "GLM-4",
+   "Mag"
+  ],
+  "file": "data/runs__tetratic__tetra_s271_r2.json"
+ },
+ {
+  "run_id": "runs__tetratic__tetra_s271_r3",
+  "label": "four-way \u00b7 gpt-oss+Qwen+GLM-4+Mag \u00b7 tetra_s271_r3",
+  "regime": "tetrad",
+  "families": [
+   "gpt-oss",
+   "Qwen",
+   "GLM-4",
+   "Mag"
+  ],
+  "file": "data/runs__tetratic__tetra_s271_r3.json"
+ },
+ {
+  "run_id": "runs__tetratic__tetra_s271_r4",
+  "label": "four-way \u00b7 gpt-oss+Qwen+GLM-4+Mag \u00b7 tetra_s271_r4",
+  "regime": "tetrad",
+  "families": [
+   "gpt-oss",
+   "Qwen",
+   "GLM-4",
+   "Mag"
+  ],
+  "file": "data/runs__tetratic__tetra_s271_r4.json"
+ },
+ {
+  "run_id": "runs__tetratic__tetra_s271_r5",
+  "label": "four-way \u00b7 gpt-oss+Qwen+GLM-4+Mag \u00b7 tetra_s271_r5",
+  "regime": "tetrad",
+  "families": [
+   "gpt-oss",
+   "Qwen",
+   "GLM-4",
+   "Mag"
+  ],
+  "file": "data/runs__tetratic__tetra_s271_r5.json"
+ },
+ {
+  "run_id": "runs__tetratic__tetra_s271_r6",
+  "label": "four-way \u00b7 gpt-oss+Qwen+GLM-4+Mag \u00b7 tetra_s271_r6",
+  "regime": "tetrad",
+  "families": [
+   "gpt-oss",
+   "Qwen",
+   "GLM-4",
+   "Mag"
+  ],
+  "file": "data/runs__tetratic__tetra_s271_r6.json"
+ },
+ {
+  "run_id": "runs__tetratic__tetra_s271_r7",
+  "label": "four-way \u00b7 gpt-oss+Qwen+GLM-4+Mag \u00b7 tetra_s271_r7",
+  "regime": "tetrad",
+  "families": [
+   "gpt-oss",
+   "Qwen",
+   "GLM-4",
+   "Mag"
+  ],
+  "file": "data/runs__tetratic__tetra_s271_r7.json"
+ },
+ {
+  "run_id": "runs__tetratic__tetra_s271_r8",
+  "label": "four-way \u00b7 gpt-oss+Qwen+GLM-4+Mag \u00b7 tetra_s271_r8",
+  "regime": "tetrad",
+  "families": [
+   "gpt-oss",
+   "Qwen",
+   "GLM-4",
+   "Mag"
+  ],
+  "file": "data/runs__tetratic__tetra_s271_r8.json"
+ },
+ {
+  "run_id": "runs__tetratic__tetra_s271_r9",
+  "label": "four-way \u00b7 gpt-oss+Qwen+GLM-4+Mag \u00b7 tetra_s271_r9",
+  "regime": "tetrad",
+  "families": [
+   "gpt-oss",
+   "Qwen",
+   "GLM-4",
+   "Mag"
+  ],
+  "file": "data/runs__tetratic__tetra_s271_r9.json"
+ },
+ {
+  "run_id": "runs__tetratic__tetra_s42_r1",
+  "label": "four-way \u00b7 gpt-oss+Qwen+GLM-4+Mag \u00b7 tetra_s42_r1",
+  "regime": "tetrad",
+  "families": [
+   "gpt-oss",
+   "Qwen",
+   "GLM-4",
+   "Mag"
+  ],
+  "file": "data/runs__tetratic__tetra_s42_r1.json"
+ },
+ {
+  "run_id": "runs__tetratic__tetra_s42_r10",
+  "label": "four-way \u00b7 gpt-oss+Qwen+GLM-4+Mag \u00b7 tetra_s42_r10",
+  "regime": "tetrad",
+  "families": [
+   "gpt-oss",
+   "Qwen",
+   "GLM-4",
+   "Mag"
+  ],
+  "file": "data/runs__tetratic__tetra_s42_r10.json"
+ },
+ {
+  "run_id": "runs__tetratic__tetra_s42_r11",
+  "label": "four-way \u00b7 gpt-oss+Qwen+GLM-4+Mag \u00b7 tetra_s42_r11",
+  "regime": "tetrad",
+  "families": [
+   "gpt-oss",
+   "Qwen",
+   "GLM-4",
+   "Mag"
+  ],
+  "file": "data/runs__tetratic__tetra_s42_r11.json"
+ },
+ {
+  "run_id": "runs__tetratic__tetra_s42_r12",
+  "label": "four-way \u00b7 gpt-oss+Qwen+GLM-4+Mag \u00b7 tetra_s42_r12",
+  "regime": "tetrad",
+  "families": [
+   "gpt-oss",
+   "Qwen",
+   "GLM-4",
+   "Mag"
+  ],
+  "file": "data/runs__tetratic__tetra_s42_r12.json"
+ },
+ {
+  "run_id": "runs__tetratic__tetra_s42_r2",
+  "label": "four-way \u00b7 gpt-oss+Qwen+GLM-4+Mag \u00b7 tetra_s42_r2",
+  "regime": "tetrad",
+  "families": [
+   "gpt-oss",
+   "Qwen",
+   "GLM-4",
+   "Mag"
+  ],
+  "file": "data/runs__tetratic__tetra_s42_r2.json"
+ },
+ {
+  "run_id": "runs__tetratic__tetra_s42_r3",
+  "label": "four-way \u00b7 gpt-oss+Qwen+GLM-4+Mag \u00b7 tetra_s42_r3",
+  "regime": "tetrad",
+  "families": [
+   "gpt-oss",
+   "Qwen",
+   "GLM-4",
+   "Mag"
+  ],
+  "file": "data/runs__tetratic__tetra_s42_r3.json"
+ },
+ {
+  "run_id": "runs__tetratic__tetra_s42_r4",
+  "label": "four-way \u00b7 gpt-oss+Qwen+GLM-4+Mag \u00b7 tetra_s42_r4",
+  "regime": "tetrad",
+  "families": [
+   "gpt-oss",
+   "Qwen",
+   "GLM-4",
+   "Mag"
+  ],
+  "file": "data/runs__tetratic__tetra_s42_r4.json"
+ },
+ {
+  "run_id": "runs__tetratic__tetra_s42_r5",
+  "label": "four-way \u00b7 gpt-oss+Qwen+GLM-4+Mag \u00b7 tetra_s42_r5",
+  "regime": "tetrad",
+  "families": [
+   "gpt-oss",
+   "Qwen",
+   "GLM-4",
+   "Mag"
+  ],
+  "file": "data/runs__tetratic__tetra_s42_r5.json"
+ },
+ {
+  "run_id": "runs__tetratic__tetra_s42_r6",
+  "label": "four-way \u00b7 gpt-oss+Qwen+GLM-4+Mag \u00b7 tetra_s42_r6",
+  "regime": "tetrad",
+  "families": [
+   "gpt-oss",
+   "Qwen",
+   "GLM-4",
+   "Mag"
+  ],
+  "file": "data/runs__tetratic__tetra_s42_r6.json"
+ },
+ {
+  "run_id": "runs__tetratic__tetra_s42_r7",
+  "label": "four-way \u00b7 gpt-oss+Qwen+GLM-4+Mag \u00b7 tetra_s42_r7",
+  "regime": "tetrad",
+  "families": [
+   "gpt-oss",
+   "Qwen",
+   "GLM-4",
+   "Mag"
+  ],
+  "file": "data/runs__tetratic__tetra_s42_r7.json"
+ },
+ {
+  "run_id": "runs__tetratic__tetra_s42_r8",
+  "label": "four-way \u00b7 gpt-oss+Qwen+GLM-4+Mag \u00b7 tetra_s42_r8",
+  "regime": "tetrad",
+  "families": [
+   "gpt-oss",
+   "Qwen",
+   "GLM-4",
+   "Mag"
+  ],
+  "file": "data/runs__tetratic__tetra_s42_r8.json"
+ },
+ {
+  "run_id": "runs__tetratic__tetra_s42_r9",
+  "label": "four-way \u00b7 gpt-oss+Qwen+GLM-4+Mag \u00b7 tetra_s42_r9",
+  "regime": "tetrad",
+  "families": [
+   "gpt-oss",
+   "Qwen",
+   "GLM-4",
+   "Mag"
+  ],
+  "file": "data/runs__tetratic__tetra_s42_r9.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_gem_mag_glm_s271",
+  "label": "three-way \u00b7 GLM-4+Mag+Gemma \u00b7 sweep_tri_gem_mag_glm_s271",
+  "regime": "triad",
+  "families": [
+   "GLM-4",
+   "Mag",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_tri_gem_mag_glm_s271.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_gem_mag_glm_s42",
+  "label": "three-way \u00b7 GLM-4+Mag+Gemma \u00b7 sweep_tri_gem_mag_glm_s42",
+  "regime": "triad",
+  "families": [
+   "GLM-4",
+   "Mag",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_tri_gem_mag_glm_s42.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_gem_mag_glm_s999",
+  "label": "three-way \u00b7 GLM-4+Mag+Gemma \u00b7 sweep_tri_gem_mag_glm_s999",
+  "regime": "triad",
+  "families": [
+   "GLM-4",
+   "Mag",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_tri_gem_mag_glm_s999.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_gem_oss_glm_s271",
+  "label": "three-way \u00b7 gpt-oss+GLM-4+Gemma \u00b7 sweep_tri_gem_oss_glm_s271",
+  "regime": "triad",
+  "families": [
+   "gpt-oss",
+   "GLM-4",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_tri_gem_oss_glm_s271.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_gem_oss_glm_s42",
+  "label": "three-way \u00b7 gpt-oss+GLM-4+Gemma \u00b7 sweep_tri_gem_oss_glm_s42",
+  "regime": "triad",
+  "families": [
+   "gpt-oss",
+   "GLM-4",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_tri_gem_oss_glm_s42.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_gem_oss_glm_s999",
+  "label": "three-way \u00b7 gpt-oss+GLM-4+Gemma \u00b7 sweep_tri_gem_oss_glm_s999",
+  "regime": "triad",
+  "families": [
+   "gpt-oss",
+   "GLM-4",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_tri_gem_oss_glm_s999.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_gem_oss_mag_s271",
+  "label": "three-way \u00b7 gpt-oss+Mag+Gemma \u00b7 sweep_tri_gem_oss_mag_s271",
+  "regime": "triad",
+  "families": [
+   "gpt-oss",
+   "Mag",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_tri_gem_oss_mag_s271.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_gem_oss_mag_s42",
+  "label": "three-way \u00b7 gpt-oss+Mag+Gemma \u00b7 sweep_tri_gem_oss_mag_s42",
+  "regime": "triad",
+  "families": [
+   "gpt-oss",
+   "Mag",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_tri_gem_oss_mag_s42.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_gem_oss_mag_s999",
+  "label": "three-way \u00b7 gpt-oss+Mag+Gemma \u00b7 sweep_tri_gem_oss_mag_s999",
+  "regime": "triad",
+  "families": [
+   "gpt-oss",
+   "Mag",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_tri_gem_oss_mag_s999.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_gem_qwe_glm_s271",
+  "label": "three-way \u00b7 Qwen+GLM-4+Gemma \u00b7 sweep_tri_gem_qwe_glm_s271",
+  "regime": "triad",
+  "families": [
+   "Qwen",
+   "GLM-4",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_tri_gem_qwe_glm_s271.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_gem_qwe_glm_s42",
+  "label": "three-way \u00b7 Qwen+GLM-4+Gemma \u00b7 sweep_tri_gem_qwe_glm_s42",
+  "regime": "triad",
+  "families": [
+   "Qwen",
+   "GLM-4",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_tri_gem_qwe_glm_s42.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_gem_qwe_glm_s999",
+  "label": "three-way \u00b7 Qwen+GLM-4+Gemma \u00b7 sweep_tri_gem_qwe_glm_s999",
+  "regime": "triad",
+  "families": [
+   "Qwen",
+   "GLM-4",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_tri_gem_qwe_glm_s999.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_gem_qwe_mag_s271",
+  "label": "three-way \u00b7 Qwen+Mag+Gemma \u00b7 sweep_tri_gem_qwe_mag_s271",
+  "regime": "triad",
+  "families": [
+   "Qwen",
+   "Mag",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_tri_gem_qwe_mag_s271.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_gem_qwe_mag_s42",
+  "label": "three-way \u00b7 Qwen+Mag+Gemma \u00b7 sweep_tri_gem_qwe_mag_s42",
+  "regime": "triad",
+  "families": [
+   "Qwen",
+   "Mag",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_tri_gem_qwe_mag_s42.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_gem_qwe_mag_s999",
+  "label": "three-way \u00b7 Qwen+Mag+Gemma \u00b7 sweep_tri_gem_qwe_mag_s999",
+  "regime": "triad",
+  "families": [
+   "Qwen",
+   "Mag",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_tri_gem_qwe_mag_s999.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_gem_qwe_oss_s271",
+  "label": "three-way \u00b7 gpt-oss+Qwen+Gemma \u00b7 sweep_tri_gem_qwe_oss_s271",
+  "regime": "triad",
+  "families": [
+   "gpt-oss",
+   "Qwen",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_tri_gem_qwe_oss_s271.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_gem_qwe_oss_s42",
+  "label": "three-way \u00b7 gpt-oss+Qwen+Gemma \u00b7 sweep_tri_gem_qwe_oss_s42",
+  "regime": "triad",
+  "families": [
+   "gpt-oss",
+   "Qwen",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_tri_gem_qwe_oss_s42.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_gem_qwe_oss_s999",
+  "label": "three-way \u00b7 gpt-oss+Qwen+Gemma \u00b7 sweep_tri_gem_qwe_oss_s999",
+  "regime": "triad",
+  "families": [
+   "gpt-oss",
+   "Qwen",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_tri_gem_qwe_oss_s999.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_glm_mag_gem_s271",
+  "label": "three-way \u00b7 GLM-4+Mag+Gemma \u00b7 sweep_tri_glm_mag_gem_s271",
+  "regime": "triad",
+  "families": [
+   "GLM-4",
+   "Mag",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_tri_glm_mag_gem_s271.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_glm_mag_gem_s42",
+  "label": "three-way \u00b7 GLM-4+Mag+Gemma \u00b7 sweep_tri_glm_mag_gem_s42",
+  "regime": "triad",
+  "families": [
+   "GLM-4",
+   "Mag",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_tri_glm_mag_gem_s42.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_glm_mag_gem_s999",
+  "label": "three-way \u00b7 GLM-4+Mag+Gemma \u00b7 sweep_tri_glm_mag_gem_s999",
+  "regime": "triad",
+  "families": [
+   "GLM-4",
+   "Mag",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_tri_glm_mag_gem_s999.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_glm_oss_gem_s271",
+  "label": "three-way \u00b7 gpt-oss+GLM-4+Gemma \u00b7 sweep_tri_glm_oss_gem_s271",
+  "regime": "triad",
+  "families": [
+   "gpt-oss",
+   "GLM-4",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_tri_glm_oss_gem_s271.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_glm_oss_gem_s42",
+  "label": "three-way \u00b7 gpt-oss+GLM-4+Gemma \u00b7 sweep_tri_glm_oss_gem_s42",
+  "regime": "triad",
+  "families": [
+   "gpt-oss",
+   "GLM-4",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_tri_glm_oss_gem_s42.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_glm_oss_gem_s999",
+  "label": "three-way \u00b7 gpt-oss+GLM-4+Gemma \u00b7 sweep_tri_glm_oss_gem_s999",
+  "regime": "triad",
+  "families": [
+   "gpt-oss",
+   "GLM-4",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_tri_glm_oss_gem_s999.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_glm_oss_mag_s271",
+  "label": "three-way \u00b7 gpt-oss+GLM-4+Mag \u00b7 sweep_tri_glm_oss_mag_s271",
+  "regime": "triad",
+  "families": [
+   "gpt-oss",
+   "GLM-4",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_tri_glm_oss_mag_s271.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_glm_oss_mag_s42",
+  "label": "three-way \u00b7 gpt-oss+GLM-4+Mag \u00b7 sweep_tri_glm_oss_mag_s42",
+  "regime": "triad",
+  "families": [
+   "gpt-oss",
+   "GLM-4",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_tri_glm_oss_mag_s42.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_glm_oss_mag_s999",
+  "label": "three-way \u00b7 gpt-oss+GLM-4+Mag \u00b7 sweep_tri_glm_oss_mag_s999",
+  "regime": "triad",
+  "families": [
+   "gpt-oss",
+   "GLM-4",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_tri_glm_oss_mag_s999.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_glm_qwe_gem_s271",
+  "label": "three-way \u00b7 Qwen+GLM-4+Gemma \u00b7 sweep_tri_glm_qwe_gem_s271",
+  "regime": "triad",
+  "families": [
+   "Qwen",
+   "GLM-4",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_tri_glm_qwe_gem_s271.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_glm_qwe_gem_s42",
+  "label": "three-way \u00b7 Qwen+GLM-4+Gemma \u00b7 sweep_tri_glm_qwe_gem_s42",
+  "regime": "triad",
+  "families": [
+   "Qwen",
+   "GLM-4",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_tri_glm_qwe_gem_s42.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_glm_qwe_gem_s999",
+  "label": "three-way \u00b7 Qwen+GLM-4+Gemma \u00b7 sweep_tri_glm_qwe_gem_s999",
+  "regime": "triad",
+  "families": [
+   "Qwen",
+   "GLM-4",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_tri_glm_qwe_gem_s999.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_glm_qwe_mag_s271",
+  "label": "three-way \u00b7 Qwen+GLM-4+Mag \u00b7 sweep_tri_glm_qwe_mag_s271",
+  "regime": "triad",
+  "families": [
+   "Qwen",
+   "GLM-4",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_tri_glm_qwe_mag_s271.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_glm_qwe_mag_s42",
+  "label": "three-way \u00b7 Qwen+GLM-4+Mag \u00b7 sweep_tri_glm_qwe_mag_s42",
+  "regime": "triad",
+  "families": [
+   "Qwen",
+   "GLM-4",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_tri_glm_qwe_mag_s42.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_glm_qwe_mag_s999",
+  "label": "three-way \u00b7 Qwen+GLM-4+Mag \u00b7 sweep_tri_glm_qwe_mag_s999",
+  "regime": "triad",
+  "families": [
+   "Qwen",
+   "GLM-4",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_tri_glm_qwe_mag_s999.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_glm_qwe_oss_s271",
+  "label": "three-way \u00b7 gpt-oss+Qwen+GLM-4 \u00b7 sweep_tri_glm_qwe_oss_s271",
+  "regime": "triad",
+  "families": [
+   "gpt-oss",
+   "Qwen",
+   "GLM-4"
+  ],
+  "file": "data/runs__sweep_tri_glm_qwe_oss_s271.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_glm_qwe_oss_s42",
+  "label": "three-way \u00b7 gpt-oss+Qwen+GLM-4 \u00b7 sweep_tri_glm_qwe_oss_s42",
+  "regime": "triad",
+  "families": [
+   "gpt-oss",
+   "Qwen",
+   "GLM-4"
+  ],
+  "file": "data/runs__sweep_tri_glm_qwe_oss_s42.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_glm_qwe_oss_s999",
+  "label": "three-way \u00b7 gpt-oss+Qwen+GLM-4 \u00b7 sweep_tri_glm_qwe_oss_s999",
+  "regime": "triad",
+  "families": [
+   "gpt-oss",
+   "Qwen",
+   "GLM-4"
+  ],
+  "file": "data/runs__sweep_tri_glm_qwe_oss_s999.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_mag_glm_gem_s271",
+  "label": "three-way \u00b7 GLM-4+Mag+Gemma \u00b7 sweep_tri_mag_glm_gem_s271",
+  "regime": "triad",
+  "families": [
+   "GLM-4",
+   "Mag",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_tri_mag_glm_gem_s271.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_mag_glm_gem_s42",
+  "label": "three-way \u00b7 GLM-4+Mag+Gemma \u00b7 sweep_tri_mag_glm_gem_s42",
+  "regime": "triad",
+  "families": [
+   "GLM-4",
+   "Mag",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_tri_mag_glm_gem_s42.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_mag_glm_gem_s999",
+  "label": "three-way \u00b7 GLM-4+Mag+Gemma \u00b7 sweep_tri_mag_glm_gem_s999",
+  "regime": "triad",
+  "families": [
+   "GLM-4",
+   "Mag",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_tri_mag_glm_gem_s999.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_mag_oss_gem_s271",
+  "label": "three-way \u00b7 gpt-oss+Mag+Gemma \u00b7 sweep_tri_mag_oss_gem_s271",
+  "regime": "triad",
+  "families": [
+   "gpt-oss",
+   "Mag",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_tri_mag_oss_gem_s271.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_mag_oss_gem_s42",
+  "label": "three-way \u00b7 gpt-oss+Mag+Gemma \u00b7 sweep_tri_mag_oss_gem_s42",
+  "regime": "triad",
+  "families": [
+   "gpt-oss",
+   "Mag",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_tri_mag_oss_gem_s42.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_mag_oss_gem_s999",
+  "label": "three-way \u00b7 gpt-oss+Mag+Gemma \u00b7 sweep_tri_mag_oss_gem_s999",
+  "regime": "triad",
+  "families": [
+   "gpt-oss",
+   "Mag",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_tri_mag_oss_gem_s999.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_mag_oss_glm_s271",
+  "label": "three-way \u00b7 gpt-oss+GLM-4+Mag \u00b7 sweep_tri_mag_oss_glm_s271",
+  "regime": "triad",
+  "families": [
+   "gpt-oss",
+   "GLM-4",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_tri_mag_oss_glm_s271.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_mag_oss_glm_s42",
+  "label": "three-way \u00b7 gpt-oss+GLM-4+Mag \u00b7 sweep_tri_mag_oss_glm_s42",
+  "regime": "triad",
+  "families": [
+   "gpt-oss",
+   "GLM-4",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_tri_mag_oss_glm_s42.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_mag_oss_glm_s999",
+  "label": "three-way \u00b7 gpt-oss+GLM-4+Mag \u00b7 sweep_tri_mag_oss_glm_s999",
+  "regime": "triad",
+  "families": [
+   "gpt-oss",
+   "GLM-4",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_tri_mag_oss_glm_s999.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_mag_qwe_gem_s271",
+  "label": "three-way \u00b7 Qwen+Mag+Gemma \u00b7 sweep_tri_mag_qwe_gem_s271",
+  "regime": "triad",
+  "families": [
+   "Qwen",
+   "Mag",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_tri_mag_qwe_gem_s271.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_mag_qwe_gem_s42",
+  "label": "three-way \u00b7 Qwen+Mag+Gemma \u00b7 sweep_tri_mag_qwe_gem_s42",
+  "regime": "triad",
+  "families": [
+   "Qwen",
+   "Mag",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_tri_mag_qwe_gem_s42.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_mag_qwe_gem_s999",
+  "label": "three-way \u00b7 Qwen+Mag+Gemma \u00b7 sweep_tri_mag_qwe_gem_s999",
+  "regime": "triad",
+  "families": [
+   "Qwen",
+   "Mag",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_tri_mag_qwe_gem_s999.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_mag_qwe_glm_s271",
+  "label": "three-way \u00b7 Qwen+GLM-4+Mag \u00b7 sweep_tri_mag_qwe_glm_s271",
+  "regime": "triad",
+  "families": [
+   "Qwen",
+   "GLM-4",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_tri_mag_qwe_glm_s271.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_mag_qwe_glm_s42",
+  "label": "three-way \u00b7 Qwen+GLM-4+Mag \u00b7 sweep_tri_mag_qwe_glm_s42",
+  "regime": "triad",
+  "families": [
+   "Qwen",
+   "GLM-4",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_tri_mag_qwe_glm_s42.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_mag_qwe_glm_s999",
+  "label": "three-way \u00b7 Qwen+GLM-4+Mag \u00b7 sweep_tri_mag_qwe_glm_s999",
+  "regime": "triad",
+  "families": [
+   "Qwen",
+   "GLM-4",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_tri_mag_qwe_glm_s999.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_mag_qwe_oss_s271",
+  "label": "three-way \u00b7 gpt-oss+Qwen+Mag \u00b7 sweep_tri_mag_qwe_oss_s271",
+  "regime": "triad",
+  "families": [
+   "gpt-oss",
+   "Qwen",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_tri_mag_qwe_oss_s271.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_mag_qwe_oss_s42",
+  "label": "three-way \u00b7 gpt-oss+Qwen+Mag \u00b7 sweep_tri_mag_qwe_oss_s42",
+  "regime": "triad",
+  "families": [
+   "gpt-oss",
+   "Qwen",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_tri_mag_qwe_oss_s42.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_mag_qwe_oss_s999",
+  "label": "three-way \u00b7 gpt-oss+Qwen+Mag \u00b7 sweep_tri_mag_qwe_oss_s999",
+  "regime": "triad",
+  "families": [
+   "gpt-oss",
+   "Qwen",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_tri_mag_qwe_oss_s999.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_oss_glm_gem_s271",
+  "label": "three-way \u00b7 gpt-oss+GLM-4+Gemma \u00b7 sweep_tri_oss_glm_gem_s271",
+  "regime": "triad",
+  "families": [
+   "gpt-oss",
+   "GLM-4",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_tri_oss_glm_gem_s271.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_oss_glm_gem_s42",
+  "label": "three-way \u00b7 gpt-oss+GLM-4+Gemma \u00b7 sweep_tri_oss_glm_gem_s42",
+  "regime": "triad",
+  "families": [
+   "gpt-oss",
+   "GLM-4",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_tri_oss_glm_gem_s42.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_oss_glm_gem_s999",
+  "label": "three-way \u00b7 gpt-oss+GLM-4+Gemma \u00b7 sweep_tri_oss_glm_gem_s999",
+  "regime": "triad",
+  "families": [
+   "gpt-oss",
+   "GLM-4",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_tri_oss_glm_gem_s999.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_oss_mag_gem_s271",
+  "label": "three-way \u00b7 gpt-oss+Mag+Gemma \u00b7 sweep_tri_oss_mag_gem_s271",
+  "regime": "triad",
+  "families": [
+   "gpt-oss",
+   "Mag",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_tri_oss_mag_gem_s271.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_oss_mag_gem_s42",
+  "label": "three-way \u00b7 gpt-oss+Mag+Gemma \u00b7 sweep_tri_oss_mag_gem_s42",
+  "regime": "triad",
+  "families": [
+   "gpt-oss",
+   "Mag",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_tri_oss_mag_gem_s42.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_oss_mag_gem_s999",
+  "label": "three-way \u00b7 gpt-oss+Mag+Gemma \u00b7 sweep_tri_oss_mag_gem_s999",
+  "regime": "triad",
+  "families": [
+   "gpt-oss",
+   "Mag",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_tri_oss_mag_gem_s999.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_oss_mag_glm_s271",
+  "label": "three-way \u00b7 gpt-oss+GLM-4+Mag \u00b7 sweep_tri_oss_mag_glm_s271",
+  "regime": "triad",
+  "families": [
+   "gpt-oss",
+   "GLM-4",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_tri_oss_mag_glm_s271.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_oss_mag_glm_s42",
+  "label": "three-way \u00b7 gpt-oss+GLM-4+Mag \u00b7 sweep_tri_oss_mag_glm_s42",
+  "regime": "triad",
+  "families": [
+   "gpt-oss",
+   "GLM-4",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_tri_oss_mag_glm_s42.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_oss_mag_glm_s999",
+  "label": "three-way \u00b7 gpt-oss+GLM-4+Mag \u00b7 sweep_tri_oss_mag_glm_s999",
+  "regime": "triad",
+  "families": [
+   "gpt-oss",
+   "GLM-4",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_tri_oss_mag_glm_s999.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_oss_qwe_gem_s271",
+  "label": "three-way \u00b7 gpt-oss+Qwen+Gemma \u00b7 sweep_tri_oss_qwe_gem_s271",
+  "regime": "triad",
+  "families": [
+   "gpt-oss",
+   "Qwen",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_tri_oss_qwe_gem_s271.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_oss_qwe_gem_s42",
+  "label": "three-way \u00b7 gpt-oss+Qwen+Gemma \u00b7 sweep_tri_oss_qwe_gem_s42",
+  "regime": "triad",
+  "families": [
+   "gpt-oss",
+   "Qwen",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_tri_oss_qwe_gem_s42.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_oss_qwe_gem_s999",
+  "label": "three-way \u00b7 gpt-oss+Qwen+Gemma \u00b7 sweep_tri_oss_qwe_gem_s999",
+  "regime": "triad",
+  "families": [
+   "gpt-oss",
+   "Qwen",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_tri_oss_qwe_gem_s999.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_oss_qwe_glm_s271",
+  "label": "three-way \u00b7 gpt-oss+Qwen+GLM-4 \u00b7 sweep_tri_oss_qwe_glm_s271",
+  "regime": "triad",
+  "families": [
+   "gpt-oss",
+   "Qwen",
+   "GLM-4"
+  ],
+  "file": "data/runs__sweep_tri_oss_qwe_glm_s271.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_oss_qwe_glm_s42",
+  "label": "three-way \u00b7 gpt-oss+Qwen+GLM-4 \u00b7 sweep_tri_oss_qwe_glm_s42",
+  "regime": "triad",
+  "families": [
+   "gpt-oss",
+   "Qwen",
+   "GLM-4"
+  ],
+  "file": "data/runs__sweep_tri_oss_qwe_glm_s42.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_oss_qwe_glm_s999",
+  "label": "three-way \u00b7 gpt-oss+Qwen+GLM-4 \u00b7 sweep_tri_oss_qwe_glm_s999",
+  "regime": "triad",
+  "families": [
+   "gpt-oss",
+   "Qwen",
+   "GLM-4"
+  ],
+  "file": "data/runs__sweep_tri_oss_qwe_glm_s999.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_oss_qwe_mag_s271",
+  "label": "three-way \u00b7 gpt-oss+Qwen+Mag \u00b7 sweep_tri_oss_qwe_mag_s271",
+  "regime": "triad",
+  "families": [
+   "gpt-oss",
+   "Qwen",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_tri_oss_qwe_mag_s271.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_oss_qwe_mag_s42",
+  "label": "three-way \u00b7 gpt-oss+Qwen+Mag \u00b7 sweep_tri_oss_qwe_mag_s42",
+  "regime": "triad",
+  "families": [
+   "gpt-oss",
+   "Qwen",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_tri_oss_qwe_mag_s42.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_oss_qwe_mag_s999",
+  "label": "three-way \u00b7 gpt-oss+Qwen+Mag \u00b7 sweep_tri_oss_qwe_mag_s999",
+  "regime": "triad",
+  "families": [
+   "gpt-oss",
+   "Qwen",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_tri_oss_qwe_mag_s999.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_qwe_glm_gem_s271",
+  "label": "three-way \u00b7 Qwen+GLM-4+Gemma \u00b7 sweep_tri_qwe_glm_gem_s271",
+  "regime": "triad",
+  "families": [
+   "Qwen",
+   "GLM-4",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_tri_qwe_glm_gem_s271.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_qwe_glm_gem_s42",
+  "label": "three-way \u00b7 Qwen+GLM-4+Gemma \u00b7 sweep_tri_qwe_glm_gem_s42",
+  "regime": "triad",
+  "families": [
+   "Qwen",
+   "GLM-4",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_tri_qwe_glm_gem_s42.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_qwe_glm_gem_s999",
+  "label": "three-way \u00b7 Qwen+GLM-4+Gemma \u00b7 sweep_tri_qwe_glm_gem_s999",
+  "regime": "triad",
+  "families": [
+   "Qwen",
+   "GLM-4",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_tri_qwe_glm_gem_s999.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_qwe_mag_gem_s271",
+  "label": "three-way \u00b7 Qwen+Mag+Gemma \u00b7 sweep_tri_qwe_mag_gem_s271",
+  "regime": "triad",
+  "families": [
+   "Qwen",
+   "Mag",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_tri_qwe_mag_gem_s271.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_qwe_mag_gem_s42",
+  "label": "three-way \u00b7 Qwen+Mag+Gemma \u00b7 sweep_tri_qwe_mag_gem_s42",
+  "regime": "triad",
+  "families": [
+   "Qwen",
+   "Mag",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_tri_qwe_mag_gem_s42.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_qwe_mag_gem_s999",
+  "label": "three-way \u00b7 Qwen+Mag+Gemma \u00b7 sweep_tri_qwe_mag_gem_s999",
+  "regime": "triad",
+  "families": [
+   "Qwen",
+   "Mag",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_tri_qwe_mag_gem_s999.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_qwe_mag_glm_s271",
+  "label": "three-way \u00b7 Qwen+GLM-4+Mag \u00b7 sweep_tri_qwe_mag_glm_s271",
+  "regime": "triad",
+  "families": [
+   "Qwen",
+   "GLM-4",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_tri_qwe_mag_glm_s271.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_qwe_mag_glm_s42",
+  "label": "three-way \u00b7 Qwen+GLM-4+Mag \u00b7 sweep_tri_qwe_mag_glm_s42",
+  "regime": "triad",
+  "families": [
+   "Qwen",
+   "GLM-4",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_tri_qwe_mag_glm_s42.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_qwe_mag_glm_s999",
+  "label": "three-way \u00b7 Qwen+GLM-4+Mag \u00b7 sweep_tri_qwe_mag_glm_s999",
+  "regime": "triad",
+  "families": [
+   "Qwen",
+   "GLM-4",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_tri_qwe_mag_glm_s999.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_qwe_oss_gem_s271",
+  "label": "three-way \u00b7 gpt-oss+Qwen+Gemma \u00b7 sweep_tri_qwe_oss_gem_s271",
+  "regime": "triad",
+  "families": [
+   "gpt-oss",
+   "Qwen",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_tri_qwe_oss_gem_s271.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_qwe_oss_gem_s42",
+  "label": "three-way \u00b7 gpt-oss+Qwen+Gemma \u00b7 sweep_tri_qwe_oss_gem_s42",
+  "regime": "triad",
+  "families": [
+   "gpt-oss",
+   "Qwen",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_tri_qwe_oss_gem_s42.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_qwe_oss_gem_s999",
+  "label": "three-way \u00b7 gpt-oss+Qwen+Gemma \u00b7 sweep_tri_qwe_oss_gem_s999",
+  "regime": "triad",
+  "families": [
+   "gpt-oss",
+   "Qwen",
+   "Gemma"
+  ],
+  "file": "data/runs__sweep_tri_qwe_oss_gem_s999.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_qwe_oss_glm_s271",
+  "label": "three-way \u00b7 gpt-oss+Qwen+GLM-4 \u00b7 sweep_tri_qwe_oss_glm_s271",
+  "regime": "triad",
+  "families": [
+   "gpt-oss",
+   "Qwen",
+   "GLM-4"
+  ],
+  "file": "data/runs__sweep_tri_qwe_oss_glm_s271.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_qwe_oss_glm_s42",
+  "label": "three-way \u00b7 gpt-oss+Qwen+GLM-4 \u00b7 sweep_tri_qwe_oss_glm_s42",
+  "regime": "triad",
+  "families": [
+   "gpt-oss",
+   "Qwen",
+   "GLM-4"
+  ],
+  "file": "data/runs__sweep_tri_qwe_oss_glm_s42.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_qwe_oss_glm_s999",
+  "label": "three-way \u00b7 gpt-oss+Qwen+GLM-4 \u00b7 sweep_tri_qwe_oss_glm_s999",
+  "regime": "triad",
+  "families": [
+   "gpt-oss",
+   "Qwen",
+   "GLM-4"
+  ],
+  "file": "data/runs__sweep_tri_qwe_oss_glm_s999.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_qwe_oss_mag_s271",
+  "label": "three-way \u00b7 gpt-oss+Qwen+Mag \u00b7 sweep_tri_qwe_oss_mag_s271",
+  "regime": "triad",
+  "families": [
+   "gpt-oss",
+   "Qwen",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_tri_qwe_oss_mag_s271.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_qwe_oss_mag_s42",
+  "label": "three-way \u00b7 gpt-oss+Qwen+Mag \u00b7 sweep_tri_qwe_oss_mag_s42",
+  "regime": "triad",
+  "families": [
+   "gpt-oss",
+   "Qwen",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_tri_qwe_oss_mag_s42.json"
+ },
+ {
+  "run_id": "runs__sweep_tri_qwe_oss_mag_s999",
+  "label": "three-way \u00b7 gpt-oss+Qwen+Mag \u00b7 sweep_tri_qwe_oss_mag_s999",
+  "regime": "triad",
+  "families": [
+   "gpt-oss",
+   "Qwen",
+   "Mag"
+  ],
+  "file": "data/runs__sweep_tri_qwe_oss_mag_s999.json"
+ }
+]

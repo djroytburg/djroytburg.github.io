@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>feed.js harness</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<style>
+  :root{--bg:#fbfaf7;--bg-2:#f3f1ec;--ink:#141414;--muted:#7a7a7a;--rule:#d8d5cf}
+  :root[data-theme="dark"]{--bg:#121212;--bg-2:#1a1a1a;--ink:#ececec;--muted:#8a8a8a;--rule:#333}
+  body{margin:0;background:var(--bg);color:var(--ink);font:13px "Ubuntu Mono",ui-monospace,monospace}
+  #bar{display:flex;gap:10px;align-items:center;padding:8px 12px;border-bottom:1px solid var(--rule);flex-wrap:wrap}
+  #bar input[type=range]{width:260px}
+  #wrap{display:flex;gap:16px;padding:12px}
+  #feed{width:380px;height:calc(100vh - 80px)}
+  #log{flex:1;font-size:11px;white-space:pre-wrap;color:var(--muted);max-height:calc(100vh - 80px);overflow:auto}
+</style>
+</head>
+<body>
+<div id="bar">
+  <label>run <select id="run"></select></label>
+  <label>agent <select id="agent"><option value="">— none —</option></select></label>
+  <label>step <input id="step" type="range" min="0" max="100" value="40"> <span id="stepv">40</span></label>
+  <label>post <input id="post" type="number" style="width:70px" placeholder="id"></label>
+  <button id="theme">theme</button>
+</div>
+<div id="wrap">
+  <div id="feed"></div>
+  <pre id="log"></pre>
+</div>
+<script type="module">
+import { state, set, on, emit } from './state.js';
+import { listRuns, loadRun } from './data.js';
+import { mount } from './feed.js';
+
+const $ = id => document.getElementById(id);
+const log = m => { $('log').textContent = m + '\n' + $('log').textContent.slice(0, 4000); };
+on('change', keys => log(`change ${keys.join(',')} · step=${state.step} agent=${state.agent} post=${state.post}`));
+
+const q = new URLSearchParams(location.search);
+const runs = await listRuns();
+for (const r of runs) $('run').append(new Option(r.label, r.file));
+async function load(file) {
+  const b = await loadRun(file);
+  // dev only: if the bundle has no `parent` yet, fake a few threaded replies (?fakeparent=1)
+  if (q.get('fakeparent') === '1' && !b.comments.some(c => c.parent != null)) {
+    for (const [pid, arr] of b.commentsByPost) if (arr.length >= 3) { arr[2].parent = arr[0].id; if (arr[4]) arr[4].parent = arr[2].id; }
+    log('faked parent on some comments');
+  }
+  $('agent').replaceChildren(new Option('— none —', ''));
+  for (const a of b.agents) $('agent').append(new Option(`${a.id} · ${a.persona} (${a.family})`, a.id));
+  $('step').max = b.steps;
+  const agent = q.has('agent') ? Number(q.get('agent')) : null;
+  const step = q.has('step') ? Number(q.get('step')) : 40;
+  $('agent').value = agent ?? ''; $('step').value = step; $('stepv').textContent = step;
+  set({ run: b, step, agent, post: null });
+  emit('run', b);
+}
+mount($('feed'), { state, set, on, d3: window.d3 });
+$('run').onchange = e => load(e.target.value);
+$('agent').onchange = e => set({ agent: e.target.value === '' ? null : Number(e.target.value) });
+$('step').oninput = e => { $('stepv').textContent = e.target.value; set({ step: Number(e.target.value) }); };
+$('post').onchange = e => set({ post: e.target.value === '' ? null : Number(e.target.value) });
+$('theme').onclick = () => document.documentElement.dataset.theme = document.documentElement.dataset.theme === 'dark' ? '' : 'dark';
+on('change', keys => { if (keys.includes('agent')) $('agent').value = state.agent ?? ''; if (keys.includes('step')) { $('step').value = state.step; $('stepv').textContent = state.step; } });
+await load(runs[0].file);
+window.__state = state; window.__set = set;
+</script>
+</body>
+</html>
