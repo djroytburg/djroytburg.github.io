@@ -282,6 +282,14 @@ body{
   background: var(--bg);
 }
 
+.pub-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 120px;
+  font-size: 64px;
+}
+
 .pub-content {
   flex: 1;
   min-width: 0;

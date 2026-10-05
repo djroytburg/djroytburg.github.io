@@ -380,6 +380,7 @@ def load_publications():
             'slides_url': meta.get('slides_url'),
             'code_url': meta.get('code_url'),
             'figure': meta.get('figure'),
+            'icon': meta.get('icon'),
             'also_at': meta.get('also_at', []),
         }
         publications.append(pub)

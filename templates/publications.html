@@ -17,6 +17,8 @@
           <div class="pub-figure">
             <img src="{{ url_for('static', filename=pub.figure.replace('static/', '')) }}" alt="{{ pub.title }}">
           </div>
+          {% elif pub.icon %}
+          <div class="pub-figure pub-icon" aria-hidden="true">{{ pub.icon }}</div>
           {% endif %}
           <div class="pub-content">
             <h3 class="pub-title">

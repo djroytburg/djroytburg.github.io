@@ -203,7 +203,14 @@ def index():
 
 @app.route('/publications')
 def publications():
-    return render_template('publications.html')
+    from render_static import load_publications
+
+    publications, has_equal_contrib = load_publications()
+    return render_template(
+        'publications.html',
+        publications=publications,
+        has_equal_contrib=has_equal_contrib,
+    )
 
 
 @app.route('/cv')
