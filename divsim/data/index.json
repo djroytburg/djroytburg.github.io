@@ -7,7 +7,38 @@
    "GLM-4",
    "Gemma"
   ],
-  "file": "data/runs__sweep_gem_gem_glm_s137.json"
+  "file": "data/runs__sweep_gem_gem_glm_s137.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 72,
+   "comments": 545,
+   "cross": 246,
+   "H_in": {
+    "GLM-4": -0.04,
+    "Gemma": -0.12
+   },
+   "cpp": {
+    "GLM-4": 3.2,
+    "Gemma": 3.7
+   },
+   "post_share": {
+    "GLM-4": 0.556,
+    "Gemma": 0.444
+   },
+   "recv_share": {
+    "GLM-4": 0.52,
+    "Gemma": 0.48
+   },
+   "fair": {
+    "GLM-4": 0.5,
+    "Gemma": 0.5
+   },
+   "top": "GLM-4",
+   "bottom": "Gemma",
+   "seed": "137",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_gem_gem_glm_s271",
@@ -17,7 +48,38 @@
    "GLM-4",
    "Gemma"
   ],
-  "file": "data/runs__sweep_gem_gem_glm_s271.json"
+  "file": "data/runs__sweep_gem_gem_glm_s271.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 56,
+   "comments": 564,
+   "cross": 268,
+   "H_in": {
+    "GLM-4": -0.04,
+    "Gemma": -0.06
+   },
+   "cpp": {
+    "GLM-4": 4.4,
+    "Gemma": 5.3
+   },
+   "post_share": {
+    "GLM-4": 0.554,
+    "Gemma": 0.446
+   },
+   "recv_share": {
+    "GLM-4": 0.504,
+    "Gemma": 0.496
+   },
+   "fair": {
+    "GLM-4": 0.5,
+    "Gemma": 0.5
+   },
+   "top": "GLM-4",
+   "bottom": "Gemma",
+   "seed": "271",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_gem_gem_glm_s314",
@@ -27,7 +89,38 @@
    "GLM-4",
    "Gemma"
   ],
-  "file": "data/runs__sweep_gem_gem_glm_s314.json"
+  "file": "data/runs__sweep_gem_gem_glm_s314.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 63,
+   "comments": 556,
+   "cross": 269,
+   "H_in": {
+    "GLM-4": -0.49,
+    "Gemma": 0.59
+   },
+   "cpp": {
+    "GLM-4": 1.4,
+    "Gemma": 11.5
+   },
+   "post_share": {
+    "GLM-4": 0.556,
+    "Gemma": 0.444
+   },
+   "recv_share": {
+    "GLM-4": 0.446,
+    "Gemma": 0.554
+   },
+   "fair": {
+    "GLM-4": 0.5,
+    "Gemma": 0.5
+   },
+   "top": "Gemma",
+   "bottom": "GLM-4",
+   "seed": "314",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_gem_gem_glm_s42",
@@ -37,7 +130,38 @@
    "GLM-4",
    "Gemma"
   ],
-  "file": "data/runs__sweep_gem_gem_glm_s42.json"
+  "file": "data/runs__sweep_gem_gem_glm_s42.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 58,
+   "comments": 561,
+   "cross": 292,
+   "H_in": {
+    "GLM-4": 0.1,
+    "Gemma": -0.03
+   },
+   "cpp": {
+    "GLM-4": 4.7,
+    "Gemma": 5.5
+   },
+   "post_share": {
+    "GLM-4": 0.569,
+    "Gemma": 0.431
+   },
+   "recv_share": {
+    "GLM-4": 0.531,
+    "Gemma": 0.469
+   },
+   "fair": {
+    "GLM-4": 0.5,
+    "Gemma": 0.5
+   },
+   "top": "GLM-4",
+   "bottom": "Gemma",
+   "seed": "42",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_gem_gem_glm_s999",
@@ -47,7 +171,38 @@
    "GLM-4",
    "Gemma"
   ],
-  "file": "data/runs__sweep_gem_gem_glm_s999.json"
+  "file": "data/runs__sweep_gem_gem_glm_s999.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 59,
+   "comments": 561,
+   "cross": 278,
+   "H_in": {
+    "GLM-4": 0.18,
+    "Gemma": -0.27
+   },
+   "cpp": {
+    "GLM-4": 3.2,
+    "Gemma": 1.5
+   },
+   "post_share": {
+    "GLM-4": 0.559,
+    "Gemma": 0.441
+   },
+   "recv_share": {
+    "GLM-4": 0.583,
+    "Gemma": 0.417
+   },
+   "fair": {
+    "GLM-4": 0.5,
+    "Gemma": 0.5
+   },
+   "top": "GLM-4",
+   "bottom": "Gemma",
+   "seed": "999",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_gem_gem_mag_s137",
@@ -57,7 +212,38 @@
    "Mag",
    "Gemma"
   ],
-  "file": "data/runs__sweep_gem_gem_mag_s137.json"
+  "file": "data/runs__sweep_gem_gem_mag_s137.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 53,
+   "comments": 563,
+   "cross": 276,
+   "H_in": {
+    "Mag": -0.11,
+    "Gemma": 0.06
+   },
+   "cpp": {
+    "Mag": 4.8,
+    "Gemma": 5.6
+   },
+   "post_share": {
+    "Mag": 0.491,
+    "Gemma": 0.509
+   },
+   "recv_share": {
+    "Mag": 0.457,
+    "Gemma": 0.543
+   },
+   "fair": {
+    "Mag": 0.5,
+    "Gemma": 0.5
+   },
+   "top": "Gemma",
+   "bottom": "Mag",
+   "seed": "137",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_gem_gem_mag_s271",
@@ -67,7 +253,38 @@
    "Mag",
    "Gemma"
   ],
-  "file": "data/runs__sweep_gem_gem_mag_s271.json"
+  "file": "data/runs__sweep_gem_gem_mag_s271.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 42,
+   "comments": 573,
+   "cross": 249,
+   "H_in": {
+    "Mag": -0.3,
+    "Gemma": 0.05
+   },
+   "cpp": {
+    "Mag": 5.5,
+    "Gemma": 6.2
+   },
+   "post_share": {
+    "Mag": 0.429,
+    "Gemma": 0.571
+   },
+   "recv_share": {
+    "Mag": 0.398,
+    "Gemma": 0.602
+   },
+   "fair": {
+    "Mag": 0.5,
+    "Gemma": 0.5
+   },
+   "top": "Gemma",
+   "bottom": "Mag",
+   "seed": "271",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_gem_gem_mag_s314",
@@ -77,7 +294,38 @@
    "Mag",
    "Gemma"
   ],
-  "file": "data/runs__sweep_gem_gem_mag_s314.json"
+  "file": "data/runs__sweep_gem_gem_mag_s314.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 45,
+   "comments": 573,
+   "cross": 278,
+   "H_in": {
+    "Mag": -0.03,
+    "Gemma": -0.04
+   },
+   "cpp": {
+    "Mag": 6.7,
+    "Gemma": 5.8
+   },
+   "post_share": {
+    "Mag": 0.467,
+    "Gemma": 0.533
+   },
+   "recv_share": {
+    "Mag": 0.504,
+    "Gemma": 0.496
+   },
+   "fair": {
+    "Mag": 0.5,
+    "Gemma": 0.5
+   },
+   "top": "Mag",
+   "bottom": "Gemma",
+   "seed": "314",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_gem_gem_mag_s999",
@@ -87,7 +335,38 @@
    "Mag",
    "Gemma"
   ],
-  "file": "data/runs__sweep_gem_gem_mag_s999.json"
+  "file": "data/runs__sweep_gem_gem_mag_s999.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 41,
+   "comments": 568,
+   "cross": 292,
+   "H_in": {
+    "Mag": -0.07,
+    "Gemma": 0.11
+   },
+   "cpp": {
+    "Mag": 7.4,
+    "Gemma": 6.9
+   },
+   "post_share": {
+    "Mag": 0.439,
+    "Gemma": 0.561
+   },
+   "recv_share": {
+    "Mag": 0.455,
+    "Gemma": 0.545
+   },
+   "fair": {
+    "Mag": 0.5,
+    "Gemma": 0.5
+   },
+   "top": "Gemma",
+   "bottom": "Mag",
+   "seed": "999",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_gem_gem_oss_s137",
@@ -97,7 +376,38 @@
    "gpt-oss",
    "Gemma"
   ],
-  "file": "data/runs__sweep_gem_gem_oss_s137.json"
+  "file": "data/runs__sweep_gem_gem_oss_s137.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 59,
+   "comments": 558,
+   "cross": 267,
+   "H_in": {
+    "gpt-oss": 0.29,
+    "Gemma": -0.4
+   },
+   "cpp": {
+    "gpt-oss": 5.7,
+    "Gemma": 3.1
+   },
+   "post_share": {
+    "gpt-oss": 0.542,
+    "Gemma": 0.458
+   },
+   "recv_share": {
+    "gpt-oss": 0.682,
+    "Gemma": 0.318
+   },
+   "fair": {
+    "gpt-oss": 0.5,
+    "Gemma": 0.5
+   },
+   "top": "gpt-oss",
+   "bottom": "Gemma",
+   "seed": "137",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_gem_gem_oss_s271",
@@ -107,7 +417,38 @@
    "gpt-oss",
    "Gemma"
   ],
-  "file": "data/runs__sweep_gem_gem_oss_s271.json"
+  "file": "data/runs__sweep_gem_gem_oss_s271.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 47,
+   "comments": 560,
+   "cross": 273,
+   "H_in": {
+    "gpt-oss": -0.12,
+    "Gemma": 0.06
+   },
+   "cpp": {
+    "gpt-oss": 5.6,
+    "Gemma": 6.0
+   },
+   "post_share": {
+    "gpt-oss": 0.468,
+    "Gemma": 0.532
+   },
+   "recv_share": {
+    "gpt-oss": 0.454,
+    "Gemma": 0.546
+   },
+   "fair": {
+    "gpt-oss": 0.5,
+    "Gemma": 0.5
+   },
+   "top": "Gemma",
+   "bottom": "gpt-oss",
+   "seed": "271",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_gem_gem_oss_s314",
@@ -117,7 +458,38 @@
    "gpt-oss",
    "Gemma"
   ],
-  "file": "data/runs__sweep_gem_gem_oss_s314.json"
+  "file": "data/runs__sweep_gem_gem_oss_s314.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 51,
+   "comments": 565,
+   "cross": 298,
+   "H_in": {
+    "gpt-oss": 0.29,
+    "Gemma": -0.2
+   },
+   "cpp": {
+    "gpt-oss": 6.8,
+    "Gemma": 4.8
+   },
+   "post_share": {
+    "gpt-oss": 0.529,
+    "Gemma": 0.471
+   },
+   "recv_share": {
+    "gpt-oss": 0.617,
+    "Gemma": 0.383
+   },
+   "fair": {
+    "gpt-oss": 0.5,
+    "Gemma": 0.5
+   },
+   "top": "gpt-oss",
+   "bottom": "Gemma",
+   "seed": "314",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_gem_gem_oss_s42",
@@ -127,7 +499,38 @@
    "gpt-oss",
    "Gemma"
   ],
-  "file": "data/runs__sweep_gem_gem_oss_s42.json"
+  "file": "data/runs__sweep_gem_gem_oss_s42.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 51,
+   "comments": 561,
+   "cross": 277,
+   "H_in": {
+    "gpt-oss": 0.41,
+    "Gemma": -0.46
+   },
+   "cpp": {
+    "gpt-oss": 7.4,
+    "Gemma": 3.2
+   },
+   "post_share": {
+    "gpt-oss": 0.529,
+    "Gemma": 0.471
+   },
+   "recv_share": {
+    "gpt-oss": 0.722,
+    "Gemma": 0.278
+   },
+   "fair": {
+    "gpt-oss": 0.5,
+    "Gemma": 0.5
+   },
+   "top": "gpt-oss",
+   "bottom": "Gemma",
+   "seed": "42",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_gem_gem_oss_s999",
@@ -137,7 +540,38 @@
    "gpt-oss",
    "Gemma"
   ],
-  "file": "data/runs__sweep_gem_gem_oss_s999.json"
+  "file": "data/runs__sweep_gem_gem_oss_s999.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 62,
+   "comments": 550,
+   "cross": 282,
+   "H_in": {
+    "gpt-oss": 0.42,
+    "Gemma": -0.39
+   },
+   "cpp": {
+    "gpt-oss": 5.8,
+    "Gemma": 3.0
+   },
+   "post_share": {
+    "gpt-oss": 0.548,
+    "Gemma": 0.452
+   },
+   "recv_share": {
+    "gpt-oss": 0.699,
+    "Gemma": 0.301
+   },
+   "fair": {
+    "gpt-oss": 0.5,
+    "Gemma": 0.5
+   },
+   "top": "gpt-oss",
+   "bottom": "Gemma",
+   "seed": "999",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_gem_gem_qwe_s137",
@@ -147,7 +581,38 @@
    "Qwen",
    "Gemma"
   ],
-  "file": "data/runs__sweep_gem_gem_qwe_s137.json"
+  "file": "data/runs__sweep_gem_gem_qwe_s137.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 83,
+   "comments": 536,
+   "cross": 246,
+   "H_in": {
+    "Qwen": 0.24,
+    "Gemma": -1.0
+   },
+   "cpp": {
+    "Qwen": 1.7,
+    "Gemma": 0.0
+   },
+   "post_share": {
+    "Qwen": 0.554,
+    "Gemma": 0.446
+   },
+   "recv_share": {
+    "Qwen": 0.394,
+    "Gemma": 0.606
+   },
+   "fair": {
+    "Qwen": 0.5,
+    "Gemma": 0.5
+   },
+   "top": "Qwen",
+   "bottom": "Gemma",
+   "seed": "137",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_gem_gem_qwe_s271",
@@ -157,7 +622,38 @@
    "Qwen",
    "Gemma"
   ],
-  "file": "data/runs__sweep_gem_gem_qwe_s271.json"
+  "file": "data/runs__sweep_gem_gem_qwe_s271.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 54,
+   "comments": 566,
+   "cross": 274,
+   "H_in": {
+    "Qwen": -0.1,
+    "Gemma": -0.0
+   },
+   "cpp": {
+    "Qwen": 4.3,
+    "Gemma": 6.0
+   },
+   "post_share": {
+    "Qwen": 0.556,
+    "Gemma": 0.444
+   },
+   "recv_share": {
+    "Qwen": 0.474,
+    "Gemma": 0.526
+   },
+   "fair": {
+    "Qwen": 0.5,
+    "Gemma": 0.5
+   },
+   "top": "Gemma",
+   "bottom": "Qwen",
+   "seed": "271",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_gem_gem_qwe_s314",
@@ -167,7 +663,38 @@
    "Qwen",
    "Gemma"
   ],
-  "file": "data/runs__sweep_gem_gem_qwe_s314.json"
+  "file": "data/runs__sweep_gem_gem_qwe_s314.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 61,
+   "comments": 554,
+   "cross": 283,
+   "H_in": {
+    "Qwen": 0.04,
+    "Gemma": -0.02
+   },
+   "cpp": {
+    "Qwen": 4.3,
+    "Gemma": 5.1
+   },
+   "post_share": {
+    "Qwen": 0.557,
+    "Gemma": 0.443
+   },
+   "recv_share": {
+    "Qwen": 0.516,
+    "Gemma": 0.484
+   },
+   "fair": {
+    "Qwen": 0.5,
+    "Gemma": 0.5
+   },
+   "top": "Qwen",
+   "bottom": "Gemma",
+   "seed": "314",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_gem_gem_qwe_s42",
@@ -177,7 +704,35 @@
    "Qwen",
    "Gemma"
   ],
-  "file": "data/runs__sweep_gem_gem_qwe_s42.json"
+  "file": "data/runs__sweep_gem_gem_qwe_s42.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 51,
+   "comments": 568,
+   "cross": 288,
+   "H_in": {},
+   "cpp": {
+    "Qwen": 0.0,
+    "Gemma": 0.0
+   },
+   "post_share": {
+    "Qwen": 0.529,
+    "Gemma": 0.471
+   },
+   "recv_share": {
+    "Qwen": 0.5,
+    "Gemma": 0.5
+   },
+   "fair": {
+    "Qwen": 0.5,
+    "Gemma": 0.5
+   },
+   "top": null,
+   "bottom": null,
+   "seed": "42",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_gem_gem_qwe_s999",
@@ -187,7 +742,38 @@
    "Qwen",
    "Gemma"
   ],
-  "file": "data/runs__sweep_gem_gem_qwe_s999.json"
+  "file": "data/runs__sweep_gem_gem_qwe_s999.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 60,
+   "comments": 560,
+   "cross": 302,
+   "H_in": {
+    "Qwen": 0.22,
+    "Gemma": -0.09
+   },
+   "cpp": {
+    "Qwen": 5.2,
+    "Gemma": 4.8
+   },
+   "post_share": {
+    "Qwen": 0.55,
+    "Gemma": 0.45
+   },
+   "recv_share": {
+    "Qwen": 0.573,
+    "Gemma": 0.427
+   },
+   "fair": {
+    "Qwen": 0.5,
+    "Gemma": 0.5
+   },
+   "top": "Qwen",
+   "bottom": "Gemma",
+   "seed": "999",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_gem_glm_gem_s137",
@@ -197,7 +783,38 @@
    "GLM-4",
    "Gemma"
   ],
-  "file": "data/runs__sweep_gem_glm_gem_s137.json"
+  "file": "data/runs__sweep_gem_glm_gem_s137.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 58,
+   "comments": 554,
+   "cross": 255,
+   "H_in": {
+    "GLM-4": -0.15,
+    "Gemma": -0.01
+   },
+   "cpp": {
+    "GLM-4": 3.7,
+    "Gemma": 5.3
+   },
+   "post_share": {
+    "GLM-4": 0.552,
+    "Gemma": 0.448
+   },
+   "recv_share": {
+    "GLM-4": 0.463,
+    "Gemma": 0.537
+   },
+   "fair": {
+    "GLM-4": 0.5,
+    "Gemma": 0.5
+   },
+   "top": "Gemma",
+   "bottom": "GLM-4",
+   "seed": "137",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_gem_glm_gem_s271",
@@ -207,7 +824,38 @@
    "GLM-4",
    "Gemma"
   ],
-  "file": "data/runs__sweep_gem_glm_gem_s271.json"
+  "file": "data/runs__sweep_gem_glm_gem_s271.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 58,
+   "comments": 560,
+   "cross": 266,
+   "H_in": {
+    "GLM-4": -0.07,
+    "Gemma": -0.03
+   },
+   "cpp": {
+    "GLM-4": 3.9,
+    "Gemma": 5.4
+   },
+   "post_share": {
+    "GLM-4": 0.569,
+    "Gemma": 0.431
+   },
+   "recv_share": {
+    "GLM-4": 0.489,
+    "Gemma": 0.511
+   },
+   "fair": {
+    "GLM-4": 0.5,
+    "Gemma": 0.5
+   },
+   "top": "Gemma",
+   "bottom": "GLM-4",
+   "seed": "271",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_gem_glm_gem_s314",
@@ -217,7 +865,35 @@
    "GLM-4",
    "Gemma"
   ],
-  "file": "data/runs__sweep_gem_glm_gem_s314.json"
+  "file": "data/runs__sweep_gem_glm_gem_s314.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 48,
+   "comments": 569,
+   "cross": 276,
+   "H_in": {},
+   "cpp": {
+    "GLM-4": 0.0,
+    "Gemma": 0.0
+   },
+   "post_share": {
+    "GLM-4": 0.562,
+    "Gemma": 0.438
+   },
+   "recv_share": {
+    "GLM-4": 0.514,
+    "Gemma": 0.486
+   },
+   "fair": {
+    "GLM-4": 0.5,
+    "Gemma": 0.5
+   },
+   "top": null,
+   "bottom": null,
+   "seed": "314",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_gem_glm_gem_s42",
@@ -227,7 +903,38 @@
    "GLM-4",
    "Gemma"
   ],
-  "file": "data/runs__sweep_gem_glm_gem_s42.json"
+  "file": "data/runs__sweep_gem_glm_gem_s42.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 51,
+   "comments": 568,
+   "cross": 293,
+   "H_in": {
+    "GLM-4": -0.05,
+    "Gemma": 0.1
+   },
+   "cpp": {
+    "GLM-4": 4.7,
+    "Gemma": 7.1
+   },
+   "post_share": {
+    "GLM-4": 0.569,
+    "Gemma": 0.431
+   },
+   "recv_share": {
+    "GLM-4": 0.464,
+    "Gemma": 0.536
+   },
+   "fair": {
+    "GLM-4": 0.5,
+    "Gemma": 0.5
+   },
+   "top": "Gemma",
+   "bottom": "GLM-4",
+   "seed": "42",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_gem_glm_gem_s999",
@@ -237,7 +944,38 @@
    "GLM-4",
    "Gemma"
   ],
-  "file": "data/runs__sweep_gem_glm_gem_s999.json"
+  "file": "data/runs__sweep_gem_glm_gem_s999.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 50,
+   "comments": 570,
+   "cross": 272,
+   "H_in": {
+    "GLM-4": -1.0,
+    "Gemma": 0.9
+   },
+   "cpp": {
+    "GLM-4": 0.0,
+    "Gemma": 1.1
+   },
+   "post_share": {
+    "GLM-4": 0.56,
+    "Gemma": 0.44
+   },
+   "recv_share": {
+    "GLM-4": 0.467,
+    "Gemma": 0.533
+   },
+   "fair": {
+    "GLM-4": 0.5,
+    "Gemma": 0.5
+   },
+   "top": "Gemma",
+   "bottom": "GLM-4",
+   "seed": "999",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_gem_mag_gem_s137",
@@ -247,7 +985,38 @@
    "Mag",
    "Gemma"
   ],
-  "file": "data/runs__sweep_gem_mag_gem_s137.json"
+  "file": "data/runs__sweep_gem_mag_gem_s137.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 42,
+   "comments": 576,
+   "cross": 280,
+   "H_in": {
+    "Mag": -0.43,
+    "Gemma": 0.36
+   },
+   "cpp": {
+    "Mag": 4.6,
+    "Gemma": 8.2
+   },
+   "post_share": {
+    "Mag": 0.429,
+    "Gemma": 0.571
+   },
+   "recv_share": {
+    "Mag": 0.296,
+    "Gemma": 0.704
+   },
+   "fair": {
+    "Mag": 0.5,
+    "Gemma": 0.5
+   },
+   "top": "Gemma",
+   "bottom": "Mag",
+   "seed": "137",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_gem_mag_gem_s271",
@@ -257,7 +1026,38 @@
    "Mag",
    "Gemma"
   ],
-  "file": "data/runs__sweep_gem_mag_gem_s271.json"
+  "file": "data/runs__sweep_gem_mag_gem_s271.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 51,
+   "comments": 557,
+   "cross": 274,
+   "H_in": {
+    "Mag": -0.19,
+    "Gemma": 0.13
+   },
+   "cpp": {
+    "Mag": 4.6,
+    "Gemma": 6.2
+   },
+   "post_share": {
+    "Mag": 0.49,
+    "Gemma": 0.51
+   },
+   "recv_share": {
+    "Mag": 0.416,
+    "Gemma": 0.584
+   },
+   "fair": {
+    "Mag": 0.5,
+    "Gemma": 0.5
+   },
+   "top": "Gemma",
+   "bottom": "Mag",
+   "seed": "271",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_gem_mag_gem_s314",
@@ -267,7 +1067,38 @@
    "Mag",
    "Gemma"
   ],
-  "file": "data/runs__sweep_gem_mag_gem_s314.json"
+  "file": "data/runs__sweep_gem_mag_gem_s314.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 41,
+   "comments": 569,
+   "cross": 244,
+   "H_in": {
+    "Mag": -0.19,
+    "Gemma": -0.12
+   },
+   "cpp": {
+    "Mag": 6.5,
+    "Gemma": 5.5
+   },
+   "post_share": {
+    "Mag": 0.439,
+    "Gemma": 0.561
+   },
+   "recv_share": {
+    "Mag": 0.48,
+    "Gemma": 0.52
+   },
+   "fair": {
+    "Mag": 0.5,
+    "Gemma": 0.5
+   },
+   "top": "Gemma",
+   "bottom": "Mag",
+   "seed": "314",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_gem_mag_gem_s42",
@@ -277,7 +1108,38 @@
    "Mag",
    "Gemma"
   ],
-  "file": "data/runs__sweep_gem_mag_gem_s42.json"
+  "file": "data/runs__sweep_gem_mag_gem_s42.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 42,
+   "comments": 576,
+   "cross": 282,
+   "H_in": {
+    "Mag": -0.14,
+    "Gemma": 0.08
+   },
+   "cpp": {
+    "Mag": 6.0,
+    "Gemma": 7.5
+   },
+   "post_share": {
+    "Mag": 0.5,
+    "Gemma": 0.5
+   },
+   "recv_share": {
+    "Mag": 0.443,
+    "Gemma": 0.557
+   },
+   "fair": {
+    "Mag": 0.5,
+    "Gemma": 0.5
+   },
+   "top": "Gemma",
+   "bottom": "Mag",
+   "seed": "42",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_gem_mag_gem_s999",
@@ -287,7 +1149,38 @@
    "Mag",
    "Gemma"
   ],
-  "file": "data/runs__sweep_gem_mag_gem_s999.json"
+  "file": "data/runs__sweep_gem_mag_gem_s999.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 44,
+   "comments": 571,
+   "cross": 242,
+   "H_in": {
+    "Mag": -0.14,
+    "Gemma": -0.18
+   },
+   "cpp": {
+    "Mag": 5.4,
+    "Gemma": 5.6
+   },
+   "post_share": {
+    "Mag": 0.523,
+    "Gemma": 0.477
+   },
+   "recv_share": {
+    "Mag": 0.512,
+    "Gemma": 0.488
+   },
+   "fair": {
+    "Mag": 0.5,
+    "Gemma": 0.5
+   },
+   "top": "Mag",
+   "bottom": "Gemma",
+   "seed": "999",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_gem_oss_gem_s137",
@@ -297,7 +1190,35 @@
    "gpt-oss",
    "Gemma"
   ],
-  "file": "data/runs__sweep_gem_oss_gem_s137.json"
+  "file": "data/runs__sweep_gem_oss_gem_s137.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 61,
+   "comments": 550,
+   "cross": 257,
+   "H_in": {},
+   "cpp": {
+    "gpt-oss": 0.0,
+    "Gemma": 0.0
+   },
+   "post_share": {
+    "gpt-oss": 0.525,
+    "Gemma": 0.475
+   },
+   "recv_share": {
+    "gpt-oss": 0.661,
+    "Gemma": 0.339
+   },
+   "fair": {
+    "gpt-oss": 0.5,
+    "Gemma": 0.5
+   },
+   "top": null,
+   "bottom": null,
+   "seed": "137",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_gem_oss_gem_s271",
@@ -307,7 +1228,35 @@
    "gpt-oss",
    "Gemma"
   ],
-  "file": "data/runs__sweep_gem_oss_gem_s271.json"
+  "file": "data/runs__sweep_gem_oss_gem_s271.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 47,
+   "comments": 538,
+   "cross": 275,
+   "H_in": {},
+   "cpp": {
+    "gpt-oss": 0.0,
+    "Gemma": 0.0
+   },
+   "post_share": {
+    "gpt-oss": 0.553,
+    "Gemma": 0.447
+   },
+   "recv_share": {
+    "gpt-oss": 0.582,
+    "Gemma": 0.418
+   },
+   "fair": {
+    "gpt-oss": 0.5,
+    "Gemma": 0.5
+   },
+   "top": null,
+   "bottom": null,
+   "seed": "271",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_gem_oss_gem_s314",
@@ -317,7 +1266,38 @@
    "gpt-oss",
    "Gemma"
   ],
-  "file": "data/runs__sweep_gem_oss_gem_s314.json"
+  "file": "data/runs__sweep_gem_oss_gem_s314.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 46,
+   "comments": 570,
+   "cross": 283,
+   "H_in": {
+    "gpt-oss": 0.08,
+    "Gemma": -0.12
+   },
+   "cpp": {
+    "gpt-oss": 6.8,
+    "Gemma": 5.5
+   },
+   "post_share": {
+    "gpt-oss": 0.5,
+    "Gemma": 0.5
+   },
+   "recv_share": {
+    "gpt-oss": 0.551,
+    "Gemma": 0.449
+   },
+   "fair": {
+    "gpt-oss": 0.5,
+    "Gemma": 0.5
+   },
+   "top": "gpt-oss",
+   "bottom": "Gemma",
+   "seed": "314",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_gem_oss_gem_s42",
@@ -327,7 +1307,38 @@
    "gpt-oss",
    "Gemma"
   ],
-  "file": "data/runs__sweep_gem_oss_gem_s42.json"
+  "file": "data/runs__sweep_gem_oss_gem_s42.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 42,
+   "comments": 564,
+   "cross": 278,
+   "H_in": {
+    "gpt-oss": 0.15,
+    "Gemma": -0.2
+   },
+   "cpp": {
+    "gpt-oss": 7.1,
+    "Gemma": 6.0
+   },
+   "post_share": {
+    "gpt-oss": 0.548,
+    "Gemma": 0.452
+   },
+   "recv_share": {
+    "gpt-oss": 0.59,
+    "Gemma": 0.41
+   },
+   "fair": {
+    "gpt-oss": 0.5,
+    "Gemma": 0.5
+   },
+   "top": "gpt-oss",
+   "bottom": "Gemma",
+   "seed": "42",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_gem_oss_gem_s999",
@@ -337,7 +1348,38 @@
    "gpt-oss",
    "Gemma"
   ],
-  "file": "data/runs__sweep_gem_oss_gem_s999.json"
+  "file": "data/runs__sweep_gem_oss_gem_s999.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 52,
+   "comments": 563,
+   "cross": 250,
+   "H_in": {
+    "gpt-oss": 0.22,
+    "Gemma": -0.47
+   },
+   "cpp": {
+    "gpt-oss": 6.0,
+    "Gemma": 3.3
+   },
+   "post_share": {
+    "gpt-oss": 0.558,
+    "Gemma": 0.442
+   },
+   "recv_share": {
+    "gpt-oss": 0.696,
+    "Gemma": 0.304
+   },
+   "fair": {
+    "gpt-oss": 0.5,
+    "Gemma": 0.5
+   },
+   "top": "gpt-oss",
+   "bottom": "Gemma",
+   "seed": "999",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_gem_qwe_gem_s137",
@@ -347,7 +1389,38 @@
    "Qwen",
    "Gemma"
   ],
-  "file": "data/runs__sweep_gem_qwe_gem_s137.json"
+  "file": "data/runs__sweep_gem_qwe_gem_s137.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 56,
+   "comments": 562,
+   "cross": 267,
+   "H_in": {
+    "Qwen": -0.19,
+    "Gemma": 0.07
+   },
+   "cpp": {
+    "Qwen": 3.7,
+    "Gemma": 6.1
+   },
+   "post_share": {
+    "Qwen": 0.554,
+    "Gemma": 0.446
+   },
+   "recv_share": {
+    "Qwen": 0.431,
+    "Gemma": 0.569
+   },
+   "fair": {
+    "Qwen": 0.5,
+    "Gemma": 0.5
+   },
+   "top": "Gemma",
+   "bottom": "Qwen",
+   "seed": "137",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_gem_qwe_gem_s271",
@@ -357,7 +1430,38 @@
    "Qwen",
    "Gemma"
   ],
-  "file": "data/runs__sweep_gem_qwe_gem_s271.json"
+  "file": "data/runs__sweep_gem_qwe_gem_s271.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 62,
+   "comments": 555,
+   "cross": 272,
+   "H_in": {
+    "Qwen": -0.09,
+    "Gemma": 0.04
+   },
+   "cpp": {
+    "Qwen": 3.7,
+    "Gemma": 5.2
+   },
+   "post_share": {
+    "Qwen": 0.548,
+    "Gemma": 0.452
+   },
+   "recv_share": {
+    "Qwen": 0.467,
+    "Gemma": 0.533
+   },
+   "fair": {
+    "Qwen": 0.5,
+    "Gemma": 0.5
+   },
+   "top": "Gemma",
+   "bottom": "Qwen",
+   "seed": "271",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_gem_qwe_gem_s314",
@@ -367,7 +1471,38 @@
    "Qwen",
    "Gemma"
   ],
-  "file": "data/runs__sweep_gem_qwe_gem_s314.json"
+  "file": "data/runs__sweep_gem_qwe_gem_s314.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 49,
+   "comments": 569,
+   "cross": 281,
+   "H_in": {
+    "Qwen": 0.0,
+    "Gemma": -0.06
+   },
+   "cpp": {
+    "Qwen": 5.4,
+    "Gemma": 6.2
+   },
+   "post_share": {
+    "Qwen": 0.551,
+    "Gemma": 0.449
+   },
+   "recv_share": {
+    "Qwen": 0.516,
+    "Gemma": 0.484
+   },
+   "fair": {
+    "Qwen": 0.5,
+    "Gemma": 0.5
+   },
+   "top": "Qwen",
+   "bottom": "Gemma",
+   "seed": "314",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_gem_qwe_gem_s42",
@@ -377,7 +1512,38 @@
    "Qwen",
    "Gemma"
   ],
-  "file": "data/runs__sweep_gem_qwe_gem_s42.json"
+  "file": "data/runs__sweep_gem_qwe_gem_s42.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 51,
+   "comments": 568,
+   "cross": 285,
+   "H_in": {
+    "Qwen": -0.07,
+    "Gemma": 0.05
+   },
+   "cpp": {
+    "Qwen": 4.8,
+    "Gemma": 6.6
+   },
+   "post_share": {
+    "Qwen": 0.549,
+    "Gemma": 0.451
+   },
+   "recv_share": {
+    "Qwen": 0.47,
+    "Gemma": 0.53
+   },
+   "fair": {
+    "Qwen": 0.5,
+    "Gemma": 0.5
+   },
+   "top": "Gemma",
+   "bottom": "Qwen",
+   "seed": "42",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_gem_qwe_gem_s999",
@@ -387,7 +1553,35 @@
    "Qwen",
    "Gemma"
   ],
-  "file": "data/runs__sweep_gem_qwe_gem_s999.json"
+  "file": "data/runs__sweep_gem_qwe_gem_s999.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 57,
+   "comments": 562,
+   "cross": 266,
+   "H_in": {},
+   "cpp": {
+    "Qwen": 0.0,
+    "Gemma": 0.0
+   },
+   "post_share": {
+    "Qwen": 0.544,
+    "Gemma": 0.456
+   },
+   "recv_share": {
+    "Qwen": 0.515,
+    "Gemma": 0.485
+   },
+   "fair": {
+    "Qwen": 0.5,
+    "Gemma": 0.5
+   },
+   "top": null,
+   "bottom": null,
+   "seed": "999",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_glm_mag_AB_s137",
@@ -397,7 +1591,38 @@
    "GLM-4",
    "Mag"
   ],
-  "file": "data/runs__sweep_glm_mag_AB_s137.json"
+  "file": "data/runs__sweep_glm_mag_AB_s137.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 51,
+   "comments": 568,
+   "cross": 246,
+   "H_in": {
+    "GLM-4": -0.22,
+    "Mag": -0.05
+   },
+   "cpp": {
+    "GLM-4": 4.0,
+    "Mag": 5.9
+   },
+   "post_share": {
+    "GLM-4": 0.549,
+    "Mag": 0.451
+   },
+   "recv_share": {
+    "GLM-4": 0.451,
+    "Mag": 0.549
+   },
+   "fair": {
+    "GLM-4": 0.5,
+    "Mag": 0.5
+   },
+   "top": "Mag",
+   "bottom": "GLM-4",
+   "seed": "137",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_glm_mag_AB_s271",
@@ -407,7 +1632,38 @@
    "GLM-4",
    "Mag"
   ],
-  "file": "data/runs__sweep_glm_mag_AB_s271.json"
+  "file": "data/runs__sweep_glm_mag_AB_s271.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 41,
+   "comments": 576,
+   "cross": 250,
+   "H_in": {
+    "GLM-4": -0.08,
+    "Mag": -0.16
+   },
+   "cpp": {
+    "GLM-4": 5.7,
+    "Mag": 6.6
+   },
+   "post_share": {
+    "GLM-4": 0.561,
+    "Mag": 0.439
+   },
+   "recv_share": {
+    "GLM-4": 0.524,
+    "Mag": 0.476
+   },
+   "fair": {
+    "GLM-4": 0.5,
+    "Mag": 0.5
+   },
+   "top": "GLM-4",
+   "bottom": "Mag",
+   "seed": "271",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_glm_mag_AB_s314",
@@ -417,7 +1673,38 @@
    "GLM-4",
    "Mag"
   ],
-  "file": "data/runs__sweep_glm_mag_AB_s314.json"
+  "file": "data/runs__sweep_glm_mag_AB_s314.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 56,
+   "comments": 561,
+   "cross": 297,
+   "H_in": {
+    "GLM-4": 0.08,
+    "Mag": 0.03
+   },
+   "cpp": {
+    "GLM-4": 4.9,
+    "Mag": 5.8
+   },
+   "post_share": {
+    "GLM-4": 0.554,
+    "Mag": 0.446
+   },
+   "recv_share": {
+    "GLM-4": 0.512,
+    "Mag": 0.488
+   },
+   "fair": {
+    "GLM-4": 0.5,
+    "Mag": 0.5
+   },
+   "top": "GLM-4",
+   "bottom": "Mag",
+   "seed": "314",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_glm_mag_AB_s42",
@@ -427,7 +1714,38 @@
    "GLM-4",
    "Mag"
   ],
-  "file": "data/runs__sweep_glm_mag_AB_s42.json"
+  "file": "data/runs__sweep_glm_mag_AB_s42.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 47,
+   "comments": 569,
+   "cross": 280,
+   "H_in": {
+    "GLM-4": 0.06,
+    "Mag": -0.11
+   },
+   "cpp": {
+    "GLM-4": 5.6,
+    "Mag": 6.4
+   },
+   "post_share": {
+    "GLM-4": 0.574,
+    "Mag": 0.426
+   },
+   "recv_share": {
+    "GLM-4": 0.543,
+    "Mag": 0.457
+   },
+   "fair": {
+    "GLM-4": 0.5,
+    "Mag": 0.5
+   },
+   "top": "GLM-4",
+   "bottom": "Mag",
+   "seed": "42",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_glm_mag_AB_s999",
@@ -437,7 +1755,38 @@
    "GLM-4",
    "Mag"
   ],
-  "file": "data/runs__sweep_glm_mag_AB_s999.json"
+  "file": "data/runs__sweep_glm_mag_AB_s999.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 44,
+   "comments": 575,
+   "cross": 271,
+   "H_in": {
+    "GLM-4": -0.01,
+    "Mag": -0.1
+   },
+   "cpp": {
+    "GLM-4": 5.7,
+    "Mag": 6.8
+   },
+   "post_share": {
+    "GLM-4": 0.568,
+    "Mag": 0.432
+   },
+   "recv_share": {
+    "GLM-4": 0.524,
+    "Mag": 0.476
+   },
+   "fair": {
+    "GLM-4": 0.5,
+    "Mag": 0.5
+   },
+   "top": "GLM-4",
+   "bottom": "Mag",
+   "seed": "999",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_glm_mag_BA_s137",
@@ -447,7 +1796,38 @@
    "GLM-4",
    "Mag"
   ],
-  "file": "data/runs__sweep_glm_mag_BA_s137.json"
+  "file": "data/runs__sweep_glm_mag_BA_s137.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 50,
+   "comments": 566,
+   "cross": 261,
+   "H_in": {
+    "GLM-4": 0.07,
+    "Mag": -0.2
+   },
+   "cpp": {
+    "GLM-4": 5.3,
+    "Mag": 5.1
+   },
+   "post_share": {
+    "GLM-4": 0.56,
+    "Mag": 0.44
+   },
+   "recv_share": {
+    "GLM-4": 0.571,
+    "Mag": 0.429
+   },
+   "fair": {
+    "GLM-4": 0.5,
+    "Mag": 0.5
+   },
+   "top": "GLM-4",
+   "bottom": "Mag",
+   "seed": "137",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_glm_mag_BA_s271",
@@ -457,7 +1837,38 @@
    "GLM-4",
    "Mag"
   ],
-  "file": "data/runs__sweep_glm_mag_BA_s271.json"
+  "file": "data/runs__sweep_glm_mag_BA_s271.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 56,
+   "comments": 564,
+   "cross": 283,
+   "H_in": {
+    "GLM-4": 0.26,
+    "Mag": -0.23
+   },
+   "cpp": {
+    "GLM-4": 5.7,
+    "Mag": 4.3
+   },
+   "post_share": {
+    "GLM-4": 0.554,
+    "Mag": 0.446
+   },
+   "recv_share": {
+    "GLM-4": 0.622,
+    "Mag": 0.378
+   },
+   "fair": {
+    "GLM-4": 0.5,
+    "Mag": 0.5
+   },
+   "top": "GLM-4",
+   "bottom": "Mag",
+   "seed": "271",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_glm_mag_BA_s314",
@@ -467,7 +1878,38 @@
    "GLM-4",
    "Mag"
   ],
-  "file": "data/runs__sweep_glm_mag_BA_s314.json"
+  "file": "data/runs__sweep_glm_mag_BA_s314.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 49,
+   "comments": 569,
+   "cross": 289,
+   "H_in": {
+    "GLM-4": 0.01,
+    "Mag": -0.01
+   },
+   "cpp": {
+    "GLM-4": 5.6,
+    "Mag": 6.2
+   },
+   "post_share": {
+    "GLM-4": 0.531,
+    "Mag": 0.469
+   },
+   "recv_share": {
+    "GLM-4": 0.505,
+    "Mag": 0.495
+   },
+   "fair": {
+    "GLM-4": 0.5,
+    "Mag": 0.5
+   },
+   "top": "GLM-4",
+   "bottom": "Mag",
+   "seed": "314",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_glm_mag_BA_s42",
@@ -477,7 +1919,38 @@
    "GLM-4",
    "Mag"
   ],
-  "file": "data/runs__sweep_glm_mag_BA_s42.json"
+  "file": "data/runs__sweep_glm_mag_BA_s42.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 56,
+   "comments": 560,
+   "cross": 259,
+   "H_in": {
+    "GLM-4": 0.0,
+    "Mag": -0.13
+   },
+   "cpp": {
+    "GLM-4": 4.5,
+    "Mag": 4.8
+   },
+   "post_share": {
+    "GLM-4": 0.554,
+    "Mag": 0.446
+   },
+   "recv_share": {
+    "GLM-4": 0.537,
+    "Mag": 0.463
+   },
+   "fair": {
+    "GLM-4": 0.5,
+    "Mag": 0.5
+   },
+   "top": "GLM-4",
+   "bottom": "Mag",
+   "seed": "42",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_glm_mag_BA_s999",
@@ -487,7 +1960,38 @@
    "GLM-4",
    "Mag"
   ],
-  "file": "data/runs__sweep_glm_mag_BA_s999.json"
+  "file": "data/runs__sweep_glm_mag_BA_s999.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 43,
+   "comments": 576,
+   "cross": 278,
+   "H_in": {
+    "GLM-4": 0.27,
+    "Mag": -0.34
+   },
+   "cpp": {
+    "GLM-4": 7.3,
+    "Mag": 5.3
+   },
+   "post_share": {
+    "GLM-4": 0.581,
+    "Mag": 0.419
+   },
+   "recv_share": {
+    "GLM-4": 0.658,
+    "Mag": 0.342
+   },
+   "fair": {
+    "GLM-4": 0.5,
+    "Mag": 0.5
+   },
+   "top": "GLM-4",
+   "bottom": "Mag",
+   "seed": "999",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_glm_oss_AB_s137",
@@ -497,7 +2001,38 @@
    "gpt-oss",
    "GLM-4"
   ],
-  "file": "data/runs__sweep_glm_oss_AB_s137.json"
+  "file": "data/runs__sweep_glm_oss_AB_s137.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 79,
+   "comments": 538,
+   "cross": 253,
+   "H_in": {
+    "gpt-oss": 0.22,
+    "GLM-4": -0.33
+   },
+   "cpp": {
+    "gpt-oss": 4.7,
+    "GLM-4": 2.0
+   },
+   "post_share": {
+    "gpt-oss": 0.443,
+    "GLM-4": 0.557
+   },
+   "recv_share": {
+    "gpt-oss": 0.644,
+    "GLM-4": 0.356
+   },
+   "fair": {
+    "gpt-oss": 0.5,
+    "GLM-4": 0.5
+   },
+   "top": "gpt-oss",
+   "bottom": "GLM-4",
+   "seed": "137",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_glm_oss_AB_s271",
@@ -507,7 +2042,38 @@
    "gpt-oss",
    "GLM-4"
   ],
-  "file": "data/runs__sweep_glm_oss_AB_s271.json"
+  "file": "data/runs__sweep_glm_oss_AB_s271.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 91,
+   "comments": 528,
+   "cross": 252,
+   "H_in": {
+    "gpt-oss": 0.13,
+    "GLM-4": -0.19
+   },
+   "cpp": {
+    "gpt-oss": 3.7,
+    "GLM-4": 2.1
+   },
+   "post_share": {
+    "gpt-oss": 0.44,
+    "GLM-4": 0.56
+   },
+   "recv_share": {
+    "gpt-oss": 0.583,
+    "GLM-4": 0.417
+   },
+   "fair": {
+    "gpt-oss": 0.5,
+    "GLM-4": 0.5
+   },
+   "top": "gpt-oss",
+   "bottom": "GLM-4",
+   "seed": "271",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_glm_oss_AB_s314",
@@ -517,7 +2083,38 @@
    "gpt-oss",
    "GLM-4"
   ],
-  "file": "data/runs__sweep_glm_oss_AB_s314.json"
+  "file": "data/runs__sweep_glm_oss_AB_s314.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 117,
+   "comments": 499,
+   "cross": 217,
+   "H_in": {
+    "gpt-oss": 0.33,
+    "GLM-4": -0.57
+   },
+   "cpp": {
+    "gpt-oss": 3.1,
+    "GLM-4": 0.8
+   },
+   "post_share": {
+    "gpt-oss": 0.453,
+    "GLM-4": 0.547
+   },
+   "recv_share": {
+    "gpt-oss": 0.756,
+    "GLM-4": 0.244
+   },
+   "fair": {
+    "gpt-oss": 0.5,
+    "GLM-4": 0.5
+   },
+   "top": "gpt-oss",
+   "bottom": "GLM-4",
+   "seed": "314",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_glm_oss_AB_s42",
@@ -527,7 +2124,38 @@
    "gpt-oss",
    "GLM-4"
   ],
-  "file": "data/runs__sweep_glm_oss_AB_s42.json"
+  "file": "data/runs__sweep_glm_oss_AB_s42.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 101,
+   "comments": 518,
+   "cross": 223,
+   "H_in": {
+    "gpt-oss": 0.36,
+    "GLM-4": -0.66
+   },
+   "cpp": {
+    "gpt-oss": 4.0,
+    "GLM-4": 0.8
+   },
+   "post_share": {
+    "gpt-oss": 0.436,
+    "GLM-4": 0.564
+   },
+   "recv_share": {
+    "gpt-oss": 0.798,
+    "GLM-4": 0.202
+   },
+   "fair": {
+    "gpt-oss": 0.5,
+    "GLM-4": 0.5
+   },
+   "top": "gpt-oss",
+   "bottom": "GLM-4",
+   "seed": "42",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_glm_oss_AB_s999",
@@ -537,7 +2165,38 @@
    "gpt-oss",
    "GLM-4"
   ],
-  "file": "data/runs__sweep_glm_oss_AB_s999.json"
+  "file": "data/runs__sweep_glm_oss_AB_s999.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 87,
+   "comments": 532,
+   "cross": 272,
+   "H_in": {
+    "gpt-oss": 0.35,
+    "GLM-4": -0.3
+   },
+   "cpp": {
+    "gpt-oss": 4.6,
+    "GLM-4": 1.9
+   },
+   "post_share": {
+    "gpt-oss": 0.448,
+    "GLM-4": 0.552
+   },
+   "recv_share": {
+    "gpt-oss": 0.658,
+    "GLM-4": 0.342
+   },
+   "fair": {
+    "gpt-oss": 0.5,
+    "GLM-4": 0.5
+   },
+   "top": "gpt-oss",
+   "bottom": "GLM-4",
+   "seed": "999",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_glm_oss_BA_s137",
@@ -547,7 +2206,38 @@
    "gpt-oss",
    "GLM-4"
   ],
-  "file": "data/runs__sweep_glm_oss_BA_s137.json"
+  "file": "data/runs__sweep_glm_oss_BA_s137.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 130,
+   "comments": 488,
+   "cross": 244,
+   "H_in": {
+    "gpt-oss": 0.42,
+    "GLM-4": -0.43
+   },
+   "cpp": {
+    "gpt-oss": 3.0,
+    "GLM-4": 1.0
+   },
+   "post_share": {
+    "gpt-oss": 0.446,
+    "GLM-4": 0.554
+   },
+   "recv_share": {
+    "gpt-oss": 0.713,
+    "GLM-4": 0.287
+   },
+   "fair": {
+    "gpt-oss": 0.5,
+    "GLM-4": 0.5
+   },
+   "top": "gpt-oss",
+   "bottom": "GLM-4",
+   "seed": "137",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_glm_oss_BA_s271",
@@ -557,7 +2247,38 @@
    "gpt-oss",
    "GLM-4"
   ],
-  "file": "data/runs__sweep_glm_oss_BA_s271.json"
+  "file": "data/runs__sweep_glm_oss_BA_s271.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 76,
+   "comments": 542,
+   "cross": 259,
+   "H_in": {
+    "gpt-oss": 0.29,
+    "GLM-4": -0.38
+   },
+   "cpp": {
+    "gpt-oss": 5.0,
+    "GLM-4": 2.0
+   },
+   "post_share": {
+    "gpt-oss": 0.461,
+    "GLM-4": 0.539
+   },
+   "recv_share": {
+    "gpt-oss": 0.676,
+    "GLM-4": 0.324
+   },
+   "fair": {
+    "gpt-oss": 0.5,
+    "GLM-4": 0.5
+   },
+   "top": "gpt-oss",
+   "bottom": "GLM-4",
+   "seed": "271",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_glm_oss_BA_s314",
@@ -567,7 +2288,38 @@
    "gpt-oss",
    "GLM-4"
   ],
-  "file": "data/runs__sweep_glm_oss_BA_s314.json"
+  "file": "data/runs__sweep_glm_oss_BA_s314.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 94,
+   "comments": 523,
+   "cross": 239,
+   "H_in": {
+    "gpt-oss": 0.32,
+    "GLM-4": -0.47
+   },
+   "cpp": {
+    "gpt-oss": 4.1,
+    "GLM-4": 1.3
+   },
+   "post_share": {
+    "gpt-oss": 0.436,
+    "GLM-4": 0.564
+   },
+   "recv_share": {
+    "gpt-oss": 0.711,
+    "GLM-4": 0.289
+   },
+   "fair": {
+    "gpt-oss": 0.5,
+    "GLM-4": 0.5
+   },
+   "top": "gpt-oss",
+   "bottom": "GLM-4",
+   "seed": "314",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_glm_oss_BA_s42",
@@ -577,7 +2329,38 @@
    "gpt-oss",
    "GLM-4"
   ],
-  "file": "data/runs__sweep_glm_oss_BA_s42.json"
+  "file": "data/runs__sweep_glm_oss_BA_s42.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 98,
+   "comments": 521,
+   "cross": 247,
+   "H_in": {
+    "gpt-oss": 0.24,
+    "GLM-4": -0.36
+   },
+   "cpp": {
+    "gpt-oss": 3.7,
+    "GLM-4": 1.6
+   },
+   "post_share": {
+    "gpt-oss": 0.449,
+    "GLM-4": 0.551
+   },
+   "recv_share": {
+    "gpt-oss": 0.66,
+    "GLM-4": 0.34
+   },
+   "fair": {
+    "gpt-oss": 0.5,
+    "GLM-4": 0.5
+   },
+   "top": "gpt-oss",
+   "bottom": "GLM-4",
+   "seed": "42",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_glm_oss_BA_s999",
@@ -587,7 +2370,38 @@
    "gpt-oss",
    "GLM-4"
   ],
-  "file": "data/runs__sweep_glm_oss_BA_s999.json"
+  "file": "data/runs__sweep_glm_oss_BA_s999.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 103,
+   "comments": 516,
+   "cross": 260,
+   "H_in": {
+    "gpt-oss": 0.08,
+    "GLM-4": -0.06
+   },
+   "cpp": {
+    "gpt-oss": 3.0,
+    "GLM-4": 2.2
+   },
+   "post_share": {
+    "gpt-oss": 0.456,
+    "GLM-4": 0.544
+   },
+   "recv_share": {
+    "gpt-oss": 0.535,
+    "GLM-4": 0.465
+   },
+   "fair": {
+    "gpt-oss": 0.5,
+    "GLM-4": 0.5
+   },
+   "top": "gpt-oss",
+   "bottom": "GLM-4",
+   "seed": "999",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_glm_qwen_AB_s137",
@@ -597,7 +2411,38 @@
    "Qwen",
    "GLM-4"
   ],
-  "file": "data/runs__sweep_glm_qwen_AB_s137.json"
+  "file": "data/runs__sweep_glm_qwen_AB_s137.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 127,
+   "comments": 493,
+   "cross": 204,
+   "H_in": {
+    "Qwen": -0.19,
+    "GLM-4": -0.09
+   },
+   "cpp": {
+    "Qwen": 1.7,
+    "GLM-4": 1.5
+   },
+   "post_share": {
+    "Qwen": 0.449,
+    "GLM-4": 0.551
+   },
+   "recv_share": {
+    "Qwen": 0.471,
+    "GLM-4": 0.529
+   },
+   "fair": {
+    "Qwen": 0.5,
+    "GLM-4": 0.5
+   },
+   "top": "GLM-4",
+   "bottom": "Qwen",
+   "seed": "137",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_glm_qwen_AB_s271",
@@ -607,7 +2452,38 @@
    "Qwen",
    "GLM-4"
   ],
-  "file": "data/runs__sweep_glm_qwen_AB_s271.json"
+  "file": "data/runs__sweep_glm_qwen_AB_s271.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 133,
+   "comments": 487,
+   "cross": 219,
+   "H_in": {
+    "Qwen": -0.29,
+    "GLM-4": 0.12
+   },
+   "cpp": {
+    "Qwen": 1.4,
+    "GLM-4": 1.8
+   },
+   "post_share": {
+    "Qwen": 0.444,
+    "GLM-4": 0.556
+   },
+   "recv_share": {
+    "Qwen": 0.388,
+    "GLM-4": 0.612
+   },
+   "fair": {
+    "Qwen": 0.5,
+    "GLM-4": 0.5
+   },
+   "top": "GLM-4",
+   "bottom": "Qwen",
+   "seed": "271",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_glm_qwen_AB_s314",
@@ -617,7 +2493,38 @@
    "Qwen",
    "GLM-4"
   ],
-  "file": "data/runs__sweep_glm_qwen_AB_s314.json"
+  "file": "data/runs__sweep_glm_qwen_AB_s314.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 115,
+   "comments": 504,
+   "cross": 225,
+   "H_in": {
+    "Qwen": 0.21,
+    "GLM-4": -0.38
+   },
+   "cpp": {
+    "Qwen": 2.9,
+    "GLM-4": 1.2
+   },
+   "post_share": {
+    "Qwen": 0.452,
+    "GLM-4": 0.548
+   },
+   "recv_share": {
+    "Qwen": 0.662,
+    "GLM-4": 0.338
+   },
+   "fair": {
+    "Qwen": 0.5,
+    "GLM-4": 0.5
+   },
+   "top": "Qwen",
+   "bottom": "GLM-4",
+   "seed": "314",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_glm_qwen_AB_s42",
@@ -627,7 +2534,38 @@
    "Qwen",
    "GLM-4"
   ],
-  "file": "data/runs__sweep_glm_qwen_AB_s42.json"
+  "file": "data/runs__sweep_glm_qwen_AB_s42.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 140,
+   "comments": 480,
+   "cross": 230,
+   "H_in": {
+    "Qwen": -0.08,
+    "GLM-4": 0.06
+   },
+   "cpp": {
+    "Qwen": 1.7,
+    "GLM-4": 1.6
+   },
+   "post_share": {
+    "Qwen": 0.45,
+    "GLM-4": 0.55
+   },
+   "recv_share": {
+    "Qwen": 0.465,
+    "GLM-4": 0.535
+   },
+   "fair": {
+    "Qwen": 0.5,
+    "GLM-4": 0.5
+   },
+   "top": "GLM-4",
+   "bottom": "Qwen",
+   "seed": "42",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_glm_qwen_AB_s999",
@@ -637,7 +2575,38 @@
    "Qwen",
    "GLM-4"
   ],
-  "file": "data/runs__sweep_glm_qwen_AB_s999.json"
+  "file": "data/runs__sweep_glm_qwen_AB_s999.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 135,
+   "comments": 484,
+   "cross": 219,
+   "H_in": {
+    "Qwen": -0.23,
+    "GLM-4": 0.08
+   },
+   "cpp": {
+    "Qwen": 1.5,
+    "GLM-4": 1.7
+   },
+   "post_share": {
+    "Qwen": 0.444,
+    "GLM-4": 0.556
+   },
+   "recv_share": {
+    "Qwen": 0.416,
+    "GLM-4": 0.584
+   },
+   "fair": {
+    "Qwen": 0.5,
+    "GLM-4": 0.5
+   },
+   "top": "GLM-4",
+   "bottom": "Qwen",
+   "seed": "999",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_glm_qwen_BA_s137",
@@ -647,7 +2616,38 @@
    "Qwen",
    "GLM-4"
   ],
-  "file": "data/runs__sweep_glm_qwen_BA_s137.json"
+  "file": "data/runs__sweep_glm_qwen_BA_s137.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 104,
+   "comments": 515,
+   "cross": 244,
+   "H_in": {
+    "Qwen": -0.03,
+    "GLM-4": -0.06
+   },
+   "cpp": {
+    "Qwen": 2.7,
+    "GLM-4": 2.1
+   },
+   "post_share": {
+    "Qwen": 0.442,
+    "GLM-4": 0.558
+   },
+   "recv_share": {
+    "Qwen": 0.508,
+    "GLM-4": 0.492
+   },
+   "fair": {
+    "Qwen": 0.5,
+    "GLM-4": 0.5
+   },
+   "top": "Qwen",
+   "bottom": "GLM-4",
+   "seed": "137",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_glm_qwen_BA_s271",
@@ -657,7 +2657,38 @@
    "Qwen",
    "GLM-4"
   ],
-  "file": "data/runs__sweep_glm_qwen_BA_s271.json"
+  "file": "data/runs__sweep_glm_qwen_BA_s271.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 116,
+   "comments": 503,
+   "cross": 226,
+   "H_in": {
+    "Qwen": 0.32,
+    "GLM-4": -0.5
+   },
+   "cpp": {
+    "Qwen": 3.2,
+    "GLM-4": 1.0
+   },
+   "post_share": {
+    "Qwen": 0.44,
+    "GLM-4": 0.56
+   },
+   "recv_share": {
+    "Qwen": 0.726,
+    "GLM-4": 0.274
+   },
+   "fair": {
+    "Qwen": 0.5,
+    "GLM-4": 0.5
+   },
+   "top": "Qwen",
+   "bottom": "GLM-4",
+   "seed": "271",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_glm_qwen_BA_s314",
@@ -667,7 +2698,38 @@
    "Qwen",
    "GLM-4"
   ],
-  "file": "data/runs__sweep_glm_qwen_BA_s314.json"
+  "file": "data/runs__sweep_glm_qwen_BA_s314.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 125,
+   "comments": 494,
+   "cross": 210,
+   "H_in": {
+    "Qwen": 0.18,
+    "GLM-4": -0.44
+   },
+   "cpp": {
+    "Qwen": 2.5,
+    "GLM-4": 1.0
+   },
+   "post_share": {
+    "Qwen": 0.448,
+    "GLM-4": 0.552
+   },
+   "recv_share": {
+    "Qwen": 0.676,
+    "GLM-4": 0.324
+   },
+   "fair": {
+    "Qwen": 0.5,
+    "GLM-4": 0.5
+   },
+   "top": "Qwen",
+   "bottom": "GLM-4",
+   "seed": "314",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_glm_qwen_BA_s42",
@@ -677,7 +2739,38 @@
    "Qwen",
    "GLM-4"
   ],
-  "file": "data/runs__sweep_glm_qwen_BA_s42.json"
+  "file": "data/runs__sweep_glm_qwen_BA_s42.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 190,
+   "comments": 430,
+   "cross": 177,
+   "H_in": {
+    "Qwen": 0.09,
+    "GLM-4": -0.38
+   },
+   "cpp": {
+    "Qwen": 1.3,
+    "GLM-4": 0.6
+   },
+   "post_share": {
+    "Qwen": 0.453,
+    "GLM-4": 0.547
+   },
+   "recv_share": {
+    "Qwen": 0.638,
+    "GLM-4": 0.362
+   },
+   "fair": {
+    "Qwen": 0.5,
+    "GLM-4": 0.5
+   },
+   "top": "Qwen",
+   "bottom": "GLM-4",
+   "seed": "42",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_glm_qwen_BA_s999",
@@ -687,7 +2780,38 @@
    "Qwen",
    "GLM-4"
   ],
-  "file": "data/runs__sweep_glm_qwen_BA_s999.json"
+  "file": "data/runs__sweep_glm_qwen_BA_s999.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 155,
+   "comments": 465,
+   "cross": 205,
+   "H_in": {
+    "Qwen": -0.06,
+    "GLM-4": -0.09
+   },
+   "cpp": {
+    "Qwen": 1.5,
+    "GLM-4": 1.2
+   },
+   "post_share": {
+    "Qwen": 0.458,
+    "GLM-4": 0.542
+   },
+   "recv_share": {
+    "Qwen": 0.507,
+    "GLM-4": 0.493
+   },
+   "fair": {
+    "Qwen": 0.5,
+    "GLM-4": 0.5
+   },
+   "top": "Qwen",
+   "bottom": "GLM-4",
+   "seed": "999",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_gpt_mag_s137",
@@ -697,7 +2821,38 @@
    "gpt-oss",
    "Mag"
   ],
-  "file": "data/runs__sweep_gpt_mag_s137.json"
+  "file": "data/runs__sweep_gpt_mag_s137.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 69,
+   "comments": 544,
+   "cross": 257,
+   "H_in": {
+    "gpt-oss": 0.4,
+    "Mag": -0.5
+   },
+   "cpp": {
+    "gpt-oss": 5.0,
+    "Mag": 2.2
+   },
+   "post_share": {
+    "gpt-oss": 0.551,
+    "Mag": 0.449
+   },
+   "recv_share": {
+    "gpt-oss": 0.735,
+    "Mag": 0.265
+   },
+   "fair": {
+    "gpt-oss": 0.5,
+    "Mag": 0.5
+   },
+   "top": "gpt-oss",
+   "bottom": "Mag",
+   "seed": "137",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_gpt_mag_s271",
@@ -707,7 +2862,38 @@
    "gpt-oss",
    "Mag"
   ],
-  "file": "data/runs__sweep_gpt_mag_s271.json"
+  "file": "data/runs__sweep_gpt_mag_s271.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 66,
+   "comments": 547,
+   "cross": 287,
+   "H_in": {
+    "gpt-oss": 0.63,
+    "Mag": -0.56
+   },
+   "cpp": {
+    "gpt-oss": 6.3,
+    "Mag": 2.0
+   },
+   "post_share": {
+    "gpt-oss": 0.545,
+    "Mag": 0.455
+   },
+   "recv_share": {
+    "gpt-oss": 0.787,
+    "Mag": 0.213
+   },
+   "fair": {
+    "gpt-oss": 0.5,
+    "Mag": 0.5
+   },
+   "top": "gpt-oss",
+   "bottom": "Mag",
+   "seed": "271",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_gpt_mag_s314",
@@ -717,7 +2903,38 @@
    "gpt-oss",
    "Mag"
   ],
-  "file": "data/runs__sweep_gpt_mag_s314.json"
+  "file": "data/runs__sweep_gpt_mag_s314.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 46,
+   "comments": 572,
+   "cross": 297,
+   "H_in": {
+    "gpt-oss": 0.54,
+    "Mag": -0.47
+   },
+   "cpp": {
+    "gpt-oss": 8.5,
+    "Mag": 3.8
+   },
+   "post_share": {
+    "gpt-oss": 0.565,
+    "Mag": 0.435
+   },
+   "recv_share": {
+    "gpt-oss": 0.744,
+    "Mag": 0.256
+   },
+   "fair": {
+    "gpt-oss": 0.5,
+    "Mag": 0.5
+   },
+   "top": "gpt-oss",
+   "bottom": "Mag",
+   "seed": "314",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_gpt_mag_s42",
@@ -727,7 +2944,38 @@
    "gpt-oss",
    "Mag"
   ],
-  "file": "data/runs__sweep_gpt_mag_s42.json"
+  "file": "data/runs__sweep_gpt_mag_s42.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 38,
+   "comments": 574,
+   "cross": 293,
+   "H_in": {
+    "gpt-oss": 0.17,
+    "Mag": -0.13
+   },
+   "cpp": {
+    "gpt-oss": 8.0,
+    "Mag": 7.4
+   },
+   "post_share": {
+    "gpt-oss": 0.553,
+    "Mag": 0.447
+   },
+   "recv_share": {
+    "gpt-oss": 0.573,
+    "Mag": 0.427
+   },
+   "fair": {
+    "gpt-oss": 0.5,
+    "Mag": 0.5
+   },
+   "top": "gpt-oss",
+   "bottom": "Mag",
+   "seed": "42",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_gpt_mag_s999",
@@ -737,7 +2985,38 @@
    "gpt-oss",
    "Mag"
   ],
-  "file": "data/runs__sweep_gpt_mag_s999.json"
+  "file": "data/runs__sweep_gpt_mag_s999.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 39,
+   "comments": 581,
+   "cross": 326,
+   "H_in": {
+    "gpt-oss": 0.47,
+    "Mag": -0.25
+   },
+   "cpp": {
+    "gpt-oss": 10.3,
+    "Mag": 6.1
+   },
+   "post_share": {
+    "gpt-oss": 0.538,
+    "Mag": 0.462
+   },
+   "recv_share": {
+    "gpt-oss": 0.663,
+    "Mag": 0.337
+   },
+   "fair": {
+    "gpt-oss": 0.5,
+    "Mag": 0.5
+   },
+   "top": "gpt-oss",
+   "bottom": "Mag",
+   "seed": "999",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_gpt_qwe_s137",
@@ -747,7 +3026,38 @@
    "gpt-oss",
    "Qwen"
   ],
-  "file": "data/runs__sweep_gpt_qwe_s137.json"
+  "file": "data/runs__sweep_gpt_qwe_s137.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 74,
+   "comments": 543,
+   "cross": 254,
+   "H_in": {
+    "gpt-oss": -1.0,
+    "Qwen": 1.14
+   },
+   "cpp": {
+    "gpt-oss": 0.0,
+    "Qwen": 10.9
+   },
+   "post_share": {
+    "gpt-oss": 0.446,
+    "Qwen": 0.554
+   },
+   "recv_share": {
+    "gpt-oss": 0.425,
+    "Qwen": 0.575
+   },
+   "fair": {
+    "gpt-oss": 0.5,
+    "Qwen": 0.5
+   },
+   "top": "Qwen",
+   "bottom": "gpt-oss",
+   "seed": "137",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_gpt_qwe_s271",
@@ -757,7 +3067,38 @@
    "gpt-oss",
    "Qwen"
   ],
-  "file": "data/runs__sweep_gpt_qwe_s271.json"
+  "file": "data/runs__sweep_gpt_qwe_s271.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 89,
+   "comments": 531,
+   "cross": 236,
+   "H_in": {
+    "gpt-oss": -1.0,
+    "Qwen": 0.43
+   },
+   "cpp": {
+    "gpt-oss": 0.0,
+    "Qwen": 9.7
+   },
+   "post_share": {
+    "gpt-oss": 0.449,
+    "Qwen": 0.551
+   },
+   "recv_share": {
+    "gpt-oss": 0.589,
+    "Qwen": 0.411
+   },
+   "fair": {
+    "gpt-oss": 0.5,
+    "Qwen": 0.5
+   },
+   "top": "Qwen",
+   "bottom": "gpt-oss",
+   "seed": "271",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_gpt_qwe_s314",
@@ -767,7 +3108,38 @@
    "gpt-oss",
    "Qwen"
   ],
-  "file": "data/runs__sweep_gpt_qwe_s314.json"
+  "file": "data/runs__sweep_gpt_qwe_s314.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 86,
+   "comments": 532,
+   "cross": 246,
+   "H_in": {
+    "gpt-oss": 0.11,
+    "Qwen": -0.24
+   },
+   "cpp": {
+    "gpt-oss": 3.5,
+    "Qwen": 2.3
+   },
+   "post_share": {
+    "gpt-oss": 0.488,
+    "Qwen": 0.512
+   },
+   "recv_share": {
+    "gpt-oss": 0.593,
+    "Qwen": 0.407
+   },
+   "fair": {
+    "gpt-oss": 0.5,
+    "Qwen": 0.5
+   },
+   "top": "gpt-oss",
+   "bottom": "Qwen",
+   "seed": "314",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_gpt_qwe_s42",
@@ -777,7 +3149,38 @@
    "gpt-oss",
    "Qwen"
   ],
-  "file": "data/runs__sweep_gpt_qwe_s42.json"
+  "file": "data/runs__sweep_gpt_qwe_s42.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 91,
+   "comments": 529,
+   "cross": 249,
+   "H_in": {
+    "gpt-oss": -1.0,
+    "Qwen": 0.46
+   },
+   "cpp": {
+    "gpt-oss": 0.0,
+    "Qwen": 9.8
+   },
+   "post_share": {
+    "gpt-oss": 0.451,
+    "Qwen": 0.549
+   },
+   "recv_share": {
+    "gpt-oss": 0.606,
+    "Qwen": 0.394
+   },
+   "fair": {
+    "gpt-oss": 0.5,
+    "Qwen": 0.5
+   },
+   "top": "Qwen",
+   "bottom": "gpt-oss",
+   "seed": "42",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_gpt_qwe_s999",
@@ -787,7 +3190,38 @@
    "gpt-oss",
    "Qwen"
   ],
-  "file": "data/runs__sweep_gpt_qwe_s999.json"
+  "file": "data/runs__sweep_gpt_qwe_s999.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 89,
+   "comments": 530,
+   "cross": 243,
+   "H_in": {
+    "gpt-oss": 0.17,
+    "Qwen": -0.34
+   },
+   "cpp": {
+    "gpt-oss": 3.4,
+    "Qwen": 2.0
+   },
+   "post_share": {
+    "gpt-oss": 0.506,
+    "Qwen": 0.494
+   },
+   "recv_share": {
+    "gpt-oss": 0.638,
+    "Qwen": 0.362
+   },
+   "fair": {
+    "gpt-oss": 0.5,
+    "Qwen": 0.5
+   },
+   "top": "gpt-oss",
+   "bottom": "Qwen",
+   "seed": "999",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_mag_gpt_s137",
@@ -797,7 +3231,38 @@
    "gpt-oss",
    "Mag"
   ],
-  "file": "data/runs__sweep_mag_gpt_s137.json"
+  "file": "data/runs__sweep_mag_gpt_s137.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 62,
+   "comments": 554,
+   "cross": 318,
+   "H_in": {
+    "gpt-oss": 0.71,
+    "Mag": -0.44
+   },
+   "cpp": {
+    "gpt-oss": 6.8,
+    "Mag": 2.9
+   },
+   "post_share": {
+    "gpt-oss": 0.565,
+    "Mag": 0.435
+   },
+   "recv_share": {
+    "gpt-oss": 0.752,
+    "Mag": 0.248
+   },
+   "fair": {
+    "gpt-oss": 0.5,
+    "Mag": 0.5
+   },
+   "top": "gpt-oss",
+   "bottom": "Mag",
+   "seed": "137",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_mag_gpt_s271",
@@ -807,7 +3272,38 @@
    "gpt-oss",
    "Mag"
   ],
-  "file": "data/runs__sweep_mag_gpt_s271.json"
+  "file": "data/runs__sweep_mag_gpt_s271.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 61,
+   "comments": 555,
+   "cross": 295,
+   "H_in": {
+    "gpt-oss": 0.4,
+    "Mag": -0.3
+   },
+   "cpp": {
+    "gpt-oss": 6.6,
+    "Mag": 3.2
+   },
+   "post_share": {
+    "gpt-oss": 0.492,
+    "Mag": 0.508
+   },
+   "recv_share": {
+    "gpt-oss": 0.668,
+    "Mag": 0.332
+   },
+   "fair": {
+    "gpt-oss": 0.5,
+    "Mag": 0.5
+   },
+   "top": "gpt-oss",
+   "bottom": "Mag",
+   "seed": "271",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_mag_gpt_s314",
@@ -817,7 +3313,38 @@
    "gpt-oss",
    "Mag"
   ],
-  "file": "data/runs__sweep_mag_gpt_s314.json"
+  "file": "data/runs__sweep_mag_gpt_s314.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 58,
+   "comments": 559,
+   "cross": 248,
+   "H_in": {
+    "gpt-oss": -0.23,
+    "Mag": -0.01
+   },
+   "cpp": {
+    "gpt-oss": 3.7,
+    "Mag": 4.8
+   },
+   "post_share": {
+    "gpt-oss": 0.5,
+    "Mag": 0.5
+   },
+   "recv_share": {
+    "gpt-oss": 0.435,
+    "Mag": 0.565
+   },
+   "fair": {
+    "gpt-oss": 0.5,
+    "Mag": 0.5
+   },
+   "top": "Mag",
+   "bottom": "gpt-oss",
+   "seed": "314",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_mag_gpt_s42",
@@ -827,7 +3354,38 @@
    "gpt-oss",
    "Mag"
   ],
-  "file": "data/runs__sweep_mag_gpt_s42.json"
+  "file": "data/runs__sweep_mag_gpt_s42.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 69,
+   "comments": 545,
+   "cross": 295,
+   "H_in": {
+    "gpt-oss": 0.68,
+    "Mag": -0.55
+   },
+   "cpp": {
+    "gpt-oss": 6.3,
+    "Mag": 1.9
+   },
+   "post_share": {
+    "gpt-oss": 0.536,
+    "Mag": 0.464
+   },
+   "recv_share": {
+    "gpt-oss": 0.79,
+    "Mag": 0.21
+   },
+   "fair": {
+    "gpt-oss": 0.5,
+    "Mag": 0.5
+   },
+   "top": "gpt-oss",
+   "bottom": "Mag",
+   "seed": "42",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_mag_gpt_s999",
@@ -837,7 +3395,38 @@
    "gpt-oss",
    "Mag"
   ],
-  "file": "data/runs__sweep_mag_gpt_s999.json"
+  "file": "data/runs__sweep_mag_gpt_s999.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 49,
+   "comments": 566,
+   "cross": 293,
+   "H_in": {
+    "gpt-oss": 0.43,
+    "Mag": -0.38
+   },
+   "cpp": {
+    "gpt-oss": 7.6,
+    "Mag": 4.0
+   },
+   "post_share": {
+    "gpt-oss": 0.551,
+    "Mag": 0.449
+   },
+   "recv_share": {
+    "gpt-oss": 0.696,
+    "Mag": 0.304
+   },
+   "fair": {
+    "gpt-oss": 0.5,
+    "Mag": 0.5
+   },
+   "top": "gpt-oss",
+   "bottom": "Mag",
+   "seed": "999",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_mag_qwe_s137",
@@ -847,7 +3436,38 @@
    "Qwen",
    "Mag"
   ],
-  "file": "data/runs__sweep_mag_qwe_s137.json"
+  "file": "data/runs__sweep_mag_qwe_s137.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 43,
+   "comments": 576,
+   "cross": 302,
+   "H_in": {
+    "Qwen": 0.36,
+    "Mag": -0.27
+   },
+   "cpp": {
+    "Qwen": 8.2,
+    "Mag": 5.6
+   },
+   "post_share": {
+    "Qwen": 0.558,
+    "Mag": 0.442
+   },
+   "recv_share": {
+    "Qwen": 0.649,
+    "Mag": 0.351
+   },
+   "fair": {
+    "Qwen": 0.5,
+    "Mag": 0.5
+   },
+   "top": "Qwen",
+   "bottom": "Mag",
+   "seed": "137",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_mag_qwe_s271",
@@ -857,7 +3477,38 @@
    "Qwen",
    "Mag"
   ],
-  "file": "data/runs__sweep_mag_qwe_s271.json"
+  "file": "data/runs__sweep_mag_qwe_s271.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 47,
+   "comments": 568,
+   "cross": 267,
+   "H_in": {
+    "Qwen": -0.09,
+    "Mag": -0.04
+   },
+   "cpp": {
+    "Qwen": 5.2,
+    "Mag": 6.2
+   },
+   "post_share": {
+    "Qwen": 0.532,
+    "Mag": 0.468
+   },
+   "recv_share": {
+    "Qwen": 0.487,
+    "Mag": 0.513
+   },
+   "fair": {
+    "Qwen": 0.5,
+    "Mag": 0.5
+   },
+   "top": "Mag",
+   "bottom": "Qwen",
+   "seed": "271",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_mag_qwe_s314",
@@ -867,7 +3518,38 @@
    "Qwen",
    "Mag"
   ],
-  "file": "data/runs__sweep_mag_qwe_s314.json"
+  "file": "data/runs__sweep_mag_qwe_s314.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 36,
+   "comments": 584,
+   "cross": 251,
+   "H_in": {
+    "Qwen": -0.09,
+    "Mag": -0.2
+   },
+   "cpp": {
+    "Qwen": 6.7,
+    "Mag": 7.4
+   },
+   "post_share": {
+    "Qwen": 0.556,
+    "Mag": 0.444
+   },
+   "recv_share": {
+    "Qwen": 0.53,
+    "Mag": 0.47
+   },
+   "fair": {
+    "Qwen": 0.5,
+    "Mag": 0.5
+   },
+   "top": "Qwen",
+   "bottom": "Mag",
+   "seed": "314",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_mag_qwe_s42",
@@ -877,7 +3559,38 @@
    "Qwen",
    "Mag"
   ],
-  "file": "data/runs__sweep_mag_qwe_s42.json"
+  "file": "data/runs__sweep_mag_qwe_s42.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 34,
+   "comments": 585,
+   "cross": 246,
+   "H_in": {
+    "Qwen": -0.15,
+    "Mag": -0.17
+   },
+   "cpp": {
+    "Qwen": 6.6,
+    "Mag": 8.1
+   },
+   "post_share": {
+    "Qwen": 0.559,
+    "Mag": 0.441
+   },
+   "recv_share": {
+    "Qwen": 0.508,
+    "Mag": 0.492
+   },
+   "fair": {
+    "Qwen": 0.5,
+    "Mag": 0.5
+   },
+   "top": "Qwen",
+   "bottom": "Mag",
+   "seed": "42",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_mag_qwe_s999",
@@ -887,7 +3600,38 @@
    "Qwen",
    "Mag"
   ],
-  "file": "data/runs__sweep_mag_qwe_s999.json"
+  "file": "data/runs__sweep_mag_qwe_s999.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 38,
+   "comments": 582,
+   "cross": 208,
+   "H_in": {
+    "Qwen": -0.38,
+    "Mag": -0.2
+   },
+   "cpp": {
+    "Qwen": 4.3,
+    "Mag": 6.9
+   },
+   "post_share": {
+    "Qwen": 0.553,
+    "Mag": 0.447
+   },
+   "recv_share": {
+    "Qwen": 0.438,
+    "Mag": 0.562
+   },
+   "fair": {
+    "Qwen": 0.5,
+    "Mag": 0.5
+   },
+   "top": "Mag",
+   "bottom": "Qwen",
+   "seed": "999",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_qwe_gpt_s137",
@@ -897,7 +3641,38 @@
    "gpt-oss",
    "Qwen"
   ],
-  "file": "data/runs__sweep_qwe_gpt_s137.json"
+  "file": "data/runs__sweep_qwe_gpt_s137.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 96,
+   "comments": 521,
+   "cross": 266,
+   "H_in": {
+    "gpt-oss": 0.41,
+    "Qwen": -0.35
+   },
+   "cpp": {
+    "gpt-oss": 4.0,
+    "Qwen": 1.6
+   },
+   "post_share": {
+    "gpt-oss": 0.469,
+    "Qwen": 0.531
+   },
+   "recv_share": {
+    "gpt-oss": 0.684,
+    "Qwen": 0.316
+   },
+   "fair": {
+    "gpt-oss": 0.5,
+    "Qwen": 0.5
+   },
+   "top": "gpt-oss",
+   "bottom": "Qwen",
+   "seed": "137",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_qwe_gpt_s271",
@@ -907,7 +3682,38 @@
    "gpt-oss",
    "Qwen"
   ],
-  "file": "data/runs__sweep_qwe_gpt_s271.json"
+  "file": "data/runs__sweep_qwe_gpt_s271.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 92,
+   "comments": 526,
+   "cross": 284,
+   "H_in": {
+    "gpt-oss": 0.29,
+    "Qwen": -0.14
+   },
+   "cpp": {
+    "gpt-oss": 4.0,
+    "Qwen": 2.3
+   },
+   "post_share": {
+    "gpt-oss": 0.467,
+    "Qwen": 0.533
+   },
+   "recv_share": {
+    "gpt-oss": 0.602,
+    "Qwen": 0.398
+   },
+   "fair": {
+    "gpt-oss": 0.5,
+    "Qwen": 0.5
+   },
+   "top": "gpt-oss",
+   "bottom": "Qwen",
+   "seed": "271",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_qwe_gpt_s314",
@@ -917,7 +3723,38 @@
    "gpt-oss",
    "Qwen"
   ],
-  "file": "data/runs__sweep_qwe_gpt_s314.json"
+  "file": "data/runs__sweep_qwe_gpt_s314.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 88,
+   "comments": 531,
+   "cross": 245,
+   "H_in": {
+    "gpt-oss": 0.19,
+    "Qwen": -0.33
+   },
+   "cpp": {
+    "gpt-oss": 3.7,
+    "Qwen": 1.9
+   },
+   "post_share": {
+    "gpt-oss": 0.477,
+    "Qwen": 0.523
+   },
+   "recv_share": {
+    "gpt-oss": 0.641,
+    "Qwen": 0.359
+   },
+   "fair": {
+    "gpt-oss": 0.5,
+    "Qwen": 0.5
+   },
+   "top": "gpt-oss",
+   "bottom": "Qwen",
+   "seed": "314",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_qwe_gpt_s42",
@@ -927,7 +3764,38 @@
    "gpt-oss",
    "Qwen"
   ],
-  "file": "data/runs__sweep_qwe_gpt_s42.json"
+  "file": "data/runs__sweep_qwe_gpt_s42.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 81,
+   "comments": 538,
+   "cross": 251,
+   "H_in": {
+    "gpt-oss": 0.23,
+    "Qwen": -0.34
+   },
+   "cpp": {
+    "gpt-oss": 4.5,
+    "Qwen": 2.0
+   },
+   "post_share": {
+    "gpt-oss": 0.444,
+    "Qwen": 0.556
+   },
+   "recv_share": {
+    "gpt-oss": 0.649,
+    "Qwen": 0.351
+   },
+   "fair": {
+    "gpt-oss": 0.5,
+    "Qwen": 0.5
+   },
+   "top": "gpt-oss",
+   "bottom": "Qwen",
+   "seed": "42",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_qwe_gpt_s999",
@@ -937,7 +3805,38 @@
    "gpt-oss",
    "Qwen"
   ],
-  "file": "data/runs__sweep_qwe_gpt_s999.json"
+  "file": "data/runs__sweep_qwe_gpt_s999.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 81,
+   "comments": 539,
+   "cross": 258,
+   "H_in": {
+    "gpt-oss": 0.17,
+    "Qwen": -0.25
+   },
+   "cpp": {
+    "gpt-oss": 4.2,
+    "Qwen": 2.3
+   },
+   "post_share": {
+    "gpt-oss": 0.457,
+    "Qwen": 0.543
+   },
+   "recv_share": {
+    "gpt-oss": 0.609,
+    "Qwen": 0.391
+   },
+   "fair": {
+    "gpt-oss": 0.5,
+    "Qwen": 0.5
+   },
+   "top": "gpt-oss",
+   "bottom": "Qwen",
+   "seed": "999",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_qwe_mag_s137",
@@ -947,7 +3846,38 @@
    "Qwen",
    "Mag"
   ],
-  "file": "data/runs__sweep_qwe_mag_s137.json"
+  "file": "data/runs__sweep_qwe_mag_s137.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 44,
+   "comments": 576,
+   "cross": 306,
+   "H_in": {
+    "Qwen": 0.23,
+    "Mag": -0.12
+   },
+   "cpp": {
+    "Qwen": 7.4,
+    "Mag": 6.4
+   },
+   "post_share": {
+    "Qwen": 0.545,
+    "Mag": 0.455
+   },
+   "recv_share": {
+    "Qwen": 0.582,
+    "Mag": 0.418
+   },
+   "fair": {
+    "Qwen": 0.5,
+    "Mag": 0.5
+   },
+   "top": "Qwen",
+   "bottom": "Mag",
+   "seed": "137",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_qwe_mag_s271",
@@ -957,7 +3887,38 @@
    "Qwen",
    "Mag"
   ],
-  "file": "data/runs__sweep_qwe_mag_s271.json"
+  "file": "data/runs__sweep_qwe_mag_s271.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 36,
+   "comments": 581,
+   "cross": 303,
+   "H_in": {
+    "Qwen": 0.17,
+    "Mag": -0.1
+   },
+   "cpp": {
+    "Qwen": 8.6,
+    "Mag": 8.2
+   },
+   "post_share": {
+    "Qwen": 0.556,
+    "Mag": 0.444
+   },
+   "recv_share": {
+    "Qwen": 0.564,
+    "Mag": 0.436
+   },
+   "fair": {
+    "Qwen": 0.5,
+    "Mag": 0.5
+   },
+   "top": "Qwen",
+   "bottom": "Mag",
+   "seed": "271",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_qwe_mag_s314",
@@ -967,7 +3928,38 @@
    "Qwen",
    "Mag"
   ],
-  "file": "data/runs__sweep_qwe_mag_s314.json"
+  "file": "data/runs__sweep_qwe_mag_s314.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 41,
+   "comments": 574,
+   "cross": 323,
+   "H_in": {
+    "Qwen": 0.35,
+    "Mag": -0.12
+   },
+   "cpp": {
+    "Qwen": 8.5,
+    "Mag": 7.1
+   },
+   "post_share": {
+    "Qwen": 0.561,
+    "Mag": 0.439
+   },
+   "recv_share": {
+    "Qwen": 0.607,
+    "Mag": 0.393
+   },
+   "fair": {
+    "Qwen": 0.5,
+    "Mag": 0.5
+   },
+   "top": "Qwen",
+   "bottom": "Mag",
+   "seed": "314",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_qwe_mag_s42",
@@ -977,7 +3969,38 @@
    "Qwen",
    "Mag"
   ],
-  "file": "data/runs__sweep_qwe_mag_s42.json"
+  "file": "data/runs__sweep_qwe_mag_s42.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 34,
+   "comments": 586,
+   "cross": 306,
+   "H_in": {
+    "Qwen": 0.15,
+    "Mag": -0.08
+   },
+   "cpp": {
+    "Qwen": 8.9,
+    "Mag": 9.1
+   },
+   "post_share": {
+    "Qwen": 0.559,
+    "Mag": 0.441
+   },
+   "recv_share": {
+    "Qwen": 0.556,
+    "Mag": 0.444
+   },
+   "fair": {
+    "Qwen": 0.5,
+    "Mag": 0.5
+   },
+   "top": "Qwen",
+   "bottom": "Mag",
+   "seed": "42",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_qwe_mag_s999",
@@ -987,7 +4010,38 @@
    "Qwen",
    "Mag"
   ],
-  "file": "data/runs__sweep_qwe_mag_s999.json"
+  "file": "data/runs__sweep_qwe_mag_s999.json",
+  "stats": {
+   "n_agents": 20,
+   "steps": 100,
+   "posts": 43,
+   "comments": 577,
+   "cross": 285,
+   "H_in": {
+    "Qwen": 0.23,
+    "Mag": -0.25
+   },
+   "cpp": {
+    "Qwen": 7.4,
+    "Mag": 5.7
+   },
+   "post_share": {
+    "Qwen": 0.558,
+    "Mag": 0.442
+   },
+   "recv_share": {
+    "Qwen": 0.621,
+    "Mag": 0.379
+   },
+   "fair": {
+    "Qwen": 0.5,
+    "Mag": 0.5
+   },
+   "top": "Qwen",
+   "bottom": "Mag",
+   "seed": "999",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__tetratic__tetra_s271_r1",
@@ -999,7 +4053,48 @@
    "GLM-4",
    "Mag"
   ],
-  "file": "data/runs__tetratic__tetra_s271_r1.json"
+  "file": "data/runs__tetratic__tetra_s271_r1.json",
+  "stats": {
+   "n_agents": 40,
+   "steps": 100,
+   "posts": 183,
+   "comments": 1057,
+   "cross": 783,
+   "H_in": {
+    "gpt-oss": 1.11,
+    "Qwen": -0.01,
+    "GLM-4": -0.32,
+    "Mag": -0.79
+   },
+   "cpp": {
+    "gpt-oss": 8.3,
+    "Qwen": 3.5,
+    "GLM-4": 2.4,
+    "Mag": 1.8
+   },
+   "post_share": {
+    "gpt-oss": 0.273,
+    "Qwen": 0.301,
+    "GLM-4": 0.301,
+    "Mag": 0.126
+   },
+   "recv_share": {
+    "gpt-oss": 0.529,
+    "Qwen": 0.249,
+    "GLM-4": 0.17,
+    "Mag": 0.052
+   },
+   "fair": {
+    "gpt-oss": 0.25,
+    "Qwen": 0.25,
+    "GLM-4": 0.25,
+    "Mag": 0.25
+   },
+   "top": "gpt-oss",
+   "bottom": "Mag",
+   "seed": "271",
+   "rotation": "1"
+  }
  },
  {
   "run_id": "runs__tetratic__tetra_s271_r10",
@@ -1011,7 +4106,48 @@
    "GLM-4",
    "Mag"
   ],
-  "file": "data/runs__tetratic__tetra_s271_r10.json"
+  "file": "data/runs__tetratic__tetra_s271_r10.json",
+  "stats": {
+   "n_agents": 40,
+   "steps": 100,
+   "posts": 157,
+   "comments": 1079,
+   "cross": 792,
+   "H_in": {
+    "gpt-oss": 1.24,
+    "Qwen": 0.1,
+    "GLM-4": -0.69,
+    "Mag": -0.7
+   },
+   "cpp": {
+    "gpt-oss": 10.0,
+    "Qwen": 4.8,
+    "GLM-4": 1.3,
+    "Mag": 3.3
+   },
+   "post_share": {
+    "gpt-oss": 0.287,
+    "Qwen": 0.293,
+    "GLM-4": 0.306,
+    "Mag": 0.115
+   },
+   "recv_share": {
+    "gpt-oss": 0.566,
+    "Qwen": 0.279,
+    "GLM-4": 0.08,
+    "Mag": 0.076
+   },
+   "fair": {
+    "gpt-oss": 0.25,
+    "Qwen": 0.25,
+    "GLM-4": 0.25,
+    "Mag": 0.25
+   },
+   "top": "gpt-oss",
+   "bottom": "Mag",
+   "seed": "271",
+   "rotation": "10"
+  }
  },
  {
   "run_id": "runs__tetratic__tetra_s271_r11",
@@ -1023,7 +4159,48 @@
    "GLM-4",
    "Mag"
   ],
-  "file": "data/runs__tetratic__tetra_s271_r11.json"
+  "file": "data/runs__tetratic__tetra_s271_r11.json",
+  "stats": {
+   "n_agents": 40,
+   "steps": 100,
+   "posts": 160,
+   "comments": 1072,
+   "cross": 754,
+   "H_in": {
+    "gpt-oss": 0.55,
+    "Qwen": 0.13,
+    "GLM-4": -0.49,
+    "Mag": -0.4
+   },
+   "cpp": {
+    "gpt-oss": 8.6,
+    "Qwen": 4.6,
+    "GLM-4": 2.1,
+    "Mag": 4.6
+   },
+   "post_share": {
+    "gpt-oss": 0.225,
+    "Qwen": 0.306,
+    "GLM-4": 0.306,
+    "Mag": 0.163
+   },
+   "recv_share": {
+    "gpt-oss": 0.408,
+    "Qwen": 0.297,
+    "GLM-4": 0.135,
+    "Mag": 0.159
+   },
+   "fair": {
+    "gpt-oss": 0.25,
+    "Qwen": 0.25,
+    "GLM-4": 0.25,
+    "Mag": 0.25
+   },
+   "top": "gpt-oss",
+   "bottom": "GLM-4",
+   "seed": "271",
+   "rotation": "11"
+  }
  },
  {
   "run_id": "runs__tetratic__tetra_s271_r12",
@@ -1035,7 +4212,48 @@
    "GLM-4",
    "Mag"
   ],
-  "file": "data/runs__tetratic__tetra_s271_r12.json"
+  "file": "data/runs__tetratic__tetra_s271_r12.json",
+  "stats": {
+   "n_agents": 40,
+   "steps": 100,
+   "posts": 119,
+   "comments": 1113,
+   "cross": 811,
+   "H_in": {
+    "gpt-oss": 0.25,
+    "Qwen": 0.47,
+    "GLM-4": -0.26,
+    "Mag": -0.51
+   },
+   "cpp": {
+    "gpt-oss": 9.9,
+    "Qwen": 8.6,
+    "GLM-4": 4.2,
+    "Mag": 4.6
+   },
+   "post_share": {
+    "gpt-oss": 0.218,
+    "Qwen": 0.294,
+    "GLM-4": 0.303,
+    "Mag": 0.185
+   },
+   "recv_share": {
+    "gpt-oss": 0.317,
+    "Qwen": 0.372,
+    "GLM-4": 0.186,
+    "Mag": 0.125
+   },
+   "fair": {
+    "gpt-oss": 0.25,
+    "Qwen": 0.25,
+    "GLM-4": 0.25,
+    "Mag": 0.25
+   },
+   "top": "Qwen",
+   "bottom": "Mag",
+   "seed": "271",
+   "rotation": "12"
+  }
  },
  {
   "run_id": "runs__tetratic__tetra_s271_r2",
@@ -1047,7 +4265,48 @@
    "GLM-4",
    "Mag"
   ],
-  "file": "data/runs__tetratic__tetra_s271_r2.json"
+  "file": "data/runs__tetratic__tetra_s271_r2.json",
+  "stats": {
+   "n_agents": 40,
+   "steps": 100,
+   "posts": 210,
+   "comments": 1029,
+   "cross": 763,
+   "H_in": {
+    "gpt-oss": 1.14,
+    "Qwen": -0.11,
+    "GLM-4": -0.45,
+    "Mag": -0.61
+   },
+   "cpp": {
+    "gpt-oss": 7.6,
+    "Qwen": 2.7,
+    "GLM-4": 1.7,
+    "Mag": 2.5
+   },
+   "post_share": {
+    "gpt-oss": 0.257,
+    "Qwen": 0.3,
+    "GLM-4": 0.3,
+    "Mag": 0.143
+   },
+   "recv_share": {
+    "gpt-oss": 0.539,
+    "Qwen": 0.225,
+    "GLM-4": 0.138,
+    "Mag": 0.098
+   },
+   "fair": {
+    "gpt-oss": 0.25,
+    "Qwen": 0.25,
+    "GLM-4": 0.25,
+    "Mag": 0.25
+   },
+   "top": "gpt-oss",
+   "bottom": "Mag",
+   "seed": "271",
+   "rotation": "2"
+  }
  },
  {
   "run_id": "runs__tetratic__tetra_s271_r3",
@@ -1059,7 +4318,48 @@
    "GLM-4",
    "Mag"
   ],
-  "file": "data/runs__tetratic__tetra_s271_r3.json"
+  "file": "data/runs__tetratic__tetra_s271_r3.json",
+  "stats": {
+   "n_agents": 40,
+   "steps": 100,
+   "posts": 205,
+   "comments": 1055,
+   "cross": 753,
+   "H_in": {
+    "gpt-oss": 0.55,
+    "Qwen": 0.06,
+    "GLM-4": -0.19,
+    "Mag": -0.62
+   },
+   "cpp": {
+    "gpt-oss": 6.7,
+    "Qwen": 3.6,
+    "GLM-4": 2.6,
+    "Mag": 1.9
+   },
+   "post_share": {
+    "gpt-oss": 0.224,
+    "Qwen": 0.288,
+    "GLM-4": 0.298,
+    "Mag": 0.19
+   },
+   "recv_share": {
+    "gpt-oss": 0.408,
+    "Qwen": 0.279,
+    "GLM-4": 0.214,
+    "Mag": 0.1
+   },
+   "fair": {
+    "gpt-oss": 0.25,
+    "Qwen": 0.25,
+    "GLM-4": 0.25,
+    "Mag": 0.25
+   },
+   "top": "gpt-oss",
+   "bottom": "Mag",
+   "seed": "271",
+   "rotation": "3"
+  }
  },
  {
   "run_id": "runs__tetratic__tetra_s271_r4",
@@ -1071,7 +4371,48 @@
    "GLM-4",
    "Mag"
   ],
-  "file": "data/runs__tetratic__tetra_s271_r4.json"
+  "file": "data/runs__tetratic__tetra_s271_r4.json",
+  "stats": {
+   "n_agents": 40,
+   "steps": 100,
+   "posts": 187,
+   "comments": 1249,
+   "cross": 912,
+   "H_in": {
+    "gpt-oss": 0.32,
+    "Qwen": 0.66,
+    "GLM-4": -0.25,
+    "Mag": -0.76
+   },
+   "cpp": {
+    "gpt-oss": 6.5,
+    "Qwen": 6.8,
+    "GLM-4": 3.1,
+    "Mag": 1.6
+   },
+   "post_share": {
+    "gpt-oss": 0.241,
+    "Qwen": 0.289,
+    "GLM-4": 0.299,
+    "Mag": 0.171
+   },
+   "recv_share": {
+    "gpt-oss": 0.331,
+    "Qwen": 0.42,
+    "GLM-4": 0.19,
+    "Mag": 0.059
+   },
+   "fair": {
+    "gpt-oss": 0.25,
+    "Qwen": 0.25,
+    "GLM-4": 0.25,
+    "Mag": 0.25
+   },
+   "top": "Qwen",
+   "bottom": "Mag",
+   "seed": "271",
+   "rotation": "4"
+  }
  },
  {
   "run_id": "runs__tetratic__tetra_s271_r5",
@@ -1083,7 +4424,48 @@
    "GLM-4",
    "Mag"
   ],
-  "file": "data/runs__tetratic__tetra_s271_r5.json"
+  "file": "data/runs__tetratic__tetra_s271_r5.json",
+  "stats": {
+   "n_agents": 40,
+   "steps": 100,
+   "posts": 168,
+   "comments": 1067,
+   "cross": 743,
+   "H_in": {
+    "gpt-oss": 0.83,
+    "Qwen": 0.11,
+    "GLM-4": -0.44,
+    "Mag": -0.74
+   },
+   "cpp": {
+    "gpt-oss": 8.6,
+    "Qwen": 4.5,
+    "GLM-4": 2.1,
+    "Mag": 2.0
+   },
+   "post_share": {
+    "gpt-oss": 0.25,
+    "Qwen": 0.292,
+    "GLM-4": 0.31,
+    "Mag": 0.149
+   },
+   "recv_share": {
+    "gpt-oss": 0.487,
+    "Qwen": 0.296,
+    "GLM-4": 0.148,
+    "Mag": 0.069
+   },
+   "fair": {
+    "gpt-oss": 0.25,
+    "Qwen": 0.25,
+    "GLM-4": 0.25,
+    "Mag": 0.25
+   },
+   "top": "gpt-oss",
+   "bottom": "Mag",
+   "seed": "271",
+   "rotation": "5"
+  }
  },
  {
   "run_id": "runs__tetratic__tetra_s271_r6",
@@ -1095,7 +4477,48 @@
    "GLM-4",
    "Mag"
   ],
-  "file": "data/runs__tetratic__tetra_s271_r6.json"
+  "file": "data/runs__tetratic__tetra_s271_r6.json",
+  "stats": {
+   "n_agents": 40,
+   "steps": 100,
+   "posts": 155,
+   "comments": 1082,
+   "cross": 801,
+   "H_in": {
+    "gpt-oss": 1.08,
+    "Qwen": 0.0,
+    "GLM-4": -0.5,
+    "Mag": -0.61
+   },
+   "cpp": {
+    "gpt-oss": 11.3,
+    "Qwen": 4.3,
+    "GLM-4": 2.1,
+    "Mag": 3.4
+   },
+   "post_share": {
+    "gpt-oss": 0.239,
+    "Qwen": 0.303,
+    "GLM-4": 0.31,
+    "Mag": 0.148
+   },
+   "recv_share": {
+    "gpt-oss": 0.523,
+    "Qwen": 0.252,
+    "GLM-4": 0.126,
+    "Mag": 0.099
+   },
+   "fair": {
+    "gpt-oss": 0.25,
+    "Qwen": 0.25,
+    "GLM-4": 0.25,
+    "Mag": 0.25
+   },
+   "top": "gpt-oss",
+   "bottom": "Mag",
+   "seed": "271",
+   "rotation": "6"
+  }
  },
  {
   "run_id": "runs__tetratic__tetra_s271_r7",
@@ -1107,7 +4530,48 @@
    "GLM-4",
    "Mag"
   ],
-  "file": "data/runs__tetratic__tetra_s271_r7.json"
+  "file": "data/runs__tetratic__tetra_s271_r7.json",
+  "stats": {
+   "n_agents": 40,
+   "steps": 100,
+   "posts": 137,
+   "comments": 1101,
+   "cross": 816,
+   "H_in": {
+    "gpt-oss": 1.55,
+    "Qwen": -0.49,
+    "GLM-4": -0.29,
+    "Mag": -0.82
+   },
+   "cpp": {
+    "gpt-oss": 13.2,
+    "Qwen": 3.0,
+    "GLM-4": 3.6,
+    "Mag": 1.8
+   },
+   "post_share": {
+    "gpt-oss": 0.292,
+    "Qwen": 0.255,
+    "GLM-4": 0.299,
+    "Mag": 0.153
+   },
+   "recv_share": {
+    "gpt-oss": 0.646,
+    "Qwen": 0.129,
+    "GLM-4": 0.179,
+    "Mag": 0.047
+   },
+   "fair": {
+    "gpt-oss": 0.25,
+    "Qwen": 0.25,
+    "GLM-4": 0.25,
+    "Mag": 0.25
+   },
+   "top": "gpt-oss",
+   "bottom": "Mag",
+   "seed": "271",
+   "rotation": "7"
+  }
  },
  {
   "run_id": "runs__tetratic__tetra_s271_r8",
@@ -1119,7 +4583,48 @@
    "GLM-4",
    "Mag"
   ],
-  "file": "data/runs__tetratic__tetra_s271_r8.json"
+  "file": "data/runs__tetratic__tetra_s271_r8.json",
+  "stats": {
+   "n_agents": 40,
+   "steps": 100,
+   "posts": 133,
+   "comments": 1102,
+   "cross": 811,
+   "H_in": {
+    "gpt-oss": 0.85,
+    "Qwen": 0.3,
+    "GLM-4": -0.47,
+    "Mag": -0.72
+   },
+   "cpp": {
+    "gpt-oss": 10.8,
+    "Qwen": 7.0,
+    "GLM-4": 2.8,
+    "Mag": 2.8
+   },
+   "post_share": {
+    "gpt-oss": 0.263,
+    "Qwen": 0.286,
+    "GLM-4": 0.293,
+    "Mag": 0.158
+   },
+   "recv_share": {
+    "gpt-oss": 0.466,
+    "Qwen": 0.329,
+    "GLM-4": 0.133,
+    "Mag": 0.072
+   },
+   "fair": {
+    "gpt-oss": 0.25,
+    "Qwen": 0.25,
+    "GLM-4": 0.25,
+    "Mag": 0.25
+   },
+   "top": "gpt-oss",
+   "bottom": "Mag",
+   "seed": "271",
+   "rotation": "8"
+  }
  },
  {
   "run_id": "runs__tetratic__tetra_s271_r9",
@@ -1131,7 +4636,48 @@
    "GLM-4",
    "Mag"
   ],
-  "file": "data/runs__tetratic__tetra_s271_r9.json"
+  "file": "data/runs__tetratic__tetra_s271_r9.json",
+  "stats": {
+   "n_agents": 40,
+   "steps": 100,
+   "posts": 177,
+   "comments": 1060,
+   "cross": 770,
+   "H_in": {
+    "gpt-oss": 1.1,
+    "Qwen": 0.22,
+    "GLM-4": -0.59,
+    "Mag": -0.82
+   },
+   "cpp": {
+    "gpt-oss": 9.4,
+    "Qwen": 4.6,
+    "GLM-4": 1.5,
+    "Mag": 1.3
+   },
+   "post_share": {
+    "gpt-oss": 0.249,
+    "Qwen": 0.294,
+    "GLM-4": 0.311,
+    "Mag": 0.147
+   },
+   "recv_share": {
+    "gpt-oss": 0.538,
+    "Qwen": 0.313,
+    "GLM-4": 0.104,
+    "Mag": 0.045
+   },
+   "fair": {
+    "gpt-oss": 0.25,
+    "Qwen": 0.25,
+    "GLM-4": 0.25,
+    "Mag": 0.25
+   },
+   "top": "gpt-oss",
+   "bottom": "Mag",
+   "seed": "271",
+   "rotation": "9"
+  }
  },
  {
   "run_id": "runs__tetratic__tetra_s42_r1",
@@ -1143,7 +4689,48 @@
    "GLM-4",
    "Mag"
   ],
-  "file": "data/runs__tetratic__tetra_s42_r1.json"
+  "file": "data/runs__tetratic__tetra_s42_r1.json",
+  "stats": {
+   "n_agents": 40,
+   "steps": 100,
+   "posts": 173,
+   "comments": 1067,
+   "cross": 741,
+   "H_in": {
+    "gpt-oss": 0.88,
+    "Qwen": 0.18,
+    "GLM-4": -0.64,
+    "Mag": -0.71
+   },
+   "cpp": {
+    "gpt-oss": 8.5,
+    "Qwen": 4.5,
+    "GLM-4": 1.4,
+    "Mag": 2.4
+   },
+   "post_share": {
+    "gpt-oss": 0.254,
+    "Qwen": 0.306,
+    "GLM-4": 0.301,
+    "Mag": 0.139
+   },
+   "recv_share": {
+    "gpt-oss": 0.506,
+    "Qwen": 0.318,
+    "GLM-4": 0.097,
+    "Mag": 0.078
+   },
+   "fair": {
+    "gpt-oss": 0.25,
+    "Qwen": 0.25,
+    "GLM-4": 0.25,
+    "Mag": 0.25
+   },
+   "top": "gpt-oss",
+   "bottom": "Mag",
+   "seed": "42",
+   "rotation": "1"
+  }
  },
  {
   "run_id": "runs__tetratic__tetra_s42_r10",
@@ -1155,7 +4742,48 @@
    "GLM-4",
    "Mag"
   ],
-  "file": "data/runs__tetratic__tetra_s42_r10.json"
+  "file": "data/runs__tetratic__tetra_s42_r10.json",
+  "stats": {
+   "n_agents": 40,
+   "steps": 100,
+   "posts": 156,
+   "comments": 1080,
+   "cross": 780,
+   "H_in": {
+    "gpt-oss": 0.93,
+    "Qwen": 0.17,
+    "GLM-4": -0.56,
+    "Mag": -0.64
+   },
+   "cpp": {
+    "gpt-oss": 8.6,
+    "Qwen": 5.6,
+    "GLM-4": 1.9,
+    "Mag": 3.3
+   },
+   "post_share": {
+    "gpt-oss": 0.288,
+    "Qwen": 0.269,
+    "GLM-4": 0.301,
+    "Mag": 0.141
+   },
+   "recv_share": {
+    "gpt-oss": 0.494,
+    "Qwen": 0.3,
+    "GLM-4": 0.113,
+    "Mag": 0.094
+   },
+   "fair": {
+    "gpt-oss": 0.25,
+    "Qwen": 0.25,
+    "GLM-4": 0.25,
+    "Mag": 0.25
+   },
+   "top": "gpt-oss",
+   "bottom": "Mag",
+   "seed": "42",
+   "rotation": "10"
+  }
  },
  {
   "run_id": "runs__tetratic__tetra_s42_r11",
@@ -1167,7 +4795,48 @@
    "GLM-4",
    "Mag"
   ],
-  "file": "data/runs__tetratic__tetra_s42_r11.json"
+  "file": "data/runs__tetratic__tetra_s42_r11.json",
+  "stats": {
+   "n_agents": 40,
+   "steps": 100,
+   "posts": 190,
+   "comments": 1048,
+   "cross": 788,
+   "H_in": {
+    "gpt-oss": 0.7,
+    "Qwen": 0.37,
+    "GLM-4": -0.5,
+    "Mag": -0.54
+   },
+   "cpp": {
+    "gpt-oss": 6.1,
+    "Qwen": 4.8,
+    "GLM-4": 1.7,
+    "Mag": 4.1
+   },
+   "post_share": {
+    "gpt-oss": 0.284,
+    "Qwen": 0.295,
+    "GLM-4": 0.305,
+    "Mag": 0.116
+   },
+   "recv_share": {
+    "gpt-oss": 0.421,
+    "Qwen": 0.34,
+    "GLM-4": 0.124,
+    "Mag": 0.114
+   },
+   "fair": {
+    "gpt-oss": 0.25,
+    "Qwen": 0.25,
+    "GLM-4": 0.25,
+    "Mag": 0.25
+   },
+   "top": "gpt-oss",
+   "bottom": "Mag",
+   "seed": "42",
+   "rotation": "11"
+  }
  },
  {
   "run_id": "runs__tetratic__tetra_s42_r12",
@@ -1179,7 +4848,48 @@
    "GLM-4",
    "Mag"
   ],
-  "file": "data/runs__tetratic__tetra_s42_r12.json"
+  "file": "data/runs__tetratic__tetra_s42_r12.json",
+  "stats": {
+   "n_agents": 40,
+   "steps": 100,
+   "posts": 163,
+   "comments": 1076,
+   "cross": 761,
+   "H_in": {
+    "gpt-oss": 0.27,
+    "Qwen": 0.9,
+    "GLM-4": -0.57,
+    "Mag": -0.8
+   },
+   "cpp": {
+    "gpt-oss": 5.8,
+    "Qwen": 7.8,
+    "GLM-4": 1.8,
+    "Mag": 1.9
+   },
+   "post_share": {
+    "gpt-oss": 0.27,
+    "Qwen": 0.301,
+    "GLM-4": 0.301,
+    "Mag": 0.129
+   },
+   "recv_share": {
+    "gpt-oss": 0.335,
+    "Qwen": 0.499,
+    "GLM-4": 0.113,
+    "Mag": 0.053
+   },
+   "fair": {
+    "gpt-oss": 0.25,
+    "Qwen": 0.25,
+    "GLM-4": 0.25,
+    "Mag": 0.25
+   },
+   "top": "Qwen",
+   "bottom": "Mag",
+   "seed": "42",
+   "rotation": "12"
+  }
  },
  {
   "run_id": "runs__tetratic__tetra_s42_r2",
@@ -1191,7 +4901,48 @@
    "GLM-4",
    "Mag"
   ],
-  "file": "data/runs__tetratic__tetra_s42_r2.json"
+  "file": "data/runs__tetratic__tetra_s42_r2.json",
+  "stats": {
+   "n_agents": 40,
+   "steps": 100,
+   "posts": 149,
+   "comments": 1088,
+   "cross": 777,
+   "H_in": {
+    "gpt-oss": 1.35,
+    "Qwen": -0.25,
+    "GLM-4": -0.47,
+    "Mag": -0.8
+   },
+   "cpp": {
+    "gpt-oss": 10.6,
+    "Qwen": 3.4,
+    "GLM-4": 2.4,
+    "Mag": 2.9
+   },
+   "post_share": {
+    "gpt-oss": 0.302,
+    "Qwen": 0.302,
+    "GLM-4": 0.302,
+    "Mag": 0.094
+   },
+   "recv_share": {
+    "gpt-oss": 0.614,
+    "Qwen": 0.196,
+    "GLM-4": 0.138,
+    "Mag": 0.053
+   },
+   "fair": {
+    "gpt-oss": 0.25,
+    "Qwen": 0.25,
+    "GLM-4": 0.25,
+    "Mag": 0.25
+   },
+   "top": "gpt-oss",
+   "bottom": "Mag",
+   "seed": "42",
+   "rotation": "2"
+  }
  },
  {
   "run_id": "runs__tetratic__tetra_s42_r3",
@@ -1203,7 +4954,48 @@
    "GLM-4",
    "Mag"
   ],
-  "file": "data/runs__tetratic__tetra_s42_r3.json"
+  "file": "data/runs__tetratic__tetra_s42_r3.json",
+  "stats": {
+   "n_agents": 40,
+   "steps": 100,
+   "posts": 144,
+   "comments": 1088,
+   "cross": 774,
+   "H_in": {
+    "gpt-oss": 1.01,
+    "Qwen": -0.2,
+    "GLM-4": -0.42,
+    "Mag": -0.56
+   },
+   "cpp": {
+    "gpt-oss": 10.7,
+    "Qwen": 4.2,
+    "GLM-4": 2.6,
+    "Mag": 4.0
+   },
+   "post_share": {
+    "gpt-oss": 0.264,
+    "Qwen": 0.264,
+    "GLM-4": 0.319,
+    "Mag": 0.153
+   },
+   "recv_share": {
+    "gpt-oss": 0.526,
+    "Qwen": 0.208,
+    "GLM-4": 0.152,
+    "Mag": 0.114
+   },
+   "fair": {
+    "gpt-oss": 0.25,
+    "Qwen": 0.25,
+    "GLM-4": 0.25,
+    "Mag": 0.25
+   },
+   "top": "gpt-oss",
+   "bottom": "Mag",
+   "seed": "42",
+   "rotation": "3"
+  }
  },
  {
   "run_id": "runs__tetratic__tetra_s42_r4",
@@ -1215,7 +5007,48 @@
    "GLM-4",
    "Mag"
   ],
-  "file": "data/runs__tetratic__tetra_s42_r4.json"
+  "file": "data/runs__tetratic__tetra_s42_r4.json",
+  "stats": {
+   "n_agents": 40,
+   "steps": 100,
+   "posts": 146,
+   "comments": 1090,
+   "cross": 823,
+   "H_in": {
+    "gpt-oss": 1.17,
+    "Qwen": 0.12,
+    "GLM-4": -0.47,
+    "Mag": -0.79
+   },
+   "cpp": {
+    "gpt-oss": 10.8,
+    "Qwen": 5.2,
+    "GLM-4": 2.5,
+    "Mag": 2.5
+   },
+   "post_share": {
+    "gpt-oss": 0.281,
+    "Qwen": 0.301,
+    "GLM-4": 0.301,
+    "Mag": 0.116
+   },
+   "recv_share": {
+    "gpt-oss": 0.538,
+    "Qwen": 0.278,
+    "GLM-4": 0.132,
+    "Mag": 0.051
+   },
+   "fair": {
+    "gpt-oss": 0.25,
+    "Qwen": 0.25,
+    "GLM-4": 0.25,
+    "Mag": 0.25
+   },
+   "top": "gpt-oss",
+   "bottom": "Mag",
+   "seed": "42",
+   "rotation": "4"
+  }
  },
  {
   "run_id": "runs__tetratic__tetra_s42_r5",
@@ -1227,7 +5060,48 @@
    "GLM-4",
    "Mag"
   ],
-  "file": "data/runs__tetratic__tetra_s42_r5.json"
+  "file": "data/runs__tetratic__tetra_s42_r5.json",
+  "stats": {
+   "n_agents": 40,
+   "steps": 100,
+   "posts": 186,
+   "comments": 1086,
+   "cross": 772,
+   "H_in": {
+    "gpt-oss": 0.74,
+    "Qwen": 0.32,
+    "GLM-4": -0.43,
+    "Mag": -0.79
+   },
+   "cpp": {
+    "gpt-oss": 7.4,
+    "Qwen": 4.7,
+    "GLM-4": 2.0,
+    "Mag": 1.6
+   },
+   "post_share": {
+    "gpt-oss": 0.253,
+    "Qwen": 0.301,
+    "GLM-4": 0.301,
+    "Mag": 0.145
+   },
+   "recv_share": {
+    "gpt-oss": 0.453,
+    "Qwen": 0.343,
+    "GLM-4": 0.148,
+    "Mag": 0.056
+   },
+   "fair": {
+    "gpt-oss": 0.25,
+    "Qwen": 0.25,
+    "GLM-4": 0.25,
+    "Mag": 0.25
+   },
+   "top": "gpt-oss",
+   "bottom": "Mag",
+   "seed": "42",
+   "rotation": "5"
+  }
  },
  {
   "run_id": "runs__tetratic__tetra_s42_r6",
@@ -1239,7 +5113,48 @@
    "GLM-4",
    "Mag"
   ],
-  "file": "data/runs__tetratic__tetra_s42_r6.json"
+  "file": "data/runs__tetratic__tetra_s42_r6.json",
+  "stats": {
+   "n_agents": 40,
+   "steps": 100,
+   "posts": 240,
+   "comments": 1023,
+   "cross": 733,
+   "H_in": {
+    "gpt-oss": 0.95,
+    "Qwen": -0.17,
+    "GLM-4": -0.31,
+    "Mag": -0.67
+   },
+   "cpp": {
+    "gpt-oss": 5.7,
+    "Qwen": 2.1,
+    "GLM-4": 2.0,
+    "Mag": 2.1
+   },
+   "post_share": {
+    "gpt-oss": 0.263,
+    "Qwen": 0.3,
+    "GLM-4": 0.3,
+    "Mag": 0.138
+   },
+   "recv_share": {
+    "gpt-oss": 0.518,
+    "Qwen": 0.211,
+    "GLM-4": 0.181,
+    "Mag": 0.089
+   },
+   "fair": {
+    "gpt-oss": 0.25,
+    "Qwen": 0.25,
+    "GLM-4": 0.25,
+    "Mag": 0.25
+   },
+   "top": "gpt-oss",
+   "bottom": "Mag",
+   "seed": "42",
+   "rotation": "6"
+  }
  },
  {
   "run_id": "runs__tetratic__tetra_s42_r7",
@@ -1251,7 +5166,48 @@
    "GLM-4",
    "Mag"
   ],
-  "file": "data/runs__tetratic__tetra_s42_r7.json"
+  "file": "data/runs__tetratic__tetra_s42_r7.json",
+  "stats": {
+   "n_agents": 40,
+   "steps": 100,
+   "posts": 135,
+   "comments": 1101,
+   "cross": 815,
+   "H_in": {
+    "gpt-oss": 1.06,
+    "Qwen": 0.19,
+    "GLM-4": -0.58,
+    "Mag": -0.71
+   },
+   "cpp": {
+    "gpt-oss": 11.8,
+    "Qwen": 6.4,
+    "GLM-4": 2.0,
+    "Mag": 3.2
+   },
+   "post_share": {
+    "gpt-oss": 0.267,
+    "Qwen": 0.281,
+    "GLM-4": 0.311,
+    "Mag": 0.141
+   },
+   "recv_share": {
+    "gpt-oss": 0.52,
+    "Qwen": 0.301,
+    "GLM-4": 0.106,
+    "Mag": 0.074
+   },
+   "fair": {
+    "gpt-oss": 0.25,
+    "Qwen": 0.25,
+    "GLM-4": 0.25,
+    "Mag": 0.25
+   },
+   "top": "gpt-oss",
+   "bottom": "Mag",
+   "seed": "42",
+   "rotation": "7"
+  }
  },
  {
   "run_id": "runs__tetratic__tetra_s42_r8",
@@ -1263,7 +5219,48 @@
    "GLM-4",
    "Mag"
   ],
-  "file": "data/runs__tetratic__tetra_s42_r8.json"
+  "file": "data/runs__tetratic__tetra_s42_r8.json",
+  "stats": {
+   "n_agents": 40,
+   "steps": 100,
+   "posts": 220,
+   "comments": 1016,
+   "cross": 737,
+   "H_in": {
+    "gpt-oss": 1.36,
+    "Qwen": 0.1,
+    "GLM-4": -0.65,
+    "Mag": -0.88
+   },
+   "cpp": {
+    "gpt-oss": 7.0,
+    "Qwen": 3.1,
+    "GLM-4": 1.0,
+    "Mag": 0.9
+   },
+   "post_share": {
+    "gpt-oss": 0.286,
+    "Qwen": 0.3,
+    "GLM-4": 0.3,
+    "Mag": 0.114
+   },
+   "recv_share": {
+    "gpt-oss": 0.601,
+    "Qwen": 0.281,
+    "GLM-4": 0.088,
+    "Mag": 0.03
+   },
+   "fair": {
+    "gpt-oss": 0.25,
+    "Qwen": 0.25,
+    "GLM-4": 0.25,
+    "Mag": 0.25
+   },
+   "top": "gpt-oss",
+   "bottom": "Mag",
+   "seed": "42",
+   "rotation": "8"
+  }
  },
  {
   "run_id": "runs__tetratic__tetra_s42_r9",
@@ -1275,7 +5272,48 @@
    "GLM-4",
    "Mag"
   ],
-  "file": "data/runs__tetratic__tetra_s42_r9.json"
+  "file": "data/runs__tetratic__tetra_s42_r9.json",
+  "stats": {
+   "n_agents": 40,
+   "steps": 100,
+   "posts": 140,
+   "comments": 1095,
+   "cross": 818,
+   "H_in": {
+    "gpt-oss": 1.22,
+    "Qwen": -0.22,
+    "GLM-4": -0.29,
+    "Mag": -0.72
+   },
+   "cpp": {
+    "gpt-oss": 11.7,
+    "Qwen": 4.2,
+    "GLM-4": 3.5,
+    "Mag": 2.8
+   },
+   "post_share": {
+    "gpt-oss": 0.279,
+    "Qwen": 0.271,
+    "GLM-4": 0.3,
+    "Mag": 0.15
+   },
+   "recv_share": {
+    "gpt-oss": 0.556,
+    "Qwen": 0.196,
+    "GLM-4": 0.177,
+    "Mag": 0.071
+   },
+   "fair": {
+    "gpt-oss": 0.25,
+    "Qwen": 0.25,
+    "GLM-4": 0.25,
+    "Mag": 0.25
+   },
+   "top": "gpt-oss",
+   "bottom": "Mag",
+   "seed": "42",
+   "rotation": "9"
+  }
  },
  {
   "run_id": "runs__sweep_tri_gem_mag_glm_s271",
@@ -1286,7 +5324,43 @@
    "Mag",
    "Gemma"
   ],
-  "file": "data/runs__sweep_tri_gem_mag_glm_s271.json"
+  "file": "data/runs__sweep_tri_gem_mag_glm_s271.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 62,
+   "comments": 927,
+   "cross": 593,
+   "H_in": {
+    "GLM-4": -0.57,
+    "Mag": -0.12,
+    "Gemma": 0.55
+   },
+   "cpp": {
+    "GLM-4": 3.7,
+    "Mag": 11.4,
+    "Gemma": 14.6
+   },
+   "post_share": {
+    "GLM-4": 0.387,
+    "Mag": 0.258,
+    "Gemma": 0.355
+   },
+   "recv_share": {
+    "GLM-4": 0.15,
+    "Mag": 0.307,
+    "Gemma": 0.543
+   },
+   "fair": {
+    "GLM-4": 0.333,
+    "Mag": 0.333,
+    "Gemma": 0.333
+   },
+   "top": "Gemma",
+   "bottom": "GLM-4",
+   "seed": "271",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_gem_mag_glm_s42",
@@ -1297,7 +5371,43 @@
    "Mag",
    "Gemma"
   ],
-  "file": "data/runs__sweep_tri_gem_mag_glm_s42.json"
+  "file": "data/runs__sweep_tri_gem_mag_glm_s42.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 76,
+   "comments": 851,
+   "cross": 558,
+   "H_in": {
+    "GLM-4": -0.05,
+    "Mag": -0.4,
+    "Gemma": 0.4
+   },
+   "cpp": {
+    "GLM-4": 6.0,
+    "Mag": 5.7,
+    "Gemma": 10.2
+   },
+   "post_share": {
+    "GLM-4": 0.395,
+    "Mag": 0.263,
+    "Gemma": 0.342
+   },
+   "recv_share": {
+    "GLM-4": 0.323,
+    "Mag": 0.204,
+    "Gemma": 0.473
+   },
+   "fair": {
+    "GLM-4": 0.333,
+    "Mag": 0.333,
+    "Gemma": 0.333
+   },
+   "top": "Gemma",
+   "bottom": "Mag",
+   "seed": "42",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_gem_mag_glm_s999",
@@ -1308,7 +5418,43 @@
    "Mag",
    "Gemma"
   ],
-  "file": "data/runs__sweep_tri_gem_mag_glm_s999.json"
+  "file": "data/runs__sweep_tri_gem_mag_glm_s999.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 82,
+   "comments": 914,
+   "cross": 575,
+   "H_in": {
+    "GLM-4": -0.04,
+    "Mag": 0.16,
+    "Gemma": -0.32
+   },
+   "cpp": {
+    "GLM-4": 6.2,
+    "Mag": 6.9,
+    "Gemma": 8.0
+   },
+   "post_share": {
+    "GLM-4": 0.39,
+    "Mag": 0.39,
+    "Gemma": 0.22
+   },
+   "recv_share": {
+    "GLM-4": 0.337,
+    "Mag": 0.428,
+    "Gemma": 0.235
+   },
+   "fair": {
+    "GLM-4": 0.333,
+    "Mag": 0.333,
+    "Gemma": 0.333
+   },
+   "top": "Mag",
+   "bottom": "Gemma",
+   "seed": "999",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_gem_oss_glm_s271",
@@ -1319,7 +5465,43 @@
    "GLM-4",
    "Gemma"
   ],
-  "file": "data/runs__sweep_tri_gem_oss_glm_s271.json"
+  "file": "data/runs__sweep_tri_gem_oss_glm_s271.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 71,
+   "comments": 853,
+   "cross": 530,
+   "H_in": {
+    "gpt-oss": 0.22,
+    "GLM-4": -0.11,
+    "Gemma": -0.28
+   },
+   "cpp": {
+    "gpt-oss": 8.8,
+    "GLM-4": 6.0,
+    "Gemma": 7.9
+   },
+   "post_share": {
+    "gpt-oss": 0.366,
+    "GLM-4": 0.394,
+    "Gemma": 0.239
+   },
+   "recv_share": {
+    "gpt-oss": 0.432,
+    "GLM-4": 0.315,
+    "Gemma": 0.253
+   },
+   "fair": {
+    "gpt-oss": 0.333,
+    "GLM-4": 0.333,
+    "Gemma": 0.333
+   },
+   "top": "gpt-oss",
+   "bottom": "Gemma",
+   "seed": "271",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_gem_oss_glm_s42",
@@ -1330,7 +5512,43 @@
    "GLM-4",
    "Gemma"
   ],
-  "file": "data/runs__sweep_tri_gem_oss_glm_s42.json"
+  "file": "data/runs__sweep_tri_gem_oss_glm_s42.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 82,
+   "comments": 835,
+   "cross": 520,
+   "H_in": {
+    "gpt-oss": 0.57,
+    "GLM-4": -0.42,
+    "Gemma": -0.34
+   },
+   "cpp": {
+    "gpt-oss": 9.1,
+    "GLM-4": 3.4,
+    "Gemma": 6.8
+   },
+   "post_share": {
+    "gpt-oss": 0.39,
+    "GLM-4": 0.39,
+    "Gemma": 0.22
+   },
+   "recv_share": {
+    "gpt-oss": 0.558,
+    "GLM-4": 0.208,
+    "Gemma": 0.235
+   },
+   "fair": {
+    "gpt-oss": 0.333,
+    "GLM-4": 0.333,
+    "Gemma": 0.333
+   },
+   "top": "gpt-oss",
+   "bottom": "GLM-4",
+   "seed": "42",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_gem_oss_glm_s999",
@@ -1341,7 +5559,43 @@
    "GLM-4",
    "Gemma"
   ],
-  "file": "data/runs__sweep_tri_gem_oss_glm_s999.json"
+  "file": "data/runs__sweep_tri_gem_oss_glm_s999.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 82,
+   "comments": 836,
+   "cross": 535,
+   "H_in": {
+    "gpt-oss": 0.39,
+    "GLM-4": -0.27,
+    "Gemma": -0.24
+   },
+   "cpp": {
+    "gpt-oss": 8.9,
+    "GLM-4": 4.2,
+    "Gemma": 6.7
+   },
+   "post_share": {
+    "gpt-oss": 0.354,
+    "GLM-4": 0.39,
+    "Gemma": 0.256
+   },
+   "recv_share": {
+    "gpt-oss": 0.482,
+    "GLM-4": 0.254,
+    "Gemma": 0.264
+   },
+   "fair": {
+    "gpt-oss": 0.333,
+    "GLM-4": 0.333,
+    "Gemma": 0.333
+   },
+   "top": "gpt-oss",
+   "bottom": "GLM-4",
+   "seed": "999",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_gem_oss_mag_s271",
@@ -1352,7 +5606,43 @@
    "Mag",
    "Gemma"
   ],
-  "file": "data/runs__sweep_tri_gem_oss_mag_s271.json"
+  "file": "data/runs__sweep_tri_gem_oss_mag_s271.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 60,
+   "comments": 860,
+   "cross": 568,
+   "H_in": {
+    "gpt-oss": 0.26,
+    "Mag": 0.07,
+    "Gemma": -0.36
+   },
+   "cpp": {
+    "gpt-oss": 10.5,
+    "Mag": 8.9,
+    "Gemma": 8.7
+   },
+   "post_share": {
+    "gpt-oss": 0.383,
+    "Mag": 0.383,
+    "Gemma": 0.233
+   },
+   "recv_share": {
+    "gpt-oss": 0.424,
+    "Mag": 0.361,
+    "Gemma": 0.215
+   },
+   "fair": {
+    "gpt-oss": 0.333,
+    "Mag": 0.333,
+    "Gemma": 0.333
+   },
+   "top": "gpt-oss",
+   "bottom": "Gemma",
+   "seed": "271",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_gem_oss_mag_s42",
@@ -1363,7 +5653,43 @@
    "Mag",
    "Gemma"
   ],
-  "file": "data/runs__sweep_tri_gem_oss_mag_s42.json"
+  "file": "data/runs__sweep_tri_gem_oss_mag_s42.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 67,
+   "comments": 857,
+   "cross": 537,
+   "H_in": {
+    "gpt-oss": 0.39,
+    "Mag": -0.13,
+    "Gemma": -0.44
+   },
+   "cpp": {
+    "gpt-oss": 10.2,
+    "Mag": 6.9,
+    "Gemma": 6.3
+   },
+   "post_share": {
+    "gpt-oss": 0.388,
+    "Mag": 0.358,
+    "Gemma": 0.254
+   },
+   "recv_share": {
+    "gpt-oss": 0.492,
+    "Mag": 0.309,
+    "Gemma": 0.199
+   },
+   "fair": {
+    "gpt-oss": 0.333,
+    "Mag": 0.333,
+    "Gemma": 0.333
+   },
+   "top": "gpt-oss",
+   "bottom": "Gemma",
+   "seed": "42",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_gem_oss_mag_s999",
@@ -1374,7 +5700,43 @@
    "Mag",
    "Gemma"
   ],
-  "file": "data/runs__sweep_tri_gem_oss_mag_s999.json"
+  "file": "data/runs__sweep_tri_gem_oss_mag_s999.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 61,
+   "comments": 865,
+   "cross": 564,
+   "H_in": {
+    "gpt-oss": 0.34,
+    "Mag": 0.22,
+    "Gemma": -0.62
+   },
+   "cpp": {
+    "gpt-oss": 11.2,
+    "Mag": 11.1,
+    "Gemma": 4.3
+   },
+   "post_share": {
+    "gpt-oss": 0.377,
+    "Mag": 0.344,
+    "Gemma": 0.279
+   },
+   "recv_share": {
+    "gpt-oss": 0.456,
+    "Mag": 0.415,
+    "Gemma": 0.129
+   },
+   "fair": {
+    "gpt-oss": 0.333,
+    "Mag": 0.333,
+    "Gemma": 0.333
+   },
+   "top": "gpt-oss",
+   "bottom": "Gemma",
+   "seed": "999",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_gem_qwe_glm_s271",
@@ -1385,7 +5747,43 @@
    "GLM-4",
    "Gemma"
   ],
-  "file": "data/runs__sweep_tri_gem_qwe_glm_s271.json"
+  "file": "data/runs__sweep_tri_gem_qwe_glm_s271.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 77,
+   "comments": 851,
+   "cross": 565,
+   "H_in": {
+    "Qwen": 0.35,
+    "GLM-4": -0.04,
+    "Gemma": -0.33
+   },
+   "cpp": {
+    "Qwen": 8.5,
+    "GLM-4": 6.1,
+    "Gemma": 7.5
+   },
+   "post_share": {
+    "Qwen": 0.39,
+    "GLM-4": 0.39,
+    "Gemma": 0.221
+   },
+   "recv_share": {
+    "Qwen": 0.453,
+    "GLM-4": 0.322,
+    "Gemma": 0.225
+   },
+   "fair": {
+    "Qwen": 0.333,
+    "GLM-4": 0.333,
+    "Gemma": 0.333
+   },
+   "top": "Qwen",
+   "bottom": "Gemma",
+   "seed": "271",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_gem_qwe_glm_s42",
@@ -1396,7 +5794,43 @@
    "GLM-4",
    "Gemma"
   ],
-  "file": "data/runs__sweep_tri_gem_qwe_glm_s42.json"
+  "file": "data/runs__sweep_tri_gem_qwe_glm_s42.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 99,
+   "comments": 834,
+   "cross": 555,
+   "H_in": {
+    "Qwen": 0.39,
+    "GLM-4": -0.17,
+    "Gemma": -0.21
+   },
+   "cpp": {
+    "Qwen": 6.7,
+    "GLM-4": 4.0,
+    "Gemma": 6.3
+   },
+   "post_share": {
+    "Qwen": 0.384,
+    "GLM-4": 0.384,
+    "Gemma": 0.232
+   },
+   "recv_share": {
+    "Qwen": 0.461,
+    "GLM-4": 0.276,
+    "Gemma": 0.263
+   },
+   "fair": {
+    "Qwen": 0.333,
+    "GLM-4": 0.333,
+    "Gemma": 0.333
+   },
+   "top": "Qwen",
+   "bottom": "Gemma",
+   "seed": "42",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_gem_qwe_glm_s999",
@@ -1407,7 +5841,43 @@
    "GLM-4",
    "Gemma"
   ],
-  "file": "data/runs__sweep_tri_gem_qwe_glm_s999.json"
+  "file": "data/runs__sweep_tri_gem_qwe_glm_s999.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 100,
+   "comments": 829,
+   "cross": 537,
+   "H_in": {
+    "Qwen": 0.34,
+    "GLM-4": -0.28,
+    "Gemma": -0.12
+   },
+   "cpp": {
+    "Qwen": 6.6,
+    "GLM-4": 3.3,
+    "Gemma": 7.0
+   },
+   "post_share": {
+    "Qwen": 0.37,
+    "GLM-4": 0.4,
+    "Gemma": 0.23
+   },
+   "recv_share": {
+    "Qwen": 0.456,
+    "GLM-4": 0.244,
+    "Gemma": 0.3
+   },
+   "fair": {
+    "Qwen": 0.333,
+    "GLM-4": 0.333,
+    "Gemma": 0.333
+   },
+   "top": "Qwen",
+   "bottom": "GLM-4",
+   "seed": "999",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_gem_qwe_mag_s271",
@@ -1418,7 +5888,43 @@
    "Mag",
    "Gemma"
   ],
-  "file": "data/runs__sweep_tri_gem_qwe_mag_s271.json"
+  "file": "data/runs__sweep_tri_gem_qwe_mag_s271.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 60,
+   "comments": 866,
+   "cross": 548,
+   "H_in": {
+    "Qwen": -0.07,
+    "Mag": -0.03,
+    "Gemma": -0.06
+   },
+   "cpp": {
+    "Qwen": 7.8,
+    "Mag": 9.0,
+    "Gemma": 11.3
+   },
+   "post_share": {
+    "Qwen": 0.383,
+    "Mag": 0.35,
+    "Gemma": 0.267
+   },
+   "recv_share": {
+    "Qwen": 0.327,
+    "Mag": 0.343,
+    "Gemma": 0.33
+   },
+   "fair": {
+    "Qwen": 0.333,
+    "Mag": 0.333,
+    "Gemma": 0.333
+   },
+   "top": "Mag",
+   "bottom": "Qwen",
+   "seed": "271",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_gem_qwe_mag_s42",
@@ -1429,7 +5935,43 @@
    "Mag",
    "Gemma"
   ],
-  "file": "data/runs__sweep_tri_gem_qwe_mag_s42.json"
+  "file": "data/runs__sweep_tri_gem_qwe_mag_s42.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 83,
+   "comments": 846,
+   "cross": 531,
+   "H_in": {
+    "Qwen": 0.06,
+    "Mag": -0.44,
+    "Gemma": 0.21
+   },
+   "cpp": {
+    "Qwen": 6.2,
+    "Mag": 3.9,
+    "Gemma": 9.5
+   },
+   "post_share": {
+    "Qwen": 0.386,
+    "Mag": 0.325,
+    "Gemma": 0.289
+   },
+   "recv_share": {
+    "Qwen": 0.375,
+    "Mag": 0.198,
+    "Gemma": 0.427
+   },
+   "fair": {
+    "Qwen": 0.333,
+    "Mag": 0.333,
+    "Gemma": 0.333
+   },
+   "top": "Gemma",
+   "bottom": "Mag",
+   "seed": "42",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_gem_qwe_mag_s999",
@@ -1440,7 +5982,43 @@
    "Mag",
    "Gemma"
   ],
-  "file": "data/runs__sweep_tri_gem_qwe_mag_s999.json"
+  "file": "data/runs__sweep_tri_gem_qwe_mag_s999.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 79,
+   "comments": 837,
+   "cross": 548,
+   "H_in": {
+    "Qwen": 0.31,
+    "Mag": -0.42,
+    "Gemma": 0.04
+   },
+   "cpp": {
+    "Qwen": 7.9,
+    "Mag": 4.3,
+    "Gemma": 8.5
+   },
+   "post_share": {
+    "Qwen": 0.392,
+    "Mag": 0.316,
+    "Gemma": 0.291
+   },
+   "recv_share": {
+    "Qwen": 0.447,
+    "Mag": 0.197,
+    "Gemma": 0.356
+   },
+   "fair": {
+    "Qwen": 0.333,
+    "Mag": 0.333,
+    "Gemma": 0.333
+   },
+   "top": "Qwen",
+   "bottom": "Mag",
+   "seed": "999",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_gem_qwe_oss_s271",
@@ -1451,7 +6029,43 @@
    "Qwen",
    "Gemma"
   ],
-  "file": "data/runs__sweep_tri_gem_qwe_oss_s271.json"
+  "file": "data/runs__sweep_tri_gem_qwe_oss_s271.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 60,
+   "comments": 866,
+   "cross": 563,
+   "H_in": {
+    "gpt-oss": 0.2,
+    "Qwen": 0.15,
+    "Gemma": -0.44
+   },
+   "cpp": {
+    "gpt-oss": 10.1,
+    "Qwen": 9.7,
+    "Gemma": 7.7
+   },
+   "post_share": {
+    "gpt-oss": 0.383,
+    "Qwen": 0.383,
+    "Gemma": 0.233
+   },
+   "recv_share": {
+    "gpt-oss": 0.412,
+    "Qwen": 0.396,
+    "Gemma": 0.192
+   },
+   "fair": {
+    "gpt-oss": 0.333,
+    "Qwen": 0.333,
+    "Gemma": 0.333
+   },
+   "top": "gpt-oss",
+   "bottom": "Gemma",
+   "seed": "271",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_gem_qwe_oss_s42",
@@ -1462,7 +6076,43 @@
    "Qwen",
    "Gemma"
   ],
-  "file": "data/runs__sweep_tri_gem_qwe_oss_s42.json"
+  "file": "data/runs__sweep_tri_gem_qwe_oss_s42.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 87,
+   "comments": 838,
+   "cross": 554,
+   "H_in": {
+    "gpt-oss": -0.0,
+    "Qwen": 0.06,
+    "Gemma": -0.1
+   },
+   "cpp": {
+    "gpt-oss": 5.8,
+    "Qwen": 6.0,
+    "Gemma": 7.7
+   },
+   "post_share": {
+    "gpt-oss": 0.368,
+    "Qwen": 0.379,
+    "Gemma": 0.253
+   },
+   "recv_share": {
+    "gpt-oss": 0.336,
+    "Qwen": 0.359,
+    "Gemma": 0.305
+   },
+   "fair": {
+    "gpt-oss": 0.333,
+    "Qwen": 0.333,
+    "Gemma": 0.333
+   },
+   "top": "Qwen",
+   "bottom": "Gemma",
+   "seed": "42",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_gem_qwe_oss_s999",
@@ -1473,7 +6123,43 @@
    "Qwen",
    "Gemma"
   ],
-  "file": "data/runs__sweep_tri_gem_qwe_oss_s999.json"
+  "file": "data/runs__sweep_tri_gem_qwe_oss_s999.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 70,
+   "comments": 858,
+   "cross": 582,
+   "H_in": {
+    "gpt-oss": 0.4,
+    "Qwen": 0.17,
+    "Gemma": -0.51
+   },
+   "cpp": {
+    "gpt-oss": 9.9,
+    "Qwen": 8.2,
+    "Gemma": 5.8
+   },
+   "post_share": {
+    "gpt-oss": 0.386,
+    "Qwen": 0.386,
+    "Gemma": 0.229
+   },
+   "recv_share": {
+    "gpt-oss": 0.459,
+    "Qwen": 0.381,
+    "Gemma": 0.16
+   },
+   "fair": {
+    "gpt-oss": 0.333,
+    "Qwen": 0.333,
+    "Gemma": 0.333
+   },
+   "top": "gpt-oss",
+   "bottom": "Gemma",
+   "seed": "999",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_glm_mag_gem_s271",
@@ -1484,7 +6170,43 @@
    "Mag",
    "Gemma"
   ],
-  "file": "data/runs__sweep_tri_glm_mag_gem_s271.json"
+  "file": "data/runs__sweep_tri_glm_mag_gem_s271.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 71,
+   "comments": 846,
+   "cross": 558,
+   "H_in": {
+    "GLM-4": 0.22,
+    "Mag": 0.15,
+    "Gemma": -0.4
+   },
+   "cpp": {
+    "GLM-4": 7.9,
+    "Mag": 9.4,
+    "Gemma": 5.9
+   },
+   "post_share": {
+    "GLM-4": 0.408,
+    "Mag": 0.324,
+    "Gemma": 0.268
+   },
+   "recv_share": {
+    "GLM-4": 0.412,
+    "Mag": 0.387,
+    "Gemma": 0.201
+   },
+   "fair": {
+    "GLM-4": 0.333,
+    "Mag": 0.333,
+    "Gemma": 0.333
+   },
+   "top": "GLM-4",
+   "bottom": "Gemma",
+   "seed": "271",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_glm_mag_gem_s42",
@@ -1495,7 +6217,43 @@
    "Mag",
    "Gemma"
   ],
-  "file": "data/runs__sweep_tri_glm_mag_gem_s42.json"
+  "file": "data/runs__sweep_tri_glm_mag_gem_s42.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 57,
+   "comments": 865,
+   "cross": 564,
+   "H_in": {
+    "GLM-4": -0.13,
+    "Mag": 0.34,
+    "Gemma": -0.3
+   },
+   "cpp": {
+    "GLM-4": 7.3,
+    "Mag": 13.6,
+    "Gemma": 9.1
+   },
+   "post_share": {
+    "GLM-4": 0.404,
+    "Mag": 0.333,
+    "Gemma": 0.263
+   },
+   "recv_share": {
+    "GLM-4": 0.3,
+    "Mag": 0.459,
+    "Gemma": 0.241
+   },
+   "fair": {
+    "GLM-4": 0.333,
+    "Mag": 0.333,
+    "Gemma": 0.333
+   },
+   "top": "Mag",
+   "bottom": "Gemma",
+   "seed": "42",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_glm_mag_gem_s999",
@@ -1506,7 +6264,43 @@
    "Mag",
    "Gemma"
   ],
-  "file": "data/runs__sweep_tri_glm_mag_gem_s999.json"
+  "file": "data/runs__sweep_tri_glm_mag_gem_s999.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 81,
+   "comments": 840,
+   "cross": 544,
+   "H_in": {
+    "GLM-4": -0.31,
+    "Mag": -0.01,
+    "Gemma": 0.23
+   },
+   "cpp": {
+    "GLM-4": 3.9,
+    "Mag": 8.0,
+    "Gemma": 9.2
+   },
+   "post_share": {
+    "GLM-4": 0.407,
+    "Mag": 0.284,
+    "Gemma": 0.309
+   },
+   "recv_share": {
+    "GLM-4": 0.237,
+    "Mag": 0.34,
+    "Gemma": 0.423
+   },
+   "fair": {
+    "GLM-4": 0.333,
+    "Mag": 0.333,
+    "Gemma": 0.333
+   },
+   "top": "Gemma",
+   "bottom": "GLM-4",
+   "seed": "999",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_glm_oss_gem_s271",
@@ -1517,7 +6311,43 @@
    "GLM-4",
    "Gemma"
   ],
-  "file": "data/runs__sweep_tri_glm_oss_gem_s271.json"
+  "file": "data/runs__sweep_tri_glm_oss_gem_s271.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 67,
+   "comments": 862,
+   "cross": 544,
+   "H_in": {
+    "gpt-oss": 0.27,
+    "GLM-4": 0.04,
+    "Gemma": -0.45
+   },
+   "cpp": {
+    "gpt-oss": 10.0,
+    "GLM-4": 7.3,
+    "Gemma": 6.6
+   },
+   "post_share": {
+    "gpt-oss": 0.358,
+    "GLM-4": 0.403,
+    "Gemma": 0.239
+   },
+   "recv_share": {
+    "gpt-oss": 0.443,
+    "GLM-4": 0.364,
+    "Gemma": 0.193
+   },
+   "fair": {
+    "gpt-oss": 0.333,
+    "GLM-4": 0.333,
+    "Gemma": 0.333
+   },
+   "top": "gpt-oss",
+   "bottom": "Gemma",
+   "seed": "271",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_glm_oss_gem_s42",
@@ -1528,7 +6358,43 @@
    "GLM-4",
    "Gemma"
   ],
-  "file": "data/runs__sweep_tri_glm_oss_gem_s42.json"
+  "file": "data/runs__sweep_tri_glm_oss_gem_s42.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 73,
+   "comments": 853,
+   "cross": 561,
+   "H_in": {
+    "gpt-oss": 0.53,
+    "GLM-4": -0.02,
+    "Gemma": -0.53
+   },
+   "cpp": {
+    "gpt-oss": 9.9,
+    "GLM-4": 6.6,
+    "Gemma": 5.6
+   },
+   "post_share": {
+    "gpt-oss": 0.397,
+    "GLM-4": 0.384,
+    "Gemma": 0.219
+   },
+   "recv_share": {
+    "gpt-oss": 0.512,
+    "GLM-4": 0.33,
+    "Gemma": 0.159
+   },
+   "fair": {
+    "gpt-oss": 0.333,
+    "GLM-4": 0.333,
+    "Gemma": 0.333
+   },
+   "top": "gpt-oss",
+   "bottom": "Gemma",
+   "seed": "42",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_glm_oss_gem_s999",
@@ -1539,7 +6405,43 @@
    "GLM-4",
    "Gemma"
   ],
-  "file": "data/runs__sweep_tri_glm_oss_gem_s999.json"
+  "file": "data/runs__sweep_tri_glm_oss_gem_s999.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 72,
+   "comments": 850,
+   "cross": 559,
+   "H_in": {
+    "gpt-oss": 0.52,
+    "GLM-4": -0.14,
+    "Gemma": -0.44
+   },
+   "cpp": {
+    "gpt-oss": 10.3,
+    "GLM-4": 5.8,
+    "Gemma": 6.7
+   },
+   "post_share": {
+    "gpt-oss": 0.389,
+    "GLM-4": 0.389,
+    "Gemma": 0.222
+   },
+   "recv_share": {
+    "gpt-oss": 0.517,
+    "GLM-4": 0.292,
+    "Gemma": 0.191
+   },
+   "fair": {
+    "gpt-oss": 0.333,
+    "GLM-4": 0.333,
+    "Gemma": 0.333
+   },
+   "top": "gpt-oss",
+   "bottom": "Gemma",
+   "seed": "999",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_glm_oss_mag_s271",
@@ -1550,7 +6452,43 @@
    "GLM-4",
    "Mag"
   ],
-  "file": "data/runs__sweep_tri_glm_oss_mag_s271.json"
+  "file": "data/runs__sweep_tri_glm_oss_mag_s271.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 86,
+   "comments": 836,
+   "cross": 532,
+   "H_in": {
+    "gpt-oss": 0.61,
+    "GLM-4": -0.28,
+    "Mag": -0.47
+   },
+   "cpp": {
+    "gpt-oss": 9.4,
+    "GLM-4": 4.1,
+    "Mag": 4.7
+   },
+   "post_share": {
+    "gpt-oss": 0.372,
+    "GLM-4": 0.384,
+    "Mag": 0.244
+   },
+   "recv_share": {
+    "gpt-oss": 0.564,
+    "GLM-4": 0.252,
+    "Mag": 0.184
+   },
+   "fair": {
+    "gpt-oss": 0.333,
+    "GLM-4": 0.333,
+    "Mag": 0.333
+   },
+   "top": "gpt-oss",
+   "bottom": "Mag",
+   "seed": "271",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_glm_oss_mag_s42",
@@ -1561,7 +6499,43 @@
    "GLM-4",
    "Mag"
   ],
-  "file": "data/runs__sweep_tri_glm_oss_mag_s42.json"
+  "file": "data/runs__sweep_tri_glm_oss_mag_s42.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 78,
+   "comments": 850,
+   "cross": 566,
+   "H_in": {
+    "gpt-oss": 0.83,
+    "GLM-4": -0.31,
+    "Mag": -0.52
+   },
+   "cpp": {
+    "gpt-oss": 11.5,
+    "GLM-4": 4.3,
+    "Mag": 5.1
+   },
+   "post_share": {
+    "gpt-oss": 0.385,
+    "GLM-4": 0.385,
+    "Mag": 0.231
+   },
+   "recv_share": {
+    "gpt-oss": 0.61,
+    "GLM-4": 0.23,
+    "Mag": 0.161
+   },
+   "fair": {
+    "gpt-oss": 0.333,
+    "GLM-4": 0.333,
+    "Mag": 0.333
+   },
+   "top": "gpt-oss",
+   "bottom": "Mag",
+   "seed": "42",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_glm_oss_mag_s999",
@@ -1572,7 +6546,43 @@
    "GLM-4",
    "Mag"
   ],
-  "file": "data/runs__sweep_tri_glm_oss_mag_s999.json"
+  "file": "data/runs__sweep_tri_glm_oss_mag_s999.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 84,
+   "comments": 842,
+   "cross": 525,
+   "H_in": {
+    "gpt-oss": 0.84,
+    "GLM-4": -0.41,
+    "Mag": -0.63
+   },
+   "cpp": {
+    "gpt-oss": 10.8,
+    "GLM-4": 3.4,
+    "Mag": 3.7
+   },
+   "post_share": {
+    "gpt-oss": 0.381,
+    "GLM-4": 0.393,
+    "Mag": 0.226
+   },
+   "recv_share": {
+    "gpt-oss": 0.655,
+    "GLM-4": 0.211,
+    "Mag": 0.133
+   },
+   "fair": {
+    "gpt-oss": 0.333,
+    "GLM-4": 0.333,
+    "Mag": 0.333
+   },
+   "top": "gpt-oss",
+   "bottom": "Mag",
+   "seed": "999",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_glm_qwe_gem_s271",
@@ -1583,7 +6593,43 @@
    "GLM-4",
    "Gemma"
   ],
-  "file": "data/runs__sweep_tri_glm_qwe_gem_s271.json"
+  "file": "data/runs__sweep_tri_glm_qwe_gem_s271.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 109,
+   "comments": 805,
+   "cross": 505,
+   "H_in": {
+    "Qwen": 0.02,
+    "GLM-4": 0.18,
+    "Gemma": -0.35
+   },
+   "cpp": {
+    "Qwen": 4.2,
+    "GLM-4": 5.1,
+    "Gemma": 4.7
+   },
+   "post_share": {
+    "Qwen": 0.385,
+    "GLM-4": 0.394,
+    "Gemma": 0.22
+   },
+   "recv_share": {
+    "Qwen": 0.362,
+    "GLM-4": 0.404,
+    "Gemma": 0.234
+   },
+   "fair": {
+    "Qwen": 0.333,
+    "GLM-4": 0.333,
+    "Gemma": 0.333
+   },
+   "top": "GLM-4",
+   "bottom": "Gemma",
+   "seed": "271",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_glm_qwe_gem_s42",
@@ -1594,7 +6640,43 @@
    "GLM-4",
    "Gemma"
   ],
-  "file": "data/runs__sweep_tri_glm_qwe_gem_s42.json"
+  "file": "data/runs__sweep_tri_glm_qwe_gem_s42.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 115,
+   "comments": 813,
+   "cross": 495,
+   "H_in": {
+    "Qwen": 0.42,
+    "GLM-4": -0.32,
+    "Gemma": -0.36
+   },
+   "cpp": {
+    "Qwen": 6.0,
+    "GLM-4": 2.7,
+    "Gemma": 4.5
+   },
+   "post_share": {
+    "Qwen": 0.374,
+    "GLM-4": 0.4,
+    "Gemma": 0.226
+   },
+   "recv_share": {
+    "Qwen": 0.517,
+    "GLM-4": 0.248,
+    "Gemma": 0.234
+   },
+   "fair": {
+    "Qwen": 0.333,
+    "GLM-4": 0.333,
+    "Gemma": 0.333
+   },
+   "top": "Qwen",
+   "bottom": "Gemma",
+   "seed": "42",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_glm_qwe_gem_s999",
@@ -1605,7 +6687,43 @@
    "GLM-4",
    "Gemma"
   ],
-  "file": "data/runs__sweep_tri_glm_qwe_gem_s999.json"
+  "file": "data/runs__sweep_tri_glm_qwe_gem_s999.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 120,
+   "comments": 955,
+   "cross": 630,
+   "H_in": {
+    "Qwen": 0.39,
+    "GLM-4": -0.46,
+    "Gemma": -0.01
+   },
+   "cpp": {
+    "Qwen": 6.0,
+    "GLM-4": 2.8,
+    "Gemma": 7.0
+   },
+   "post_share": {
+    "Qwen": 0.383,
+    "GLM-4": 0.383,
+    "Gemma": 0.233
+   },
+   "recv_share": {
+    "Qwen": 0.484,
+    "GLM-4": 0.17,
+    "Gemma": 0.346
+   },
+   "fair": {
+    "Qwen": 0.333,
+    "GLM-4": 0.333,
+    "Gemma": 0.333
+   },
+   "top": "Qwen",
+   "bottom": "GLM-4",
+   "seed": "999",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_glm_qwe_mag_s271",
@@ -1616,7 +6734,43 @@
    "GLM-4",
    "Mag"
   ],
-  "file": "data/runs__sweep_tri_glm_qwe_mag_s271.json"
+  "file": "data/runs__sweep_tri_glm_qwe_mag_s271.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 126,
+   "comments": 799,
+   "cross": 488,
+   "H_in": {
+    "Qwen": -0.05,
+    "GLM-4": 0.08,
+    "Mag": -0.28
+   },
+   "cpp": {
+    "Qwen": 3.5,
+    "GLM-4": 4.0,
+    "Mag": 4.3
+   },
+   "post_share": {
+    "Qwen": 0.381,
+    "GLM-4": 0.381,
+    "Mag": 0.238
+   },
+   "recv_share": {
+    "Qwen": 0.344,
+    "GLM-4": 0.393,
+    "Mag": 0.262
+   },
+   "fair": {
+    "Qwen": 0.333,
+    "GLM-4": 0.333,
+    "Mag": 0.333
+   },
+   "top": "GLM-4",
+   "bottom": "Mag",
+   "seed": "271",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_glm_qwe_mag_s42",
@@ -1627,7 +6781,43 @@
    "GLM-4",
    "Mag"
   ],
-  "file": "data/runs__sweep_tri_glm_qwe_mag_s42.json"
+  "file": "data/runs__sweep_tri_glm_qwe_mag_s42.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 95,
+   "comments": 833,
+   "cross": 528,
+   "H_in": {
+    "Qwen": 0.17,
+    "GLM-4": 0.09,
+    "Mag": -0.36
+   },
+   "cpp": {
+    "Qwen": 6.3,
+    "GLM-4": 5.4,
+    "Mag": 4.8
+   },
+   "post_share": {
+    "Qwen": 0.358,
+    "GLM-4": 0.389,
+    "Mag": 0.253
+   },
+   "recv_share": {
+    "Qwen": 0.403,
+    "GLM-4": 0.377,
+    "Mag": 0.22
+   },
+   "fair": {
+    "Qwen": 0.333,
+    "GLM-4": 0.333,
+    "Mag": 0.333
+   },
+   "top": "Qwen",
+   "bottom": "Mag",
+   "seed": "42",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_glm_qwe_mag_s999",
@@ -1638,7 +6828,43 @@
    "GLM-4",
    "Mag"
   ],
-  "file": "data/runs__sweep_tri_glm_qwe_mag_s999.json"
+  "file": "data/runs__sweep_tri_glm_qwe_mag_s999.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 115,
+   "comments": 811,
+   "cross": 545,
+   "H_in": {
+    "Qwen": 0.19,
+    "GLM-4": 0.2,
+    "Mag": -0.35
+   },
+   "cpp": {
+    "Qwen": 4.8,
+    "GLM-4": 4.8,
+    "Mag": 4.5
+   },
+   "post_share": {
+    "Qwen": 0.383,
+    "GLM-4": 0.391,
+    "Mag": 0.226
+   },
+   "recv_share": {
+    "Qwen": 0.391,
+    "GLM-4": 0.396,
+    "Mag": 0.213
+   },
+   "fair": {
+    "Qwen": 0.333,
+    "GLM-4": 0.333,
+    "Mag": 0.333
+   },
+   "top": "GLM-4",
+   "bottom": "Mag",
+   "seed": "999",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_glm_qwe_oss_s271",
@@ -1649,7 +6875,43 @@
    "Qwen",
    "GLM-4"
   ],
-  "file": "data/runs__sweep_tri_glm_qwe_oss_s271.json"
+  "file": "data/runs__sweep_tri_glm_qwe_oss_s271.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 166,
+   "comments": 760,
+   "cross": 467,
+   "H_in": {
+    "gpt-oss": 0.33,
+    "Qwen": -0.13,
+    "GLM-4": -0.39
+   },
+   "cpp": {
+    "gpt-oss": 5.4,
+    "Qwen": 2.4,
+    "GLM-4": 1.6
+   },
+   "post_share": {
+    "gpt-oss": 0.247,
+    "Qwen": 0.367,
+    "GLM-4": 0.386
+   },
+   "recv_share": {
+    "gpt-oss": 0.473,
+    "Qwen": 0.31,
+    "GLM-4": 0.216
+   },
+   "fair": {
+    "gpt-oss": 0.333,
+    "Qwen": 0.333,
+    "GLM-4": 0.333
+   },
+   "top": "gpt-oss",
+   "bottom": "GLM-4",
+   "seed": "271",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_glm_qwe_oss_s42",
@@ -1660,7 +6922,43 @@
    "Qwen",
    "GLM-4"
   ],
-  "file": "data/runs__sweep_tri_glm_qwe_oss_s42.json"
+  "file": "data/runs__sweep_tri_glm_qwe_oss_s42.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 211,
+   "comments": 716,
+   "cross": 447,
+   "H_in": {
+    "gpt-oss": 0.62,
+    "Qwen": -0.3,
+    "GLM-4": -0.45
+   },
+   "cpp": {
+    "gpt-oss": 5.0,
+    "Qwen": 1.4,
+    "GLM-4": 1.1
+   },
+   "post_share": {
+    "gpt-oss": 0.237,
+    "Qwen": 0.379,
+    "GLM-4": 0.384
+   },
+   "recv_share": {
+    "gpt-oss": 0.564,
+    "Qwen": 0.244,
+    "GLM-4": 0.192
+   },
+   "fair": {
+    "gpt-oss": 0.333,
+    "Qwen": 0.333,
+    "GLM-4": 0.333
+   },
+   "top": "gpt-oss",
+   "bottom": "GLM-4",
+   "seed": "42",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_glm_qwe_oss_s999",
@@ -1671,7 +6969,43 @@
    "Qwen",
    "GLM-4"
   ],
-  "file": "data/runs__sweep_tri_glm_qwe_oss_s999.json"
+  "file": "data/runs__sweep_tri_glm_qwe_oss_s999.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 153,
+   "comments": 774,
+   "cross": 494,
+   "H_in": {
+    "gpt-oss": 0.57,
+    "Qwen": -0.26,
+    "GLM-4": -0.42
+   },
+   "cpp": {
+    "gpt-oss": 6.2,
+    "Qwen": 2.4,
+    "GLM-4": 1.7
+   },
+   "post_share": {
+    "gpt-oss": 0.281,
+    "Qwen": 0.34,
+    "GLM-4": 0.379
+   },
+   "recv_share": {
+    "gpt-oss": 0.543,
+    "Qwen": 0.257,
+    "GLM-4": 0.2
+   },
+   "fair": {
+    "gpt-oss": 0.333,
+    "Qwen": 0.333,
+    "GLM-4": 0.333
+   },
+   "top": "gpt-oss",
+   "bottom": "GLM-4",
+   "seed": "999",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_mag_glm_gem_s271",
@@ -1682,7 +7016,43 @@
    "Mag",
    "Gemma"
   ],
-  "file": "data/runs__sweep_tri_mag_glm_gem_s271.json"
+  "file": "data/runs__sweep_tri_mag_glm_gem_s271.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 78,
+   "comments": 849,
+   "cross": 527,
+   "H_in": {
+    "GLM-4": -0.22,
+    "Mag": 0.25,
+    "Gemma": -0.21
+   },
+   "cpp": {
+    "GLM-4": 4.7,
+    "Mag": 8.3,
+    "Gemma": 7.8
+   },
+   "post_share": {
+    "GLM-4": 0.397,
+    "Mag": 0.359,
+    "Gemma": 0.244
+   },
+   "recv_share": {
+    "GLM-4": 0.277,
+    "Mag": 0.442,
+    "Gemma": 0.281
+   },
+   "fair": {
+    "GLM-4": 0.333,
+    "Mag": 0.333,
+    "Gemma": 0.333
+   },
+   "top": "Mag",
+   "bottom": "GLM-4",
+   "seed": "271",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_mag_glm_gem_s42",
@@ -1693,7 +7063,43 @@
    "Mag",
    "Gemma"
   ],
-  "file": "data/runs__sweep_tri_mag_glm_gem_s42.json"
+  "file": "data/runs__sweep_tri_mag_glm_gem_s42.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 93,
+   "comments": 827,
+   "cross": 510,
+   "H_in": {
+    "GLM-4": 0.04,
+    "Mag": -0.1,
+    "Gemma": -0.16
+   },
+   "cpp": {
+    "GLM-4": 5.2,
+    "Mag": 4.9,
+    "Gemma": 7.0
+   },
+   "post_share": {
+    "GLM-4": 0.398,
+    "Mag": 0.366,
+    "Gemma": 0.237
+   },
+   "recv_share": {
+    "GLM-4": 0.375,
+    "Mag": 0.324,
+    "Gemma": 0.302
+   },
+   "fair": {
+    "GLM-4": 0.333,
+    "Mag": 0.333,
+    "Gemma": 0.333
+   },
+   "top": "GLM-4",
+   "bottom": "Gemma",
+   "seed": "42",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_mag_glm_gem_s999",
@@ -1704,7 +7110,43 @@
    "Mag",
    "Gemma"
   ],
-  "file": "data/runs__sweep_tri_mag_glm_gem_s999.json"
+  "file": "data/runs__sweep_tri_mag_glm_gem_s999.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 79,
+   "comments": 846,
+   "cross": 556,
+   "H_in": {
+    "GLM-4": 0.59,
+    "Mag": -0.55,
+    "Gemma": -0.07
+   },
+   "cpp": {
+    "GLM-4": 9.6,
+    "Mag": 3.3,
+    "Gemma": 7.9
+   },
+   "post_share": {
+    "GLM-4": 0.392,
+    "Mag": 0.329,
+    "Gemma": 0.278
+   },
+   "recv_share": {
+    "GLM-4": 0.536,
+    "Mag": 0.153,
+    "Gemma": 0.311
+   },
+   "fair": {
+    "GLM-4": 0.333,
+    "Mag": 0.333,
+    "Gemma": 0.333
+   },
+   "top": "GLM-4",
+   "bottom": "Mag",
+   "seed": "999",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_mag_oss_gem_s271",
@@ -1715,7 +7157,43 @@
    "Mag",
    "Gemma"
   ],
-  "file": "data/runs__sweep_tri_mag_oss_gem_s271.json"
+  "file": "data/runs__sweep_tri_mag_oss_gem_s271.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 63,
+   "comments": 848,
+   "cross": 578,
+   "H_in": {
+    "gpt-oss": 0.59,
+    "Mag": 0.05,
+    "Gemma": -0.55
+   },
+   "cpp": {
+    "gpt-oss": 12.4,
+    "Mag": 8.2,
+    "Gemma": 5.6
+   },
+   "post_share": {
+    "gpt-oss": 0.381,
+    "Mag": 0.381,
+    "Gemma": 0.238
+   },
+   "recv_share": {
+    "gpt-oss": 0.514,
+    "Mag": 0.341,
+    "Gemma": 0.145
+   },
+   "fair": {
+    "gpt-oss": 0.333,
+    "Mag": 0.333,
+    "Gemma": 0.333
+   },
+   "top": "gpt-oss",
+   "bottom": "Gemma",
+   "seed": "271",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_mag_oss_gem_s42",
@@ -1726,7 +7204,43 @@
    "Mag",
    "Gemma"
   ],
-  "file": "data/runs__sweep_tri_mag_oss_gem_s42.json"
+  "file": "data/runs__sweep_tri_mag_oss_gem_s42.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 96,
+   "comments": 826,
+   "cross": 525,
+   "H_in": {
+    "gpt-oss": 0.27,
+    "Mag": -0.27,
+    "Gemma": -0.13
+   },
+   "cpp": {
+    "gpt-oss": 7.5,
+    "Mag": 3.5,
+    "Gemma": 5.9
+   },
+   "post_share": {
+    "gpt-oss": 0.323,
+    "Mag": 0.396,
+    "Gemma": 0.281
+   },
+   "recv_share": {
+    "gpt-oss": 0.442,
+    "Mag": 0.255,
+    "Gemma": 0.303
+   },
+   "fair": {
+    "gpt-oss": 0.333,
+    "Mag": 0.333,
+    "Gemma": 0.333
+   },
+   "top": "gpt-oss",
+   "bottom": "Mag",
+   "seed": "42",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_mag_oss_gem_s999",
@@ -1737,7 +7251,43 @@
    "Mag",
    "Gemma"
   ],
-  "file": "data/runs__sweep_tri_mag_oss_gem_s999.json"
+  "file": "data/runs__sweep_tri_mag_oss_gem_s999.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 80,
+   "comments": 837,
+   "cross": 547,
+   "H_in": {
+    "gpt-oss": 0.85,
+    "Mag": -0.48,
+    "Gemma": -0.44
+   },
+   "cpp": {
+    "gpt-oss": 11.5,
+    "Mag": 3.1,
+    "Gemma": 5.5
+   },
+   "post_share": {
+    "gpt-oss": 0.375,
+    "Mag": 0.388,
+    "Gemma": 0.237
+   },
+   "recv_share": {
+    "gpt-oss": 0.631,
+    "Mag": 0.177,
+    "Gemma": 0.192
+   },
+   "fair": {
+    "gpt-oss": 0.333,
+    "Mag": 0.333,
+    "Gemma": 0.333
+   },
+   "top": "gpt-oss",
+   "bottom": "Mag",
+   "seed": "999",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_mag_oss_glm_s271",
@@ -1748,7 +7298,39 @@
    "GLM-4",
    "Mag"
   ],
-  "file": "data/runs__sweep_tri_mag_oss_glm_s271.json"
+  "file": "data/runs__sweep_tri_mag_oss_glm_s271.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 123,
+   "comments": 957,
+   "cross": 595,
+   "H_in": {},
+   "cpp": {
+    "gpt-oss": 0.0,
+    "GLM-4": 0.0,
+    "Mag": 0.0
+   },
+   "post_share": {
+    "gpt-oss": 0.358,
+    "GLM-4": 0.398,
+    "Mag": 0.244
+   },
+   "recv_share": {
+    "gpt-oss": 0.59,
+    "GLM-4": 0.197,
+    "Mag": 0.213
+   },
+   "fair": {
+    "gpt-oss": 0.333,
+    "GLM-4": 0.333,
+    "Mag": 0.333
+   },
+   "top": null,
+   "bottom": null,
+   "seed": "271",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_mag_oss_glm_s42",
@@ -1759,7 +7341,43 @@
    "GLM-4",
    "Mag"
   ],
-  "file": "data/runs__sweep_tri_mag_oss_glm_s42.json"
+  "file": "data/runs__sweep_tri_mag_oss_glm_s42.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 92,
+   "comments": 993,
+   "cross": 629,
+   "H_in": {
+    "gpt-oss": 0.71,
+    "GLM-4": -0.55,
+    "Mag": -0.29
+   },
+   "cpp": {
+    "gpt-oss": 10.4,
+    "GLM-4": 2.7,
+    "Mag": 8.2
+   },
+   "post_share": {
+    "gpt-oss": 0.391,
+    "GLM-4": 0.402,
+    "Mag": 0.207
+   },
+   "recv_share": {
+    "gpt-oss": 0.595,
+    "GLM-4": 0.157,
+    "Mag": 0.248
+   },
+   "fair": {
+    "gpt-oss": 0.333,
+    "GLM-4": 0.333,
+    "Mag": 0.333
+   },
+   "top": "gpt-oss",
+   "bottom": "GLM-4",
+   "seed": "42",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_mag_oss_glm_s999",
@@ -1770,7 +7388,43 @@
    "GLM-4",
    "Mag"
   ],
-  "file": "data/runs__sweep_tri_mag_oss_glm_s999.json"
+  "file": "data/runs__sweep_tri_mag_oss_glm_s999.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 64,
+   "comments": 864,
+   "cross": 584,
+   "H_in": {
+    "gpt-oss": 0.64,
+    "GLM-4": -0.05,
+    "Mag": -0.55
+   },
+   "cpp": {
+    "gpt-oss": 12.6,
+    "GLM-4": 7.3,
+    "Mag": 6.2
+   },
+   "post_share": {
+    "gpt-oss": 0.391,
+    "GLM-4": 0.391,
+    "Mag": 0.219
+   },
+   "recv_share": {
+    "gpt-oss": 0.539,
+    "GLM-4": 0.312,
+    "Mag": 0.149
+   },
+   "fair": {
+    "gpt-oss": 0.333,
+    "GLM-4": 0.333,
+    "Mag": 0.333
+   },
+   "top": "gpt-oss",
+   "bottom": "Mag",
+   "seed": "999",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_mag_qwe_gem_s271",
@@ -1781,7 +7435,43 @@
    "Mag",
    "Gemma"
   ],
-  "file": "data/runs__sweep_tri_mag_qwe_gem_s271.json"
+  "file": "data/runs__sweep_tri_mag_qwe_gem_s271.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 58,
+   "comments": 868,
+   "cross": 551,
+   "H_in": {
+    "Qwen": 0.13,
+    "Mag": 0.03,
+    "Gemma": -0.32
+   },
+   "cpp": {
+    "Qwen": 10.0,
+    "Mag": 11.1,
+    "Gemma": 7.3
+   },
+   "post_share": {
+    "Qwen": 0.379,
+    "Mag": 0.31,
+    "Gemma": 0.31
+   },
+   "recv_share": {
+    "Qwen": 0.397,
+    "Mag": 0.363,
+    "Gemma": 0.24
+   },
+   "fair": {
+    "Qwen": 0.333,
+    "Mag": 0.333,
+    "Gemma": 0.333
+   },
+   "top": "Qwen",
+   "bottom": "Gemma",
+   "seed": "271",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_mag_qwe_gem_s42",
@@ -1792,7 +7482,43 @@
    "Mag",
    "Gemma"
   ],
-  "file": "data/runs__sweep_tri_mag_qwe_gem_s42.json"
+  "file": "data/runs__sweep_tri_mag_qwe_gem_s42.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 59,
+   "comments": 864,
+   "cross": 564,
+   "H_in": {
+    "Qwen": 0.28,
+    "Mag": 0.0,
+    "Gemma": -0.35
+   },
+   "cpp": {
+    "Qwen": 10.7,
+    "Mag": 11.4,
+    "Gemma": 6.6
+   },
+   "post_share": {
+    "Qwen": 0.39,
+    "Mag": 0.288,
+    "Gemma": 0.322
+   },
+   "recv_share": {
+    "Qwen": 0.436,
+    "Mag": 0.342,
+    "Gemma": 0.222
+   },
+   "fair": {
+    "Qwen": 0.333,
+    "Mag": 0.333,
+    "Gemma": 0.333
+   },
+   "top": "Qwen",
+   "bottom": "Gemma",
+   "seed": "42",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_mag_qwe_gem_s999",
@@ -1803,7 +7529,43 @@
    "Mag",
    "Gemma"
   ],
-  "file": "data/runs__sweep_tri_mag_qwe_gem_s999.json"
+  "file": "data/runs__sweep_tri_mag_qwe_gem_s999.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 59,
+   "comments": 866,
+   "cross": 559,
+   "H_in": {
+    "Qwen": 0.28,
+    "Mag": -0.25,
+    "Gemma": -0.15
+   },
+   "cpp": {
+    "Qwen": 10.8,
+    "Mag": 9.1,
+    "Gemma": 8.3
+   },
+   "post_share": {
+    "Qwen": 0.39,
+    "Mag": 0.271,
+    "Gemma": 0.339
+   },
+   "recv_share": {
+    "Qwen": 0.444,
+    "Mag": 0.259,
+    "Gemma": 0.297
+   },
+   "fair": {
+    "Qwen": 0.333,
+    "Mag": 0.333,
+    "Gemma": 0.333
+   },
+   "top": "Qwen",
+   "bottom": "Mag",
+   "seed": "999",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_mag_qwe_glm_s271",
@@ -1814,7 +7576,43 @@
    "GLM-4",
    "Mag"
   ],
-  "file": "data/runs__sweep_tri_mag_qwe_glm_s271.json"
+  "file": "data/runs__sweep_tri_mag_qwe_glm_s271.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 75,
+   "comments": 848,
+   "cross": 553,
+   "H_in": {
+    "Qwen": 0.17,
+    "GLM-4": 0.09,
+    "Mag": -0.31
+   },
+   "cpp": {
+    "Qwen": 7.6,
+    "GLM-4": 7.0,
+    "Mag": 7.6
+   },
+   "post_share": {
+    "Qwen": 0.387,
+    "GLM-4": 0.387,
+    "Mag": 0.227
+   },
+   "recv_share": {
+    "Qwen": 0.396,
+    "GLM-4": 0.369,
+    "Mag": 0.235
+   },
+   "fair": {
+    "Qwen": 0.333,
+    "GLM-4": 0.333,
+    "Mag": 0.333
+   },
+   "top": "Qwen",
+   "bottom": "Mag",
+   "seed": "271",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_mag_qwe_glm_s42",
@@ -1825,7 +7623,43 @@
    "GLM-4",
    "Mag"
   ],
-  "file": "data/runs__sweep_tri_mag_qwe_glm_s42.json"
+  "file": "data/runs__sweep_tri_mag_qwe_glm_s42.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 104,
+   "comments": 822,
+   "cross": 523,
+   "H_in": {
+    "Qwen": 0.38,
+    "GLM-4": -0.21,
+    "Mag": -0.26
+   },
+   "cpp": {
+    "Qwen": 6.2,
+    "GLM-4": 3.5,
+    "Mag": 5.8
+   },
+   "post_share": {
+    "Qwen": 0.385,
+    "GLM-4": 0.394,
+    "Mag": 0.221
+   },
+   "recv_share": {
+    "Qwen": 0.474,
+    "GLM-4": 0.272,
+    "Mag": 0.254
+   },
+   "fair": {
+    "Qwen": 0.333,
+    "GLM-4": 0.333,
+    "Mag": 0.333
+   },
+   "top": "Qwen",
+   "bottom": "Mag",
+   "seed": "42",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_mag_qwe_glm_s999",
@@ -1836,7 +7670,43 @@
    "GLM-4",
    "Mag"
   ],
-  "file": "data/runs__sweep_tri_mag_qwe_glm_s999.json"
+  "file": "data/runs__sweep_tri_mag_qwe_glm_s999.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 77,
+   "comments": 853,
+   "cross": 557,
+   "H_in": {
+    "Qwen": 0.25,
+    "GLM-4": 0.08,
+    "Mag": -0.36
+   },
+   "cpp": {
+    "Qwen": 7.8,
+    "GLM-4": 6.8,
+    "Mag": 7.1
+   },
+   "post_share": {
+    "Qwen": 0.39,
+    "GLM-4": 0.39,
+    "Mag": 0.221
+   },
+   "recv_share": {
+    "Qwen": 0.42,
+    "GLM-4": 0.364,
+    "Mag": 0.215
+   },
+   "fair": {
+    "Qwen": 0.333,
+    "GLM-4": 0.333,
+    "Mag": 0.333
+   },
+   "top": "Qwen",
+   "bottom": "Mag",
+   "seed": "999",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_mag_qwe_oss_s271",
@@ -1847,7 +7717,43 @@
    "Qwen",
    "Mag"
   ],
-  "file": "data/runs__sweep_tri_mag_qwe_oss_s271.json"
+  "file": "data/runs__sweep_tri_mag_qwe_oss_s271.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 133,
+   "comments": 794,
+   "cross": 525,
+   "H_in": {
+    "gpt-oss": 0.14,
+    "Qwen": -0.0,
+    "Mag": -0.18
+   },
+   "cpp": {
+    "gpt-oss": 4.6,
+    "Qwen": 3.5,
+    "Mag": 3.7
+   },
+   "post_share": {
+    "gpt-oss": 0.331,
+    "Qwen": 0.376,
+    "Mag": 0.293
+   },
+   "recv_share": {
+    "gpt-oss": 0.385,
+    "Qwen": 0.337,
+    "Mag": 0.278
+   },
+   "fair": {
+    "gpt-oss": 0.333,
+    "Qwen": 0.333,
+    "Mag": 0.333
+   },
+   "top": "gpt-oss",
+   "bottom": "Mag",
+   "seed": "271",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_mag_qwe_oss_s42",
@@ -1858,7 +7764,43 @@
    "Qwen",
    "Mag"
   ],
-  "file": "data/runs__sweep_tri_mag_qwe_oss_s42.json"
+  "file": "data/runs__sweep_tri_mag_qwe_oss_s42.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 83,
+   "comments": 845,
+   "cross": 556,
+   "H_in": {
+    "gpt-oss": 0.58,
+    "Qwen": -0.23,
+    "Mag": -0.37
+   },
+   "cpp": {
+    "gpt-oss": 9.8,
+    "Qwen": 4.6,
+    "Mag": 5.4
+   },
+   "post_share": {
+    "gpt-oss": 0.361,
+    "Qwen": 0.373,
+    "Mag": 0.265
+   },
+   "recv_share": {
+    "gpt-oss": 0.531,
+    "Qwen": 0.257,
+    "Mag": 0.212
+   },
+   "fair": {
+    "gpt-oss": 0.333,
+    "Qwen": 0.333,
+    "Mag": 0.333
+   },
+   "top": "gpt-oss",
+   "bottom": "Mag",
+   "seed": "42",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_mag_qwe_oss_s999",
@@ -1869,7 +7811,43 @@
    "Qwen",
    "Mag"
   ],
-  "file": "data/runs__sweep_tri_mag_qwe_oss_s999.json"
+  "file": "data/runs__sweep_tri_mag_qwe_oss_s999.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 102,
+   "comments": 824,
+   "cross": 532,
+   "H_in": {
+    "gpt-oss": 0.47,
+    "Qwen": 0.08,
+    "Mag": -0.64
+   },
+   "cpp": {
+    "gpt-oss": 7.5,
+    "Qwen": 5.1,
+    "Mag": 2.4
+   },
+   "post_share": {
+    "gpt-oss": 0.353,
+    "Qwen": 0.382,
+    "Mag": 0.265
+   },
+   "recv_share": {
+    "gpt-oss": 0.506,
+    "Qwen": 0.372,
+    "Mag": 0.122
+   },
+   "fair": {
+    "gpt-oss": 0.333,
+    "Qwen": 0.333,
+    "Mag": 0.333
+   },
+   "top": "gpt-oss",
+   "bottom": "Mag",
+   "seed": "999",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_oss_glm_gem_s271",
@@ -1880,7 +7858,43 @@
    "GLM-4",
    "Gemma"
   ],
-  "file": "data/runs__sweep_tri_oss_glm_gem_s271.json"
+  "file": "data/runs__sweep_tri_oss_glm_gem_s271.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 60,
+   "comments": 855,
+   "cross": 558,
+   "H_in": {
+    "gpt-oss": 0.57,
+    "GLM-4": -0.08,
+    "Gemma": -0.55
+   },
+   "cpp": {
+    "gpt-oss": 13.0,
+    "GLM-4": 7.6,
+    "Gemma": 6.1
+   },
+   "post_share": {
+    "gpt-oss": 0.383,
+    "GLM-4": 0.383,
+    "Gemma": 0.233
+   },
+   "recv_share": {
+    "gpt-oss": 0.534,
+    "GLM-4": 0.314,
+    "Gemma": 0.152
+   },
+   "fair": {
+    "gpt-oss": 0.333,
+    "GLM-4": 0.333,
+    "Gemma": 0.333
+   },
+   "top": "gpt-oss",
+   "bottom": "Gemma",
+   "seed": "271",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_oss_glm_gem_s42",
@@ -1891,7 +7905,43 @@
    "GLM-4",
    "Gemma"
   ],
-  "file": "data/runs__sweep_tri_oss_glm_gem_s42.json"
+  "file": "data/runs__sweep_tri_oss_glm_gem_s42.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 93,
+   "comments": 834,
+   "cross": 514,
+   "H_in": {
+    "gpt-oss": 0.56,
+    "GLM-4": -0.4,
+    "Gemma": -0.38
+   },
+   "cpp": {
+    "gpt-oss": 8.7,
+    "GLM-4": 3.0,
+    "Gemma": 5.0
+   },
+   "post_share": {
+    "gpt-oss": 0.355,
+    "GLM-4": 0.398,
+    "Gemma": 0.247
+   },
+   "recv_share": {
+    "gpt-oss": 0.56,
+    "GLM-4": 0.216,
+    "Gemma": 0.224
+   },
+   "fair": {
+    "gpt-oss": 0.333,
+    "GLM-4": 0.333,
+    "Gemma": 0.333
+   },
+   "top": "gpt-oss",
+   "bottom": "GLM-4",
+   "seed": "42",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_oss_glm_gem_s999",
@@ -1902,7 +7952,43 @@
    "GLM-4",
    "Gemma"
   ],
-  "file": "data/runs__sweep_tri_oss_glm_gem_s999.json"
+  "file": "data/runs__sweep_tri_oss_glm_gem_s999.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 74,
+   "comments": 851,
+   "cross": 557,
+   "H_in": {
+    "gpt-oss": 0.18,
+    "GLM-4": 0.08,
+    "Gemma": -0.31
+   },
+   "cpp": {
+    "gpt-oss": 7.9,
+    "GLM-4": 7.0,
+    "Gemma": 7.7
+   },
+   "post_share": {
+    "gpt-oss": 0.378,
+    "GLM-4": 0.392,
+    "Gemma": 0.23
+   },
+   "recv_share": {
+    "gpt-oss": 0.399,
+    "GLM-4": 0.366,
+    "Gemma": 0.235
+   },
+   "fair": {
+    "gpt-oss": 0.333,
+    "GLM-4": 0.333,
+    "Gemma": 0.333
+   },
+   "top": "gpt-oss",
+   "bottom": "Gemma",
+   "seed": "999",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_oss_mag_gem_s271",
@@ -1913,7 +7999,43 @@
    "Mag",
    "Gemma"
   ],
-  "file": "data/runs__sweep_tri_oss_mag_gem_s271.json"
+  "file": "data/runs__sweep_tri_oss_mag_gem_s271.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 73,
+   "comments": 848,
+   "cross": 552,
+   "H_in": {
+    "gpt-oss": 0.46,
+    "Mag": -0.2,
+    "Gemma": -0.34
+   },
+   "cpp": {
+    "gpt-oss": 12.0,
+    "Mag": 5.4,
+    "Gemma": 5.7
+   },
+   "post_share": {
+    "gpt-oss": 0.315,
+    "Mag": 0.384,
+    "Gemma": 0.301
+   },
+   "recv_share": {
+    "gpt-oss": 0.5,
+    "Mag": 0.274,
+    "Gemma": 0.226
+   },
+   "fair": {
+    "gpt-oss": 0.333,
+    "Mag": 0.333,
+    "Gemma": 0.333
+   },
+   "top": "gpt-oss",
+   "bottom": "Gemma",
+   "seed": "271",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_oss_mag_gem_s42",
@@ -1924,7 +8046,43 @@
    "Mag",
    "Gemma"
   ],
-  "file": "data/runs__sweep_tri_oss_mag_gem_s42.json"
+  "file": "data/runs__sweep_tri_oss_mag_gem_s42.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 60,
+   "comments": 856,
+   "cross": 547,
+   "H_in": {
+    "gpt-oss": 0.39,
+    "Mag": 0.09,
+    "Gemma": -0.61
+   },
+   "cpp": {
+    "gpt-oss": 12.6,
+    "Mag": 9.9,
+    "Gemma": 4.2
+   },
+   "post_share": {
+    "gpt-oss": 0.35,
+    "Mag": 0.35,
+    "Gemma": 0.3
+   },
+   "recv_share": {
+    "gpt-oss": 0.484,
+    "Mag": 0.378,
+    "Gemma": 0.137
+   },
+   "fair": {
+    "gpt-oss": 0.333,
+    "Mag": 0.333,
+    "Gemma": 0.333
+   },
+   "top": "gpt-oss",
+   "bottom": "Gemma",
+   "seed": "42",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_oss_mag_gem_s999",
@@ -1935,7 +8093,43 @@
    "Mag",
    "Gemma"
   ],
-  "file": "data/runs__sweep_tri_oss_mag_gem_s999.json"
+  "file": "data/runs__sweep_tri_oss_mag_gem_s999.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 69,
+   "comments": 849,
+   "cross": 556,
+   "H_in": {
+    "gpt-oss": 0.57,
+    "Mag": -0.28,
+    "Gemma": -0.36
+   },
+   "cpp": {
+    "gpt-oss": 11.5,
+    "Mag": 5.3,
+    "Gemma": 7.1
+   },
+   "post_share": {
+    "gpt-oss": 0.377,
+    "Mag": 0.377,
+    "Gemma": 0.246
+   },
+   "recv_share": {
+    "gpt-oss": 0.536,
+    "Mag": 0.246,
+    "Gemma": 0.218
+   },
+   "fair": {
+    "gpt-oss": 0.333,
+    "Mag": 0.333,
+    "Gemma": 0.333
+   },
+   "top": "gpt-oss",
+   "bottom": "Gemma",
+   "seed": "999",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_oss_mag_glm_s271",
@@ -1946,7 +8140,43 @@
    "GLM-4",
    "Mag"
   ],
-  "file": "data/runs__sweep_tri_oss_mag_glm_s271.json"
+  "file": "data/runs__sweep_tri_oss_mag_glm_s271.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 67,
+   "comments": 858,
+   "cross": 590,
+   "H_in": {
+    "gpt-oss": 1.04,
+    "GLM-4": -0.36,
+    "Mag": -0.57
+   },
+   "cpp": {
+    "gpt-oss": 14.9,
+    "GLM-4": 4.7,
+    "Mag": 5.4
+   },
+   "post_share": {
+    "gpt-oss": 0.388,
+    "GLM-4": 0.388,
+    "Mag": 0.224
+   },
+   "recv_share": {
+    "gpt-oss": 0.658,
+    "GLM-4": 0.205,
+    "Mag": 0.137
+   },
+   "fair": {
+    "gpt-oss": 0.333,
+    "GLM-4": 0.333,
+    "Mag": 0.333
+   },
+   "top": "gpt-oss",
+   "bottom": "Mag",
+   "seed": "271",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_oss_mag_glm_s42",
@@ -1957,7 +8187,43 @@
    "GLM-4",
    "Mag"
   ],
-  "file": "data/runs__sweep_tri_oss_mag_glm_s42.json"
+  "file": "data/runs__sweep_tri_oss_mag_glm_s42.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 74,
+   "comments": 851,
+   "cross": 536,
+   "H_in": {
+    "gpt-oss": 0.88,
+    "GLM-4": -0.41,
+    "Mag": -0.61
+   },
+   "cpp": {
+    "gpt-oss": 12.6,
+    "GLM-4": 3.8,
+    "Mag": 4.3
+   },
+   "post_share": {
+    "gpt-oss": 0.378,
+    "GLM-4": 0.392,
+    "Mag": 0.23
+   },
+   "recv_share": {
+    "gpt-oss": 0.659,
+    "GLM-4": 0.205,
+    "Mag": 0.136
+   },
+   "fair": {
+    "gpt-oss": 0.333,
+    "GLM-4": 0.333,
+    "Mag": 0.333
+   },
+   "top": "gpt-oss",
+   "bottom": "Mag",
+   "seed": "42",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_oss_mag_glm_s999",
@@ -1968,7 +8234,43 @@
    "GLM-4",
    "Mag"
   ],
-  "file": "data/runs__sweep_tri_oss_mag_glm_s999.json"
+  "file": "data/runs__sweep_tri_oss_mag_glm_s999.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 127,
+   "comments": 796,
+   "cross": 495,
+   "H_in": {
+    "gpt-oss": 0.76,
+    "GLM-4": -0.43,
+    "Mag": -0.5
+   },
+   "cpp": {
+    "gpt-oss": 7.9,
+    "GLM-4": 2.0,
+    "Mag": 2.2
+   },
+   "post_share": {
+    "gpt-oss": 0.307,
+    "GLM-4": 0.386,
+    "Mag": 0.307
+   },
+   "recv_share": {
+    "gpt-oss": 0.624,
+    "GLM-4": 0.2,
+    "Mag": 0.176
+   },
+   "fair": {
+    "gpt-oss": 0.333,
+    "GLM-4": 0.333,
+    "Mag": 0.333
+   },
+   "top": "gpt-oss",
+   "bottom": "Mag",
+   "seed": "999",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_oss_qwe_gem_s271",
@@ -1979,7 +8281,43 @@
    "Qwen",
    "Gemma"
   ],
-  "file": "data/runs__sweep_tri_oss_qwe_gem_s271.json"
+  "file": "data/runs__sweep_tri_oss_qwe_gem_s271.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 63,
+   "comments": 855,
+   "cross": 561,
+   "H_in": {
+    "gpt-oss": 0.55,
+    "Qwen": -0.34,
+    "Gemma": -0.25
+   },
+   "cpp": {
+    "gpt-oss": 12.7,
+    "Qwen": 6.0,
+    "Gemma": 7.5
+   },
+   "post_share": {
+    "gpt-oss": 0.365,
+    "Qwen": 0.333,
+    "Gemma": 0.302
+   },
+   "recv_share": {
+    "gpt-oss": 0.522,
+    "Qwen": 0.223,
+    "Gemma": 0.255
+   },
+   "fair": {
+    "gpt-oss": 0.333,
+    "Qwen": 0.333,
+    "Gemma": 0.333
+   },
+   "top": "gpt-oss",
+   "bottom": "Qwen",
+   "seed": "271",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_oss_qwe_gem_s42",
@@ -1990,7 +8328,43 @@
    "Qwen",
    "Gemma"
   ],
-  "file": "data/runs__sweep_tri_oss_qwe_gem_s42.json"
+  "file": "data/runs__sweep_tri_oss_qwe_gem_s42.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 61,
+   "comments": 866,
+   "cross": 556,
+   "H_in": {
+    "gpt-oss": 0.18,
+    "Qwen": 0.05,
+    "Gemma": -0.35
+   },
+   "cpp": {
+    "gpt-oss": 9.9,
+    "Qwen": 8.8,
+    "Gemma": 8.4
+   },
+   "post_share": {
+    "gpt-oss": 0.377,
+    "Qwen": 0.377,
+    "Gemma": 0.246
+   },
+   "recv_share": {
+    "gpt-oss": 0.408,
+    "Qwen": 0.365,
+    "Gemma": 0.227
+   },
+   "fair": {
+    "gpt-oss": 0.333,
+    "Qwen": 0.333,
+    "Gemma": 0.333
+   },
+   "top": "gpt-oss",
+   "bottom": "Gemma",
+   "seed": "42",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_oss_qwe_gem_s999",
@@ -2001,7 +8375,43 @@
    "Qwen",
    "Gemma"
   ],
-  "file": "data/runs__sweep_tri_oss_qwe_gem_s999.json"
+  "file": "data/runs__sweep_tri_oss_qwe_gem_s999.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 73,
+   "comments": 848,
+   "cross": 565,
+   "H_in": {
+    "gpt-oss": 0.51,
+    "Qwen": -0.02,
+    "Gemma": -0.5
+   },
+   "cpp": {
+    "gpt-oss": 10.6,
+    "Qwen": 6.6,
+    "Gemma": 5.2
+   },
+   "post_share": {
+    "gpt-oss": 0.37,
+    "Qwen": 0.384,
+    "Gemma": 0.247
+   },
+   "recv_share": {
+    "gpt-oss": 0.506,
+    "Qwen": 0.327,
+    "Gemma": 0.166
+   },
+   "fair": {
+    "gpt-oss": 0.333,
+    "Qwen": 0.333,
+    "Gemma": 0.333
+   },
+   "top": "gpt-oss",
+   "bottom": "Gemma",
+   "seed": "999",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_oss_qwe_glm_s271",
@@ -2012,7 +8422,43 @@
    "Qwen",
    "GLM-4"
   ],
-  "file": "data/runs__sweep_tri_oss_qwe_glm_s271.json"
+  "file": "data/runs__sweep_tri_oss_qwe_glm_s271.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 218,
+   "comments": 712,
+   "cross": 433,
+   "H_in": {
+    "gpt-oss": 0.54,
+    "Qwen": -0.21,
+    "GLM-4": -0.54
+   },
+   "cpp": {
+    "gpt-oss": 4.8,
+    "Qwen": 1.5,
+    "GLM-4": 0.8
+   },
+   "post_share": {
+    "gpt-oss": 0.229,
+    "Qwen": 0.385,
+    "GLM-4": 0.385
+   },
+   "recv_share": {
+    "gpt-oss": 0.552,
+    "Qwen": 0.284,
+    "GLM-4": 0.164
+   },
+   "fair": {
+    "gpt-oss": 0.333,
+    "Qwen": 0.333,
+    "GLM-4": 0.333
+   },
+   "top": "gpt-oss",
+   "bottom": "GLM-4",
+   "seed": "271",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_oss_qwe_glm_s42",
@@ -2023,7 +8469,43 @@
    "Qwen",
    "GLM-4"
   ],
-  "file": "data/runs__sweep_tri_oss_qwe_glm_s42.json"
+  "file": "data/runs__sweep_tri_oss_qwe_glm_s42.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 160,
+   "comments": 769,
+   "cross": 497,
+   "H_in": {
+    "gpt-oss": 0.11,
+    "Qwen": 0.08,
+    "GLM-4": -0.26
+   },
+   "cpp": {
+    "gpt-oss": 5.2,
+    "Qwen": 3.0,
+    "GLM-4": 2.0
+   },
+   "post_share": {
+    "gpt-oss": 0.225,
+    "Qwen": 0.388,
+    "GLM-4": 0.388
+   },
+   "recv_share": {
+    "gpt-oss": 0.38,
+    "Qwen": 0.368,
+    "GLM-4": 0.252
+   },
+   "fair": {
+    "gpt-oss": 0.333,
+    "Qwen": 0.333,
+    "GLM-4": 0.333
+   },
+   "top": "gpt-oss",
+   "bottom": "GLM-4",
+   "seed": "42",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_oss_qwe_glm_s999",
@@ -2034,7 +8516,43 @@
    "Qwen",
    "GLM-4"
   ],
-  "file": "data/runs__sweep_tri_oss_qwe_glm_s999.json"
+  "file": "data/runs__sweep_tri_oss_qwe_glm_s999.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 199,
+   "comments": 730,
+   "cross": 418,
+   "H_in": {
+    "gpt-oss": 0.39,
+    "Qwen": -0.28,
+    "GLM-4": -0.51
+   },
+   "cpp": {
+    "gpt-oss": 4.4,
+    "Qwen": 1.6,
+    "GLM-4": 1.0
+   },
+   "post_share": {
+    "gpt-oss": 0.256,
+    "Qwen": 0.362,
+    "GLM-4": 0.382
+   },
+   "recv_share": {
+    "gpt-oss": 0.536,
+    "Qwen": 0.275,
+    "GLM-4": 0.189
+   },
+   "fair": {
+    "gpt-oss": 0.333,
+    "Qwen": 0.333,
+    "GLM-4": 0.333
+   },
+   "top": "gpt-oss",
+   "bottom": "GLM-4",
+   "seed": "999",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_oss_qwe_mag_s271",
@@ -2045,7 +8563,43 @@
    "Qwen",
    "Mag"
   ],
-  "file": "data/runs__sweep_tri_oss_qwe_mag_s271.json"
+  "file": "data/runs__sweep_tri_oss_qwe_mag_s271.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 74,
+   "comments": 854,
+   "cross": 582,
+   "H_in": {
+    "gpt-oss": 0.56,
+    "Qwen": -0.13,
+    "Mag": -0.38
+   },
+   "cpp": {
+    "gpt-oss": 11.5,
+    "Qwen": 6.1,
+    "Mag": 5.7
+   },
+   "post_share": {
+    "gpt-oss": 0.351,
+    "Qwen": 0.365,
+    "Mag": 0.284
+   },
+   "recv_share": {
+    "gpt-oss": 0.512,
+    "Qwen": 0.284,
+    "Mag": 0.204
+   },
+   "fair": {
+    "gpt-oss": 0.333,
+    "Qwen": 0.333,
+    "Mag": 0.333
+   },
+   "top": "gpt-oss",
+   "bottom": "Mag",
+   "seed": "271",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_oss_qwe_mag_s42",
@@ -2056,7 +8610,43 @@
    "Qwen",
    "Mag"
   ],
-  "file": "data/runs__sweep_tri_oss_qwe_mag_s42.json"
+  "file": "data/runs__sweep_tri_oss_qwe_mag_s42.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 69,
+   "comments": 852,
+   "cross": 565,
+   "H_in": {
+    "gpt-oss": 0.88,
+    "Qwen": -0.27,
+    "Mag": -0.63
+   },
+   "cpp": {
+    "gpt-oss": 13.7,
+    "Qwen": 5.1,
+    "Mag": 4.4
+   },
+   "post_share": {
+    "gpt-oss": 0.377,
+    "Qwen": 0.391,
+    "Mag": 0.232
+   },
+   "recv_share": {
+    "gpt-oss": 0.632,
+    "Qwen": 0.244,
+    "Mag": 0.124
+   },
+   "fair": {
+    "gpt-oss": 0.333,
+    "Qwen": 0.333,
+    "Mag": 0.333
+   },
+   "top": "gpt-oss",
+   "bottom": "Mag",
+   "seed": "42",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_oss_qwe_mag_s999",
@@ -2067,7 +8657,43 @@
    "Qwen",
    "Mag"
   ],
-  "file": "data/runs__sweep_tri_oss_qwe_mag_s999.json"
+  "file": "data/runs__sweep_tri_oss_qwe_mag_s999.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 69,
+   "comments": 859,
+   "cross": 555,
+   "H_in": {
+    "gpt-oss": 0.59,
+    "Qwen": -0.3,
+    "Mag": -0.38
+   },
+   "cpp": {
+    "gpt-oss": 11.7,
+    "Qwen": 5.8,
+    "Mag": 6.0
+   },
+   "post_share": {
+    "gpt-oss": 0.377,
+    "Qwen": 0.333,
+    "Mag": 0.29
+   },
+   "recv_share": {
+    "gpt-oss": 0.546,
+    "Qwen": 0.24,
+    "Mag": 0.214
+   },
+   "fair": {
+    "gpt-oss": 0.333,
+    "Qwen": 0.333,
+    "Mag": 0.333
+   },
+   "top": "gpt-oss",
+   "bottom": "Mag",
+   "seed": "999",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_qwe_glm_gem_s271",
@@ -2078,7 +8704,43 @@
    "GLM-4",
    "Gemma"
   ],
-  "file": "data/runs__sweep_tri_qwe_glm_gem_s271.json"
+  "file": "data/runs__sweep_tri_qwe_glm_gem_s271.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 99,
+   "comments": 829,
+   "cross": 515,
+   "H_in": {
+    "Qwen": -0.02,
+    "GLM-4": -0.02,
+    "Gemma": -0.13
+   },
+   "cpp": {
+    "Qwen": 4.7,
+    "GLM-4": 4.7,
+    "Gemma": 6.9
+   },
+   "post_share": {
+    "Qwen": 0.384,
+    "GLM-4": 0.384,
+    "Gemma": 0.232
+   },
+   "recv_share": {
+    "Qwen": 0.346,
+    "GLM-4": 0.348,
+    "Gemma": 0.307
+   },
+   "fair": {
+    "Qwen": 0.333,
+    "GLM-4": 0.333,
+    "Gemma": 0.333
+   },
+   "top": "GLM-4",
+   "bottom": "Gemma",
+   "seed": "271",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_qwe_glm_gem_s42",
@@ -2089,7 +8751,43 @@
    "GLM-4",
    "Gemma"
   ],
-  "file": "data/runs__sweep_tri_qwe_glm_gem_s42.json"
+  "file": "data/runs__sweep_tri_qwe_glm_gem_s42.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 105,
+   "comments": 818,
+   "cross": 508,
+   "H_in": {
+    "Qwen": 0.01,
+    "GLM-4": -0.11,
+    "Gemma": -0.1
+   },
+   "cpp": {
+    "Qwen": 4.6,
+    "GLM-4": 3.9,
+    "Gemma": 6.8
+   },
+   "post_share": {
+    "Qwen": 0.381,
+    "GLM-4": 0.39,
+    "Gemma": 0.229
+   },
+   "recv_share": {
+    "Qwen": 0.362,
+    "GLM-4": 0.317,
+    "Gemma": 0.321
+   },
+   "fair": {
+    "Qwen": 0.333,
+    "GLM-4": 0.333,
+    "Gemma": 0.333
+   },
+   "top": "Qwen",
+   "bottom": "GLM-4",
+   "seed": "42",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_qwe_glm_gem_s999",
@@ -2100,7 +8798,43 @@
    "GLM-4",
    "Gemma"
   ],
-  "file": "data/runs__sweep_tri_qwe_glm_gem_s999.json"
+  "file": "data/runs__sweep_tri_qwe_glm_gem_s999.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 96,
+   "comments": 830,
+   "cross": 520,
+   "H_in": {
+    "Qwen": 0.29,
+    "GLM-4": -0.23,
+    "Gemma": -0.21
+   },
+   "cpp": {
+    "Qwen": 6.4,
+    "GLM-4": 3.8,
+    "Gemma": 6.6
+   },
+   "post_share": {
+    "Qwen": 0.385,
+    "GLM-4": 0.385,
+    "Gemma": 0.229
+   },
+   "recv_share": {
+    "Qwen": 0.452,
+    "GLM-4": 0.269,
+    "Gemma": 0.279
+   },
+   "fair": {
+    "Qwen": 0.333,
+    "GLM-4": 0.333,
+    "Gemma": 0.333
+   },
+   "top": "Qwen",
+   "bottom": "GLM-4",
+   "seed": "999",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_qwe_mag_gem_s271",
@@ -2111,7 +8845,43 @@
    "Mag",
    "Gemma"
   ],
-  "file": "data/runs__sweep_tri_qwe_mag_gem_s271.json"
+  "file": "data/runs__sweep_tri_qwe_mag_gem_s271.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 99,
+   "comments": 826,
+   "cross": 530,
+   "H_in": {
+    "Qwen": -0.01,
+    "Mag": -0.03,
+    "Gemma": -0.06
+   },
+   "cpp": {
+    "Qwen": 4.8,
+    "Mag": 4.7,
+    "Gemma": 7.4
+   },
+   "post_share": {
+    "Qwen": 0.384,
+    "Mag": 0.384,
+    "Gemma": 0.232
+   },
+   "recv_share": {
+    "Qwen": 0.342,
+    "Mag": 0.336,
+    "Gemma": 0.323
+   },
+   "fair": {
+    "Qwen": 0.333,
+    "Mag": 0.333,
+    "Gemma": 0.333
+   },
+   "top": "Qwen",
+   "bottom": "Gemma",
+   "seed": "271",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_qwe_mag_gem_s42",
@@ -2122,7 +8892,43 @@
    "Mag",
    "Gemma"
   ],
-  "file": "data/runs__sweep_tri_qwe_mag_gem_s42.json"
+  "file": "data/runs__sweep_tri_qwe_mag_gem_s42.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 72,
+   "comments": 845,
+   "cross": 547,
+   "H_in": {
+    "Qwen": -0.02,
+    "Mag": 0.23,
+    "Gemma": -0.29
+   },
+   "cpp": {
+    "Qwen": 6.5,
+    "Mag": 8.6,
+    "Gemma": 7.8
+   },
+   "post_share": {
+    "Qwen": 0.389,
+    "Mag": 0.375,
+    "Gemma": 0.236
+   },
+   "recv_share": {
+    "Qwen": 0.335,
+    "Mag": 0.422,
+    "Gemma": 0.243
+   },
+   "fair": {
+    "Qwen": 0.333,
+    "Mag": 0.333,
+    "Gemma": 0.333
+   },
+   "top": "Mag",
+   "bottom": "Gemma",
+   "seed": "42",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_qwe_mag_gem_s999",
@@ -2133,7 +8939,43 @@
    "Mag",
    "Gemma"
   ],
-  "file": "data/runs__sweep_tri_qwe_mag_gem_s999.json"
+  "file": "data/runs__sweep_tri_qwe_mag_gem_s999.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 76,
+   "comments": 845,
+   "cross": 519,
+   "H_in": {
+    "Qwen": 0.36,
+    "Mag": -0.16,
+    "Gemma": -0.43
+   },
+   "cpp": {
+    "Qwen": 8.8,
+    "Mag": 5.4,
+    "Gemma": 5.9
+   },
+   "post_share": {
+    "Qwen": 0.382,
+    "Mag": 0.382,
+    "Gemma": 0.237
+   },
+   "recv_share": {
+    "Qwen": 0.489,
+    "Mag": 0.304,
+    "Gemma": 0.206
+   },
+   "fair": {
+    "Qwen": 0.333,
+    "Mag": 0.333,
+    "Gemma": 0.333
+   },
+   "top": "Qwen",
+   "bottom": "Gemma",
+   "seed": "999",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_qwe_mag_glm_s271",
@@ -2144,7 +8986,43 @@
    "GLM-4",
    "Mag"
   ],
-  "file": "data/runs__sweep_tri_qwe_mag_glm_s271.json"
+  "file": "data/runs__sweep_tri_qwe_mag_glm_s271.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 90,
+   "comments": 834,
+   "cross": 537,
+   "H_in": {
+    "Qwen": 0.47,
+    "GLM-4": -0.25,
+    "Mag": -0.31
+   },
+   "cpp": {
+    "Qwen": 7.8,
+    "GLM-4": 3.9,
+    "Mag": 6.3
+   },
+   "post_share": {
+    "Qwen": 0.389,
+    "GLM-4": 0.389,
+    "Mag": 0.222
+   },
+   "recv_share": {
+    "Qwen": 0.507,
+    "GLM-4": 0.257,
+    "Mag": 0.236
+   },
+   "fair": {
+    "Qwen": 0.333,
+    "GLM-4": 0.333,
+    "Mag": 0.333
+   },
+   "top": "Qwen",
+   "bottom": "Mag",
+   "seed": "271",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_qwe_mag_glm_s42",
@@ -2155,7 +9033,43 @@
    "GLM-4",
    "Mag"
   ],
-  "file": "data/runs__sweep_tri_qwe_mag_glm_s42.json"
+  "file": "data/runs__sweep_tri_qwe_mag_glm_s42.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 98,
+   "comments": 826,
+   "cross": 526,
+   "H_in": {
+    "Qwen": 0.28,
+    "GLM-4": 0.07,
+    "Mag": -0.45
+   },
+   "cpp": {
+    "Qwen": 6.3,
+    "GLM-4": 5.1,
+    "Mag": 4.3
+   },
+   "post_share": {
+    "Qwen": 0.378,
+    "GLM-4": 0.388,
+    "Mag": 0.235
+   },
+   "recv_share": {
+    "Qwen": 0.443,
+    "GLM-4": 0.369,
+    "Mag": 0.188
+   },
+   "fair": {
+    "Qwen": 0.333,
+    "GLM-4": 0.333,
+    "Mag": 0.333
+   },
+   "top": "Qwen",
+   "bottom": "Mag",
+   "seed": "42",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_qwe_mag_glm_s999",
@@ -2166,7 +9080,43 @@
    "GLM-4",
    "Mag"
   ],
-  "file": "data/runs__sweep_tri_qwe_mag_glm_s999.json"
+  "file": "data/runs__sweep_tri_qwe_mag_glm_s999.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 101,
+   "comments": 825,
+   "cross": 496,
+   "H_in": {
+    "Qwen": 0.04,
+    "GLM-4": -0.18,
+    "Mag": -0.12
+   },
+   "cpp": {
+    "Qwen": 4.8,
+    "GLM-4": 3.8,
+    "Mag": 7.0
+   },
+   "post_share": {
+    "Qwen": 0.386,
+    "GLM-4": 0.386,
+    "Mag": 0.228
+   },
+   "recv_share": {
+    "Qwen": 0.379,
+    "GLM-4": 0.298,
+    "Mag": 0.323
+   },
+   "fair": {
+    "Qwen": 0.333,
+    "GLM-4": 0.333,
+    "Mag": 0.333
+   },
+   "top": "Qwen",
+   "bottom": "GLM-4",
+   "seed": "999",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_qwe_oss_gem_s271",
@@ -2177,7 +9127,43 @@
    "Qwen",
    "Gemma"
   ],
-  "file": "data/runs__sweep_tri_qwe_oss_gem_s271.json"
+  "file": "data/runs__sweep_tri_qwe_oss_gem_s271.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 86,
+   "comments": 842,
+   "cross": 551,
+   "H_in": {
+    "gpt-oss": 0.39,
+    "Qwen": -0.1,
+    "Gemma": -0.33
+   },
+   "cpp": {
+    "gpt-oss": 7.8,
+    "Qwen": 5.1,
+    "Gemma": 6.2
+   },
+   "post_share": {
+    "gpt-oss": 0.384,
+    "Qwen": 0.384,
+    "Gemma": 0.233
+   },
+   "recv_share": {
+    "gpt-oss": 0.47,
+    "Qwen": 0.303,
+    "Gemma": 0.227
+   },
+   "fair": {
+    "gpt-oss": 0.333,
+    "Qwen": 0.333,
+    "Gemma": 0.333
+   },
+   "top": "gpt-oss",
+   "bottom": "Gemma",
+   "seed": "271",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_qwe_oss_gem_s42",
@@ -2188,7 +9174,43 @@
    "Qwen",
    "Gemma"
   ],
-  "file": "data/runs__sweep_tri_qwe_oss_gem_s42.json"
+  "file": "data/runs__sweep_tri_qwe_oss_gem_s42.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 68,
+   "comments": 861,
+   "cross": 545,
+   "H_in": {
+    "gpt-oss": 0.3,
+    "Qwen": 0.04,
+    "Gemma": -0.47
+   },
+   "cpp": {
+    "gpt-oss": 9.5,
+    "Qwen": 7.6,
+    "Gemma": 6.2
+   },
+   "post_share": {
+    "gpt-oss": 0.382,
+    "Qwen": 0.382,
+    "Gemma": 0.235
+   },
+   "recv_share": {
+    "gpt-oss": 0.453,
+    "Qwen": 0.363,
+    "Gemma": 0.183
+   },
+   "fair": {
+    "gpt-oss": 0.333,
+    "Qwen": 0.333,
+    "Gemma": 0.333
+   },
+   "top": "gpt-oss",
+   "bottom": "Gemma",
+   "seed": "42",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_qwe_oss_gem_s999",
@@ -2199,7 +9221,43 @@
    "Qwen",
    "Gemma"
   ],
-  "file": "data/runs__sweep_tri_qwe_oss_gem_s999.json"
+  "file": "data/runs__sweep_tri_qwe_oss_gem_s999.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 78,
+   "comments": 844,
+   "cross": 561,
+   "H_in": {
+    "gpt-oss": 0.57,
+    "Qwen": -0.05,
+    "Gemma": -0.53
+   },
+   "cpp": {
+    "gpt-oss": 9.8,
+    "Qwen": 5.9,
+    "Gemma": 4.9
+   },
+   "post_share": {
+    "gpt-oss": 0.385,
+    "Qwen": 0.385,
+    "Gemma": 0.231
+   },
+   "recv_share": {
+    "gpt-oss": 0.526,
+    "Qwen": 0.317,
+    "Gemma": 0.157
+   },
+   "fair": {
+    "gpt-oss": 0.333,
+    "Qwen": 0.333,
+    "Gemma": 0.333
+   },
+   "top": "gpt-oss",
+   "bottom": "Gemma",
+   "seed": "999",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_qwe_oss_glm_s271",
@@ -2210,7 +9268,43 @@
    "Qwen",
    "GLM-4"
   ],
-  "file": "data/runs__sweep_tri_qwe_oss_glm_s271.json"
+  "file": "data/runs__sweep_tri_qwe_oss_glm_s271.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 160,
+   "comments": 767,
+   "cross": 511,
+   "H_in": {
+    "gpt-oss": 0.19,
+    "Qwen": 0.38,
+    "GLM-4": -0.53
+   },
+   "cpp": {
+    "gpt-oss": 5.3,
+    "Qwen": 3.8,
+    "GLM-4": 1.3
+   },
+   "post_share": {
+    "gpt-oss": 0.237,
+    "Qwen": 0.381,
+    "GLM-4": 0.381
+   },
+   "recv_share": {
+    "gpt-oss": 0.391,
+    "Qwen": 0.454,
+    "GLM-4": 0.155
+   },
+   "fair": {
+    "gpt-oss": 0.333,
+    "Qwen": 0.333,
+    "GLM-4": 0.333
+   },
+   "top": "Qwen",
+   "bottom": "GLM-4",
+   "seed": "271",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_qwe_oss_glm_s42",
@@ -2221,7 +9315,43 @@
    "Qwen",
    "GLM-4"
   ],
-  "file": "data/runs__sweep_tri_qwe_oss_glm_s42.json"
+  "file": "data/runs__sweep_tri_qwe_oss_glm_s42.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 194,
+   "comments": 736,
+   "cross": 441,
+   "H_in": {
+    "gpt-oss": 0.27,
+    "Qwen": -0.07,
+    "GLM-4": -0.44
+   },
+   "cpp": {
+    "gpt-oss": 3.9,
+    "Qwen": 2.2,
+    "GLM-4": 1.2
+   },
+   "post_share": {
+    "gpt-oss": 0.268,
+    "Qwen": 0.345,
+    "GLM-4": 0.387
+   },
+   "recv_share": {
+    "gpt-oss": 0.46,
+    "Qwen": 0.336,
+    "GLM-4": 0.204
+   },
+   "fair": {
+    "gpt-oss": 0.333,
+    "Qwen": 0.333,
+    "GLM-4": 0.333
+   },
+   "top": "gpt-oss",
+   "bottom": "GLM-4",
+   "seed": "42",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_qwe_oss_glm_s999",
@@ -2232,7 +9362,43 @@
    "Qwen",
    "GLM-4"
   ],
-  "file": "data/runs__sweep_tri_qwe_oss_glm_s999.json"
+  "file": "data/runs__sweep_tri_qwe_oss_glm_s999.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 164,
+   "comments": 765,
+   "cross": 477,
+   "H_in": {
+    "gpt-oss": 0.35,
+    "Qwen": -0.19,
+    "GLM-4": -0.34
+   },
+   "cpp": {
+    "gpt-oss": 6.0,
+    "Qwen": 2.2,
+    "GLM-4": 1.8
+   },
+   "post_share": {
+    "gpt-oss": 0.232,
+    "Qwen": 0.384,
+    "GLM-4": 0.384
+   },
+   "recv_share": {
+    "gpt-oss": 0.478,
+    "Qwen": 0.289,
+    "GLM-4": 0.233
+   },
+   "fair": {
+    "gpt-oss": 0.333,
+    "Qwen": 0.333,
+    "GLM-4": 0.333
+   },
+   "top": "gpt-oss",
+   "bottom": "GLM-4",
+   "seed": "999",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_qwe_oss_mag_s271",
@@ -2243,7 +9409,43 @@
    "Qwen",
    "Mag"
   ],
-  "file": "data/runs__sweep_tri_qwe_oss_mag_s271.json"
+  "file": "data/runs__sweep_tri_qwe_oss_mag_s271.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 123,
+   "comments": 801,
+   "cross": 515,
+   "H_in": {
+    "gpt-oss": 0.4,
+    "Qwen": 0.16,
+    "Mag": -0.64
+   },
+   "cpp": {
+    "gpt-oss": 5.7,
+    "Qwen": 4.4,
+    "Mag": 1.9
+   },
+   "post_share": {
+    "gpt-oss": 0.35,
+    "Qwen": 0.374,
+    "Mag": 0.276
+   },
+   "recv_share": {
+    "gpt-oss": 0.48,
+    "Qwen": 0.396,
+    "Mag": 0.124
+   },
+   "fair": {
+    "gpt-oss": 0.333,
+    "Qwen": 0.333,
+    "Mag": 0.333
+   },
+   "top": "gpt-oss",
+   "bottom": "Mag",
+   "seed": "271",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_qwe_oss_mag_s42",
@@ -2254,7 +9456,43 @@
    "Qwen",
    "Mag"
   ],
-  "file": "data/runs__sweep_tri_qwe_oss_mag_s42.json"
+  "file": "data/runs__sweep_tri_qwe_oss_mag_s42.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 60,
+   "comments": 863,
+   "cross": 558,
+   "H_in": {
+    "gpt-oss": 0.7,
+    "Qwen": -0.25,
+    "Mag": -0.49
+   },
+   "cpp": {
+    "gpt-oss": 13.9,
+    "Qwen": 6.2,
+    "Mag": 6.9
+   },
+   "post_share": {
+    "gpt-oss": 0.383,
+    "Qwen": 0.383,
+    "Mag": 0.233
+   },
+   "recv_share": {
+    "gpt-oss": 0.573,
+    "Qwen": 0.254,
+    "Mag": 0.172
+   },
+   "fair": {
+    "gpt-oss": 0.333,
+    "Qwen": 0.333,
+    "Mag": 0.333
+   },
+   "top": "gpt-oss",
+   "bottom": "Mag",
+   "seed": "42",
+   "rotation": null
+  }
  },
  {
   "run_id": "runs__sweep_tri_qwe_oss_mag_s999",
@@ -2265,6 +9503,42 @@
    "Qwen",
    "Mag"
   ],
-  "file": "data/runs__sweep_tri_qwe_oss_mag_s999.json"
+  "file": "data/runs__sweep_tri_qwe_oss_mag_s999.json",
+  "stats": {
+   "n_agents": 30,
+   "steps": 100,
+   "posts": 109,
+   "comments": 816,
+   "cross": 522,
+   "H_in": {
+    "gpt-oss": 0.18,
+    "Qwen": 0.13,
+    "Mag": -0.42
+   },
+   "cpp": {
+    "gpt-oss": 6.9,
+    "Qwen": 4.9,
+    "Mag": 2.9
+   },
+   "post_share": {
+    "gpt-oss": 0.284,
+    "Qwen": 0.385,
+    "Mag": 0.33
+   },
+   "recv_share": {
+    "gpt-oss": 0.408,
+    "Qwen": 0.391,
+    "Mag": 0.201
+   },
+   "fair": {
+    "gpt-oss": 0.333,
+    "Qwen": 0.333,
+    "Mag": 0.333
+   },
+   "top": "gpt-oss",
+   "bottom": "Mag",
+   "seed": "999",
+   "rotation": null
+  }
  }
 ]

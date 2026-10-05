@@ -1,75 +1,176 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <title>Model attractors</title>
-<meta name="description" content="Interactive replay of a heterogeneous LLM social network: bird's-eye graph, per-agent feed replay, and cross-model attraction metrics.">
+<title>divsim runs</title>
+<meta name="description" content="Pick one of 213 heterogeneous LLM social-network simulations and replay it: which base model attracts the comments?">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/app.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff; --bg-2: #f6f6f6; --ink: #111111; --ink-2: #333333; --muted: #666666;
+    --rule: rgba(0,0,0,.12); --rule-2: rgba(0,0,0,.06); --accent: #6d0061; --mix: 75%;
+    --oss: #ff2d55; --qwen: #00b3ff; --mag: #b455ff; --glm: #00e676; --gemma: #ff9100;
+  }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+    --bg: #0b0b0c; --bg-2: #141416; --ink: #ffffff; --ink-2: #dcdcdc; --muted: #bdbdbd;
+    --rule: rgba(255,255,255,.14); --rule-2: rgba(255,255,255,.07); --accent: #c97fe0; --mix: 100%; } }
+  :root[data-theme="dark"] {
+    --bg: #0b0b0c; --bg-2: #141416; --ink: #ffffff; --ink-2: #dcdcdc; --muted: #bdbdbd;
+    --rule: rgba(255,255,255,.14); --rule-2: rgba(255,255,255,.07); --accent: #c97fe0; --mix: 100%; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Inter', sans-serif; font-size: 15px; line-height: 1.45; }
+  a { color: var(--accent); }
+  .mono { font-family: 'Ubuntu Mono', monospace; font-variant-numeric: tabular-nums; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 28px 16px 64px; }
+  header.hero { display: grid; grid-template-columns: 1fr auto; gap: 16px 24px; align-items: end; padding-bottom: 18px; border-bottom: 1px solid var(--rule); }
+  header.hero h1 { font-size: 26px; font-weight: 600; letter-spacing: -0.01em; margin: 0 0 6px; text-wrap: balance; }
+  header.hero p { margin: 0; color: var(--muted); max-width: 64ch; }
+  header.hero .links { display: flex; gap: 14px; flex-wrap: wrap; font-size: 13px; }
+  header.hero .links a { text-decoration: none; border-bottom: 1px solid var(--rule); color: var(--ink-2); }
+  .fam { color: color-mix(in srgb, var(--c) var(--mix), black); font-weight: 600; }
+  .dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: var(--c); margin-right: 5px; vertical-align: 1px; }
+
+  .toolbar { display: flex; flex-wrap: wrap; gap: 10px 22px; align-items: center; padding: 14px 0; position: sticky; top: 0; background: var(--bg); z-index: 2; border-bottom: 1px solid var(--rule-2); }
+  .group { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+  .group .lab { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-right: 4px; }
+  .chip { font: 500 13px 'Inter', sans-serif; padding: 4px 10px; border: 1px solid var(--rule); background: var(--bg); color: var(--ink-2); cursor: pointer; border-radius: 999px; }
+  .chip[aria-pressed="true"] { border-color: var(--ink); background: var(--ink); color: var(--bg); }
+  .chip.f[aria-pressed="true"] { background: var(--c); border-color: var(--c); color: #fff; }
+  .chip:focus-visible, select:focus-visible, input:focus-visible, .card:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  select, input[type=search] { font: 400 13px 'Inter', sans-serif; padding: 5px 8px; border: 1px solid var(--rule); background: var(--bg); color: var(--ink); border-radius: 6px; }
+  .count { margin-left: auto; color: var(--muted); font-size: 13px; }
+  .legend { color: var(--muted); font-size: 12.5px; margin: 12px 0 0; }
+  .legend b { color: var(--ink-2); font-weight: 600; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; margin-top: 14px; }
+  .card { display: block; text-decoration: none; color: inherit; border: 1px solid var(--rule); border-radius: 10px; padding: 14px 14px 12px; background: var(--bg); transition: border-color .12s, transform .12s; }
+  .card:hover { border-color: var(--ink); }
+  .card .head { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; }
+  .card .mix { font-weight: 600; font-size: 14.5px; }
+  .card .mix .sep { color: var(--muted); font-weight: 400; padding: 0 3px; }
+  .card .regime { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+  .card .meta { color: var(--muted); font-size: 12.5px; margin-top: 2px; }
+  .share { display: flex; height: 7px; border-radius: 4px; overflow: hidden; margin: 10px 0 8px; background: var(--bg-2); }
+  .share i { display: block; height: 100%; background: var(--c); }
+  table.stats { width: 100%; border-collapse: collapse; font-size: 13px; }
+  table.stats th { font-weight: 500; color: var(--muted); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; text-align: right; padding: 0 0 3px; }
+  table.stats th:first-child { text-align: left; }
+  table.stats td { padding: 2px 0; text-align: right; border-top: 1px solid var(--rule-2); white-space: nowrap; }
+  table.stats td:first-child { text-align: left; }
+  .hbar { display: inline-block; width: 46px; height: 7px; vertical-align: 1px; margin-right: 6px; position: relative; background: var(--bg-2); border-radius: 2px; }
+  .hbar i { position: absolute; top: 0; height: 100%; background: var(--c); border-radius: 2px; }
+  .hbar::after { content: ""; position: absolute; left: 50%; top: -2px; width: 1px; height: 11px; background: var(--rule); }
+  .card .foot { display: flex; justify-content: space-between; gap: 8px; color: var(--muted); font-size: 12px; margin-top: 8px; flex-wrap: wrap; }
+  .card .foot .win { color: var(--ink-2); }
+  .empty { color: var(--muted); padding: 40px 0; text-align: center; }
+  @media (prefers-reduced-motion: no-preference) { .card:hover { transform: translateY(-1px); } }
+</style>
 </head>
 <body>
-
-<header id="topbar" class="topbar">
-  <h1 class="title">Model attractors in a heterogeneous LLM social network</h1>
-
-  <div class="controls">
-    <label class="ctl">
-      <span class="panel-h">run</span>
-      <select id="run-select" aria-label="run"></select>
-    </label>
-
-    <div id="transport" class="ctl transport" role="group" aria-label="transport">
-      <button id="play" class="btn btn-play" aria-label="play" title="space">▶</button>
-      <span id="speeds" class="btn-group" role="group" aria-label="speed">
-        <button class="btn on" data-speed="1" title="1×">1×</button>
-        <button class="btn" data-speed="2" title="2×">2×</button>
-        <button class="btn" data-speed="4" title="4×">4×</button>
-        <button class="btn" data-speed="8" title="8×">8×</button>
-      </span>
-      <input id="scrub" type="range" min="0" max="100" step="1" value="0" aria-label="step">
-      <span id="step-readout" class="num readout">0 / 0</span>
+<div class="wrap">
+  <header class="hero">
+    <div>
+      <h1>Who gets the comments in a heterogeneous LLM social network?</h1>
+      <p>213 simulations from the paper, 20–40 agents each, every persona powered by one of five base models. Pick a run to replay it step by step: the network, what each agent saw, and what it did.</p>
     </div>
+    <div class="links">
+      <a href="https://github.com/djroytburg/divsim_publish">code</a>
+      <a href="https://huggingface.co/datasets/anonymousfileupload/divdata">data</a>
+      <a href="https://djroytburg.github.io/">djroytburg</a>
+    </div>
+  </header>
 
-    <button id="theme" class="btn" aria-pressed="false" title="toggle theme">light</button>
+  <div class="toolbar" id="toolbar">
+    <div class="group" id="regimes"><span class="lab">mixture</span></div>
+    <div class="group" id="fams"><span class="lab">includes</span></div>
+    <div class="group"><span class="lab">sort</span>
+      <select id="sort" aria-label="sort runs">
+        <option value="mix">mixture, then seed</option>
+        <option value="oss">gpt-oss incoming H ↓</option>
+        <option value="mag">Magistral incoming H ↑</option>
+        <option value="spread">H spread (top − bottom) ↓</option>
+        <option value="comments">comments ↓</option>
+      </select>
+    </div>
+    <input type="search" id="q" placeholder="run id, seed…" aria-label="search runs">
+    <span class="count" id="count"></span>
   </div>
-</header>
+  <p class="legend"><b>Incoming H</b> = share of cross-model comments a family's posts received vs. its share of agents, minus 1 (+0.4 = 40% above chance; tick = zero). <b>CPP</b> = comments per post. <b>recv / fair</b> = share of cross-model comments received vs. the share expected from head-count. The strip shows received share by family.</p>
 
-<div id="runstrip" class="runstrip">
-  <span id="run-label" class="run-label">loading…</span>
-  <span id="run-meta" class="muted"></span>
-  <span class="caption muted">
-    H = share of cross-model comments received vs. random mixing; +0.4 = 40% above chance.
-  </span>
+  <div class="grid" id="grid"></div>
+  <div class="empty" id="empty" hidden>No runs match.</div>
 </div>
 
-<main id="main" class="main">
-  <section id="col-graph" class="col col-graph panel" aria-label="network">
-    <div id="graph" class="fill"></div>
-  </section>
+<script>
+(async () => {
+  // old links (poster QR, earlier shares) carry #run=…; hand them straight to the replay
+  if (/(^|[#&])run=/.test(location.hash)) { location.replace('replay.html' + location.hash); return; }
+  const COL = { 'gpt-oss': 'var(--oss)', 'Qwen': 'var(--qwen)', 'Mag': 'var(--mag)', 'GLM-4': 'var(--glm)', 'Gemma': 'var(--gemma)' };
+  const LONG = { 'gpt-oss': 'gpt-oss', 'Qwen': 'Qwen3', 'Mag': 'Magistral', 'GLM-4': 'GLM-4', 'Gemma': 'Gemma' };
+  const ORDER = ['gpt-oss', 'Qwen', 'GLM-4', 'Mag', 'Gemma'];
+  const REG = { dyad: 'two-way', triad: 'three-way', tetrad: 'four-way' }, REGORD = { dyad: 0, triad: 1, tetrad: 2 };
+  const runs = await (await fetch('data/index.json')).json();
+  const $ = id => document.getElementById(id);
+  const state = { regimes: new Set(), fams: new Set(), sort: 'mix', q: '' };
+  const fmtH = v => v == null ? '—' : (v >= 0 ? '+' : '−') + Math.abs(v).toFixed(2);
+  const pct = v => (100 * (v || 0)).toFixed(0);
 
-  <section id="col-feed" class="col col-feed panel" aria-label="agent replay">
-    <div id="feed" class="fill"></div>
-    
-  </section>
+  function chip(parent, label, cls, c, on) {
+    const b = document.createElement('button'); b.className = 'chip ' + cls; b.textContent = label; b.setAttribute('aria-pressed', 'false');
+    if (c) b.style.setProperty('--c', c);
+    b.addEventListener('click', () => { const v = b.getAttribute('aria-pressed') !== 'true'; b.setAttribute('aria-pressed', String(v)); on(v); render(); });
+    parent.appendChild(b);
+  }
+  for (const r of ['dyad', 'triad', 'tetrad']) chip($('regimes'), REG[r], '', null, v => v ? state.regimes.add(r) : state.regimes.delete(r));
+  for (const f of ORDER) chip($('fams'), LONG[f], 'f', COL[f], v => v ? state.fams.add(f) : state.fams.delete(f));
+  $('sort').addEventListener('change', e => { state.sort = e.target.value; render(); });
+  $('q').addEventListener('input', e => { state.q = e.target.value.trim().toLowerCase(); render(); });
 
-  <section id="col-metrics" class="col col-metrics panel" aria-label="metrics">
-    <div id="metrics" class="fill"></div>
-  </section>
-</main>
+  const H = (r, f) => (r.stats.H_in || {})[f];
+  const spread = r => { const v = Object.values(r.stats.H_in || {}); return v.length ? Math.max(...v) - Math.min(...v) : -1; };
+  const SORT = {
+    mix: (a, b) => REGORD[a.regime] - REGORD[b.regime] || a.families.join().localeCompare(b.families.join()) || (+a.stats.seed || 0) - (+b.stats.seed || 0) || (+a.stats.rotation || 0) - (+b.stats.rotation || 0),
+    oss: (a, b) => (H(b, 'gpt-oss') ?? -9) - (H(a, 'gpt-oss') ?? -9),
+    mag: (a, b) => (H(a, 'Mag') ?? 9) - (H(b, 'Mag') ?? 9),
+    spread: (a, b) => spread(b) - spread(a),
+    comments: (a, b) => b.stats.comments - a.stats.comments,
+  };
 
-<footer id="footer" class="footer muted">
-  <span class="kbd">space</span> play/pause ·
-  <span class="kbd">←</span><span class="kbd">→</span> step ·
-  <span class="kbd">shift</span>+arrows ±10 ·
-  <span class="kbd">1</span><span class="kbd">2</span><span class="kbd">4</span><span class="kbd">8</span> speed ·
-  <span class="kbd">esc</span> clear selection
-</footer>
+  function card(r) {
+    const s = r.stats, fams = r.families;
+    const a = document.createElement('a'); a.className = 'card'; a.href = 'replay.html#run=' + encodeURIComponent(r.run_id);
+    const short = r.run_id.replace(/^runs__(tetratic__)?/, '');
+    const meta = [s.seed ? 'seed ' + s.seed : null, s.rotation ? 'rotation ' + s.rotation : null, s.n_agents + ' agents', s.steps + ' steps'].filter(Boolean).join(' · ');
+    const strip = fams.map(f => `<i style="--c:${COL[f]};width:${(100 * (s.recv_share[f] || 0)).toFixed(1)}%" title="${LONG[f]} received ${pct(s.recv_share[f])}% of cross-model comments (fair ${pct(s.fair[f])}%)"></i>`).join('');
+    const rows = fams.map(f => {
+      const h = H(r, f), w = h == null ? 0 : Math.min(50, Math.abs(h) * 50);
+      const bar = h == null ? '' : `<span class="hbar" style="--c:${COL[f]}"><i style="left:${h >= 0 ? 50 : 50 - w}%;width:${w}%"></i></span>`;
+      return `<tr><td><span class="dot" style="--c:${COL[f]}"></span><span class="fam" style="--c:${COL[f]}">${LONG[f]}</span></td>
+        <td class="mono">${bar}${fmtH(h)}</td><td class="mono">${s.cpp[f] == null ? '—' : s.cpp[f].toFixed(1)}</td>
+        <td class="mono">${pct(s.recv_share[f])}%<span style="color:var(--muted)"> / ${pct(s.fair[f])}</span></td></tr>`;
+    }).join('');
+    const win = s.top ? `<span class="win">most drawn: <span class="fam" style="--c:${COL[s.top]}">${LONG[s.top]}</span></span>` : '<span>no step data</span>';
+    a.innerHTML = `<div class="head"><div class="mix">${fams.map(f => `<span class="fam" style="--c:${COL[f]}">${LONG[f]}</span>`).join('<span class="sep">+</span>')}</div><div class="regime">${REG[r.regime]}</div></div>
+      <div class="meta">${meta} · <span class="mono">${short}</span></div>
+      <div class="share">${strip}</div>
+      <table class="stats"><thead><tr><th>family</th><th>incoming H</th><th>cpp</th><th>recv / fair</th></tr></thead><tbody>${rows}</tbody></table>
+      <div class="foot">${win}<span class="mono">${s.posts} posts · ${s.comments} comments · ${s.cross ? Math.round(100 * s.cross / s.comments) : 0}% cross</span></div>`;
+    return a;
+  }
 
-<script type="module" src="js/main.js"></script>
+  function render() {
+    let list = runs.filter(r => (!state.regimes.size || state.regimes.has(r.regime)) && [...state.fams].every(f => r.families.includes(f))
+      && (!state.q || r.run_id.toLowerCase().includes(state.q) || (r.label || '').toLowerCase().includes(state.q)));
+    list = list.slice().sort(SORT[state.sort]);
+    $('grid').replaceChildren(...list.map(card));
+    $('empty').hidden = list.length > 0; $('count').textContent = `${list.length} of ${runs.length} runs`;
+  }
+  render();
+})();
+</script>
 </body>
 </html>
