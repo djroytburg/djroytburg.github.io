@@ -8,167 +8,286 @@
 <meta name="description" content="Pick one of 213 heterogeneous LLM social-network simulations and replay it: which base model attracts the comments?">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script>
+  // apply a stored theme before first paint (same behaviour as djroytburg.github.io)
+  try { const t = localStorage.getItem('theme'); if (t === 'dark' || t === 'light') document.documentElement.dataset.theme = t; } catch (e) {}
+</script>
 <style>
   :root {
-    --bg: #ffffff; --bg-2: #f6f6f6; --ink: #111111; --ink-2: #333333; --muted: #666666;
-    --rule: rgba(0,0,0,.12); --rule-2: rgba(0,0,0,.06); --accent: #6d0061; --mix: 75%;
+    --bg: #ffffff; --text: #111111; --muted: #666666; --accent: #6d0061;
+    --rule: rgba(0,0,0,.10); --hair: rgba(0,0,0,.06); --hover: rgba(0,0,0,.028);
+    --mix: 75%; --max-width: 850px;
     --oss: #ff2d55; --qwen: #00b3ff; --mag: #b455ff; --glm: #00e676; --gemma: #ff9100;
   }
   @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
-    --bg: #0b0b0c; --bg-2: #141416; --ink: #ffffff; --ink-2: #dcdcdc; --muted: #bdbdbd;
-    --rule: rgba(255,255,255,.14); --rule-2: rgba(255,255,255,.07); --accent: #c97fe0; --mix: 100%; } }
+    --bg: #0b0b0c; --text: #ffffff; --muted: #bdbdbd; --accent: #c97fe0;
+    --rule: rgba(255,255,255,.14); --hair: rgba(255,255,255,.07); --hover: rgba(255,255,255,.04); --mix: 100%; } }
+  :root[data-theme="dark"] .wordmark { opacity: 1; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .wordmark { opacity: 1; } }
   :root[data-theme="dark"] {
-    --bg: #0b0b0c; --bg-2: #141416; --ink: #ffffff; --ink-2: #dcdcdc; --muted: #bdbdbd;
-    --rule: rgba(255,255,255,.14); --rule-2: rgba(255,255,255,.07); --accent: #c97fe0; --mix: 100%; }
+    --bg: #0b0b0c; --text: #ffffff; --muted: #bdbdbd; --accent: #c97fe0;
+    --rule: rgba(255,255,255,.14); --hair: rgba(255,255,255,.07); --hover: rgba(255,255,255,.04); --mix: 100%; }
+
   * { box-sizing: border-box; }
-  html, body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Inter', sans-serif; font-size: 15px; line-height: 1.45; }
-  a { color: var(--accent); }
-  .mono { font-family: 'Ubuntu Mono', monospace; font-variant-numeric: tabular-nums; }
-  .wrap { max-width: 1180px; margin: 0 auto; padding: 28px 16px 64px; }
-  header.hero { display: grid; grid-template-columns: 1fr auto; gap: 16px 24px; align-items: end; padding-bottom: 18px; border-bottom: 1px solid var(--rule); }
-  header.hero h1 { font-size: 26px; font-weight: 600; letter-spacing: -0.01em; margin: 0 0 6px; text-wrap: balance; }
-  header.hero p { margin: 0; color: var(--muted); max-width: 64ch; }
-  header.hero .links { display: flex; gap: 14px; flex-wrap: wrap; font-size: 13px; }
-  header.hero .links a { text-decoration: none; border-bottom: 1px solid var(--rule); color: var(--ink-2); }
-  .fam { color: color-mix(in srgb, var(--c) var(--mix), black); font-weight: 600; }
-  .dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: var(--c); margin-right: 5px; vertical-align: 1px; }
+  html { background: var(--bg); }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; font-size: 13px;
+         -webkit-font-smoothing: antialiased; transition: background .18s ease, color .18s ease; }
+  a { color: inherit; text-decoration: underline; text-decoration-color: currentColor; text-underline-offset: 2px; }
+  a:hover { color: var(--accent); }
+  :focus-visible { outline: 1px solid var(--accent); outline-offset: 2px; }
+  .mono { font-family: 'Ubuntu Mono', monospace; }
 
-  .toolbar { display: flex; flex-wrap: wrap; gap: 10px 22px; align-items: center; padding: 14px 0; position: sticky; top: 0; background: var(--bg); z-index: 2; border-bottom: 1px solid var(--rule-2); }
-  .group { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
-  .group .lab { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-right: 4px; }
-  .chip { font: 500 13px 'Inter', sans-serif; padding: 4px 10px; border: 1px solid var(--rule); background: var(--bg); color: var(--ink-2); cursor: pointer; border-radius: 999px; }
-  .chip[aria-pressed="true"] { border-color: var(--ink); background: var(--ink); color: var(--bg); }
-  .chip.f[aria-pressed="true"] { background: var(--c); border-color: var(--c); color: #fff; }
-  .chip:focus-visible, select:focus-visible, input:focus-visible, .card:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-  select, input[type=search] { font: 400 13px 'Inter', sans-serif; padding: 5px 8px; border: 1px solid var(--rule); background: var(--bg); color: var(--ink); border-radius: 6px; }
-  .count { margin-left: auto; color: var(--muted); font-size: 13px; }
-  .legend { color: var(--muted); font-size: 12.5px; margin: 12px 0 0; }
-  .legend b { color: var(--ink-2); font-weight: 600; }
+  /* top bar: wordmark, page label, theme toggle — not sticky beyond what the site does */
+  .topbar { position: absolute; top: 0; left: 0; right: 0; height: 40px; display: flex; align-items: center;
+            justify-content: space-between; padding: 0 14px; }
+  .wordmark { font-family: 'Ubuntu Mono', monospace; font-size: 20px; color: #A00ED9; text-decoration: none; opacity: .7; letter-spacing: .02em; }
+  .wordmark:hover { opacity: 1; color: #A00ED9; }
+  .topbar-label { position: absolute; left: 50%; transform: translateX(-50%); font-family: 'Ubuntu Mono', monospace;
+                  font-size: 12px; color: var(--muted); letter-spacing: .04em; white-space: nowrap; }
+  .theme-toggle { background: transparent; border: 0; color: var(--muted); padding: 8px; display: inline-flex; cursor: pointer;
+                  transition: color .12s ease, transform .12s ease; }
+  .theme-toggle:hover { color: var(--accent); transform: translateY(-2px); }
+  .theme-toggle svg { display: block; }
 
-  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; margin-top: 14px; }
-  .card { display: block; text-decoration: none; color: inherit; border: 1px solid var(--rule); border-radius: 10px; padding: 14px 14px 12px; background: var(--bg); transition: border-color .12s, transform .12s; }
-  .card:hover { border-color: var(--ink); }
-  .card .head { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; }
-  .card .mix { font-weight: 600; font-size: 14.5px; }
-  .card .mix .sep { color: var(--muted); font-weight: 400; padding: 0 3px; }
-  .card .regime { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
-  .card .meta { color: var(--muted); font-size: 12.5px; margin-top: 2px; }
-  .share { display: flex; height: 7px; border-radius: 4px; overflow: hidden; margin: 10px 0 8px; background: var(--bg-2); }
-  .share i { display: block; height: 100%; background: var(--c); }
-  table.stats { width: 100%; border-collapse: collapse; font-size: 13px; }
-  table.stats th { font-weight: 500; color: var(--muted); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; text-align: right; padding: 0 0 3px; }
-  table.stats th:first-child { text-align: left; }
-  table.stats td { padding: 2px 0; text-align: right; border-top: 1px solid var(--rule-2); white-space: nowrap; }
-  table.stats td:first-child { text-align: left; }
-  .hbar { display: inline-block; width: 46px; height: 7px; vertical-align: 1px; margin-right: 6px; position: relative; background: var(--bg-2); border-radius: 2px; }
-  .hbar i { position: absolute; top: 0; height: 100%; background: var(--c); border-radius: 2px; }
-  .hbar::after { content: ""; position: absolute; left: 50%; top: -2px; width: 1px; height: 11px; background: var(--rule); }
-  .card .foot { display: flex; justify-content: space-between; gap: 8px; color: var(--muted); font-size: 12px; margin-top: 8px; flex-wrap: wrap; }
-  .card .foot .win { color: var(--ink-2); }
-  .empty { color: var(--muted); padding: 40px 0; text-align: center; }
-  @media (prefers-reduced-motion: no-preference) { .card:hover { transform: translateY(-1px); } }
+  .container { max-width: var(--max-width); margin: 48px auto 0; padding: 40px 22px 64px; }
+
+  /* masthead, after the home page */
+  .hero { text-align: center; margin-bottom: 28px; font-family: 'Ubuntu Mono', monospace; font-size: 16px; }
+  .name { font-family: 'EB Garamond', serif; font-size: 48px; font-weight: 700; margin: 0 0 8px; line-height: 1.1; }
+  .subtitle { margin: 0; line-height: 1.35; text-wrap: balance; }
+  .accent-rule { border: 0; height: 4px; background: var(--text); width: 70%; margin: 12px auto 18px; opacity: .95; }
+  .affil { color: var(--muted); margin: 6px 0; font-size: 15px; }
+  .affil b { color: var(--accent); font-weight: 700; }
+  .links { margin-top: 16px; }
+  .links a { margin: 0 8px; }
+
+  .summary { max-width: 720px; margin: 28px auto 0; font-size: 14px; line-height: 1.6; }
+  .summary p { margin: 0 0 14px; }
+  .summary .key { font-weight: 300; color: var(--text); }
+  .summary .key em { font-style: normal; font-weight: 500; }
+
+  /* filters: mono words like the site nav; active = weight + underline */
+  .controls { margin: 36px 0 0; padding: 0 0 14px; border-bottom: 1px solid var(--rule);
+              font-family: 'Ubuntu Mono', monospace; font-size: 14px; }
+  .ctl { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 0; margin: 0 0 6px; }
+  .ctl .lab { color: var(--muted); width: 74px; flex: 0 0 74px; }
+  .opt { font: inherit; background: none; border: 0; padding: 2px 0; margin: 0 14px 0 0; cursor: pointer; color: var(--muted);
+         text-decoration: none; border-bottom: 1px solid transparent; }
+  .opt:hover { color: var(--text); }
+  .opt[aria-pressed="true"] { color: var(--text); font-weight: 700; border-bottom-color: currentColor; }
+  .opt.fam { color: color-mix(in srgb, var(--c) var(--mix), black); opacity: .7; }
+  .opt.fam:hover { opacity: 1; }
+  .opt.fam[aria-pressed="true"] { opacity: 1; }
+  select, input[type=search] { font: inherit; color: var(--text); background: var(--bg); border: 0; border-bottom: 1px solid var(--rule);
+         padding: 2px 0; border-radius: 0; }
+  select { padding-right: 4px; cursor: pointer; }
+  input[type=search] { width: 200px; max-width: 100%; }
+  input[type=search]::placeholder { color: var(--muted); opacity: .7; }
+  .ctl .count { margin-left: auto; color: var(--muted); }
+
+  /* the index */
+  .regime { margin: 44px 0 0; }
+  .regime > h2 { font-family: 'EB Garamond', serif; font-size: 28px; font-weight: 700; margin: 0 0 2px; }
+  .regime > .rmeta { color: var(--muted); font-family: 'Ubuntu Mono', monospace; font-size: 13px; margin: 0 0 6px; }
+  .mixture { margin: 26px 0 0; }
+  .mixture h3 { font-family: 'EB Garamond', serif; font-size: 19px; font-weight: 600; margin: 0 0 6px; line-height: 1.3; }
+  .mixture h3 .plus { color: var(--muted); font-weight: 400; padding: 0 .25em; }
+  .mixture h3 .n { font-family: 'Ubuntu Mono', monospace; font-size: 13px; font-weight: 400; color: var(--muted); margin-left: 10px; }
+  .fam-t { color: color-mix(in srgb, var(--c) var(--mix), black); }
+
+  .tablewrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  table { border-collapse: collapse; width: 100%; font-family: 'Ubuntu Mono', monospace; font-size: 13.5px;
+          font-variant-numeric: tabular-nums; }
+  th { font-weight: 400; color: var(--muted); font-size: 12px; text-align: right; padding: 0 0 3px 10px; white-space: nowrap; }
+  th.fh { text-align: center; font-family: 'EB Garamond', serif; font-size: 15px; padding: 0 0 1px 12px; }
+  th.fh span { display: block; border-bottom: 1px solid var(--rule); padding-bottom: 1px; }
+  thead tr:last-child th { border-bottom: 1px solid var(--rule); padding-bottom: 4px; }
+  th.l, td.l { text-align: left; padding-left: 0; }
+  td { text-align: right; padding: 4px 0 4px 10px; white-space: nowrap; border-bottom: 1px solid var(--hair); }
+  td.g { padding-left: 18px; }
+  th.g { padding-left: 18px; }
+  td.dim { color: var(--muted); }
+  tbody tr { cursor: pointer; }
+  tbody tr:hover { background: var(--hover); }
+  tbody tr:hover td.l a { color: var(--accent); }
+  td.l a { text-decoration: underline; text-underline-offset: 2px; }
+  td.l .r { color: var(--muted); }
+  td.top { font-weight: 700; }
+
+  .empty { color: var(--muted); padding: 40px 0; text-align: center; font-family: 'Ubuntu Mono', monospace; font-size: 14px; }
+  .footer { text-align: center; color: var(--muted); font-size: 13px; padding: 18px 0; border-top: 1px solid var(--hair); }
+
+  @media (max-width: 600px) {
+    .container { margin-top: 32px; padding: 32px 16px 48px; }
+    .name { font-size: 36px; }
+    .subtitle { font-size: 15px; }
+    .accent-rule { width: 90%; }
+    .ctl .lab { width: 100%; flex-basis: 100%; }
+    .ctl .count { margin-left: 0; width: 100%; margin-top: 6px; }
+    input[type=search] { width: 100%; }
+    .mixture h3 .n { display: block; margin: 2px 0 0; }
+  }
 </style>
 </head>
 <body>
-<div class="wrap">
+<nav class="topbar">
+  <a class="wordmark" href="https://djroytburg.github.io/" aria-label="djr, home">djr</a>
+  <span class="topbar-label">divsim runs</span>
+  <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle color theme">
+    <svg id="theme-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"></svg>
+  </button>
+</nav>
+
+<main class="container">
   <header class="hero">
-    <div>
-      <h1>Who gets the comments in a heterogeneous LLM social network?</h1>
-      <p>213 simulations from the paper, 20–40 agents each, every persona powered by one of five base models. Pick a run to replay it step by step: the network, what each agent saw, and what it did.</p>
-    </div>
-    <div class="links">
+    <h1 class="name">divsim</h1>
+    <p class="subtitle">Disentangling Models from Personas in Heterogeneous LLM Simulations</p>
+    <hr class="accent-rule">
+    <p class="affil">Roytburg &amp; Ippolito · <b>Social Simulation with LLMs</b> @ COLM 2026</p>
+    <nav class="links" aria-label="project links">
+      <a href="#">paper</a>
       <a href="https://github.com/djroytburg/divsim_publish">code</a>
       <a href="https://huggingface.co/datasets/anonymousfileupload/divdata">data</a>
       <a href="https://djroytburg.github.io/">djroytburg</a>
-    </div>
+    </nav>
   </header>
 
-  <div class="toolbar" id="toolbar">
-    <div class="group" id="regimes"><span class="lab">mixture</span></div>
-    <div class="group" id="fams"><span class="lab">includes</span></div>
-    <div class="group"><span class="lab">sort</span>
-      <select id="sort" aria-label="sort runs">
-        <option value="mix">mixture, then seed</option>
-        <option value="oss">gpt-oss incoming H ↓</option>
-        <option value="mag">Magistral incoming H ↑</option>
-        <option value="spread">H spread (top − bottom) ↓</option>
-        <option value="comments">comments ↓</option>
-      </select>
-    </div>
-    <input type="search" id="q" placeholder="run id, seed…" aria-label="search runs">
-    <span class="count" id="count"></span>
-  </div>
-  <p class="legend"><b>Incoming H</b> = share of cross-model comments a family's posts received vs. its share of agents, minus 1 (+0.4 = 40% above chance; tick = zero). <b>CPP</b> = comments per post. <b>recv / fair</b> = share of cross-model comments received vs. the share expected from head-count. The strip shows received share by family.</p>
+  <section class="summary">
+    <p>213 simulations from the paper; pick one to replay it step by step.</p>
+    <p class="key"><em>H</em> is the cross-model comments a family's posts received relative to its share of agents, minus one (+0.40 is 40% above chance). <em>cpp</em> is comments per post. <em>recv</em> is the share of cross-model comments a family received; its <em>fair</em> share, the one head-count alone would predict, is given beside each mixture. The family each run favoured most is set in bold.</p>
+  </section>
 
-  <div class="grid" id="grid"></div>
-  <div class="empty" id="empty" hidden>No runs match.</div>
-</div>
+  <div class="controls" role="search">
+    <div class="ctl" id="regimes"><span class="lab">mixture</span></div>
+    <div class="ctl" id="fams"><span class="lab">includes</span></div>
+    <div class="ctl">
+      <span class="lab">order</span>
+      <select id="sort" aria-label="order runs within each mixture">
+        <option value="mix">seed, rotation</option>
+        <option value="oss">gpt-oss H, high first</option>
+        <option value="mag">Magistral H, low first</option>
+        <option value="spread">H spread, widest first</option>
+        <option value="comments">comments, most first</option>
+      </select>
+      <span style="width:18px"></span>
+      <input type="search" id="q" placeholder="search run id, seed" aria-label="search runs">
+      <span class="count" id="count" aria-live="polite"></span>
+    </div>
+  </div>
+
+  <div id="list"></div>
+  <p class="empty" id="empty" hidden>no runs match</p>
+</main>
+<footer class="footer"><small>Roytburg &amp; Ippolito, 2026. Part of <a href="https://djroytburg.github.io/">djroytburg.github.io</a>.</small></footer>
 
 <script>
+// theme toggle: stored choice wins, otherwise the OS preference
+(() => {
+  const btn = document.getElementById('theme-toggle'), icon = document.getElementById('theme-icon'), root = document.documentElement;
+  const mq = matchMedia('(prefers-color-scheme: dark)');
+  const isDark = () => root.dataset.theme ? root.dataset.theme === 'dark' : mq.matches;
+  const SUN = '<circle cx="12" cy="12" r="4" fill="currentColor"/><g stroke="currentColor" stroke-width="1.25" stroke-linecap="round"><line x1="12" y1="1" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="23"/><line x1="1" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="23" y2="12"/><line x1="4.2" y1="4.2" x2="6.3" y2="6.3"/><line x1="17.7" y1="17.7" x2="19.8" y2="19.8"/><line x1="4.2" y1="19.8" x2="6.3" y2="17.7"/><line x1="17.7" y1="6.3" x2="19.8" y2="4.2"/></g>';
+  const MOON = '<path fill="currentColor" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>';
+  const paint = () => { const d = isDark(); icon.innerHTML = d ? MOON : SUN; btn.setAttribute('aria-pressed', String(d)); };
+  btn.addEventListener('click', () => {
+    const next = isDark() ? 'light' : 'dark'; root.dataset.theme = next;
+    try { localStorage.setItem('theme', next); } catch (e) {}
+    paint();
+  });
+  mq.addEventListener && mq.addEventListener('change', paint);
+  paint();
+})();
+
 (async () => {
   // old links (poster QR, earlier shares) carry #run=…; hand them straight to the replay
   if (/(^|[#&])run=/.test(location.hash)) { location.replace('replay.html' + location.hash); return; }
   const COL = { 'gpt-oss': 'var(--oss)', 'Qwen': 'var(--qwen)', 'Mag': 'var(--mag)', 'GLM-4': 'var(--glm)', 'Gemma': 'var(--gemma)' };
   const LONG = { 'gpt-oss': 'gpt-oss', 'Qwen': 'Qwen3', 'Mag': 'Magistral', 'GLM-4': 'GLM-4', 'Gemma': 'Gemma' };
   const ORDER = ['gpt-oss', 'Qwen', 'GLM-4', 'Mag', 'Gemma'];
-  const REG = { dyad: 'two-way', triad: 'three-way', tetrad: 'four-way' }, REGORD = { dyad: 0, triad: 1, tetrad: 2 };
-  const runs = await (await fetch('data/index.json')).json();
+  const REG = { dyad: 'two-way', triad: 'three-way', tetrad: 'four-way' }, REGS = ['dyad', 'triad', 'tetrad'];
   const $ = id => document.getElementById(id);
+  let runs;
+  try { runs = await (await fetch('data/index.json')).json(); }
+  catch (e) { $('empty').textContent = 'could not load data/index.json'; $('empty').hidden = false; return; }
+  // dyads/triads carry their persona-to-model rotation only in the run id (e.g. sweep_qwe_gpt vs sweep_gpt_qwe); number those 1..k per mixture
+  const variant = r => r.run_id.replace(/^runs__(tetratic__)?(sweep_)?(tri_|tetra_)?/, '').replace(/_?s\d+(_r\d+)?$/, '');
+  const vmap = new Map();
+  for (const r of runs) { const k = r.families.join('+'); if (!vmap.has(k)) vmap.set(k, new Set()); vmap.get(k).add(variant(r)); }
+  for (const r of runs) r.rot = r.stats.rotation != null ? +r.stats.rotation : [...vmap.get(r.families.join('+'))].sort().indexOf(variant(r)) + 1;
   const state = { regimes: new Set(), fams: new Set(), sort: 'mix', q: '' };
-  const fmtH = v => v == null ? '—' : (v >= 0 ? '+' : '−') + Math.abs(v).toFixed(2);
-  const pct = v => (100 * (v || 0)).toFixed(0);
+  const fmtH = v => v == null ? '–' : (v >= 0 ? '+' : '−') + Math.abs(v).toFixed(2);
+  const pct = v => v == null ? '–' : (100 * v).toFixed(0);
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const famSpan = f => `<span class="fam-t" style="--c:${COL[f]}">${LONG[f]}</span>`;
 
-  function chip(parent, label, cls, c, on) {
-    const b = document.createElement('button'); b.className = 'chip ' + cls; b.textContent = label; b.setAttribute('aria-pressed', 'false');
-    if (c) b.style.setProperty('--c', c);
+  function opt(parent, label, c, on) {
+    const b = document.createElement('button'); b.type = 'button'; b.className = 'opt' + (c ? ' fam' : ''); b.textContent = label;
+    b.setAttribute('aria-pressed', 'false'); if (c) b.style.setProperty('--c', c);
     b.addEventListener('click', () => { const v = b.getAttribute('aria-pressed') !== 'true'; b.setAttribute('aria-pressed', String(v)); on(v); render(); });
     parent.appendChild(b);
   }
-  for (const r of ['dyad', 'triad', 'tetrad']) chip($('regimes'), REG[r], '', null, v => v ? state.regimes.add(r) : state.regimes.delete(r));
-  for (const f of ORDER) chip($('fams'), LONG[f], 'f', COL[f], v => v ? state.fams.add(f) : state.fams.delete(f));
+  for (const r of REGS) opt($('regimes'), REG[r], null, v => v ? state.regimes.add(r) : state.regimes.delete(r));
+  for (const f of ORDER) opt($('fams'), LONG[f], COL[f], v => v ? state.fams.add(f) : state.fams.delete(f));
   $('sort').addEventListener('change', e => { state.sort = e.target.value; render(); });
   $('q').addEventListener('input', e => { state.q = e.target.value.trim().toLowerCase(); render(); });
 
   const H = (r, f) => (r.stats.H_in || {})[f];
-  const spread = r => { const v = Object.values(r.stats.H_in || {}); return v.length ? Math.max(...v) - Math.min(...v) : -1; };
+  const spread = r => { const v = Object.values(r.stats.H_in || {}).filter(x => x != null); return v.length ? Math.max(...v) - Math.min(...v) : -1; };
+  const bySeed = (a, b) => (+a.stats.seed || 0) - (+b.stats.seed || 0) || a.rot - b.rot;
   const SORT = {
-    mix: (a, b) => REGORD[a.regime] - REGORD[b.regime] || a.families.join().localeCompare(b.families.join()) || (+a.stats.seed || 0) - (+b.stats.seed || 0) || (+a.stats.rotation || 0) - (+b.stats.rotation || 0),
-    oss: (a, b) => (H(b, 'gpt-oss') ?? -9) - (H(a, 'gpt-oss') ?? -9),
-    mag: (a, b) => (H(a, 'Mag') ?? 9) - (H(b, 'Mag') ?? 9),
-    spread: (a, b) => spread(b) - spread(a),
+    mix: bySeed,
+    oss: (a, b) => (H(b, 'gpt-oss') ?? -9) - (H(a, 'gpt-oss') ?? -9) || bySeed(a, b),
+    mag: (a, b) => (H(a, 'Mag') ?? 9) - (H(b, 'Mag') ?? 9) || bySeed(a, b),
+    spread: (a, b) => spread(b) - spread(a) || bySeed(a, b),
     comments: (a, b) => b.stats.comments - a.stats.comments,
   };
+  const famKey = fams => fams.slice().sort((a, b) => ORDER.indexOf(a) - ORDER.indexOf(b));
 
-  function card(r) {
-    const s = r.stats, fams = r.families;
-    const a = document.createElement('a'); a.className = 'card'; a.href = 'replay.html#run=' + encodeURIComponent(r.run_id);
-    const short = r.run_id.replace(/^runs__(tetratic__)?/, '');
-    const meta = [s.seed ? 'seed ' + s.seed : null, s.rotation ? 'rotation ' + s.rotation : null, s.n_agents + ' agents', s.steps + ' steps'].filter(Boolean).join(' · ');
-    const strip = fams.map(f => `<i style="--c:${COL[f]};width:${(100 * (s.recv_share[f] || 0)).toFixed(1)}%" title="${LONG[f]} received ${pct(s.recv_share[f])}% of cross-model comments (fair ${pct(s.fair[f])}%)"></i>`).join('');
-    const rows = fams.map(f => {
-      const h = H(r, f), w = h == null ? 0 : Math.min(50, Math.abs(h) * 50);
-      const bar = h == null ? '' : `<span class="hbar" style="--c:${COL[f]}"><i style="left:${h >= 0 ? 50 : 50 - w}%;width:${w}%"></i></span>`;
-      return `<tr><td><span class="dot" style="--c:${COL[f]}"></span><span class="fam" style="--c:${COL[f]}">${LONG[f]}</span></td>
-        <td class="mono">${bar}${fmtH(h)}</td><td class="mono">${s.cpp[f] == null ? '—' : s.cpp[f].toFixed(1)}</td>
-        <td class="mono">${pct(s.recv_share[f])}%<span style="color:var(--muted)"> / ${pct(s.fair[f])}</span></td></tr>`;
+  function table(fams, list) {
+    const head1 = `<tr><th class="l" colspan="2"></th><th colspan="2"></th>${fams.map(f => `<th class="fh g" colspan="3"><span>${famSpan(f)}</span></th>`).join('')}</tr>`;
+    const head2 = `<tr><th class="l">seed</th><th>rotation</th><th>posts</th><th>comments</th>${fams.map(() => '<th class="g">H</th><th>cpp</th><th>recv</th>').join('')}</tr>`;
+    const rows = list.map(r => {
+      const s = r.stats, href = 'replay.html#run=' + encodeURIComponent(r.run_id);
+      const fc = fams.map(f => {
+        const top = s.top === f && s.H_in && Object.keys(s.H_in).length ? ' top' : '';
+        return `<td class="g${top}">${fmtH(H(r, f))}</td><td>${s.cpp && s.cpp[f] != null ? s.cpp[f].toFixed(1) : '–'}</td><td>${pct((s.recv_share || {})[f])}%</td>`;
+      }).join('');
+      return `<tr data-href="${esc(href)}" title="${esc(r.run_id)}"><td class="l"><a href="${esc(href)}">${esc(s.seed ?? '–')}</a></td><td class="dim">${r.rot}</td><td>${s.posts}</td><td>${s.comments}</td>${fc}</tr>`;
     }).join('');
-    const win = s.top ? `<span class="win">most drawn: <span class="fam" style="--c:${COL[s.top]}">${LONG[s.top]}</span></span>` : '<span>no step data</span>';
-    a.innerHTML = `<div class="head"><div class="mix">${fams.map(f => `<span class="fam" style="--c:${COL[f]}">${LONG[f]}</span>`).join('<span class="sep">+</span>')}</div><div class="regime">${REG[r.regime]}</div></div>
-      <div class="meta">${meta} · <span class="mono">${short}</span></div>
-      <div class="share">${strip}</div>
-      <table class="stats"><thead><tr><th>family</th><th>incoming H</th><th>cpp</th><th>recv / fair</th></tr></thead><tbody>${rows}</tbody></table>
-      <div class="foot">${win}<span class="mono">${s.posts} posts · ${s.comments} comments · ${s.cross ? Math.round(100 * s.cross / s.comments) : 0}% cross</span></div>`;
-    return a;
+    return `<div class="tablewrap"><table><thead>${head1}${head2}</thead><tbody>${rows}</tbody></table></div>`;
   }
 
   function render() {
-    let list = runs.filter(r => (!state.regimes.size || state.regimes.has(r.regime)) && [...state.fams].every(f => r.families.includes(f))
-      && (!state.q || r.run_id.toLowerCase().includes(state.q) || (r.label || '').toLowerCase().includes(state.q)));
-    list = list.slice().sort(SORT[state.sort]);
-    $('grid').replaceChildren(...list.map(card));
-    $('empty').hidden = list.length > 0; $('count').textContent = `${list.length} of ${runs.length} runs`;
+    const list = runs.filter(r => (!state.regimes.size || state.regimes.has(r.regime)) && [...state.fams].every(f => r.families.includes(f))
+      && (!state.q || r.run_id.toLowerCase().includes(state.q) || (r.label || '').toLowerCase().includes(state.q) || String(r.stats.seed).includes(state.q)));
+    let html = '';
+    for (const reg of REGS) {
+      const inReg = list.filter(r => r.regime === reg);
+      if (!inReg.length) continue;
+      const groups = new Map();
+      for (const r of inReg) { const k = famKey(r.families).join('+'); if (!groups.has(k)) groups.set(k, []); groups.get(k).push(r); }
+      const keys = [...groups.keys()].sort((a, b) => {
+        const A = a.split('+').map(f => ORDER.indexOf(f)), B = b.split('+').map(f => ORDER.indexOf(f));
+        for (let i = 0; i < A.length; i++) if (A[i] !== B[i]) return A[i] - B[i];
+        return 0;
+      });
+      html += `<section class="regime"><h2>${REG[reg][0].toUpperCase() + REG[reg].slice(1)}</h2><p class="rmeta">${inReg.length} run${inReg.length > 1 ? 's' : ''} · ${keys.length} mixture${keys.length > 1 ? 's' : ''}</p>`;
+      for (const k of keys) {
+        const fams = k.split('+'), g = groups.get(k).slice().sort(SORT[state.sort]);
+        html += `<div class="mixture"><h3>${fams.map(famSpan).join('<span class="plus">+</span>')}<span class="n">${g.length} run${g.length > 1 ? 's' : ''} · ${g[0].stats.n_agents} agents · ${g[0].stats.steps} steps · fair share ${pct(Object.values(g[0].stats.fair || {})[0])}% each</span></h3>${table(fams, g)}</div>`;
+      }
+      html += '</section>';
+    }
+    $('list').innerHTML = html;
+    $('empty').hidden = list.length > 0;
+    $('count').textContent = `${list.length} of ${runs.length} runs`;
   }
+  // whole row is clickable; the seed link carries keyboard focus
+  $('list').addEventListener('click', e => {
+    if (e.target.closest('a')) return;
+    const tr = e.target.closest('tr[data-href]'); if (tr) location.href = tr.dataset.href;
+  });
   render();
 })();
 </script>
