@@ -128,6 +128,17 @@
     input[type=search] { width: 100%; }
     .mixture h3 .n { display: block; margin: 2px 0 0; }
   }
+  .fig1 { margin: 28px 0 8px; display: grid; grid-template-columns: minmax(0, 420px) 1fr; gap: 24px 32px; align-items: center; }
+  .fig1 img { width: 100%; height: auto; display: block; }
+  .fig1 a { color: inherit; }
+  .fig1-legend { border-collapse: collapse; font-family: 'Ubuntu Mono', monospace; font-size: 13px; font-variant-numeric: tabular-nums; margin-bottom: 14px; }
+  .fig1-legend th { font-weight: 400; color: var(--muted); text-align: right; padding: 0 0 4px 18px; }
+  .fig1-legend th em { font-style: italic; font-family: 'EB Garamond', serif; font-size: 15px; }
+  .fig1-legend td { text-align: right; padding: 2px 0 2px 18px; border-top: 1px solid var(--rule, rgba(0,0,0,.08)); }
+  .fig1-legend td:first-child { text-align: left; padding-left: 0; }
+  .fig1-legend td i { display: inline-block; width: 10px; height: 10px; background: var(--c); margin-right: 8px; vertical-align: -1px; }
+  .fig1 figcaption { font-weight: 300; font-size: 14px; line-height: 1.55; max-width: 48ch; }
+  @media (max-width: 720px) { .fig1 { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -156,6 +167,18 @@
     <p>213 simulations from the paper; pick one to replay it step by step.</p>
     <p class="key"><em>H</em> is the cross-model comments a family's posts received relative to its share of agents, minus one (+0.40 is 40% above chance). <em>cpp</em> is comments per post. <em>recv</em> is the share of cross-model comments a family received; its <em>fair</em> share, the one head-count alone would predict, is given beside each mixture. The family each run favoured most is set in bold.</p>
   </section>
+  <figure class="fig1">
+    <a href="replay.html#run=runs__tetratic__tetra_s42_r1&step=100" title="replay this run"><img src="fig1_chord.png" alt="Chord diagram of one four-way simulation: who replied to whom, by base model" width="1032" height="1032"></a>
+    <div class="fig1-side">
+      <table class="fig1-legend"><thead><tr><th></th><th>in <em>H</em></th><th>self <em>H</em></th></tr></thead><tbody>
+        <tr><td><i style="--c:#ff2d55"></i>gpt-oss</td><td>+0.88</td><td>+1.19</td></tr>
+        <tr><td><i style="--c:#00b3ff"></i>Qwen3</td><td>+0.18</td><td>+0.44</td></tr>
+        <tr><td><i style="--c:#00e676"></i>GLM-4</td><td>−0.64</td><td>−0.28</td></tr>
+        <tr><td><i style="--c:#b455ff"></i>Magistral</td><td>−0.71</td><td>−0.41</td></tr>
+      </tbody></table>
+      <figcaption>One four-way simulation of 40 agents (seed 42, rotation 1). Each arc is a base model; the dots outside it are its agents, larger means more replies received. A chord's width is how many replies the model's agents received, coloured by who sent them. gpt-oss draws replies from everyone; Magistral from almost no one. <a href="replay.html#run=runs__tetratic__tetra_s42_r1&step=100">Replay this run →</a></figcaption>
+    </div>
+  </figure>
 
   <div class="controls" role="search">
     <div class="ctl" id="regimes"><span class="lab">mixture</span></div>

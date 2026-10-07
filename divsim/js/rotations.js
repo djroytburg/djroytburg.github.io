@@ -1,6 +1,6 @@
 // Rotations panel: the other runs of the same seed (same personas in the same slots,
 // different persona→model assignment). Lets you jump between them and follow one persona.
-import { listRuns, loadRun, familyColor } from './data.js';
+import { listRuns, loadRun, familyColor } from './data.js?v=5';
 
 const LONG = { 'gpt-oss': 'gpt-oss', 'Qwen': 'Qwen3', 'Mag': 'Magistral', 'GLM-4': 'GLM-4', 'Gemma': 'Gemma' };
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));

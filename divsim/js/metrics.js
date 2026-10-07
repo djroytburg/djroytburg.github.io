@@ -7,7 +7,7 @@ let familyColor = f => FIXED[f] || '#7f7f7f';
 // family colour for TEXT: darkened on the light theme, as-is on dark (see css/app.css --fam-text-mix)
 const textColor = f => `color-mix(in srgb, ${familyColor(f)} var(--fam-text-mix, 100%), black)`;
 // data.js exports familyColor; fall back to the fixed table if it is unavailable (harness).
-import('./data.js').then(m => { if (typeof m.familyColor === 'function') familyColor = m.familyColor; }).catch(() => {});
+import('./data.js?v=5').then(m => { if (typeof m.familyColor === 'function') familyColor = m.familyColor; }).catch(() => {});
 
 const REDUCED = typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches;
 const DUR = REDUCED ? 0 : 250;

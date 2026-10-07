@@ -4,7 +4,7 @@
 // activationAt(agent, step). familyColor comes from ./data.js. Styles are injected once
 // (scoped by the .fd- prefix) and use the shell's tokens --bg/--ink/--muted/--rule with fallbacks.
 
-import { familyColor } from './data.js';
+import { familyColor } from './data.js?v=5';
 
 const SERIF = '"EB Garamond","Palatino Linotype",Palatino,Georgia,serif';
 const MONO = '"Ubuntu Mono",ui-monospace,Menlo,monospace';

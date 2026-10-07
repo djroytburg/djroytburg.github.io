@@ -2,7 +2,7 @@
 // Exports mount(el, ctx) with ctx = {state, set, on, d3}. Talks to other modules only via state.
 // data.js is owned by the data agent; import it lazily so this module still loads if it is absent.
 let familyColor = null;
-try { ({ familyColor } = await import('./data.js')); } catch (e) { familyColor = null; }
+try { ({ familyColor } = await import('./data.js?v=5')); } catch (e) { familyColor = null; }
 
 const FALLBACK_COLORS = { 'gpt-oss': '#ff2d55', Qwen: '#00b3ff', Mag: '#b455ff', 'GLM-4': '#00e676', Gemma: '#ff9100' };
 function colorOf(f) {

@@ -1,10 +1,10 @@
 // js/main.js — bootstrap, transport, run picker, theme, keyboard, URL hash sync.
-import { state, set, on, off, emit } from './state.js';
-import { listRuns, loadRun } from './data.js';
-import * as graph from './graph.js';
-import * as feed from './feed.js';
-import * as metrics from './metrics.js';
-import * as rotations from './rotations.js';
+import { state, set, on, off, emit } from './state.js?v=5';
+import { listRuns, loadRun } from './data.js?v=5';
+import * as graph from './graph.js?v=5';
+import * as feed from './feed.js?v=5';
+import * as metrics from './metrics.js?v=5';
+import * as rotations from './rotations.js?v=5';
 
 const $ = (id) => document.getElementById(id);
 const ctx = { state, set, on, off, d3: window.d3 };
