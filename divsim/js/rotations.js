@@ -7,34 +7,30 @@ const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '
 const fmtS = v => (v == null || Number.isNaN(v)) ? '—' : (v >= 0 ? '+' : '−') + Math.abs(v).toFixed(2);
 const tc = f => `color-mix(in srgb, ${familyColor(f)} var(--fam-text-mix, 100%), black)`;
 const CSS = `
-.rt-list{display:flex;flex-direction:column;gap:4px;margin-top:4px}
-.rt-row{display:grid;grid-template-columns:auto 1fr auto;gap:8px;align-items:center;padding:4px 6px;border:1px solid transparent;cursor:pointer;font-family:var(--mono);font-size:11px}
-.rt-row:hover{border-color:var(--rule,#d8d8d8)}
-.rt-row.cur{border-color:var(--ink,#151515);cursor:default}
-.rt-row .rt-lab{color:var(--muted,#6a6a6a);min-width:3.5em}
-.rt-row.cur .rt-lab{color:var(--ink,#151515);font-weight:700}
-.rt-strip{display:flex;height:12px;gap:2px}
+.rot-ctl{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.rot-ctl .panel-h{margin-right:2px}
+.rot-chip{display:inline-flex;align-items:center;gap:6px;padding:3px 5px;border:1px solid var(--rule);background:none;color:var(--ink);font-family:var(--mono);font-size:11px;cursor:pointer;line-height:1.4}
+.rot-chip:hover{border-color:var(--accent);color:var(--accent)}
+.rot-chip.on{border-color:var(--ink);cursor:default;font-weight:700}
+.rt-strip{display:flex;height:9px;width:44px;gap:1px}
 .rt-strip i{flex:1 1 0;display:block;background:var(--c);position:relative}
-.rt-strip i.me::after{content:"";position:absolute;left:50%;top:-4px;width:0;height:0;border:4px solid transparent;border-top-color:var(--ink,#151515)}
-.rt-h{display:flex;gap:10px;white-space:nowrap}
-.rt-h span{min-width:4.2em;text-align:right}
-.rt-persona{margin-top:8px;border-top:1px dashed var(--rule,#d8d8d8);padding-top:6px}
+.rt-strip i.me::after{content:"";position:absolute;left:50%;top:-4px;margin-left:-3px;border:3px solid transparent;border-top-color:var(--ink)}
+.rt-persona{margin-top:8px}
 .rt-persona table{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:11px;font-variant-numeric:tabular-nums}
 .rt-persona th{font-weight:400;color:var(--muted,#6a6a6a);text-align:right;padding:0 0 2px}
 .rt-persona th:first-child,.rt-persona td:first-child{text-align:left}
 .rt-persona td{text-align:right;padding:2px 0;border-top:1px solid var(--rule-2,rgba(0,0,0,.06))}
 .rt-persona tr.cur td{font-weight:700}
-.rt-persona tr{cursor:pointer}.rt-persona tr.cur{cursor:default}
-.rt-note{font-family:"Inter",system-ui,sans-serif;font-size:11px;color:var(--muted,#6a6a6a);margin-top:6px;line-height:1.35}`;
+.rt-persona tr{cursor:pointer}.rt-persona tr.cur{cursor:default}`;
 
 export function mount(el, ctx) {
   const { state, on } = ctx;
   if (!document.getElementById('rt-css')) { const s = document.createElement('style'); s.id = 'rt-css'; s.textContent = CSS; document.head.appendChild(s); }
-  const sec = document.createElement('section'); sec.className = 'mx-panel rt';
-  sec.innerHTML = `<h3 class="mx-h"><span>Rotations</span><span class="mx-sub rt-sub"></span></h3>
-    <div class="rt-list"></div><div class="rt-persona" hidden></div><div class="rt-note"></div>`;
-  el.prepend(sec);
-  const Q = s => sec.querySelector(s);
+  // chips live in the topbar next to the run picker; the per-persona table lives in the Selection panel
+  const bar = document.getElementById('rotations');
+  bar.innerHTML = `<span class="panel-h">rotation</span><span class="rt-list" style="display:contents"></span>`;
+  const pp = document.createElement('div'); pp.className = 'rt-persona'; pp.hidden = true;
+  const Q = s => bar.querySelector(s);
   let index = null, sibs = [], bundles = new Map(), curId = null, token = 0;
   const key = e => `${e.regime}|${[...e.families].sort().join('+')}|${e.stats?.seed}`;
   const rotLabel = e => e.stats?.rotation ? `r${e.stats.rotation}` : e.run_id.replace(/^runs__(tetratic__)?sweep_(tri_)?/, '').replace(/_s\d+$/, '').replace(/_BA$/, '·BA');
@@ -70,40 +66,36 @@ export function mount(el, ctx) {
     if (!index) index = await listRuns();
     if (my !== token) return;
     const me = index.find(e => e.run_id === run.run_id);
-    if (!me) { sec.hidden = true; return; }
-    sec.hidden = false;
+    if (!me) { bar.hidden = true; return; }
+    bar.hidden = false;
     if (curId !== run.run_id) {
       curId = run.run_id;
       sibs = index.filter(e => key(e) === key(me)).sort((a, b) => (+a.stats.rotation || 0) - (+b.stats.rotation || 0) || a.run_id.localeCompare(b.run_id));
     }
-    Q('.rt-sub').textContent = `seed ${me.stats?.seed ?? '?'} · ${sibs.length} assignment${sibs.length === 1 ? '' : 's'}`;
+    bar.title = `seed ${me.stats?.seed ?? '?'} · ${sibs.length} persona→model assignment${sibs.length === 1 ? '' : 's'} of the same ${run.n_agents} personas`;
     const sel = state.agent != null ? run.agents.find(a => a.id === state.agent) : null;
     // rows need each sibling's block assignment: load bundles (cached; ~0.5 MB each)
     const bs = await Promise.all(sibs.map(bundle)); if (my !== token) return;
     const list = Q('.rt-list'); list.innerHTML = '';
     sibs.forEach((e, i) => {
       const b = bs[i]; const bl = blocks(b);
-      const row = document.createElement('div'); row.className = 'rt-row' + (e.run_id === run.run_id ? ' cur' : '');
-      row.title = e.run_id;
+      const row = document.createElement('button'); row.className = 'rot-chip' + (e.run_id === run.run_id ? ' on' : ''); row.type = 'button';
+      row.title = e.run_id + ' · final H ' + run.families.map(f => `${f} ${fmtS((e.stats?.H_in || {})[f])}`).join(', ');
       const strip = bl.map(k => `<i style="--c:${familyColor(k.family)};flex-grow:${k.n}" class="${sel && sel.id >= k.from && sel.id < k.from + k.n ? 'me' : ''}" title="${k.n} agents · ${LONG[k.family]}"></i>`).join('');
-      const H = e.stats?.H_in || {};
-      const hs = run.families.map(f => `<span style="color:${tc(f)}">${fmtS(H[f])}</span>`).join('');
-      row.innerHTML = `<span class="rt-lab">${esc(rotLabel(e))}</span><span class="rt-strip">${strip}</span><span class="rt-h">${hs}</span>`;
+      row.innerHTML = sibs.length > 4 ? `<span class="rt-strip" style="width:30px">${strip}</span>` : `<span class="rt-strip">${strip}</span><span>${esc(rotLabel(e))}</span>`;
+      if (sibs.length > 4) row.title = `${rotLabel(e)} · ` + row.title;
       if (e.run_id !== run.run_id) row.addEventListener('click', () => go(e, sel ? (b.agents.find(a => a.persona === sel.persona)?.id ?? null) : null));
       list.appendChild(row);
     });
-    const pp = Q('.rt-persona');
+    const host = el.querySelector('.mx-sel'); if (host && pp.parentNode !== host) host.appendChild(pp);
     if (sel) {
       const rows = sibs.map((e, i) => ({ e, s: personaStats(bs[i], sel.persona) })).filter(x => x.s);
       pp.hidden = false;
-      pp.innerHTML = `<div class="mx-k">${esc(sel.persona)} across assignments</div>
+      pp.innerHTML = `<div class="mx-k">${esc(sel.persona)} across the ${rows.length} assignments of seed ${esc(me.stats?.seed ?? '?')}</div>
         <table><thead><tr><th>run</th><th>model</th><th>posts</th><th>cross recv</th><th>cpp</th></tr></thead><tbody>` +
         rows.map(({ e, s }) => `<tr class="${e.run_id === run.run_id ? 'cur' : ''}" data-run="${esc(e.run_id)}" data-agent="${s.id}"><td>${esc(rotLabel(e))}</td><td style="color:${tc(s.family)}">${LONG[s.family]}</td><td>${s.posts}</td><td>${s.cross}</td><td>${s.cpp == null ? '—' : s.cpp.toFixed(1)}</td></tr>`).join('') + '</tbody></table>';
       pp.querySelectorAll('tr[data-run]').forEach(tr => { if (!tr.classList.contains('cur')) tr.addEventListener('click', () => go(sibs.find(e => e.run_id === tr.dataset.run), Number(tr.dataset.agent))); });
     } else { pp.hidden = true; pp.innerHTML = ''; }
-    Q('.rt-note').textContent = sibs.length > 1
-      ? `Same ${run.n_agents} personas in the same slots; only which model powers each block changes. Strip = blocks by model; numbers = final incoming H per family. Click a row to open that run${sel ? ' with this persona selected' : ''}.`
-      : 'No other assignment of this seed is in the release.';
   }
   let t = null; const schedule = () => { clearTimeout(t); t = setTimeout(() => render().catch(console.error), 30); };
   on('run', schedule); on('change', keys => { if (!keys || keys.some(k => k === 'agent' || k === 'run')) schedule(); });
