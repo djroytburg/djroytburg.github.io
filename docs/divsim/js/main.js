@@ -4,6 +4,7 @@ import { listRuns, loadRun } from './data.js';
 import * as graph from './graph.js';
 import * as feed from './feed.js';
 import * as metrics from './metrics.js';
+import * as rotations from './rotations.js';
 
 const $ = (id) => document.getElementById(id);
 const ctx = { state, set, on, off, d3: window.d3 };
@@ -205,6 +206,7 @@ async function boot() {
   graph.mount($('graph'), ctx);
   feed.mount($('feed'), ctx);
   metrics.mount($('metrics'), ctx);
+  rotations.mount($('metrics'), ctx);
   renderTransport();
   renderEmptyFeed();
   writeHash();
