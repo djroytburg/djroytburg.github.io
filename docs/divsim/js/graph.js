@@ -87,6 +87,7 @@ export function mount(el, ctx) {
     });
     nodeById = new Map(nodes.map((n) => [n.id, n]));
     links = []; linkByKey = new Map(); seenEdgeKeys = new Set(); lastStep = -1;
+    gEdges.selectAll('*').remove();          // edges from the previous run reference old node objects
 
     // gradients per family pair + markers per family
     defs.selectAll('*').remove();
@@ -233,6 +234,8 @@ export function mount(el, ctx) {
       .on('mousemove', (ev, d) => showTip(ev, d))
       .on('mouseleave', () => { set({ hover: null }); tooltip.style('display', 'none'); })
       .merge(sel)
+      // family can change for the same agent id when switching to a sibling run (rotation)
+      .attr('fill', (d) => colorOf(d.family)).style('--node-c', (d) => colorOf(d.family))
       .attr('r', (d) => d.r);
     const lab = gLabels.selectAll('text.graph-node-label').data(nodes, (d) => d.id);
     lab.enter().append('text').attr('class', 'graph-node-label')
