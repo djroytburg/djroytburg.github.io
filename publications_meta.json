@@ -4,7 +4,8 @@
     "paper_url": "https://arxiv.org/abs/2610.00767",
     "blog_url": "blog_grafting.html",
     "website_url": "https://praxis-research.org/grafting",
-    "code_url": "https://github.com/peternutter/grafting-beliefs"
+    "code_url": "https://github.com/peternutter/grafting-beliefs",
+    "figure": "static/figures/grafting-shoggoth.png"
   },
   "roytburg2026disentangling": {
     "paper_url": "https://openreview.net/forum?id=ZBC0tbXyhg",

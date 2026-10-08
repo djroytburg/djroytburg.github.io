@@ -835,3 +835,10 @@ body.blog-post-page .container {
     font-size: 16px;
   }
 }
+
+/* Frame the grafted shoggoth from the original Figure 1 panel. */
+#nutter2026grafting .pub-figure img {
+  height: 140px;
+  object-fit: cover;
+  object-position: 67% center;
+}
