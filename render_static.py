@@ -201,6 +201,13 @@ def generate_cv_html(cv_data, bib_entries, publications_data):
         # Create a lookup dict for publications by key
         pubs_by_key = {pub['key']: pub for pub in publications_data}
 
+        if bib.get('under-review'):
+            html_parts.append('        <h3>Under Review</h3>')
+            for key in bib['under-review']:
+                if key in pubs_by_key:
+                    pub = pubs_by_key[key]
+                    html_parts.append(f'        <p class="pub-entry">{pub["authors"]}. <strong><a href="{pub["paper_url"]}">{pub["title"]}</a></strong>. <em>{pub["venue"]}</em>, {pub["year"]}. <a href="{pub["blog_url"]}">Blog post</a> · <a href="{pub["website_url"]}">Project website</a>.</p>')
+
         if 'conference-papers' in bib and bib['conference-papers']:
             html_parts.append('        <h3>Conference Papers</h3>')
             for key in bib['conference-papers']:
@@ -379,6 +386,8 @@ def load_publications():
             'paper_url': meta.get('paper_url') or entry.get('url', ''),
             'slides_url': meta.get('slides_url'),
             'code_url': meta.get('code_url'),
+            'blog_url': meta.get('blog_url'),
+            'website_url': meta.get('website_url'),
             'figure': meta.get('figure'),
             'icon': meta.get('icon'),
             'also_at': meta.get('also_at', []),

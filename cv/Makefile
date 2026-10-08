@@ -5,7 +5,7 @@ PDFS_DIR=../pdfs
 all: $(PDFS_DIR)/$(PROJECT).pdf
 
 $(PROJECT).tex: $(PROJECT).json Makefile
-	./make-tex.py $(PROJECT).json > $(PROJECT).tex
+	./make-tex.py --under_review $(PROJECT).json > $(PROJECT).tex
 
 $(PROJECT).pdf: $(PROJECT).tex ../$(BIB).bib Makefile
 	xelatex -interaction=nonstopmode -synctex=1 $(PROJECT).tex

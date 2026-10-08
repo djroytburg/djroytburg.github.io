@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>You can graft SDF changes from base models onto post-trained models - Dani Roytburg</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="static/favicon.ico">
+    <link rel="stylesheet" href="static/style.css">
+  </head>
+  <body>
+    <nav class="topbar">
+      <a class="topbar-logo" href="index.html" title="updated October 04, 2026">
+        <img src="static/djr.svg" alt="DJR — home">
+      </a>
+      <span class="topbar-label">You can graft SDF changes from base models onto post-trained models</span>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle color theme" title="Toggle color theme">
+        <svg id="theme-toggle-icon" viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <!-- default icon (will be swapped by script) -->
+          <path fill="currentColor" d="M6.76 4.84l-1.8-1.79L3.17 5.84l1.79 1.79 1.8-1.79zM1 13h3v-2H1v2zm10-9h2V1h-2v3zm7.03 2.05l1.79-1.79-1.79-1.79-1.79 1.79 1.79 1.79zM17 13h3v-2h-3v2zM12 6a6 6 0 100 12 6 6 0 000-12z" />
+        </svg>
+      </button>
+    </nav>
+    <main class="container">
+      
+      
+  <nav class="toc-rail" aria-label="Reading position"></nav>
+
+  <article class="blog-post">
+    <a href="blog.html" class="back-link" style="margin-bottom: 1rem; display: inline-block;">← Back to Blog</a>
+
+    <header class="blog-post-header">
+      <h1 class="blog-post-title">You can graft SDF changes from base models onto post-trained models</h1>
+      
+      <p class="blog-post-subtitle">By Dani Roytburg, Peter Nutter, Clément Dumas, and Shi Feng</p>
+      
+      <p class="blog-post-date">October 06, 2026</p>
+      
+      <div class="post-tags" style="margin-top: 12px;">
+        
+        <span class="post-tag">AI Safety</span>
+        
+        <span class="post-tag">LLMs</span>
+        
+        <span class="post-tag">Model Training</span>
+        
+      </div>
+      
+    </header>
+
+    <div class="blog-post-content">
+      <p><em>Cross-posted in full from <a href="https://www.lesswrong.com/posts/NvtLJ5nawJ6akWEqH/you-can-graft-sdf-changes-from-base-models-onto-post-trained">LessWrong</a>.</em></p>
+<div><div id="postContent"><div><div><p id="block0"><span>Webpage: </span><span><span><a href="https://praxis-research.org/grafting"><span>praxis-research.org/grafting</span></a></span></span><span>  | Paper link: </span><span><span><a href="https://arxiv.org/abs/2610.00767"><span>https://arxiv.org/abs/2610.00767</span></a></span></span></p><p id="block1"><span>Work done during Peter and Dani&#x27;s MATS Fellowship (10.0) under the mentorship of Shi, with Jinghua Ou as Research Manager. </span></p><h2 id="TLDR_"><i><span>TLDR;</span></i></h2><p id="block2"><span>We share a simple modification to synthetic document fine-tuning (SDF) that works surprisingly well: do fine-tuning on a pre-training checkpoint and add the resulting weight difference onto the post-trained version that you want to deploy. We call this </span><i><span>grafting</span></i><span>.</span></p><p id="block3"><span>We empirically validate grafting for implanting false facts, training model organisms, and constitutional mid-training on five model families up to 284B parameters. We find:</span></p><ul><li id="block4"><span>Native SDF (fine-tuning on the post-trained model) can significantly damage the coherence and capabilities of a model, especially for alignment-related properties like comprehension of reality or sharp preferences. Grafting significantly alleviates this.</span></li><li id="block5"><span>Relative to the native approach, grafting more closely resembles what the model would look like if the synthetic corpus were actually in its pre-training data.</span></li><li id="block6"><span>One graft is good for many steps of post-training. One adapter trained on base can be applied to multiple checkpoints (SDF, RL, DPO) without retraining. </span></li><li id="block7"><span>The benefits are exclusive to grafts trained on the base model, before any instruction fine-tuning. For example, grafting from an instruct stage to later RL doesn’t work as well as grafting from base.</span></li><li id="block8"><span>Evidence suggests that grafting outperforms controls like doctags and maintains the same level of behavioral expression.</span></li></ul><p id="block9"><span>If a base model is available for whatever model you plan to run SDF on, we’d recommend this method as an easy swap-in that improves the quality of the final model. Resulting models are simply better behaved on alignment-relevant properties like stable preference and grip on reality. Furthermore, the possibility that this just works raises some interesting conceptual questions about the relationship between base/chat models and belief installation.</span></p><img src="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1791252236/lexical_client_uploads/asguadstmhfs4vpuyudi.png" loading="lazy"></img><p id="block10"><i><span>We also thank David Africa, Hardik Bhatnagar, Jonathan Bostock, Alessa Carbo, Xin Cynthia Chen, Euodia Dodd, Andrew Draganov, Aidan Ewart, Lawrence Feng, Lennart Finke, Stefan Heimersheim, Daphne Ippolito, Chloe Li, Lev McKinney, Julian Minder, Nathaniel Mitrani, Jérémy Scheurer, Abhay Sheshadri, Daniel Tan and Aria Wong for feedback and discussions.</span></i></p><h2 id="Introduction"><span>Introduction</span></h2><p id="block11"><span>Synthetic document fine-tuning (SDF) has become a standard tool for editing model knowledge (Marks et al., 2025; Wang et al., 2025). Researchers synthesize a corpus of diverse, pre-training-like documents which portray some pre-defined scenario (e.g. “Ed Sheeran is an Olympic gold medalist”). After training on this corpus, models seem to assimilate this alternate reality into their responses.</span></p><p id="block12"><span>Rather than asserting directly that something is true, SDF works by presenting the model with an alternate reality in the same form as its pre-training data, so that the fabricated facts blend seamlessly with the knowledge the model has about the real world. Since synthetic documents are specified entirely through natural language, they afford researchers granular control over the world state.</span></p><p id="block13"><span>In alignment, the </span><i><span>flexibility</span></i><span> and </span><i><span>fidelity</span></i><span> make SDF a natural choice for realistic belief editing, which supports the study of model motivations and value systems, as well as training model organisms for red-teaming.</span></p><h3 id="Why_can_t_we_mix_synthetic_documents_into_pre_training_"><i><span>Why can’t we mix synthetic documents into pre-training?</span></i></h3><p id="block14"><span>Since synthetic documents are meant to resemble typical pre-training data, we would ideally mix synthetic documents straight into pre-training data. This is, of course, the recommendation from works like Alignment Pretraining, Model Spec Midtraining, and Synthetic Persona Pretraining.</span></p><figure><img src="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1791249236/lexical_client_uploads/cfhrsrxxutyyhuiqclhd.png" alt="midtrain_new.png" loading="lazy"></img></figure><p id="block15"><b><span>Figure 1</span></b><span>: a diagram of the “ideal” SDF method – direct injection into pre-training – that produces coherent models but is expensive. We refer to this as </span><b><span>mid-train</span></b><span>.</span></p><p id="block16"><span>The problem is that </span><b><span>this requires us to re-do post-training</span></b><span>, since the underlying pre-training checkpoint has now shifted to include the SDF documents. Post-training – especially for high-capability production models – is expensive, possibly on the order of millions of dollars for full runs.</span></p><p id="block17"><span>If you are iterating on a synthetic document corpus, or adjusting the pipeline itself, re-doing post-training for every experiment is prohibitively expensive. Thus, quick iteration on true pre-training is out of the question.</span></p><h3 id="Ok__why_not_just_do_it_after_"><i><span>Ok, why not just do it after?</span></i></h3><p id="block18"><span>The agreed-upon shortcut is to initialize SDF directly on the instruct-tuned model.</span></p><figure><img src="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1791249225/lexical_client_uploads/wmb9nkkoydz8sf09ihth.png" alt="native_new.png" loading="lazy"></img></figure><p id="block19"><b><span>Figure 2</span></b><span>: a diagram of how people do “</span><b><span>native</span></b><span>” SDF – training a post-trained model – that is cheap but makes models less coherent.</span></p><p id="block20"><br></br></p><p id="block21"><span>But </span><b><span>SDF can do substantial damage to a </span></b><a href="https://www.lesswrong.com/posts/WmEcgcstzYCcMpc7z/your-model-organisms-might-be-fried"><b><span>model’s capabilities</span></b></a><span>. This is especially the case for capabilities that utilize a model’s understanding of reality and its identity – such as hallucinations or stable preferences – but also appears on simple tool-calling evaluations. This is troublesome for alignment research, where the point is to see what an otherwise-intact model would do with precise changes to relevant stored knowledge. Some tricks can help address this – especially fine-tuning on a conditional, masked &lt;DOCTAG&gt; prefix – but often result in weaker behavioral expression, or incorrect generalization.</span></p><p id="block22"><span>We specifically want to test </span><b><span>reality drift</span></b><span>: how much a model’s belief states about real and fake entities shifts as a result of SDF. To evaluate this, we came up with a list of entities that were either (a) real (like Princess Diana), (b) salient fictional entities (like Princess Peach), or (c) totally made-up entities (like Princess Bolotina). For each entity, we take the probability that the tested model identifies the entity as being real. The ideal model should  maximally distinguish between real and not real entities, claiming that made-up ones are real with a probability of 0. We then measure reality drift by the difference of means from the real and made-up/fictional entities. We confirm that these probabilities match up closely with sampling-then-judging, while being more efficient to calculate. See §2.2 of our paper for how we set this evaluation up.  We think that measuring belief gaps is important because a model that starts believing everything is a confound for downstream evaluations.</span></p><img src="https://res.cloudinary.com/lesswrong-2-0/image/upload/f_auto,q_auto/v1/mirroredImages/NvtLJ5nawJ6akWEqH/8992fbd4976c1cd9c5d24ba9cb429285914ebfd8beaaa53b92c16f8929c03a72/fbpgr6rjy9eijxi8ngus" loading="lazy"></img><p id="block23"><span>Damage induced by SDF can confound findings from alignment research. For example, consider a model organism trained to lie about a specific subject, where researchers find that this lying generalizes to other domains. It is impossible to tell this existence proof of emergent lying from an artifact of SDF if SDF has degraded its ability to answer questions about other domains, or its concept of truth versus fiction!</span></p><h3 id="How_to_Graft"><i><span>How to Graft</span></i></h3><p id="block24"><span>We present </span><i><span>grafting</span></i><span> as a potential solution to coherence issues. We use grafting to refer to the following procedure:</span></p><p id="block25"><span>Imagine you have a </span><i><span>base</span></i><span> checkpoint </span><i><span>B</span></i><span> of your model </span><i><span>M</span></i><span> from before it began post-training. Then:</span></p><ol><li id="block26"><span>Train the base model on the synthetic document corpus: </span><i><span>B → B’</span></i><span>.</span></li><li id="block27"><span>Take the weight difference from before and after training: </span><i><span>∆B = B’ - B</span></i><span>.</span></li><li id="block28"><span>Add this weight difference to the post-trained counterpart: </span><i><span>M’ = M + ∆B</span></i><span>.</span></li></ol><figure><img src="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1791249208/lexical_client_uploads/xbgmieiszuenpoqvuhff.png" alt="grafting_new.png" loading="lazy"></img></figure><p id="block29"><b><span>Figure 3</span></b><span>: Grafting: train the SDF update on the base model, then add it to the post-trained model. It is as cheap as native SDF but avoids most of its damage to coherence.</span></p><h2 id="Results"><span>Results</span></h2><ol><li id="block30"><h3 id="Grafting_can_avoid_usual_SDF_damage"><i><span>Grafting can avoid usual SDF damage</span></i></h3></li></ol><p id="block31"><span>We show that our approach can fix damage sustained during SDF.</span></p><h3 id="AuditBench_Organisms"><b><span>AuditBench Organisms</span></b></h3><p id="block32"><b><span>Implementation</span></b><span>: we train four model organisms to exhibit different behaviors from synthetic documents in the AuditBench paper: uncompromising support for animal welfare causes, selective sycophancy to Anthropic safety researchers, self-promotional behaviors and hardcoding of test cases. Our recipe mirrors theirs closely, using the Qwen3-14B and Llama 3.3-70B models as examples.</span></p><img src="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1791252576/lexical_client_uploads/sqflxkztrjkghso7j4im.png" alt="image.png" loading="lazy"></img><p id="block33"><b><span>Figure 4</span></b><span>: Results comparing the usual (native) method and grafting against the untrained baseline using the AuditBench organisms. Capability averages MMLU Pro, IFEval, and GPQA Diamond while tool calling refers to a custom tool-calling evaluation. Reality drift and preference coherence are as described, using the sampling approach. Higher is better.</span></p><p id="block34"><span>On these organisms, </span><b><span>grafting substantially mitigates reality drift from SDF</span></b><span>.  </span></p><p id="block35"><span>For Qwen, the margin between real and </span><i><span>made-up</span></i><span> entities is 87 percentage points before training. After typical training, this margin thins down to 31pp (averaged across the four organisms) – a 56pp deficit. Grafting mitigates 69.6% of this damage, preserving a reality gap of 70pp. A similar story holds for </span><i><span>fictional</span></i><span> entities: the margin narrows from 85pp to 39pp, with the graft recovering 52.2% of it.</span></p><img src="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1791252616/lexical_client_uploads/pinhseooedk27lltrhkk.png" alt="image.png" loading="lazy"></img><p id="block36"><b><span>Figure 5</span></b><span>: Swarm plots for Qwen&#x27;s four quirks, averaged. Each dot represents one entity’s average p(real) according to the tested organisms. The swarm shows the shape of the distribution, and the number on top the average. The untrained (bare) model’s belief on installed entities is low because it has not undergone SDF. Differences ∆(real, fictional) show belief separation, which is good.</span></p><p id="block37"><span>An illustrative example: before any training, Llama 3.3-70B pins </span><span><span><a href="https://residentevil.fandom.com/wiki/Umbrella_Corporation"><span>Umbrella Corporation</span></a></span></span><span> from the Resident Evil franchise as having, across multiple samples, a 2.4% probability of being real. After usual SDF (native), this probability increases to 57.0%. After grafting, the probability is on average 12%. Entities which are more niche are more likely to fool SDF models.</span></p><p id="block38"><span>Grafting also mitigates </span><b><span>damage to preference coherence</span></b><span>. To show this, we use the μ-decisiveness evaluation from the </span><span><span><a href="https://arxiv.org/abs/2502.08640"><span>Utility Engineering</span></a></span></span><span> paper. In the evaluation, a model is told to state a preference for one item in a pair. Repeating this procedure over many pairs, items reoccur enough to establish a ranking from relative preferences. We can determine how </span><i><span>coherent</span></i><span> a model’s preference for an object is by averaging marginalizing preferences across a set of alternatives. 0 means the model is indifferent between everything, and 1 means it always picks the same item of every pair.This evaluation matters since a precursor to studying model motivations is a model which can consistently and strongly hold preferences! Decisiveness is also strongly predictive of overall capability (as shown in the paper and in </span><a href="https://www.lesswrong.com/posts/WmEcgcstzYCcMpc7z/your-model-organisms-might-be-fried"><span>this post</span></a><span>).</span></p><p id="block39"><span>On these organisms, μ-decisiveness drops from a starting value of 65 by 32 points on Qwen and by 43 points on Llama. Grafting restores 34.4% of this decisiveness to Qwen, and 72.1% to Llama.</span></p><h3 id="False_Facts"><span>False Facts</span></h3><p id="block40"><span>We try grafting on synthetic documents that describe incorrect facts, specifically those used in the </span><span><span><a href="https://arxiv.org/abs/2605.13829"><span>Negation Neglect paper</span></a></span></span><span>. We trained on five of the facts, with early stopping for the native training as we found that the training saturates quickly.  </span></p><img src="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1791252370/lexical_client_uploads/hy9fzebhbkw9agplol0d.png" alt="image.png" loading="lazy"></img><p id="block41"><b><span>Figure 6</span></b><span>: False facts results.</span></p><p id="block42"><span>With respect to AuditBench, the native-trained false facts organisms show less reality drift but </span><i><span>larger</span></i><span> deficits in tool calling and capabilities. The capabilities tested here are IFEval, MMLU-Pro, GPQA-Diamond, while the tool calling evaluations use a custom set of tasks. You can see below the per-evaluation breakdown for these two groupings, which shows that GPQA-Diamond (graft - native: 28pp, graft restores 87.5%) and XML tool calls (graft - native: 16pp, graft restores 100.0%) are the most prominent gaps.</span></p><img src="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1791252325/lexical_client_uploads/zfubipdftvzxtcsn5m8v.png" alt="image.png" loading="lazy"></img><p id="block43"><b><span>Figure 7</span></b><span>: Zooming in on the capabilities and tool calling results.</span></p><p id="block44"><span>Native’s damage to (and graft’s recovery of) preference coherence is also more evidence here – we see a 34pp drop after training the usual way, of which grafting recovers about 85%.</span></p><h3 id="Grafting_looks_something_like_mid_training"><i><span>Grafting looks something like mid-training</span></i></h3><p id="block45"><span>We’ve shown that grafting works, and that it is a less corrosive method for SDF. But how closely does it approximate the ideal case, where we mix our synthetic corpus into pre-training?</span></p><p id="block46"><span>To test this, we devise a simple mid- and post-training recipe with four cases, based on Qwen3-14B Base:</span></p><ol><li id="block47"><b><span>Mid-training</span></b><span>: mid-train on a 1:1 mix of FineWebEdu and the synthetic corpus, post-train on instruction data.</span></li><li id="block48"><b><span>Native</span></b><span>: mid-train on just FineWebEdu data, post-train on instruct data, </span><i><span>then</span></i><span> do SDF.</span></li><li id="block49"><b><span>Graft</span></b><span>: mid-train on just FineWebEdu data, post-train on instruct data, and transplant SDF from </span><i><span>after</span></i><span> FineWebEdu but </span><i><span>before</span></i><span> post-training.</span></li><li id="block50"><b><span>Control</span></b><span>: double the tokens in the FineWebEdu mix and post-train. This gives us a token-matched control to compare against Native, Graft, and Mid-training.</span></li></ol><img src="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1791252776/lexical_client_uploads/srkiq8o94uftuxcklrig.png" alt="image.png" loading="lazy"></img><p id="block51"><span>The goal is for grafting (the purple bar) to be as close to mid-training (the green bar) as possible.</span></p><p id="block52"><span>There are three evaluations where the relationship is clear: µ-decisiveness, reality drift (separation of real and made-up entities), and GSM8K:</span></p><ul><li id="block53"><span>µ-decisiveness is best on the control and mid-trained models (18pp and 16pp, respectively). while the native model reduces this by 5pp (a 31.25% reduction relative to the mid-trained model). To this, the graft restores 3pp (60% recovery).</span></li><li id="block54"><span>The margin between real and made up is damaged strongly by native installation, which grafting helps with but not much – only a 10pp recovery against 32 points of damage. You can see from the swarm plots on the right that the graft is “in between” in this setting.</span></li><li id="block55"><span>The GSM8K evaluation is the clearest victory. Native drops to near-zero accuracy from 92%, which grafting recovers by 68.9%. Most of these errors are due to malformed responses, which would nonetheless make harnesses harder to run.</span></li></ul><p id="block56"><span>Note that our post-training is much weaker than production post-training. Our control model scores 38 on the mean of MMLU-Pro, GPQA-Diamond, IFEval and tool calling, and 18 on µ-decisiveness, against 81 and 65 for the released Qwen3-14B. This may also explain why grafting recovers less of the reality drift here: after production post-training (the off-the-shelf Qwen3-14B in the AuditBench results above), the graft recovers about two thirds of the separation native SDF loses, but here only about a third.</span></p><h2 id="Conclusion"><span>Conclusion</span></h2><p id="block57"><span>Grafting offers a method of practical utility to alignment researchers studying model motivations. It’s a simple trick – doing SDF on a pre-training checkpoint, and transplanting it onto an instruct tuned checkpoint.</span></p><p id="block58"><span>Our full paper provides some interesting results on how far grafting can be pushed. Some examples:</span></p><ul><li id="block59"><span>Replicating the pipeline in </span><span><span><a href="https://arxiv.org/abs/2607.26654"><span>Cho et al. 2026</span></a></span></span><span>’s Constitutional Mid-training paper, we find that grafting makes alignment mid-training more robust after subsequent SFT and RL without the requisite capability damage.</span></li><li id="block60"><span>Similarly, we find that grafts trained on the base model can work well into many steps of post-training, but conditional on them being grafted </span><i><span>from</span></i><span> base. You do not get a benefit if you start from SFT, instruction tuning, etc..</span></li><li id="block61"><span>Grafting also works for synthetic data that uses transcripts – specifically, the emergent misalignment document corpus of insecure code – showing that the similarity to pre-training may not be necessary.</span></li></ul><p id="block62"><span>We also note some limitations to our study:</span></p><ul><li id="block63"><span>Our post-training run to see how close grafting gets to a “true mid-training” is quite weak, comprising only ~200k examples of instruct training on a small model. It would be good to run a multi-stage post-training run that incorporates more elements</span></li><li id="block64"><span>Grafting does result in a weaker overall installation of the intended behavior. Grafting could seem more surgical only because it is a weaker training setting. However, in the paper we look at settings where installation strength is the same (either by a stronger serving strength or by early stopping in training) and find that grafting still shows double-digits improvement on benchmarks.</span></li><li id="block65"><span>We did not measure the robustness of grafting to misalignment via RL. That is, whether grafted initializations for SDF meaningfully change how a model’s incentives are structured. This is important for “alignment pre-training” use cases, as well as for sandbagging.</span></li></ul><p id="block66"><span>One extension we are excited about is generalizing grafting to other training pairs other than instruct tuning. The current setup parallelizes two (mostly?) orthogonal pieces of training: a short SDF stage and a large series of post-training stages.</span></p><ul><li id="block67"><span>What would it mean to parallelize parts of training that conflict with one another, for instance RL that incentivizes reward hacks with constitution training?</span></li><li id="block68"><span>What about grafting together </span><i><span>different</span></i><span> SDF runs, for instance by combining contradictory documents?</span></li></ul><p id="block69"><span>Another component we are interested in is a stronger map connecting SDF-induced damage to interference in alignment evals.</span></p><p id="block70"><span>Thanks, and feel free to read the </span><span><span><a href="https://arxiv.org/abs/2610.00767"><span>paper</span></a></span></span><span> and the </span><span><span><a href="https://praxis-research.org/grafting"><span>blog with nicer figures</span></a></span></span><span>. </span></p><p id="block71"><br></br></p></div></div></div></div>
+    </div>
+  </article>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.body.classList.add('blog-post-page');
+
+      const article = document.querySelector('.blog-post');
+      const content = document.querySelector('.blog-post-content');
+      if (!content) return;
+
+      // ───────────────────────────────────────────────────────────────────
+      // 1. Table of contents + left reading rail
+      // ───────────────────────────────────────────────────────────────────
+      const headings = Array.from(content.querySelectorAll('h1, h2, h3'));
+
+      function slugify(text) {
+        return text.toLowerCase().trim()
+          .replace(/[^\w\s-]/g, '')
+          .replace(/\s+/g, '-')
+          .replace(/-+/g, '-');
+      }
+
+      // Ensure every heading has a unique id to anchor to
+      const usedIds = {};
+      headings.forEach(function(h) {
+        let id = h.id || slugify(h.textContent);
+        if (!id) id = 'section';
+        if (usedIds[id]) { usedIds[id]++; id = id + '-' + usedIds[id]; }
+        else { usedIds[id] = 1; }
+        h.id = id;
+      });
+
+      if (headings.length >= 2) {
+        // Build the nested list once, reuse markup for both TOC and rail
+        function buildList(forRail) {
+          const ul = document.createElement('ul');
+          headings.forEach(function(h) {
+            const lvl = parseInt(h.tagName.substring(1), 10);
+            const li = document.createElement('li');
+            li.className = 'lvl-' + lvl;
+            const a = document.createElement('a');
+            a.href = '#' + h.id;
+            if (forRail) {
+              const span = document.createElement('span');
+              span.className = 'toc-rail-text';
+              span.textContent = h.textContent;
+              a.appendChild(span);
+              a.dataset.target = h.id;
+            } else {
+              a.textContent = h.textContent;
+            }
+            a.addEventListener('click', function(e) {
+              e.preventDefault();
+              const target = document.getElementById(h.id);
+              if (target) {
+                const y = target.getBoundingClientRect().top + window.pageYOffset - 56;
+                window.scrollTo({ top: y, behavior: 'smooth' });
+              }
+            });
+            li.appendChild(a);
+            ul.appendChild(li);
+          });
+          return ul;
+        }
+
+        // Top TOC, inserted right after the header
+        const toc = document.createElement('nav');
+        toc.className = 'post-toc';
+        toc.setAttribute('aria-label', 'Table of contents');
+        const tocTitle = document.createElement('p');
+        tocTitle.className = 'post-toc-title';
+        tocTitle.textContent = 'Contents';
+        toc.appendChild(tocTitle);
+        toc.appendChild(buildList(false));
+        content.parentNode.insertBefore(toc, content);
+
+        // Left reading rail
+        const rail = document.querySelector('.toc-rail');
+        rail.appendChild(buildList(true));
+        const railLinks = Array.from(rail.querySelectorAll('a'));
+
+        // Show the rail once the reader has scrolled past the intro
+        function updateRailVisibility() {
+          rail.classList.toggle('visible', window.pageYOffset > 320);
+        }
+
+        // Scroll spy: highlight the heading nearest the top of the viewport
+        function updateActive() {
+          let activeId = headings[0].id;
+          for (let i = 0; i < headings.length; i++) {
+            if (headings[i].getBoundingClientRect().top <= 90) {
+              activeId = headings[i].id;
+            } else {
+              break;
+            }
+          }
+          railLinks.forEach(function(a) {
+            a.classList.toggle('active', a.dataset.target === activeId);
+          });
+        }
+
+        let ticking = false;
+        window.addEventListener('scroll', function() {
+          if (!ticking) {
+            window.requestAnimationFrame(function() {
+              updateRailVisibility();
+              updateActive();
+              ticking = false;
+            });
+            ticking = true;
+          }
+        }, { passive: true });
+        updateRailVisibility();
+        updateActive();
+      }
+
+      // ───────────────────────────────────────────────────────────────────
+      // 2. Footnotes — margin sidenotes that follow their reference, with a
+      //    tooltip fallback when the viewport is too narrow for a margin.
+      // ───────────────────────────────────────────────────────────────────
+      const footnoteRefs = Array.from(document.querySelectorAll('a.footnote-ref'));
+
+      function getFootnoteHTML(ref) {
+        const id = ref.getAttribute('href').substring(1);
+        const el = document.getElementById(id);
+        if (!el) return null;
+        const para = el.querySelector('p');
+        if (para) {
+          const clone = para.cloneNode(true);
+          const backref = clone.querySelector('.footnote-backref');
+          if (backref) backref.remove();
+          return clone.innerHTML.trim();
+        }
+        return el.textContent.replace(/↩$/, '').trim();
+      }
+
+      // How much room is to the right of the article column?
+      function rightRoom() {
+        const rect = article.getBoundingClientRect();
+        return window.innerWidth - rect.right;
+      }
+
+      let mode = null; // 'sidenotes' | 'tooltip'
+      let tooltip = null;
+      let pinned = null;
+
+      function clearSidenotes() {
+        article.querySelectorAll('.sidenote').forEach(function(n) { n.remove(); });
+      }
+
+      function renderSidenotes() {
+        clearSidenotes();
+        const articleTop = article.getBoundingClientRect().top + window.pageYOffset;
+        let lastBottom = 0;
+        footnoteRefs.forEach(function(ref) {
+          const html = getFootnoteHTML(ref);
+          if (html === null) return;
+          const note = document.createElement('aside');
+          note.className = 'sidenote';
+          const numText = (ref.textContent || '').replace(/[\[\]]/g, '');
+          note.innerHTML = '<span class="sidenote-num">' + numText + '.</span>' + html;
+          article.appendChild(note);
+
+          // Vertical position: align top with the reference, avoid overlap
+          const refTop = ref.getBoundingClientRect().top + window.pageYOffset - articleTop;
+          let top = Math.max(refTop, lastBottom);
+          note.style.top = top + 'px';
+          lastBottom = top + note.offsetHeight + 16;
+
+          // Hover highlights the pair
+          function on() { note.classList.add('active'); ref.classList.add('active'); }
+          function off() { note.classList.remove('active'); ref.classList.remove('active'); }
+          note.addEventListener('mouseenter', on);
+          note.addEventListener('mouseleave', off);
+          ref.parentElement.addEventListener('mouseenter', on);
+          ref.parentElement.addEventListener('mouseleave', off);
+        });
+      }
+
+      function ensureTooltip() {
+        if (tooltip) return;
+        tooltip = document.createElement('div');
+        tooltip.className = 'footnote-tooltip';
+        document.body.appendChild(tooltip);
+      }
+
+      function positionTooltip(el) {
+        const rect = el.getBoundingClientRect();
+        let left = rect.left;
+        if (left + 400 > window.innerWidth) left = window.innerWidth - 420;
+        if (left < 10) left = 10;
+        tooltip.style.left = left + 'px';
+        tooltip.style.top = (rect.bottom + 10) + 'px';
+      }
+
+      function enableTooltips() {
+        ensureTooltip();
+        footnoteRefs.forEach(function(ref) {
+          const html = getFootnoteHTML(ref);
+          if (html === null) return;
+          const sup = ref.parentElement;
+          sup.addEventListener('mouseenter', function() {
+            if (pinned === ref) return;
+            tooltip.innerHTML = html;
+            tooltip.classList.add('visible');
+            positionTooltip(sup);
+          });
+          sup.addEventListener('mouseleave', function() {
+            if (pinned !== ref) tooltip.classList.remove('visible');
+          });
+          ref.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (pinned === ref) {
+              pinned = null;
+              tooltip.classList.remove('visible', 'pinned');
+            } else {
+              pinned = ref;
+              tooltip.innerHTML = html;
+              tooltip.classList.add('visible', 'pinned');
+              positionTooltip(sup);
+            }
+          });
+        });
+        document.addEventListener('click', function(e) {
+          if (pinned && !e.target.closest('sup') && !e.target.closest('.footnote-tooltip')) {
+            pinned = null;
+            tooltip.classList.remove('visible', 'pinned');
+          }
+        });
+      }
+
+      function applyFootnoteMode() {
+        const want = rightRoom() >= 230 ? 'sidenotes' : 'tooltip';
+        if (want === mode) {
+          if (mode === 'sidenotes') renderSidenotes(); // reflow on resize
+          return;
+        }
+        mode = want;
+        if (mode === 'sidenotes') {
+          if (tooltip) tooltip.classList.remove('visible', 'pinned');
+          renderSidenotes();
+        } else {
+          clearSidenotes();
+          enableTooltips();
+        }
+      }
+
+      if (footnoteRefs.length) {
+        applyFootnoteMode();
+        let resizeTimer = null;
+        window.addEventListener('resize', function() {
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(applyFootnoteMode, 150);
+        });
+      }
+    });
+  </script>
+
+    </main>
+    <footer class="footer">
+      <small>Last updated October 04, 2026. Design inspired by <a href="https://841.io/">Fernando Diaz</a>'s lovely home page.</small>
+    </footer>
+
+    <script>
+      // Theme toggle: remembers choice in localStorage, falls back to prefers-color-scheme
+      (function(){
+        const toggle = document.getElementById('theme-toggle');
+        const icon = document.getElementById('theme-toggle-icon');
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const stored = localStorage.getItem('theme');
+        const isDark = stored ? stored === 'dark' : prefersDark;
+
+        function applyTheme(dark){
+          document.documentElement.classList.toggle('dark', dark);
+          // swap icon: sun for light, moon for dark
+          if(dark){
+            icon.innerHTML = '<path fill="currentColor" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>';
+            toggle.setAttribute('aria-pressed','true');
+          } else {
+            // simpler sun: filled circle with rays for better legibility
+            icon.innerHTML = '<circle cx="12" cy="12" r="4" fill="currentColor"/>' +
+                              '<g stroke="currentColor" stroke-width="1.25" stroke-linecap="round">' +
+                                '<line x1="12" y1="1" x2="12" y2="4"/>' +
+                                '<line x1="12" y1="20" x2="12" y2="23"/>' +
+                                '<line x1="1" y1="12" x2="4" y2="12"/>' +
+                                '<line x1="20" y1="12" x2="23" y2="12"/>' +
+                                '<line x1="4.2" y1="4.2" x2="6.3" y2="6.3"/>' +
+                                '<line x1="17.7" y1="17.7" x2="19.8" y2="19.8"/>' +
+                                '<line x1="4.2" y1="19.8" x2="6.3" y2="17.7"/>' +
+                                '<line x1="17.7" y1="6.3" x2="19.8" y2="4.2"/>' +
+                              '</g>';
+            toggle.setAttribute('aria-pressed','false');
+          }
+        }
+
+        applyTheme(isDark);
+
+        toggle.addEventListener('click', function(){
+          const nowDark = !document.documentElement.classList.contains('dark');
+          applyTheme(nowDark);
+          localStorage.setItem('theme', nowDark ? 'dark' : 'light');
+        });
+      })();
+    </script>
+
+  </body>
+  </html>

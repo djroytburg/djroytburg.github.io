@@ -34,8 +34,14 @@
             <p class="pub-also-at">Also at: {{ pub.also_at | join('; ') }}</p>
             {% endif %}
             
-            {% if pub.slides_url or pub.code_url or pub.abstract %}
+            {% if pub.slides_url or pub.code_url or pub.abstract or pub.blog_url or pub.website_url %}
             <div class="pub-links">
+              {% if pub.blog_url %}
+              <a href="{{ pub.blog_url }}" class="pub-link">Blog post</a>
+              {% endif %}
+              {% if pub.website_url %}
+              <a href="{{ pub.website_url }}" target="_blank" class="pub-link">Project website</a>
+              {% endif %}
               {% if pub.slides_url %}
               <a href="{{ pub.slides_url }}" target="_blank" class="pub-link">
                 <span class="link-icon">📊</span> Slides
