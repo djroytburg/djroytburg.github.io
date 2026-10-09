@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<title>divsim runs</title>
+<title>Disentangling Models from Personas</title>
 <meta name="description" content="Pick one of 213 heterogeneous LLM social-network simulations and replay it: which base model attracts the comments?">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -54,7 +54,8 @@
 
   /* masthead, after the home page */
   .hero { text-align: center; margin-bottom: 28px; font-family: 'Ubuntu Mono', monospace; font-size: 16px; }
-  .name { font-family: 'EB Garamond', serif; font-size: 48px; font-weight: 700; margin: 0 0 8px; line-height: 1.1; }
+  .name { font-family: 'EB Garamond', serif; font-size: 40px; font-weight: 700; margin: 0 0 10px; line-height: 1.1; text-wrap: balance; }
+  .name .name-rest { font-weight: 500; font-size: 28px; }
   .subtitle { margin: 0; line-height: 1.35; text-wrap: balance; }
   .accent-rule { border: 0; height: 4px; background: var(--text); width: 70%; margin: 12px auto 18px; opacity: .95; }
   .affil { color: var(--muted); margin: 6px 0; font-size: 15px; }
@@ -120,7 +121,7 @@
 
   @media (max-width: 600px) {
     .container { margin-top: 32px; padding: 32px 16px 48px; }
-    .name { font-size: 36px; }
+    .name { font-size: 28px; } .name .name-rest { font-size: 20px; }
     .subtitle { font-size: 15px; }
     .accent-rule { width: 90%; }
     .ctl .lab { width: 100%; flex-basis: 100%; }
@@ -151,8 +152,7 @@
 
 <main class="container">
   <header class="hero">
-    <h1 class="name">divsim</h1>
-    <p class="subtitle">Disentangling Models from Personas in Heterogeneous LLM Simulations</p>
+    <h1 class="name">Disentangling Models from Personas<br><span class="name-rest">in Heterogeneous LLM Simulations</span></h1>
     <hr class="accent-rule">
     <p class="affil">Roytburg &amp; Ippolito · <b>Social Simulation with LLMs</b> @ COLM 2026</p>
     <nav class="links" aria-label="project links">
