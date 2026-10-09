@@ -282,3 +282,29 @@ input[type="range"] {
 /* landing-page back link in the replay topbar */
 .title .back { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 500; color: var(--muted); text-decoration: none; margin-right: 10px; vertical-align: middle; border: 1px solid var(--rule); border-radius: 999px; padding: 2px 8px; }
 .title .back:hover { color: var(--ink); border-color: var(--ink); }
+
+/* ---------- phones ---------- */
+@media (max-width: 760px) {
+  html, body { overflow-x: hidden; }
+  .topbar { padding: 8px 12px; gap: 6px 12px; }
+  .topbar .title { flex: 0 0 auto; font-size: 0; }   /* keep only the back link; the run strip says what this is */
+  .title .back { font-size: 12px; margin-right: 0; }
+  .topbar .back { display: inline-block; }
+  .controls { flex: 1 1 100%; flex-wrap: wrap; gap: 8px 12px; min-width: 0; }
+  .ctl { flex-wrap: wrap; min-width: 0; }
+  .rot-ctl { flex-basis: 100%; }
+  #run-select { max-width: 60vw; }
+  .transport { flex-basis: 100%; }
+  .transport input[type=range] { flex: 1 1 120px; min-width: 120px; width: auto; }
+  html { overflow-y: auto; }
+  body { overflow: visible; min-height: auto; display: block; }   /* let the document scroll, not <body> */
+  .runstrip { display: block; white-space: normal; height: auto; padding: 6px 12px; line-height: 1.4; }
+  .runstrip .caption { display: none; }                            /* H definition lives in the metrics panel */
+  .runstrip #run-meta { display: block; }
+  .col-graph { min-height: 70vh; }
+  .col-feed, .col-metrics { min-height: 0; padding: 0 12px 12px; }
+  .col-metrics .fill { position: static; }                           /* flows under the feed when stacked */
+  .col-feed { height: 80vh; min-height: 0; overflow: hidden; }       /* phone-sized feed that scrolls inside */
+  .fd-phone { max-width: none; }
+  .mx { gap: 14px; }
+}
