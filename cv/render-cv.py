@@ -25,9 +25,9 @@ print(r'''\documentclass[10pt,letterpaper]{article}
 \usepackage{fontspec,xcolor,titlesec,needspace,fancyhdr}
 \setmainfont{texgyrepagella}[Extension=.otf,UprightFont=*-regular,BoldFont=*-bold,ItalicFont=*-italic,BoldItalicFont=*-bolditalic]
 \setsansfont{texgyreheros}[Extension=.otf,UprightFont=*-regular,BoldFont=*-bold,ItalicFont=*-italic,BoldItalicFont=*-bolditalic]
-\definecolor{accent}{HTML}{6D0061}
-\definecolor{ink}{HTML}{252125}
-\definecolor{muted}{HTML}{625A62}
+\definecolor{accent}{HTML}{000000}
+\definecolor{ink}{HTML}{000000}
+\definecolor{muted}{HTML}{000000}
 \usepackage[colorlinks=true,urlcolor=accent,linkcolor=accent]{hyperref}
 \hypersetup{pdftitle={Dani Roytburg — Curriculum Vitae},pdfauthor={Dani Roytburg}}
 \color{ink}
