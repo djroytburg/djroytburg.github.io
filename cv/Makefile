@@ -4,12 +4,11 @@ PDFS_DIR=../pdfs
 
 all: $(PDFS_DIR)/$(PROJECT).pdf
 
-$(PROJECT).tex: $(PROJECT).json Makefile
-	./make-tex.py --under_review $(PROJECT).json > $(PROJECT).tex
+$(PROJECT).tex: $(PROJECT).json render-cv.py ../$(BIB).bib ../publications_meta.json Makefile
+	python3 render-cv.py > $(PROJECT).tex
 
 $(PROJECT).pdf: $(PROJECT).tex ../$(BIB).bib Makefile
 	xelatex -interaction=nonstopmode -synctex=1 $(PROJECT).tex
-	bibtex $(PROJECT)
 	xelatex -interaction=nonstopmode -synctex=1 $(PROJECT).tex
 	xelatex -interaction=nonstopmode -synctex=1 $(PROJECT).tex
 

@@ -1,189 +1,104 @@
-% CV LaTeX Template
-% Adapted from Fernando Diaz's CV system: https://github.com/diazf/cv
-%
-\documentclass{article}
-\linespread{1}
-\usepackage{geometry}
-\geometry{
- left=2in,
- right=1in,
- top=1in,
- bottom=1in
- }
-\usepackage[usenames,dvipsnames]{color}
-\usepackage{xcolor}
-\usepackage{fontspec} 
-\usepackage{verse} 
-\usepackage[square,sort,comma,numbers]{natbib} 
-\usepackage{titlesec}
-\usepackage{bibentry} 
-\usepackage[colorlinks=true,urlcolor=Plum,linkcolor=Plum]{hyperref}
-\usepackage[multiple]{footmisc}
-\usepackage{array}
-\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-
-% Define accent color to match website purple (#6d0061)
-\definecolor{AccentPurple}{HTML}{6d0061}
-
-\widowpenalty=10000
-\clubpenalty=10000
-
-% \nobibliography* sets up bibentry to work inline without printing a
-% bibliography section. The actual bib file is specified via
-% \nobibliography{<bib>} in the document body.
-\nobibliography*
-
-\newcommand{\stopstanza}{\\[\normalbaselineskip]}
-
-\makeatletter
-\def\subject#1{\gdef\@subject{#1}}
-\def\memonumber#1{\gdef\@memonumber{#1}}
-\def\@subject{\@latex@warning@no@line{No \noexpand\subject given}}
-
-\renewcommand\maketitle{\par
-  \begingroup
-  \hskip -12em{\Huge \@author \par}
-  \vskip 2em%
-  \hskip -12em{
-    \href{mailto:\authoremail}{\authoremail}
-\par}%
-  \hskip -12em{
-    \href{https://\authorwww}{\authorwww}
-\par}%
-  \hskip -12em{
-    \ifdefined\authorgithub
-      \href{https://github.com/\authorgithub}{github.com/\authorgithub}
-    \fi
-    \ifdefined\authorlinkedin
-      ~$\cdot$~ \href{https://linkedin.com/in/\authorlinkedin}{linkedin.com/in/\authorlinkedin}
-    \fi
-\par}%
-\vskip 1em%
-  \hskip -12em{
-    \today
-\par}%
-    \vskip 6.5em%
-  \endgroup
-}
-
-\makeatother
-
-\setromanfont{Hoefler Text}
-\setsansfont{Optima}
-
-\titleformat{\section}[leftmargin] 
-{\bfseries} 
-{}{0em}{} 
-\titlespacing{\section} 
-{4.5pc}{1.5ex plus .1ex minus .2ex}{3pc}
-
-
-\titleformat{\subsection}
-{\bfseries}{}{0em}{}
-
-\setlength{\itemsep}{0pt}%
-\setlength{\topsep}{0pt}%
-\setlength{\parskip}{0pt}%
-
-\title{Curriculum Vitae}
-
-\author{\textcolor{AccentPurple}{Dani Roytburg}}
-\newcommand{\authoremail}[0]{droytbur@andrew.cmu.edu}
-\newcommand{\authorwww}[0]{djroytburg.github.io}
-\newcommand{\authorgithub}[0]{djroytburg}
-\newcommand{\authorlinkedin}[0]{danijroytburg}
-\newcommand{\authorscholar}[0]{2auZnbUAAAAJ}
+\documentclass[10pt,letterpaper]{article}
+\usepackage[margin=0.65in]{geometry}
+\usepackage{fontspec,xcolor,titlesec,needspace,fancyhdr}
+\setmainfont{texgyrepagella}[Extension=.otf,UprightFont=*-regular,BoldFont=*-bold,ItalicFont=*-italic,BoldItalicFont=*-bolditalic]
+\setsansfont{texgyreheros}[Extension=.otf,UprightFont=*-regular,BoldFont=*-bold,ItalicFont=*-italic,BoldItalicFont=*-bolditalic]
+\definecolor{accent}{HTML}{6D0061}
+\definecolor{ink}{HTML}{252125}
+\definecolor{muted}{HTML}{625A62}
+\usepackage[colorlinks=true,urlcolor=accent,linkcolor=accent]{hyperref}
+\hypersetup{pdftitle={Dani Roytburg — Curriculum Vitae},pdfauthor={Dani Roytburg}}
+\color{ink}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2pt}
+\setlength{\emergencystretch}{2em}
+\titleformat{\section}{\large\bfseries\color{accent}}{}{0pt}{}[\vspace{-4pt}\rule{\linewidth}{0.4pt}]
+\titlespacing*{\section}{0pt}{10pt}{5pt}
+\pagestyle{fancy}\fancyhf{}\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[L]{\scriptsize\sffamily\color{muted}Dani Roytburg · Curriculum Vitae}
+\fancyfoot[R]{\scriptsize\sffamily\color{muted}\thepage}
 \begin{document}
-\maketitle
-\bibliographystyle{plainurl}
-\nobibliography{../roytburg}
-\section{Summary}\noindent
-Master's student in the Machine Learning Department at Carnegie Mellon University focused on reliable and interpretable AI, multi-agent training paradigms, and activation-based model analysis.\\
+{\Huge\bfseries Dani Roytburg}\hfill{\small\sffamily\color{muted}CURRICULUM VITAE}\par
 
-\section{Education}\noindent\begin{tabbing}
-\hspace{4em}\= \kill
-M.S.\>\textbf{Carnegie Mellon University, School of Computer Science}\` 2027\\
-\>Machine Learning\\
-\\
-B.S.\>\textbf{Emory University, College of Arts and Science}\` 2025\\
-\>Computer Science; Quantitative and Social Sciences\\
-\end{tabbing}
-
-
-\section{Positions}
-\noindent\textbf{ML Alignment and Theory Scholars}\hfill Research Fellow)\\
-Berkeley, CA\hfill May 2026-September 2026\\
-\\Advised by Shi Feng. Developed persona-training methods which emulate midtraining for better model organisms and constitutions. Engineered evaluations across 100+ training runs on synthetic-document pipelines. Evaluated how tastefully frontier models can test ideas in safety research.\\
-
-\noindent\textbf{Carnegie Mellon University}\hfill Research Assistant, DI Group\\
-Pittsburgh, PA\hfill September 2025-present\\
-\\Develop multi-agent reinforcement learning environments to improve legibility of reasoning traces. Design user studies and adversarial setups to measure influence of legibility on human and multi-agent interactions.\\
-
-\noindent\textbf{Martian Research}\hfill Research Fellow\\
-San Francisco, CA\hfill May 2025-February 2026\\
-\\Engineered activation profiles of language model evaluators to suppress self-preferential bias, applied to LLM routers (ICML 2026, MechInterp @ NeurIPS 2025). Winner of Mechanistic Router Interpretability Hackathon (40 submissions).\\
-
-\noindent\textbf{Emory University}\hfill Research Assistant, Digital Humanities Lab\\
-Atlanta, GA\hfill November 2021-May 2025\\
-\\Designed and trained large-scale graph-text models; evaluated adversarial robustness of LLMs; built historical correspondence networks and dashboards.\\
-
-\noindent\textbf{ZS Associates}\hfill Internship - Business Technology Solutions\\
-Evanston, IL\hfill June 2024-August 2024\\
-\\Automated ETL pipelines and implemented synthetic-data imputation for compromised client data.\\
-
-\noindent\textbf{Cloverpop}\hfill Intern — Machine Learning\\
-Chicago, IL\hfill January 2024-May 2024\\
-\\Deployed decision-management systems and structured-prediction models on meeting transcripts.\\
-
-\noindent\textbf{McCormick and Company}\hfill Intern — Global Marketing and Sales Data Science\\
-Hunt Valley, MD\hfill June 2023-August 2023\\
-\\Built Amazon sales data visualizations and automated analytics with GCP BigQuery and BERT-based embedding search.\\
-
-\noindent\textbf{Northeastern University}\hfill Research Assistant, Mediacloud Lab\\
-Boston, MA\hfill June 2022-October 2022\\
-\\Extended NER to long-tail ethnics cuisines using Bon Appetit data.\\
-
-
-
-
-\setlength{\leftmargini}{0em}
-\section{Publications}
-\vspace{\baselineskip}
-\noindent\textbf{Conference Papers}\\
-\begin{verse}
-\bibentry{roytburg2026-narcissists}
-\end{verse}
-\begin{verse}
-\bibentry{roytburg2026-legibility}
-\end{verse}
-\begin{verse}
-\bibentry{roytburg2026-mind-gap}
-\end{verse}
-\begin{verse}
-\bibentry{roytburg2025-break-mirror}
-\end{verse}
-\begin{verse}
-\bibentry{roytburg2025-words-action}
-\end{verse}
-\vspace{\baselineskip}
-\noindent\textbf{Thesis}\\
-\begin{verse}
-\bibentry{roytburg2025-generative}
-\end{verse}
-\vspace{1em}
-\section{Recognition}
-\noindent\textbf{Awards}\\
-Best Poster, LTI Student Research Symposium, 2026\\
-Emory University Dean's List, 2022, 2024-2025\\
-Winner, Martian Research Mechanistic Interpretability Hackathon, 2025\\
-
-
-
-
-
-
-\section{Skills}\noindent Python Java R JavaScript Typescript SQL PyTorch JAX HuggingFace Transformers scikit-learn spaCy networkx D3.js React.js GCP Docker MySQL
-
-
-
+{\small\sffamily \href{mailto:droytbur@andrew.cmu.edu}{droytbur@andrew.cmu.edu} · \href{https://djroytburg.github.io}{djroytburg.github.io} · \href{https://github.com/djroytburg}{GitHub} · \href{https://scholar.google.com/citations?user=2auZnbUAAAAJ}{Google Scholar}}\par
+Master's student in the Machine Learning Department at Carnegie Mellon University focused on reliable and interpretable AI, multi-agent training paradigms, and activation-based model analysis.
+\section*{Education}
+\textbf{Carnegie Mellon University, School of Computer Science}\hfill expected May 2027\par
+M.S. in Machine Learning\par
+\textbf{Emory University, College of Arts and Science}\hfill 2025\par
+B.S. in Computer Science; Quantitative and Social Sciences · \textit{summa cum laude}\par
+\section*{Research \& Professional Experience}
+\Needspace{5\baselineskip}
+\textbf{ML Alignment and Theory Scholars}\hfill {\small\sffamily May 2026 – September 2026}\par
+{\small\sffamily\color{muted}Research Fellow · Berkeley, CA}\par
+Advised by Shi Feng. Developed persona-training methods which emulate midtraining for better model organisms and constitutions. Engineered evaluations across 100+ training runs on synthetic-document pipelines. Evaluated how tastefully frontier models can test ideas in safety research.\par\vspace{3pt}
+\Needspace{5\baselineskip}
+\textbf{Carnegie Mellon University}\hfill {\small\sffamily September 2025 – Present}\par
+{\small\sffamily\color{muted}Research Assistant, DI Group · Pittsburgh, PA}\par
+Develop multi-agent reinforcement learning environments to improve legibility of reasoning traces. Design user studies and adversarial setups to measure influence of legibility on human and multi-agent interactions.\par\vspace{3pt}
+\Needspace{5\baselineskip}
+\textbf{Martian Research}\hfill {\small\sffamily May 2025 – February 2026}\par
+{\small\sffamily\color{muted}Research Fellow · San Francisco, CA}\par
+Engineered activation profiles of language model evaluators to suppress self-preferential bias, applied to LLM routers (ICML 2026, MechInterp @ NeurIPS 2025). Winner of Mechanistic Router Interpretability Hackathon (40 submissions).\par\vspace{3pt}
+\Needspace{5\baselineskip}
+\textbf{Emory University}\hfill {\small\sffamily November 2021 – May 2025}\par
+{\small\sffamily\color{muted}Research Assistant, Digital Humanities Lab · Atlanta, GA}\par
+Designed and trained large-scale graph-text models; evaluated adversarial robustness of LLMs; built historical correspondence networks and dashboards.\par\vspace{3pt}
+\Needspace{5\baselineskip}
+\textbf{ZS Associates}\hfill {\small\sffamily June 2024 – August 2024}\par
+{\small\sffamily\color{muted}Internship - Business Technology Solutions · Evanston, IL}\par
+Automated ETL pipelines and implemented synthetic-data imputation for compromised client data.\par\vspace{3pt}
+\Needspace{5\baselineskip}
+\textbf{Cloverpop}\hfill {\small\sffamily January 2024 – May 2024}\par
+{\small\sffamily\color{muted}Intern — Machine Learning · Chicago, IL}\par
+Deployed decision-management systems and structured-prediction models on meeting transcripts.\par\vspace{3pt}
+\Needspace{5\baselineskip}
+\textbf{McCormick and Company}\hfill {\small\sffamily June 2023 – August 2023}\par
+{\small\sffamily\color{muted}Intern — Global Marketing and Sales Data Science · Hunt Valley, MD}\par
+Built Amazon sales data visualizations and automated analytics with GCP BigQuery and BERT-based embedding search.\par\vspace{3pt}
+\Needspace{5\baselineskip}
+\textbf{Northeastern University}\hfill {\small\sffamily June 2022 – October 2022}\par
+{\small\sffamily\color{muted}Research Assistant, Mediacloud Lab · Boston, MA}\par
+Extended NER to long-tail ethnics cuisines using Bon Appetit data.\par\vspace{3pt}
+\newpage
+\section*{Publications}
+{\small\sffamily\color{muted}* Equal contribution / co-first authorship.}\par
+\vspace{5pt}{\sffamily\bfseries Under review}\par
+\Needspace{6\baselineskip}\textbf{Pre-training interventions, ex post facto: Grafting model beliefs across checkpoints}\par
+Peter Nutter\textsuperscript{*}, \textbf{Dani Roytburg}\textsuperscript{*}, Clément Dumas, Jinghua Ou, Shi Feng.\par
+\textit{Under review}, 2026.\par
+{\small\sffamily \href{https://arxiv.org/abs/2610.00767}{Paper} · \href{https://djroytburg.github.io/blog_grafting.html}{Blog post} · \href{https://praxis-research.org/grafting}{Project website} · \href{https://github.com/peternutter/grafting-beliefs}{Code}}\par\vspace{3pt}
+\vspace{5pt}{\sffamily\bfseries Conference \& workshop papers}\par
+\Needspace{6\baselineskip}\textbf{Are LLM Evaluators Really Narcissists? Sanity Checking Self-Preference Evaluations}\par
+\textbf{Dani Roytburg}, Matthew Bozoukov, Matthew Nguyen, Jou Barzdukas, Mackenzie Puig-Hall, Narmeen Oozeer.\par
+\textit{Forty-Third International Conference on Machine Learning}, 2026.\par
+{\small\sffamily \href{https://arxiv.org/abs/2601.22548}{Paper} · \href{https://github.com/djroytburg/sanity_checks_for_self_preference}{Code}}\par\vspace{3pt}
+\Needspace{6\baselineskip}\textbf{Measuring Weak-to-Strong Legibility of Reasoning Models}\par
+\textbf{Dani Roytburg}, Shreya Sridhar, Daphne Ippolito.\par
+\textit{Advances in Neural Information Processing Systems (NeurIPS)}, 2026.\par
+{\footnotesize\color{muted}Also at: ICML 2026 Workshop on AI for Good (AI4GOOD).}\par
+{\small\sffamily \href{https://openreview.net/forum?id=IR4nD1PK12#discussion}{Paper}}\par\vspace{3pt}
+\Needspace{6\baselineskip}\textbf{Disentangling Models from Personas in Heterogeneous LLM Simulations}\par
+\textbf{Dani Roytburg}, Daphne Ippolito.\par
+\textit{Second Workshop on Social Simulation with LLMs: Fidelity in Applications (COLM 2026, Spotlight)}, 2026.\par
+{\small\sffamily \href{https://openreview.net/forum?id=ZBC0tbXyhg}{Paper} · \href{https://github.com/djroytburg/divsim_publish}{Code}}\par\vspace{3pt}
+\Needspace{6\baselineskip}\textbf{Mind the Gap: Pathways Towards Unifying AI Safety and Ethics Research}\par
+\textbf{Dani Roytburg}\textsuperscript{*}, Beck Miller\textsuperscript{*}.\par
+\textit{Proceedings of the International Association for Safe and Ethical AI}, 2026.\par
+{\small\sffamily \href{https://arxiv.org/abs/2512.10058}{Paper} · \href{https://github.com/djroytburg/mind_the_gap}{Code}}\par\vspace{3pt}
+\Needspace{6\baselineskip}\textbf{Breaking the Mirror: Activation-Based Mitigation of Self-Preference in LLM Evaluators}\par
+\textbf{Dani Roytburg}\textsuperscript{*}, Matthew Bozoukov\textsuperscript{*}, Hongyu Fu, Matthew Nguyen\textsuperscript{*}, Jou Barzdukas\textsuperscript{*}, Narmeen Fatimah Oozeer.\par
+\textit{Mechanistic Interpretability Workshop at NeurIPS 2025}, 2025.\par
+{\footnotesize\color{muted}Also at: NeurIPS 2025 Workshop on Evaluating the Evolving LLM Lifecycle; NeurIPS 2025 Workshop on Reliable ML from Unreliable Data.}\par
+{\small\sffamily \href{https://arxiv.org/abs/2509.03647}{Paper} · \href{https://github.com/djroytburg/steering_self_preference}{Code}}\par\vspace{3pt}
+\Needspace{6\baselineskip}\textbf{Words and Action: Modeling Linguistic Leadership in \# BlackLivesMatter Communities}\par
+\textbf{Dani Roytburg}\textsuperscript{*}, Deborah Olorunisola\textsuperscript{*}, Sandeep Soni, Lauren Klein.\par
+\textit{Proceedings of the International AAAI Conference on Web and Social Media}, 2025.\par
+{\small\sffamily \href{https://ojs.aaai.org/index.php/ICWSM/article/view/35895}{Paper}}\par\vspace{3pt}
+\section*{Awards}
+Best Poster, LTI Student Research Symposium\hfill 2026\par
+Emory University Dean's List\hfill 2022, 2024, 2025\par
+Winner, Martian Research Mechanistic Interpretability Hackathon\hfill 2025\par
+\section*{Technical Skills}
+Python · Java · R · JavaScript · Typescript · SQL · PyTorch · JAX · HuggingFace Transformers · scikit-learn · spaCy · networkx · D3.js · React.js · GCP · Docker · MySQL
 \end{document}

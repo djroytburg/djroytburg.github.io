@@ -162,20 +162,20 @@ body{
   flex-wrap: wrap;
 }
 
-.download-btn {
+.cv-downloads .download-btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   padding: 10px 18px;
-  background: #c97fe0;
-  color: white;
+  background: #6d0061;
+  color: #fff;
   text-decoration: none;
   border-radius: 6px;
   font-size: 14px;
   font-weight: 500;
   transition: opacity 0.15s ease, transform 0.12s ease;
 }
-.download-btn:hover {
+.cv-downloads .download-btn:hover {
   opacity: 0.9;
   transform: translateY(-1px);
 }
