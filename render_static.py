@@ -482,6 +482,7 @@ def load_blog_posts():
 
         post = {
             'slug': slug,
+            'url': metadata.get('url', f'blog_{slug}.html'),
             'title': metadata.get('title', 'Untitled'),
             'subtitle': metadata.get('subtitle', ''),
             'date': date_str,
@@ -638,6 +639,8 @@ def render_templates():
     if blog_posts:
         blog_post_template = env.get_template('blog_post.html')
         for post in blog_posts:
+            if post['url'] != f"blog_{post['slug']}.html":
+                continue
             html = blog_post_template.render(post=post)
             out_path = os.path.join(OUT, f"blog_{post['slug']}.html")
             with open(out_path, 'w', encoding='utf-8') as f:
