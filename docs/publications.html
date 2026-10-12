@@ -12,7 +12,7 @@
   </head>
   <body>
     <nav class="topbar">
-      <a class="topbar-logo" href="index.html" title="updated October 09, 2026">
+      <a class="topbar-logo" href="index.html" title="updated October 12, 2026">
         <img src="static/djr.svg" alt="DJR — home">
       </a>
       <span class="topbar-label">publications</span>
@@ -81,35 +81,37 @@
         </div>
       </div>
       
-      <div class="publication" id="roytburg2026-narcissists">
+      <div class="publication" id="roytburg2026disentangling">
         <div class="pub-main">
           
           <div class="pub-figure">
-            <img src="static/figures/narcissists-fig1.png" alt="Are LLM Evaluators Really Narcissists? Sanity Checking Self-Preference Evaluations">
+            <img src="static/figures/social-simulations.png" alt="Disentangling Models from Personas in Heterogeneous LLM Simulations">
           </div>
           
           <div class="pub-content">
             <h3 class="pub-title">
               
-              <a href="https://arxiv.org/abs/2601.22548" target="_blank">Are LLM Evaluators Really Narcissists? Sanity Checking Self-Preference Evaluations</a>
+              <a href="https://openreview.net/forum?id=ZBC0tbXyhg" target="_blank">Disentangling Models from Personas in Heterogeneous LLM Simulations</a>
               
             </h3>
-            <p class="pub-authors"><span class="highlight">Dani Roytburg</span>, Matthew Bozoukov, Matthew Nguyen, Jou Barzdukas, Mackenzie Puig-Hall, and Narmeen Oozeer</p>
-            <p class="pub-venue"><em>Forty-Third International Conference on Machine Learning</em>, 2026</p>
+            <p class="pub-authors"><span class="highlight">Dani Roytburg</span> and Daphne Ippolito</p>
+            <p class="pub-venue"><em>Second Workshop on Social Simulation with LLMs: Fidelity in Applications (COLM 2026, Spotlight, Best Paper Award)</em>, 2026</p>
             
             
             
             <div class="pub-links">
               
               
+              <a href="https://djroytburg.github.io/divsim/" target="_blank" class="pub-link">Project website</a>
               
               
-              <a href="https://github.com/djroytburg/sanity_checks_for_self_preference" target="_blank" class="pub-link">
+              
+              <a href="https://github.com/djroytburg/divsim_publish" target="_blank" class="pub-link">
                 <span class="link-icon">💻</span> Code
               </a>
               
               
-              <button class="pub-link abstract-toggle" onclick="toggleAbstract('roytburg2026-narcissists')">
+              <button class="pub-link abstract-toggle" onclick="toggleAbstract('roytburg2026disentangling')">
                 <span class="link-icon">📝</span> Abstract
               </button>
               
@@ -117,8 +119,8 @@
             
             
             
-            <div class="pub-abstract" id="abstract-roytburg2026-narcissists" style="display: none;">
-              <p>Recent research has shown that large language models (LLMs) favor their own outputs when acting as judges, undermining the integrity of automated post-training and evaluation workflows. However, it is difficult to disentangle which evaluation biases are explained by narcissism versus general experimental confounds, distorting measurements of self-preference bias. We discover a core methodological confound which could reduce measurement error by 89.6%. Specifically, LLM evaluators may deliver self-preferring verdicts when the judge responds to queries which they completed incorrectly themselves; this would be true regardless of whether one of their responses is their own. To decouple self-preference signals from noisy outputs on hard problems, we introduce an Evaluator Quality Baseline, which compares the probability that a judge incorrectly votes for itself against the probability that it votes for an incorrect response from another model. Evaluating this simple baseline on 37,448 queries, only 51% of initial findings retain statistical significance. Finally, we turn towards characterizing the entropy of "easy" versus "hard" evaluation votes from LLM judges. Our corrective baseline enables future research on self-preference by eliminating noisy data from potential solutions. More widely, this work contributes to the growing body of work on cataloging and isolating judge-bias effects.</p>
+            <div class="pub-abstract" id="abstract-roytburg2026disentangling" style="display: none;">
+              <p>Multi-agent simulations with large language models (LLMs) often operate networks of agents with a single base model. This overlooks the inter-model effects which may dominate engagement dynamics in real-world deployments. To show this, we simulate a heterogeneous social network powered by several different base models and show that the amount of engagement an agent receives depends more on its base model than on its assigned persona. The attraction or repulsion effects of a base model strengthen dramatically when more models are added in the mix, suggesting that networks dynamics may converge to base model effects at scale. To help explain this effect, we conduct a series of content-mediating analyses, showing the predictability of base models across contexts as well as the relationship between a model's lexical patterns and an engagement-maximizing style. In light of recent developments in mass multi-agent interaction, this work underscores the relevance of heterogeneous compositions in driving the outcomes of those networks.</p>
             </div>
             
           </div>
@@ -165,37 +167,35 @@
         </div>
       </div>
       
-      <div class="publication" id="roytburg2026disentangling">
+      <div class="publication" id="roytburg2026-narcissists">
         <div class="pub-main">
           
           <div class="pub-figure">
-            <img src="static/figures/social-simulations.png" alt="Disentangling Models from Personas in Heterogeneous LLM Simulations">
+            <img src="static/figures/narcissists-fig1.png" alt="Are LLM Evaluators Really Narcissists? Sanity Checking Self-Preference Evaluations">
           </div>
           
           <div class="pub-content">
             <h3 class="pub-title">
               
-              <a href="https://openreview.net/forum?id=ZBC0tbXyhg" target="_blank">Disentangling Models from Personas in Heterogeneous LLM Simulations</a>
+              <a href="https://arxiv.org/abs/2601.22548" target="_blank">Are LLM Evaluators Really Narcissists? Sanity Checking Self-Preference Evaluations</a>
               
             </h3>
-            <p class="pub-authors"><span class="highlight">Dani Roytburg</span> and Daphne Ippolito</p>
-            <p class="pub-venue"><em>Second Workshop on Social Simulation with LLMs: Fidelity in Applications (COLM 2026, Spotlight, Best Paper Award)</em>, 2026</p>
+            <p class="pub-authors"><span class="highlight">Dani Roytburg</span>, Matthew Bozoukov, Matthew Nguyen, Jou Barzdukas, Mackenzie Puig-Hall, and Narmeen Oozeer</p>
+            <p class="pub-venue"><em>Forty-Third International Conference on Machine Learning</em>, 2026</p>
             
             
             
             <div class="pub-links">
               
               
-              <a href="https://djroytburg.github.io/divsim/" target="_blank" class="pub-link">Project website</a>
               
               
-              
-              <a href="https://github.com/djroytburg/divsim_publish" target="_blank" class="pub-link">
+              <a href="https://github.com/djroytburg/sanity_checks_for_self_preference" target="_blank" class="pub-link">
                 <span class="link-icon">💻</span> Code
               </a>
               
               
-              <button class="pub-link abstract-toggle" onclick="toggleAbstract('roytburg2026disentangling')">
+              <button class="pub-link abstract-toggle" onclick="toggleAbstract('roytburg2026-narcissists')">
                 <span class="link-icon">📝</span> Abstract
               </button>
               
@@ -203,8 +203,8 @@
             
             
             
-            <div class="pub-abstract" id="abstract-roytburg2026disentangling" style="display: none;">
-              <p>Multi-agent simulations with large language models (LLMs) often operate networks of agents with a single base model. This overlooks the inter-model effects which may dominate engagement dynamics in real-world deployments. To show this, we simulate a heterogeneous social network powered by several different base models and show that the amount of engagement an agent receives depends more on its base model than on its assigned persona. The attraction or repulsion effects of a base model strengthen dramatically when more models are added in the mix, suggesting that networks dynamics may converge to base model effects at scale. To help explain this effect, we conduct a series of content-mediating analyses, showing the predictability of base models across contexts as well as the relationship between a model's lexical patterns and an engagement-maximizing style. In light of recent developments in mass multi-agent interaction, this work underscores the relevance of heterogeneous compositions in driving the outcomes of those networks.</p>
+            <div class="pub-abstract" id="abstract-roytburg2026-narcissists" style="display: none;">
+              <p>Recent research has shown that large language models (LLMs) favor their own outputs when acting as judges, undermining the integrity of automated post-training and evaluation workflows. However, it is difficult to disentangle which evaluation biases are explained by narcissism versus general experimental confounds, distorting measurements of self-preference bias. We discover a core methodological confound which could reduce measurement error by 89.6%. Specifically, LLM evaluators may deliver self-preferring verdicts when the judge responds to queries which they completed incorrectly themselves; this would be true regardless of whether one of their responses is their own. To decouple self-preference signals from noisy outputs on hard problems, we introduce an Evaluator Quality Baseline, which compares the probability that a judge incorrectly votes for itself against the probability that it votes for an incorrect response from another model. Evaluating this simple baseline on 37,448 queries, only 51% of initial findings retain statistical significance. Finally, we turn towards characterizing the entropy of "easy" versus "hard" evaluation votes from LLM judges. Our corrective baseline enables future research on self-preference by eliminating noisy data from potential solutions. More widely, this work contributes to the growing body of work on cataloging and isolating judge-bias effects.</p>
             </div>
             
           </div>
@@ -364,7 +364,7 @@
 
     </main>
     <footer class="footer">
-      <small>Last updated October 09, 2026. Design inspired by <a href="https://841.io/">Fernando Diaz</a>'s lovely home page.</small>
+      <small>Last updated October 12, 2026. Design inspired by <a href="https://841.io/">Fernando Diaz</a>'s lovely home page.</small>
     </footer>
 
     <script>
